@@ -25,13 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        catalogomesas.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        catalogomesas.h \
         mainwindow.h
 
 FORMS += \
+        catalogomesas.ui \
         mainwindow.ui
 
 # Default rules for deployment.

@@ -13,9 +13,36 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>0</y>
+      <width>1021</width>
+      <height>761</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">*{
+	
+	background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <widget class="CatalogoMesas" name="Mesas"/>
+    <widget class="QWidget" name="page_2"/>
+   </widget>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CatalogoMesas</class>
+   <extends>QWidget</extends>
+   <header location="global">catalogomesas.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
