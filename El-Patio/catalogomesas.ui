@@ -132,7 +132,7 @@ color: rgb(0, 0, 0);</string>
      <x>20</x>
      <y>150</y>
      <width>301</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -278,8 +278,14 @@ color: rgb(0, 0, 0);</string>
     <string notr="true">border: 2px solid white;
 border-radius: 15px;</string>
    </property>
+   <property name="maxLength">
+    <number>2</number>
+   </property>
    <property name="readOnly">
     <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Ingresa Numero De Personas</string>
    </property>
   </widget>
   <widget class="QLabel" name="fecha">
@@ -306,7 +312,7 @@ border-radius: 15px;</string>
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="label_nMesa">
    <property name="geometry">
     <rect>
      <x>700</x>
@@ -334,7 +340,7 @@ border-radius: 15px;</string>
    <property name="geometry">
     <rect>
      <x>810</x>
-     <y>460</y>
+     <y>430</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -369,7 +375,7 @@ border-radius: 15px;</string>
    <property name="geometry">
     <rect>
      <x>720</x>
-     <y>370</y>
+     <y>340</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -441,7 +447,7 @@ border-radius: 15px;
    <property name="geometry">
     <rect>
      <x>720</x>
-     <y>460</y>
+     <y>430</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -476,7 +482,7 @@ border-radius: 15px;</string>
    <property name="geometry">
     <rect>
      <x>720</x>
-     <y>280</y>
+     <y>250</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -510,9 +516,9 @@ border-radius: 15px;</string>
   <widget class="QPushButton" name="btn0">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>550</y>
-     <width>171</width>
+     <x>810</x>
+     <y>520</y>
+     <width>80</width>
      <height>80</height>
     </rect>
    </property>
@@ -546,7 +552,7 @@ border-radius: 15px;</string>
    <property name="geometry">
     <rect>
      <x>810</x>
-     <y>370</y>
+     <y>340</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -580,8 +586,8 @@ border-radius: 15px;</string>
   <widget class="QPushButton" name="btnP">
    <property name="geometry">
     <rect>
-     <x>900</x>
-     <y>550</y>
+     <x>720</x>
+     <y>520</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -617,7 +623,7 @@ border-radius: 15px;
    <property name="geometry">
     <rect>
      <x>900</x>
-     <y>280</y>
+     <y>250</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -652,7 +658,7 @@ border-radius: 15px;</string>
    <property name="geometry">
     <rect>
      <x>810</x>
-     <y>280</y>
+     <y>250</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -687,7 +693,7 @@ border-radius: 15px;</string>
    <property name="geometry">
     <rect>
      <x>900</x>
-     <y>370</y>
+     <y>340</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -722,7 +728,7 @@ border-radius: 15px;</string>
    <property name="geometry">
     <rect>
      <x>900</x>
-     <y>460</y>
+     <y>430</y>
      <width>80</width>
      <height>80</height>
     </rect>
@@ -753,6 +759,45 @@ border-radius: 15px;</string>
     <string>9</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnDel">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>520</y>
+     <width>80</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>80</width>
+     <height>80</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1000</width>
+     <height>1000</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid white;
+border-radius: 15px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="Recursos.qrc">
+     <normaloff>:/iconos/resources/flecha_izq.PNG</normaloff>:/iconos/resources/flecha_izq.PNG</iconset>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>verticalLayoutWidget</zorder>
   <zorder>label_7</zorder>
@@ -761,7 +806,7 @@ border-radius: 15px;</string>
   <zorder>lineEdit_Entrada</zorder>
   <zorder>line</zorder>
   <zorder>fecha</zorder>
-  <zorder>label_8</zorder>
+  <zorder>label_nMesa</zorder>
   <zorder>btn8</zorder>
   <zorder>btn4</zorder>
   <zorder>btnAbrirMesa</zorder>
@@ -774,7 +819,10 @@ border-radius: 15px;</string>
   <zorder>btn2</zorder>
   <zorder>btn6</zorder>
   <zorder>btn9</zorder>
+  <zorder>btnDel</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="Recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

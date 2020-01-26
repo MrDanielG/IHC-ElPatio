@@ -16,6 +16,9 @@ public:
     ~CatalogoMesas();
     void AgregarMesas(int n);
 
+public slots:
+    void seleccionarMesa();
+
 private slots:
 
     void on_btnTodos_clicked();
@@ -44,7 +47,11 @@ private slots:
 
     void on_btn0_clicked();
 
+    void on_btnDel_clicked();
+
     void on_btnP_clicked();
+
+    void on_btnAbrirMesa_clicked();
 
 private:
     Ui::CatalogoMesas *ui;

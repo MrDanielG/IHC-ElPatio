@@ -1,6 +1,7 @@
 #include "catalogomesas.h"|
 #include "ui_catalogomesas.h"
 #include <QDate>
+#include <QMessageBox>
 
 CatalogoMesas::CatalogoMesas(QWidget *parent) :
     QWidget(parent),
@@ -40,9 +41,9 @@ void CatalogoMesas::AgregarMesas(int n)
 
     QFont fuente("MS Shell Dlg 2",25,4,false);
     QString estilo = "*{background-color: rgb(225, 225, 225);"
-                     " border:2px solid rgb(225, 225, 225);"
-                     "border-radius: 10px; padding: 0 8px; }"
-                     "QPushButton:hover { border: 4px solid  #66c011; }";
+                      " border:2px solid rgb(225, 225, 225);"
+                      "border-radius: 10px; padding: 0 8px; }"
+                      "QPushButton:hover { border: 2px solid  #66c011; }";
 
     //En lugar de 25, debe ser el numero de mesas obtenido de la base (nMesas)
     for(int i = 0; i < 25; i++)
@@ -55,6 +56,7 @@ void CatalogoMesas::AgregarMesas(int n)
         mesa->show();
         mesa->setStyleSheet(estilo);
         ui->gridLayout_6->addWidget(mesa,i/4, i%4);
+        connect(mesa,SIGNAL(clicked()), this, SLOT(seleccionarMesa()));
     }
 }
 
@@ -66,13 +68,12 @@ void CatalogoMesas::on_btnTodos_clicked()
                     "border-bottom-color: gray;}";
     QString oldStyle = "*{background-color: rgb(255, 255, 255);"
                        "border: 2px solid rgb(255,255,255);}";
+
     ui->btnTodos->setStyleSheet(newStyle);
     ui->btnLibre->setStyleSheet(oldStyle);
     ui->btnOcupado->setStyleSheet(oldStyle);
     AgregarMesas(1);
 }
-
-
 
 void CatalogoMesas::on_btnLibre_clicked()
 {
@@ -86,7 +87,6 @@ void CatalogoMesas::on_btnLibre_clicked()
     ui->btnOcupado->setStyleSheet(oldStyle);
     AgregarMesas(1);
 }
-
 
 void CatalogoMesas::on_btnOcupado_clicked()
 {
@@ -112,8 +112,6 @@ void CatalogoMesas::on_btn2_clicked()
     QString actual = ui->lineEdit_Entrada->text();
     ui->lineEdit_Entrada->setText(actual + "2");
 }
-
-
 
 void CatalogoMesas::on_btn3_clicked()
 {
@@ -169,7 +167,72 @@ void CatalogoMesas::on_btnP_clicked()
     ui->lineEdit_Entrada->setText(actual + ".");
 }
 
+
+void CatalogoMesas::on_btnDel_clicked()
+{
+    QString actual = ui->lineEdit_Entrada->text();
+    int tam = actual.length();
+    actual.remove(tam-1,1);
+    ui->lineEdit_Entrada->setText(actual);
+}
+
 void CatalogoMesas::on_btnAbrirMesa_clicked()
 {
+    if(ui->label_nMesa->text() == "Numero de Mesa")
+    {
+        QMessageBox::warning(this, tr("No Seleccionado"),
+                   tr("Por favor, selecciona una mesa para abrirla"));
+           return;
+    }
+    else
+    {
+        if(ui->lineEdit_Entrada->text().isEmpty())
+        {
+            QMessageBox::warning(this, tr("Campo Vacío"),
+                       tr("Por favor, ingresa el número de personas que ocuparán la mesa"));
+               return;
+        }
+        else
+        {
+            //Por que el ID Comanda es VARCHAR ?!
+            QString hora = QTime::currentTime().toString("hh:mm");
+            QString nPersonas = ui->lineEdit_Entrada->text();
+            QString User = "1234";
+            QString mesa = ui->label_nMesa->text();
+            QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
+                             "VALUES ('"+hora+"',"+nPersonas+","+User+","+mesa+")";
+            /*QSqlQuery query(mDatabase);
+            query.prepare(script);
+            query.exec();*/
+            QString newStyle = "*{background-color: rgb(255, 255, 255);"
+                            "border: 2px solid rgb(255,255,255);"
+                            "border-bottom-color: gray;}";
+            QString oldStyle = "*{background-color: rgb(255, 255, 255);"
+                               "border: 2px solid rgb(255,255,255);}";
+            ui->btnTodos->setStyleSheet(newStyle);
+            ui->btnLibre->setStyleSheet(oldStyle);
+            ui->btnOcupado->setStyleSheet(oldStyle);
+            AgregarMesas(1);
+            ui->lineEdit_Entrada->clear();
+            ui->label_nMesa->setText("Numero de Mesa");
+        }
+    }
+}
 
+void CatalogoMesas::seleccionarMesa()
+{
+    QPushButton * btn = qobject_cast<QPushButton *>(sender());
+    QString num = btn->text();
+    ui->label_nMesa->setText("Numero de Mesa: " + num);
+    QString oldStyle = "*{background-color: rgb(225, 225, 225);"
+                     " border:2px solid rgb(225, 225, 225);"
+                     "border-radius: 10px; padding: 0 8px; }"
+                     "QPushButton:hover { border: 2px solid  #66c011; }";
+    QString newStyle = "*{background-color: rgb(225, 225, 225);"
+                     " border:4px solid rgb(70, 176, 75);"
+                     "border-radius: 10px; padding: 0 8px; }";
+    if(btn->styleSheet() == oldStyle)
+        btn->setStyleSheet(newStyle);
+    else
+        btn->setStyleSheet(oldStyle);
 }
