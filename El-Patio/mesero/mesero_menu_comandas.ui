@@ -280,6 +280,9 @@
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">*{
 	color: white;
@@ -319,6 +322,9 @@
           <family>Roboto</family>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">*{
@@ -370,6 +376,9 @@
      <family>Roboto</family>
      <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">*{
@@ -427,6 +436,9 @@
         <bold>false</bold>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true">*{
 	border: none;
@@ -452,6 +464,9 @@
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">*{
@@ -537,6 +552,9 @@
         <bold>false</bold>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true">*{
 	border: none;
@@ -563,6 +581,9 @@
         <bold>false</bold>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true">*{
 	border: none;
@@ -588,6 +609,9 @@
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">*{
