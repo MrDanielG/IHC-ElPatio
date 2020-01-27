@@ -38,7 +38,7 @@ background-color: #F4F7F4;</string>
       <x>20</x>
       <y>20</y>
       <width>261</width>
-      <height>94</height>
+      <height>99</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -110,6 +110,9 @@ background-image: url(:/iconos/resources/menuPrueba.png);</string>
              <height>29</height>
             </size>
            </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="autoFillBackground">
             <bool>false</bool>
            </property>
@@ -153,8 +156,12 @@ background-size: cover;</string>
              <height>25</height>
             </size>
            </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="styleSheet">
-            <string notr="true">background-image: url(:/iconos/resources/menosPlatillo.png);</string>
+            <string notr="true">background-image: url(:/iconos/resources/menosPlatillo.png);
+background-repeat: no-repeat;</string>
            </property>
            <property name="text">
             <string/>
@@ -185,8 +192,12 @@ background-size: cover;</string>
              <height>25</height>
             </size>
            </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="styleSheet">
-            <string notr="true">background-image: url(:/iconos/resources/masPlatillo.png);</string>
+            <string notr="true">background-image: url(:/iconos/resources/masPlatillo.png);
+background-repeat: no-repeat;</string>
            </property>
            <property name="text">
             <string/>

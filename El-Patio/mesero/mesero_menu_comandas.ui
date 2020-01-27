@@ -90,7 +90,7 @@
      <x>730</x>
      <y>20</y>
      <width>291</width>
-     <height>25</height>
+     <height>30</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="Encabezados">
@@ -145,7 +145,7 @@
      <x>0</x>
      <y>21</y>
      <width>731</width>
-     <height>25</height>
+     <height>30</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="Encabezados2">
@@ -203,7 +203,7 @@
      <x>40</x>
      <y>100</y>
      <width>651</width>
-     <height>64</height>
+     <height>75</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="MenuTop">
@@ -264,7 +264,7 @@
        <widget class="QPushButton" name="btnCambiarMesero">
         <property name="minimumSize">
          <size>
-          <width>150</width>
+          <width>170</width>
           <height>35</height>
          </size>
         </property>
@@ -277,7 +277,7 @@
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>12</pointsize>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="cursor">
@@ -320,7 +320,7 @@
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>12</pointsize>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="cursor">
@@ -422,7 +422,7 @@
      <x>760</x>
      <y>190</y>
      <width>241</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="botonesSideBar">
@@ -492,7 +492,7 @@
      <x>760</x>
      <y>100</y>
      <width>241</width>
-     <height>60</height>
+     <height>69</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="SideBarLetras">
@@ -501,7 +501,7 @@
       <property name="font">
        <font>
         <family>Roboto</family>
-        <pointsize>17</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -518,7 +518,7 @@
       <property name="font">
        <font>
         <family>Roboto</family>
-        <pointsize>13</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -538,7 +538,7 @@
      <x>40</x>
      <y>190</y>
      <width>351</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="botonesMenu">
