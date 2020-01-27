@@ -49,8 +49,6 @@ private slots:
 
     void on_btnDel_clicked();
 
-    void on_btnP_clicked();
-
     void on_btnAbrirMesa_clicked();
 
 private:
