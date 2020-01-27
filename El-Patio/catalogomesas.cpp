@@ -215,6 +215,9 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             AgregarMesas(1);
             ui->lineEdit_Entrada->clear();
             ui->label_nMesa->setText("Numero de Mesa");
+            QSqlQuery query2(mDatabase);
+            query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = '"+mesa+"'");
+            query2.exec();
         }
     }
 }

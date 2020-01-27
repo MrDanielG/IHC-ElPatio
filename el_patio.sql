@@ -220,3 +220,29 @@ INSERT INTO `mydb`.`platillo` (precio, nombre, categoria, estado) VALUES
 (35, "Lemon Stick", "Bebidas Las Que Refrescan", "disponibles"),
 (35, "Conga", "Bebidas Las Que Refrescan", "disponibles");
 select * from mydb.platillo;
+
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Ocupado');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
