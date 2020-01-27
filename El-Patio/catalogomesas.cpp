@@ -2,6 +2,7 @@
 #include "ui_catalogomesas.h"
 #include <QDate>
 #include <QMessageBox>
+#include <QDebug>
 
 CatalogoMesas::CatalogoMesas(QWidget *parent) :
     QWidget(parent),

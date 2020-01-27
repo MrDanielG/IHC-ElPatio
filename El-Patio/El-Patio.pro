@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,15 +27,24 @@ CONFIG += c++11
 SOURCES += \
         catalogomesas.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        mesero/mesero_menu_comandas.cpp \
+        mesero/mesero_tarjeta_chica.cpp \
+        mesero/mesero_tarjeta_menu.cpp
 
 HEADERS += \
         catalogomesas.h \
-        mainwindow.h
+        mainwindow.h \
+        mesero/mesero_menu_comandas.h \
+        mesero/mesero_tarjeta_chica.h \
+        mesero/mesero_tarjeta_menu.h
 
 FORMS += \
         catalogomesas.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        mesero/mesero_menu_comandas.ui \
+        mesero/mesero_tarjeta_chica.ui \
+        mesero/mesero_tarjeta_menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
