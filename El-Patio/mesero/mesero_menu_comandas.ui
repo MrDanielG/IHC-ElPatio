@@ -201,20 +201,23 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>100</y>
+     <y>90</y>
      <width>651</width>
-     <height>75</height>
+     <height>71</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="MenuTop">
     <item>
      <layout class="QVBoxLayout" name="LetrasMenu">
+      <property name="spacing">
+       <number>1</number>
+      </property>
       <item>
        <widget class="QLabel" name="elPatio_2">
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>18</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -231,7 +234,7 @@
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>14</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -264,7 +267,7 @@
        <widget class="QPushButton" name="btnCambiarMesero">
         <property name="minimumSize">
          <size>
-          <width>170</width>
+          <width>160</width>
           <height>35</height>
          </size>
         </property>
@@ -489,10 +492,10 @@
   <widget class="QWidget" name="layoutWidget_3">
    <property name="geometry">
     <rect>
-     <x>760</x>
-     <y>100</y>
-     <width>241</width>
-     <height>69</height>
+     <x>770</x>
+     <y>80</y>
+     <width>231</width>
+     <height>98</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="SideBarLetras">
@@ -501,7 +504,7 @@
       <property name="font">
        <font>
         <family>Roboto</family>
-        <pointsize>14</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -509,7 +512,24 @@
 </string>
       </property>
       <property name="text">
-       <string>Crea tu Desayuno Ideal</string>
+       <string>Crea tu Desayuno</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="elPatio_6">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #585858
+</string>
+      </property>
+      <property name="text">
+       <string>Ideal</string>
       </property>
      </widget>
     </item>

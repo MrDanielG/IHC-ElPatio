@@ -6,12 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>361</width>
-    <height>287</height>
+    <width>302</width>
+    <height>228</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QFrame {
+border: 1px solid #ECEEEE;
+}
+
+QLabel {
+border:none;
+}</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -176,13 +185,13 @@ border: 1px solid #ECEEEE;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>
      <y>30</y>
      <width>211</width>
-     <height>61</height>
+     <height>65</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">

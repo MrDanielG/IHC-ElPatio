@@ -53,6 +53,12 @@ background-color: #F4F7F4;</string>
          <height>90</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>90</width>
+         <height>90</height>
+        </size>
+       </property>
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
 background-image: url(:/iconos/resources/menuPrueba.png);</string>
