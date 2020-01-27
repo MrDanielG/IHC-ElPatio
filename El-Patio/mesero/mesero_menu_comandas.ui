@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mesero_menu_comandas</class>
+ <widget class="QWidget" name="mesero_menu_comandas">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="sideBar">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>0</y>
+     <width>300</width>
+     <height>768</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(244, 247, 244);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="bg">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>731</width>
+     <height>768</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="line">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>60</y>
+     <width>1021</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(236, 238, 238);
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>220</y>
+     <width>651</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(236, 238, 238);
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>20</y>
+     <width>291</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="Encabezados">
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="nombreMesero">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(133, 133, 133);
+</string>
+      </property>
+      <property name="text">
+       <string>#Mesero</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>21</y>
+     <width>731</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="Encabezados2">
+    <item>
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Preferred</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="elPatio">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(133, 133, 133);
+</string>
+      </property>
+      <property name="text">
+       <string>El Patio</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>100</y>
+     <width>651</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="MenuTop">
+    <item>
+     <layout class="QVBoxLayout" name="LetrasMenu">
+      <item>
+       <widget class="QLabel" name="elPatio_2">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #585858
+</string>
+        </property>
+        <property name="text">
+         <string>Menu del Día</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="elPatio_3">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(133, 133, 133);
+</string>
+        </property>
+        <property name="text">
+         <string>Selecciona tu Desayuno</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="BtnsMenu">
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCambiarMesero">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+        </property>
+        <property name="text">
+         <string>Cambiar Mesero</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnFiltrar">
+        <property name="minimumSize">
+         <size>
+          <width>70</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">*{
+	color: #539E56;
+	border-radius: 10px;
+	background-color: #E3EFB0;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+        </property>
+        <property name="text">
+         <string>Filtrar</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="btnMandarCocina">
+   <property name="geometry">
+    <rect>
+     <x>759</x>
+     <y>700</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>35</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+   </property>
+   <property name="text">
+    <string>Mandar a Cocina</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>220</y>
+     <width>241</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(236, 238, 238);
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>190</y>
+     <width>241</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="botonesSideBar">
+    <item>
+     <widget class="QPushButton" name="btnPlatillos_2">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Pedido</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnBebidas_2">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Cuenta</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>100</y>
+     <width>241</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="SideBarLetras">
+    <item>
+     <widget class="QLabel" name="elPatio_4">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>17</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #585858
+</string>
+      </property>
+      <property name="text">
+       <string>Crea tu Desayuno Ideal</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="elPatio_5">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(133, 133, 133);
+</string>
+      </property>
+      <property name="text">
+       <string>24/Enero/2020</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>190</y>
+     <width>351</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="botonesMenu">
+    <item>
+     <widget class="QPushButton" name="btnTodo">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Todo</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnPlatillos">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Platillos</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnBebidas">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Bebidas</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

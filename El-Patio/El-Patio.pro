@@ -27,15 +27,18 @@ CONFIG += c++11
 SOURCES += \
         catalogomesas.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        mesero/mesero_menu_comandas.cpp
 
 HEADERS += \
         catalogomesas.h \
-        mainwindow.h
+        mainwindow.h \
+        mesero/mesero_menu_comandas.h
 
 FORMS += \
         catalogomesas.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        mesero/mesero_menu_comandas.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
