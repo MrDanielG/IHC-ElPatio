@@ -1,0 +1,42 @@
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7, #btn8, #btn9, #btnDel, #btn0{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid white;
+    border-radius: 15px;
+}
+
+#btnAbrirMesa{
+    color: rgb(255, 255, 255);
+    background-color: rgb(70, 176, 75);
+    border: 0px solid white;
+    border-radius: 15px;
+}
+
+#btnLibre, #btnOcupado{
+    background-color: rgb(255, 255, 255);
+    border:none;
+}
+
+#stackedWidget{
+    background-color: rgb(255, 255, 255);
+}
+
+#scrollareaalbum_2{
+    background-color: rgb(255, 255, 255);
+}
+
+#btnTodos{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(255,255,255);
+    border-bottom-color: gray;
+}
+
+#lineEdit_Entrada{
+    border: 2px solid white;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#fecha{
+
+}

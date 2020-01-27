@@ -1,4 +1,4 @@
-#include "catalogomesas.h"|
+#include "catalogomesas.h"
 #include "ui_catalogomesas.h"
 #include <QDate>
 #include <QMessageBox>
@@ -160,12 +160,6 @@ void CatalogoMesas::on_btn0_clicked()
 {
     QString actual = ui->lineEdit_Entrada->text();
     ui->lineEdit_Entrada->setText(actual + "0");
-}
-
-void CatalogoMesas::on_btnP_clicked()
-{
-    QString actual = ui->lineEdit_Entrada->text();
-    ui->lineEdit_Entrada->setText(actual + ".");
 }
 
 
