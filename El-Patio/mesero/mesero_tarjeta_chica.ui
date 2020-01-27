@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mesero_tarjeta_chica</class>
+ <widget class="QWidget" name="mesero_tarjeta_chica">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>319</width>
+    <height>235</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>100</y>
+     <width>231</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 10px;
+background-color: #fff;
+border: 1px solid #ECEEEE;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>211</width>
+      <height>55</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="imgPlatillo_2">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="../Recursos.qrc">:/iconos/resources/menuPrueba.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="precioPlatillo_9">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:#585858;
+</string>
+         </property>
+         <property name="text">
+          <string>Sopa de Codito</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLabel" name="precioPlatillo_10">
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:#858585;
+</string>
+           </property>
+           <property name="text">
+            <string>Cant:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="precioPlatillo_11">
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:#858585;
+</string>
+           </property>
+           <property name="text">
+            <string>#</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="precioPlatillo_12">
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:#858585;
+</string>
+           </property>
+           <property name="text">
+            <string>$75.00</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>235</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 10px;
+background-color: #fff;
+border: 1px solid #ECEEEE;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>30</y>
+     <width>211</width>
+     <height>52</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="imgPlatillo">
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="../Recursos.qrc">:/iconos/resources/menuPrueba.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="nombrePlatillo">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:#585858;
+</string>
+        </property>
+        <property name="text">
+         <string>Sopa de Codito</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="laberCantidad">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:#858585;
+</string>
+          </property>
+          <property name="text">
+           <string>Cant:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="cantidad">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:#858585;
+</string>
+          </property>
+          <property name="text">
+           <string>#</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="precioPlatillo">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:#858585;
+</string>
+          </property>
+          <property name="text">
+           <string>$75.00</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../Recursos.qrc"/>
+ </resources>
+ <connections/>
+</ui>

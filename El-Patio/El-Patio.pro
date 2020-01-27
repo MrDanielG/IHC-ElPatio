@@ -29,18 +29,21 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         mesero/mesero_menu_comandas.cpp \
+        mesero/mesero_tarjeta_chica.cpp \
         mesero/mesero_tarjeta_menu.cpp
 
 HEADERS += \
         catalogomesas.h \
         mainwindow.h \
         mesero/mesero_menu_comandas.h \
+        mesero/mesero_tarjeta_chica.h \
         mesero/mesero_tarjeta_menu.h
 
 FORMS += \
         catalogomesas.ui \
         mainwindow.ui \
         mesero/mesero_menu_comandas.ui \
+        mesero/mesero_tarjeta_chica.ui \
         mesero/mesero_tarjeta_menu.ui
 
 # Default rules for deployment.
