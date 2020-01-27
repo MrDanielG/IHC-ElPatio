@@ -28,17 +28,20 @@ SOURCES += \
         catalogomesas.cpp \
         main.cpp \
         mainwindow.cpp \
-        mesero/mesero_menu_comandas.cpp
+        mesero/mesero_menu_comandas.cpp \
+        mesero/mesero_tarjeta_menu.cpp
 
 HEADERS += \
         catalogomesas.h \
         mainwindow.h \
-        mesero/mesero_menu_comandas.h
+        mesero/mesero_menu_comandas.h \
+        mesero/mesero_tarjeta_menu.h
 
 FORMS += \
         catalogomesas.ui \
         mainwindow.ui \
-        mesero/mesero_menu_comandas.ui
+        mesero/mesero_menu_comandas.ui \
+        mesero/mesero_tarjeta_menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

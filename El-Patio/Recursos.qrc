@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/iconos">
         <file>resources/flecha_izq.PNG</file>
+        <file>resources/editarPlato.png</file>
+        <file>resources/masPlatillo.png</file>
+        <file>resources/menosPlatillo.png</file>
+        <file>resources/menuPrueba.png</file>
     </qresource>
 </RCC>
