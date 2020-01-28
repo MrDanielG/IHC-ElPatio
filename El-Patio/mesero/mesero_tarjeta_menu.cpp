@@ -3,8 +3,9 @@
 #include "QPixmap"
 #include "QMessageBox"
 #include "QDebug"
+#include "mesero/mesero_menu_comandas.h"
 
-mesero_tarjeta_menu::mesero_tarjeta_menu(QString id, QString nombrePlatillo, QString precioPlatillo, QString foto, QWidget *parent) :
+mesero_tarjeta_menu::mesero_tarjeta_menu(QString id, QString nombrePlatillo, QString precioPlatillo, QString foto, mesero_menu_comandas *parent) :
     QWidget(parent),
     ui(new Ui::mesero_tarjeta_menu)
 {
@@ -21,6 +22,7 @@ mesero_tarjeta_menu::mesero_tarjeta_menu(QString id, QString nombrePlatillo, QSt
     this->nombrePlatillo = nombrePlatillo;
     this->precioPlatillo = precioPlatillo;
     this->foto = foto;
+    this->padre = parent;
 
     llenarTarjeta();
 }
@@ -36,4 +38,9 @@ void mesero_tarjeta_menu::llenarTarjeta()
     ui->nombrePlatillo->setText(this->nombrePlatillo);
     ui->precioPlatillo->setText(this->precioPlatillo);
     ui->imgPlatillo->setPixmap(img);
+}
+
+void mesero_tarjeta_menu::on_btnMasPlatillo_clicked()
+{
+
 }
