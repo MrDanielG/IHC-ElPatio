@@ -147,7 +147,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO `mydb`.`platillo` (precio, nombre, categoria, estado, foto) VALUES
 -- COMBINACIONES
-(84, "Con Jamos, Tocino, Salchica, ó Longaniza", "Huevos", "disponible", "../fotos_menu/huevos.jpg","../fotos_menu/huevos.jpg"),
 (84, "Al Albañil", "Huevos", "disponible","../fotos_menu/huevos.jpg"),
 (84, "A la Mexicana", "Huevos", "disponible","../fotos_menu/huevos.jpg"),
 (84, "Tirados", "Huevos", "disponible","../fotos_menu/huevos.jpg"),

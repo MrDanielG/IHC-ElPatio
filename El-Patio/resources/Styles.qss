@@ -40,3 +40,21 @@
 #fecha{
 
 }
+
+#scrollareaalbum {
+    background-color: white;
+    border:none;
+}
+
+#scrollArea {
+    border:none;
+}
+
+#scrollareaalbumSidebar {
+    background-color: rgb(244, 247, 244);
+    border:none;
+}
+
+#scrollSideBar {
+    border:none;
+}
