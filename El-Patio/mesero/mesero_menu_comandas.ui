@@ -29,27 +29,6 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="bg">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>731</width>
-     <height>768</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Roboto</family>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLabel" name="line">
    <property name="geometry">
     <rect>

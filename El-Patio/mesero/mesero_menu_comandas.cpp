@@ -45,6 +45,7 @@ void mesero_menu_comandas::actualizarCatalogo()
         QString foto = infoPlatillo.value("foto").toString();
         QString nombrePlatillo = infoPlatillo.value("nombre").toString();
         QString precioPlatillo = infoPlatillo.value("precio").toString();
+        //qDebug() << id << foto << nombrePlatillo << precioPlatillo;
 
         //El numero de columnas en las que se dividira el grid
         row = i / 2;
