@@ -21,7 +21,7 @@ mesero_tarjeta_chica::~mesero_tarjeta_chica()
     delete ui;
 }
 
-mesero_tarjeta_chica::llenarTarjeta()
+void mesero_tarjeta_chica::llenarTarjeta()
 {
     QPixmap img(this->foto);
     ui->nombrePlatillo->setText(this->nombrePlatillo);

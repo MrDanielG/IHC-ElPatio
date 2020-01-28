@@ -14,7 +14,7 @@ class mesero_tarjeta_chica : public QWidget
 public:
     explicit mesero_tarjeta_chica(QString, QString, QString, QString, int, QWidget *parent = nullptr);
     ~mesero_tarjeta_chica();
-    llenarTarjeta();
+    void llenarTarjeta();
 
 private:
     Ui::mesero_tarjeta_chica *ui;
