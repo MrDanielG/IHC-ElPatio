@@ -30,14 +30,16 @@ SOURCES += \
         mainwindow.cpp \
         mesero/mesero_menu_comandas.cpp \
         mesero/mesero_tarjeta_chica.cpp \
-        mesero/mesero_tarjeta_menu.cpp
+        mesero/mesero_tarjeta_menu.cpp \
+        models/platillo.cpp
 
 HEADERS += \
         catalogomesas.h \
         mainwindow.h \
         mesero/mesero_menu_comandas.h \
         mesero/mesero_tarjeta_chica.h \
-        mesero/mesero_tarjeta_menu.h
+        mesero/mesero_tarjeta_menu.h \
+        models/platillo.h
 
 FORMS += \
         catalogomesas.ui \

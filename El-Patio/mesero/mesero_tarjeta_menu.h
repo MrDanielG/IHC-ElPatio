@@ -30,6 +30,7 @@ private:
     QString nombrePlatillo;
     QString precioPlatillo;
     QString foto;
+    int cantidad = 0;
     mesero_menu_comandas *padre;
 };
 

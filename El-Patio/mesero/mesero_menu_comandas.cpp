@@ -4,6 +4,7 @@
 #include "QDebug"
 #include "QSqlQuery"
 #include "mesero/mesero_tarjeta_menu.h"
+#include "mesero/mesero_tarjeta_chica.h"
 
 mesero_menu_comandas::mesero_menu_comandas(QWidget *parent) :
     QWidget(parent),
@@ -66,4 +67,16 @@ void mesero_menu_comandas::limiparCatalogo()
         delete item->widget();
         delete item;
     }
+}
+
+void mesero_menu_comandas::agregarSideBar(Platillo plato)
+{
+    this->pedidoPlatillos.append(plato);
+
+
+
+//    for (int i = 0; i < this->pedidoPlatillos.size(); ++i) {
+//        qDebug()<<this->pedidoPlatillos[i].nombrePlatillo;
+//        qDebug()<<this->pedidoPlatillos[i].precioPlatillo;
+//    }
 }
