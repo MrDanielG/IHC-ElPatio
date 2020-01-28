@@ -652,8 +652,7 @@
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: white;
-border:none;</string>
+    <string notr="true"/>
    </property>
    <property name="verticalScrollBarPolicy">
     <enum>Qt::ScrollBarAsNeeded</enum>
@@ -672,15 +671,15 @@ border:none;</string>
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>671</width>
-      <height>511</height>
+      <width>669</width>
+      <height>509</height>
      </rect>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="autoFillBackground">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">

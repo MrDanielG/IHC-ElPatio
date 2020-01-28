@@ -31,7 +31,7 @@ mesero_menu_comandas::~mesero_menu_comandas()
 void mesero_menu_comandas::actualizarCatalogo()
 {
     QSqlQuery infoPlatillo(mDatabase);
-    infoPlatillo.prepare("SELECT * FROM `platillo` WHERE estado = 'disponibles'");
+    infoPlatillo.prepare("SELECT * FROM `platillo` WHERE estado = 'disponible'");
     infoPlatillo.exec();
     limiparCatalogo();
 

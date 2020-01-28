@@ -47,8 +47,8 @@ void CatalogoMesas::AgregarMesas(int n)
     QSqlQuery query(mDatabase);
     query.prepare(script);
     query.exec();
-    nMesas = query.value(0).toInt();
-
+    //nMesas = query.value(0).toInt();
+    nMesas = 10;
     QFont fuente("MS Shell Dlg 2",25,4,false);
     QString estilo = "*{background-color: rgb(225, 225, 225);"
                       " border:2px solid rgb(225, 225, 225);"

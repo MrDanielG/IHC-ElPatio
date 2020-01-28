@@ -40,3 +40,12 @@
 #fecha{
 
 }
+
+#scrollareaalbum {
+    background-color: white;
+    border:none;
+}
+
+#scrollArea {
+    border:none;
+}
