@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>307</width>
-    <height>137</height>
+    <width>306</width>
+    <height>135</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>306</width>
+    <height>135</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -74,7 +80,7 @@ background-image: url(:/iconos/resources/menuPrueba.png);</string>
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>14</pointsize>
+          <pointsize>11</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>

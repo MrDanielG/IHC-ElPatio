@@ -31,7 +31,7 @@ mesero_menu_comandas::~mesero_menu_comandas()
 void mesero_menu_comandas::actualizarCatalogo()
 {
     QSqlQuery infoPlatillo(mDatabase);
-    infoPlatillo.prepare("SELECT * FROM `platillo` WHERE estado = 'disponible'");
+    infoPlatillo.prepare("SELECT * FROM `platillo` WHERE estado = 'disponibles'");
     infoPlatillo.exec();
     limiparCatalogo();
 
@@ -51,7 +51,8 @@ void mesero_menu_comandas::actualizarCatalogo()
         row = i / 2;
         col = i % 2;
 
-        mesero_tarjeta_menu *tarjeta = new mesero_tarjeta_menu(id, nombrePlatillo, precioPlatillo, foto, this);
+        mesero_tarjeta_menu *tarjeta =
+                new mesero_tarjeta_menu(id, nombrePlatillo, precioPlatillo, foto, this);
         i++;
         ui->gridLayout->addWidget(tarjeta, row, col);
     }
