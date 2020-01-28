@@ -15,6 +15,7 @@ class mesero_menu_comandas : public QWidget
 public:
     explicit mesero_menu_comandas(QWidget *parent = nullptr);
     ~mesero_menu_comandas();
+    void actualizarCatalogo();
     void limiparCatalogo();
 
 private:
