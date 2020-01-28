@@ -3,12 +3,20 @@
 #include <QDate>
 #include <QMessageBox>
 #include <QDebug>
+#include <QInputDialog>
+#include <QSpinBox>
+#include <QDebug>
+#include <QSqlQuery>
 
 CatalogoMesas::CatalogoMesas(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CatalogoMesas)
 {
     ui->setupUi(this);
+    mDatabase = QSqlDatabase::database("Connection");
+    if(!mDatabase.isOpen()){
+        qDebug()<<"ERROR, Mesas no conectado";
+    }
     AgregarMesas(1);
 
     ui->fecha->setText(QDate::currentDate().toString("dd/MMMM/yyyy"));
@@ -35,10 +43,10 @@ void CatalogoMesas::AgregarMesas(int n)
         break;
     }
 
-    /*QSqlQuery query(mDatabase);
+    QSqlQuery query(mDatabase);
     query.prepare(script);
     query.exec();
-    nMesas = query.value(0);*/
+    nMesas = query.value(0).toInt();
 
     QFont fuente("MS Shell Dlg 2",25,4,false);
     QString estilo = "*{background-color: rgb(225, 225, 225);"
@@ -46,8 +54,7 @@ void CatalogoMesas::AgregarMesas(int n)
                       "border-radius: 10px; padding: 0 8px; }"
                       "QPushButton:hover { border: 2px solid  #66c011; }";
 
-    //En lugar de 25, debe ser el numero de mesas obtenido de la base (nMesas)
-    for(int i = 0; i < 25; i++)
+    for(int i = 0; i < nMesas; i++)
     {
         QPushButton * mesa = new QPushButton(this);
         mesa->setText(QString::number(i+1));
@@ -189,16 +196,14 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
         }
         else
         {
-            //Por que el ID Comanda es VARCHAR ?!
             QString hora = QTime::currentTime().toString("hh:mm");
-            QString nPersonas = ui->lineEdit_Entrada->text();
-            QString User = "1234";
+            QString User = ui->lineEdit_Entrada->text();
             QString mesa = ui->label_nMesa->text();
             QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
                              "VALUES ('"+hora+"',"+nPersonas+","+User+","+mesa+")";
-            /*QSqlQuery query(mDatabase);
+            QSqlQuery query(mDatabase);
             query.prepare(script);
-            query.exec();*/
+            query.exec();
             QString newStyle = "*{background-color: rgb(255, 255, 255);"
                             "border: 2px solid rgb(255,255,255);"
                             "border-bottom-color: gray;}";
@@ -210,6 +215,9 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             AgregarMesas(1);
             ui->lineEdit_Entrada->clear();
             ui->label_nMesa->setText("Numero de Mesa");
+            QSqlQuery query2(mDatabase);
+            query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = '"+mesa+"'");
+            query2.exec();
         }
     }
 }
@@ -227,7 +235,12 @@ void CatalogoMesas::seleccionarMesa()
                      " border:4px solid rgb(70, 176, 75);"
                      "border-radius: 10px; padding: 0 8px; }";
     if(btn->styleSheet() == oldStyle)
+    {
         btn->setStyleSheet(newStyle);
-    else
+        bool ok;
+
+        int n = QInputDialog::getInt(this,tr("Por favor,Ingresa Un Numero de Personas"),tr("Numero"),1,1,10,1,&ok);
+        nPersonas = QString::number(n);
         btn->setStyleSheet(oldStyle);
+    }
 }

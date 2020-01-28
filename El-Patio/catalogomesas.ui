@@ -294,7 +294,7 @@ color: rgb(0, 0, 0);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>729</x>
@@ -704,29 +704,30 @@ color: rgb(0, 0, 0);</string>
      </spacer>
     </item>
    </layout>
+   <zorder>btn5</zorder>
+   <zorder>btn3</zorder>
+   <zorder>btnDel</zorder>
+   <zorder>btn4</zorder>
+   <zorder>btn2</zorder>
+   <zorder>btnAbrirMesa</zorder>
+   <zorder>btn8</zorder>
+   <zorder>btn7</zorder>
+   <zorder>lineEdit_Entrada</zorder>
+   <zorder>btn9</zorder>
+   <zorder>btn6</zorder>
+   <zorder>fecha_2</zorder>
+   <zorder>btn0</zorder>
+   <zorder>btn1</zorder>
   </widget>
   <zorder>label</zorder>
-  <zorder>verticalLayoutWidget</zorder>
   <zorder>label_7</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>verticalLayoutWidget</zorder>
   <zorder>horizontalLayoutWidget</zorder>
   <zorder>scrollArea</zorder>
-  <zorder>lineEdit_Entrada</zorder>
   <zorder>line</zorder>
   <zorder>fecha</zorder>
   <zorder>label_nMesa</zorder>
-  <zorder>btn8</zorder>
-  <zorder>btn4</zorder>
-  <zorder>btnAbrirMesa</zorder>
-  <zorder>btn7</zorder>
-  <zorder>btn1</zorder>
-  <zorder>btn0</zorder>
-  <zorder>btn5</zorder>
-  <zorder>btn3</zorder>
-  <zorder>btn2</zorder>
-  <zorder>btn6</zorder>
-  <zorder>btn9</zorder>
-  <zorder>btnDel</zorder>
-  <zorder>fecha_2</zorder>
  </widget>
  <resources>
   <include location="Recursos.qrc"/>

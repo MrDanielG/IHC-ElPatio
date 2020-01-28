@@ -2,6 +2,7 @@
 #define CATALOGOMESAS_H
 
 #include <QWidget>
+#include <QSqlDatabase>
 
 namespace Ui {
 class CatalogoMesas;
@@ -53,6 +54,8 @@ private slots:
 
 private:
     Ui::CatalogoMesas *ui;
+    QString nPersonas;
+    QSqlDatabase mDatabase;
 };
 
 #endif // CATALOGOMESAS_H
