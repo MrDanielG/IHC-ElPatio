@@ -19,7 +19,7 @@ public:
     void actualizarCatalogo();
     void limiparCatalogo();
     void agregarSideBar(Platillo);
-    void limpiarSidBar();
+    void limpiarSideBar();
 
 private:
     Ui::mesero_menu_comandas *ui;
