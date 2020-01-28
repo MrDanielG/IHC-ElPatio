@@ -13,6 +13,7 @@ CatalogoMesas::CatalogoMesas(QWidget *parent) :
     ui(new Ui::CatalogoMesas)
 {
     ui->setupUi(this);
+
     mDatabase = QSqlDatabase::database("Connection");
     if(!mDatabase.isOpen()){
         qDebug()<<"ERROR, Mesas no conectado";

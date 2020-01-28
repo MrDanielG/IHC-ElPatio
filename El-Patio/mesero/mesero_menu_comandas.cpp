@@ -31,7 +31,7 @@ mesero_menu_comandas::~mesero_menu_comandas()
 void mesero_menu_comandas::actualizarCatalogo()
 {
     QSqlQuery infoPlatillo(mDatabase);
-    infoPlatillo.prepare("SELECT nombre, precio FROM `platillo` WHERE estado = 'disponible'");
+    infoPlatillo.prepare("SELECT * FROM `platillo` WHERE estado = 'disponibles'");
     infoPlatillo.exec();
     limiparCatalogo();
 
@@ -41,8 +41,8 @@ void mesero_menu_comandas::actualizarCatalogo()
 
     while (infoPlatillo.next())
     {
-        QString id = infoPlatillo.value("nombre").toString();
-        QString foto = infoPlatillo.value("precio").toString();
+        QString id = infoPlatillo.value("id_platillo").toString();
+        QString foto = infoPlatillo.value("foto").toString();
         QString nombrePlatillo = infoPlatillo.value("nombre").toString();
         QString precioPlatillo = infoPlatillo.value("precio").toString();
 
