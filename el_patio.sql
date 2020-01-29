@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-01-2020 a las 08:14:31
+-- Tiempo de generación: 29-01-2020 a las 08:21:24
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.26
 
@@ -31,17 +31,14 @@ USE `el_patio`;
 --
 
 DROP TABLE IF EXISTS `comanda`;
-CREATE TABLE IF NOT EXISTS `comanda` (
-  `id_comanda` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comanda` (
+  `id_comanda` int(11) NOT NULL,
   `hora_apertura` datetime NOT NULL,
   `numero_personas` int(11) NOT NULL,
   `Usuario_clave` int(11) NOT NULL,
   `Mesa_numero_mesa` int(11) NOT NULL,
   `estado` varchar(11) NOT NULL DEFAULT 'Abierta',
-  `comentario` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id_comanda`),
-  KEY `fk_Comanda_Usuario1_idx` (`Usuario_clave`),
-  KEY `fk_Comanda_Mesa1_idx` (`Mesa_numero_mesa`)
+  `comentario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -51,10 +48,9 @@ CREATE TABLE IF NOT EXISTS `comanda` (
 --
 
 DROP TABLE IF EXISTS `mesa`;
-CREATE TABLE IF NOT EXISTS `mesa` (
-  `numero_mesa` int(11) NOT NULL AUTO_INCREMENT,
-  `estado` varchar(15) NOT NULL,
-  PRIMARY KEY (`numero_mesa`)
+CREATE TABLE `mesa` (
+  `numero_mesa` int(11) NOT NULL,
+  `estado` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -64,15 +60,12 @@ CREATE TABLE IF NOT EXISTS `mesa` (
 --
 
 DROP TABLE IF EXISTS `pedido`;
-CREATE TABLE IF NOT EXISTS `pedido` (
-  `id_Pedido` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pedido` (
+  `id_Pedido` int(11) NOT NULL,
   `comentario` varchar(45) NOT NULL,
   `Comanda_id_comanda` int(11) NOT NULL,
   `Platillo_id_platillo` int(11) NOT NULL,
-  `estado` varchar(15) NOT NULL DEFAULT 'En proceso',
-  PRIMARY KEY (`id_Pedido`),
-  KEY `fk_Pedido_Comanda1_idx` (`Comanda_id_comanda`),
-  KEY `fk_Pedido_Platillo1_idx` (`Platillo_id_platillo`)
+  `estado` varchar(15) NOT NULL DEFAULT 'En proceso'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -82,15 +75,14 @@ CREATE TABLE IF NOT EXISTS `pedido` (
 --
 
 DROP TABLE IF EXISTS `platillo`;
-CREATE TABLE IF NOT EXISTS `platillo` (
-  `id_platillo` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `platillo` (
+  `id_platillo` int(11) NOT NULL,
   `precio` double NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `categoria` varchar(45) NOT NULL,
   `estado` varchar(45) NOT NULL,
-  `foto` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_platillo`)
-) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
+  `foto` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `platillo`
@@ -151,9 +143,9 @@ INSERT INTO `platillo` (`id_platillo`, `precio`, `nombre`, `categoria`, `estado`
 (52, 37, 'Oasis grande(465 ml)', 'Bebidas Jugos', 'disponibles', '../fotos_menu/huevos.jpg'),
 (53, 29, 'Verde chico(275 ml)', 'Bebidas Jugos', 'disponibles', '../fotos_menu/huevos.jpg'),
 (54, 37, 'Verde grande(465 ml)', 'Bebidas Jugos', 'disponibles', '../fotos_menu/huevos.jpg'),
-(55, 31, 'Cerveza', 'Bebidas Pal\' Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
-(56, 39, 'Michelada', 'Bebidas Pal\' Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
-(57, 47, 'Chelada', 'Bebidas Pal\' Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
+(55, 31, 'Cerveza', 'Bebidas Pal Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
+(56, 39, 'Michelada', 'Bebidas Pal Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
+(57, 47, 'Chelada', 'Bebidas Pal Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
 (58, 28, 'Refresco', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
 (59, 32, 'Agua mineral', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
 (60, 20, 'Agua embotellada', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
@@ -163,7 +155,9 @@ INSERT INTO `platillo` (`id_platillo`, `precio`, `nombre`, `categoria`, `estado`
 (64, 30, 'Naranjada', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
 (65, 42, 'Agua de fresa con avena', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
 (66, 35, 'Lemon stick', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
-(67, 35, 'Conga', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg');
+(67, 35, 'Conga', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
+(68, 97, 'Chicharrón en salsa roja', 'Con Hambre', 'disponible', ''),
+(69, 97, 'Chilaquiles verdes', 'Con Hambre', 'disponible', '');
 
 -- --------------------------------------------------------
 
@@ -172,16 +166,14 @@ INSERT INTO `platillo` (`id_platillo`, `precio`, `nombre`, `categoria`, `estado`
 --
 
 DROP TABLE IF EXISTS `ticket`;
-CREATE TABLE IF NOT EXISTS `ticket` (
-  `id_ticket` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ticket` (
+  `id_ticket` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
   `hora` datetime NOT NULL,
   `iva` float NOT NULL,
   `metodo` varchar(45) NOT NULL,
   `total` double NOT NULL,
-  `Comanda_id_comanda` int(11) NOT NULL,
-  PRIMARY KEY (`id_ticket`),
-  KEY `fk_Ticket_Comanda1_idx` (`Comanda_id_comanda`)
+  `Comanda_id_comanda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -191,11 +183,10 @@ CREATE TABLE IF NOT EXISTS `ticket` (
 --
 
 DROP TABLE IF EXISTS `tipo`;
-CREATE TABLE IF NOT EXISTS `tipo` (
-  `id_tipo` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_tipo` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_tipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+CREATE TABLE `tipo` (
+  `id_tipo` int(11) NOT NULL,
+  `nombre_tipo` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `tipo`
@@ -215,15 +206,111 @@ INSERT INTO `tipo` (`id_tipo`, `nombre_tipo`) VALUES
 --
 
 DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `clave` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuario` (
+  `clave` int(11) NOT NULL,
   `apellido_paterno` varchar(45) NOT NULL,
   `apellido_materno` varchar(45) NOT NULL,
   `nombre` varchar(45) NOT NULL,
-  `Tipo_id_tipo` int(11) NOT NULL,
-  PRIMARY KEY (`clave`),
-  KEY `fk_Usuario_Tipo_idx` (`Tipo_id_tipo`)
+  `Tipo_id_tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `comanda`
+--
+ALTER TABLE `comanda`
+  ADD PRIMARY KEY (`id_comanda`),
+  ADD KEY `fk_Comanda_Usuario1_idx` (`Usuario_clave`),
+  ADD KEY `fk_Comanda_Mesa1_idx` (`Mesa_numero_mesa`);
+
+--
+-- Indices de la tabla `mesa`
+--
+ALTER TABLE `mesa`
+  ADD PRIMARY KEY (`numero_mesa`);
+
+--
+-- Indices de la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  ADD PRIMARY KEY (`id_Pedido`),
+  ADD KEY `fk_Pedido_Comanda1_idx` (`Comanda_id_comanda`),
+  ADD KEY `fk_Pedido_Platillo1_idx` (`Platillo_id_platillo`);
+
+--
+-- Indices de la tabla `platillo`
+--
+ALTER TABLE `platillo`
+  ADD PRIMARY KEY (`id_platillo`);
+
+--
+-- Indices de la tabla `ticket`
+--
+ALTER TABLE `ticket`
+  ADD PRIMARY KEY (`id_ticket`),
+  ADD KEY `fk_Ticket_Comanda1_idx` (`Comanda_id_comanda`);
+
+--
+-- Indices de la tabla `tipo`
+--
+ALTER TABLE `tipo`
+  ADD PRIMARY KEY (`id_tipo`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`clave`),
+  ADD KEY `fk_Usuario_Tipo_idx` (`Tipo_id_tipo`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `comanda`
+--
+ALTER TABLE `comanda`
+  MODIFY `id_comanda` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `mesa`
+--
+ALTER TABLE `mesa`
+  MODIFY `numero_mesa` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  MODIFY `id_Pedido` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `platillo`
+--
+ALTER TABLE `platillo`
+  MODIFY `id_platillo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+
+--
+-- AUTO_INCREMENT de la tabla `ticket`
+--
+ALTER TABLE `ticket`
+  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo`
+--
+ALTER TABLE `tipo`
+  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `clave` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -255,6 +342,34 @@ ALTER TABLE `ticket`
 ALTER TABLE `usuario`
   ADD CONSTRAINT `fk_Usuario_Tipo` FOREIGN KEY (`Tipo_id_tipo`) REFERENCES `tipo` (`id_tipo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
+
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Ocupado');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+INSERT INTO mesa(estado) values('Libre');
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
