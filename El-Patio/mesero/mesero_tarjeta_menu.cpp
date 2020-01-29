@@ -40,11 +40,13 @@ void mesero_tarjeta_menu::llenarTarjeta()
     ui->nombrePlatillo->setText(this->nombrePlatillo);
     ui->precioPlatillo->setText(this->precioPlatillo);
     ui->imgPlatillo->setPixmap(img);
+    ui->cantPlatillo->setText(QString::number(this->cantidad));
 }
 
 void mesero_tarjeta_menu::on_btnMasPlatillo_clicked()
 {
     this->cantidad++;
+    llenarTarjeta();
     Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
 
     this->padre->agregarSideBar(plato);
