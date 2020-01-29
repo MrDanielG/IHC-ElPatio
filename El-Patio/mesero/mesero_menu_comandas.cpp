@@ -71,8 +71,18 @@ void mesero_menu_comandas::limiparCatalogo()
 
 void mesero_menu_comandas::agregarSideBar(Platillo plato)
 {
-    //TODO Aqui falta comprarar
-    this->pedidoPlatillos.append(plato);
+    //TODO Aqui falta comparar
+    if(this->pedidoPlatillos.contains(plato)){
+        int Index = this->pedidoPlatillos.indexOf(plato);
+        int sum = this->pedidoPlatillos.at(Index).cantidad;
+        sum++;
+        Platillo Nuevo = this->pedidoPlatillos.at(Index);
+        Nuevo.setCantidad(sum);
+        this->pedidoPlatillos.replace(Index, Nuevo);
+    }
+    else{
+        this->pedidoPlatillos.append(plato);
+    }
 
     int iterador = 0;
     int row = 0;
@@ -92,5 +102,12 @@ void mesero_menu_comandas::agregarSideBar(Platillo plato)
         mesero_tarjeta_chica *tarjeta = new mesero_tarjeta_chica(id, nombrePlatillo, precioPlatillo, fotoPlatillo, cantidad);
         iterador++;
         ui->gridLayout_4->addWidget(tarjeta, row, col);
+    }
+}
+
+void mesero_menu_comandas::on_btnMandarCocina_clicked()
+{
+    for (int i=0; i<pedidoPlatillos.size(); i++){
+
     }
 }
