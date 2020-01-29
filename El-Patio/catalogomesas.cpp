@@ -3,10 +3,8 @@
 #include <QDate>
 #include <QMessageBox>
 #include <QDebug>
-#include <QInputDialog>
-#include <QSpinBox>
-#include <QDebug>
 #include <QSqlQuery>
+#include <QInputDialog>
 
 CatalogoMesas::CatalogoMesas(QWidget *parent) :
     QWidget(parent),
@@ -29,48 +27,51 @@ CatalogoMesas::~CatalogoMesas()
 
 void CatalogoMesas::AgregarMesas(int n)
 {
-    int nMesas;
     QString script;
     switch (n) {
     case 1:
-        script = "SELECT COUNT(*) FROM Mesa";
+        script = "SELECT numero_mesa FROM Mesa";
         break;
     case 2:
-        script = "SELECT COUNT(*) FROM Mesa WHERE Estado = 'libre'";
+        script = "SELECT numero_mesa FROM Mesa WHERE Estado = 'Libre'";
         break;
     case 3:
-        script = "SELECT COUNT(*) FROM Mesa WHERE Estado = 'ocupado'";
+        script = "SELECT numero_mesa FROM Mesa WHERE Estado = 'Ocupado'";
         break;
     }
-
-    QSqlQuery query(mDatabase);
-    query.prepare(script);
-    query.exec();
-    nMesas = query.value(0).toInt();
 
     QFont fuente("MS Shell Dlg 2",25,4,false);
     QString estilo = "*{background-color: rgb(225, 225, 225);"
-                      " border:2px solid rgb(225, 225, 225);"
+                      " border:1px solid black;"
+                      "padding: 0 8px;"
                       "border-radius: 10px; padding: 0 8px; }"
                       "QPushButton:hover { border: 2px solid  #66c011; }";
-
-    for(int i = 0; i < nMesas; i++)
+    QSqlQuery query(mDatabase);
+    query.prepare(script);
+    query.exec();
+    int i = 0;
+    while(query.next())
     {
         QPushButton * mesa = new QPushButton(this);
-        mesa->setText(QString::number(i+1));
+        mesa->setText(query.value(0).toString());
         mesa->setMinimumWidth(150);
         mesa->setMinimumHeight(150);
+        mesa->setMaximumWidth(150);
+        mesa->setMaximumHeight(150);
         mesa->setFont(fuente);
         mesa->show();
         mesa->setStyleSheet(estilo);
-        ui->gridLayout_6->addWidget(mesa,i/4, i%4);
+        ui->gridLayout_3->addWidget(mesa,i/4, i%4);
         connect(mesa,SIGNAL(clicked()), this, SLOT(seleccionarMesa()));
+        i++;
     }
+    query.finish();
 }
 
 
 void CatalogoMesas::on_btnTodos_clicked()
 {
+    borrar();
     QString newStyle = "*{background-color: rgb(255, 255, 255);"
                     "border: 2px solid rgb(255,255,255);"
                     "border-bottom-color: gray;}";
@@ -85,6 +86,7 @@ void CatalogoMesas::on_btnTodos_clicked()
 
 void CatalogoMesas::on_btnLibre_clicked()
 {
+    borrar();
     QString newStyle = "*{background-color: rgb(255, 255, 255);"
                     "border: 2px solid rgb(255,255,255);"
                     "border-bottom-color: gray;}";
@@ -93,11 +95,12 @@ void CatalogoMesas::on_btnLibre_clicked()
     ui->btnTodos->setStyleSheet(oldStyle);
     ui->btnLibre->setStyleSheet(newStyle);
     ui->btnOcupado->setStyleSheet(oldStyle);
-    AgregarMesas(1);
+    AgregarMesas(2);
 }
 
 void CatalogoMesas::on_btnOcupado_clicked()
 {
+    borrar();
     QString newStyle = "*{background-color: rgb(255, 255, 255);"
                     "border: 2px solid rgb(255,255,255);"
                     "border-bottom-color: gray;}";
@@ -106,7 +109,7 @@ void CatalogoMesas::on_btnOcupado_clicked()
     ui->btnTodos->setStyleSheet(oldStyle);
     ui->btnLibre->setStyleSheet(oldStyle);
     ui->btnOcupado->setStyleSheet(newStyle);
-    AgregarMesas(1);
+    AgregarMesas(3);
 }
 
 void CatalogoMesas::on_btn1_clicked()
@@ -216,7 +219,7 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             ui->lineEdit_Entrada->clear();
             ui->label_nMesa->setText("Numero de Mesa");
             QSqlQuery query2(mDatabase);
-            query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = '"+mesa+"'");
+            query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+mesa+"");
             query2.exec();
         }
     }
@@ -228,7 +231,8 @@ void CatalogoMesas::seleccionarMesa()
     QString num = btn->text();
     ui->label_nMesa->setText("Numero de Mesa: " + num);
     QString oldStyle = "*{background-color: rgb(225, 225, 225);"
-                     " border:2px solid rgb(225, 225, 225);"
+                     " border:1px solid black;"
+                       "padding: 0 8px;"
                      "border-radius: 10px; padding: 0 8px; }"
                      "QPushButton:hover { border: 2px solid  #66c011; }";
     QString newStyle = "*{background-color: rgb(225, 225, 225);"
@@ -238,9 +242,27 @@ void CatalogoMesas::seleccionarMesa()
     {
         btn->setStyleSheet(newStyle);
         bool ok;
-
-        int n = QInputDialog::getInt(this,tr("Por favor,Ingresa Un Numero de Personas"),tr("Numero"),1,1,10,1,&ok);
+        QInputDialog InpDia;
+        int n = InpDia.getInt(this,tr("Por favor,Ingresa Un Numero de Personas"),tr("Numero"),1,1,10,1,&ok);
         nPersonas = QString::number(n);
         btn->setStyleSheet(oldStyle);
     }
+}
+
+void CatalogoMesas::limpia(QLayout *layout)
+{
+    if(!layout)
+        return;
+
+    while(auto item = layout->takeAt(0))
+    {
+        delete item->widget();
+        limpia(item->layout());
+    }
+
+}
+
+void CatalogoMesas::borrar()
+{
+    limpia(ui->gridLayout_3);
 }

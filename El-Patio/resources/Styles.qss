@@ -40,3 +40,14 @@
 #fecha{
 
 }
+
+#mesa{
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+QSpinBox{
+    border: 1px solid black;
+    border-radius: 10px;
+    font: 12pt "MS Shell Dlg 2";    
+}
