@@ -21,6 +21,7 @@ public:
     void AgregarMesas(int n);
     void limpia(QLayout *);
     void borrar();
+    QString getNumMesa();
 public slots:
     void seleccionarMesa();
 

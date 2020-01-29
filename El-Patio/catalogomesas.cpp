@@ -202,9 +202,9 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
         {
             QString hora = QTime::currentTime().toString("hh:mm");
             QString User = ui->lineEdit_Entrada->text();
-            QString mesa = ui->label_nMesa->text();
+            nMesa = ui->label_nMesa->text();
             QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
-                             "VALUES ('"+hora+"',"+nPersonas+","+User+","+mesa+")";
+                             "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
             QSqlQuery query(mDatabase);
             query.prepare(script);
             query.exec();
@@ -220,7 +220,7 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             ui->lineEdit_Entrada->clear();
             ui->label_nMesa->setText("Numero de Mesa");
             QSqlQuery query2(mDatabase);
-            query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+mesa+"");
+            query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+nMesa+"");
             query2.exec();
         }
     }
@@ -266,4 +266,9 @@ void CatalogoMesas::limpia(QLayout *layout)
 void CatalogoMesas::borrar()
 {
     limpia(ui->gridLayout_3);
+}
+
+QString CatalogoMesas::getNumMesa()
+{
+    return nMesa;
 }
