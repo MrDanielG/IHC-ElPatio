@@ -5,6 +5,7 @@
 #include "QDebug"
 #include "mesero/mesero_menu_comandas.h"
 #include "models/platillo.h"
+
 mesero_tarjeta_menu::mesero_tarjeta_menu(QString id, QString nombrePlatillo, QString precioPlatillo, QString foto, mesero_menu_comandas *parent) :
     QWidget(parent),
     ui(new Ui::mesero_tarjeta_menu)
@@ -49,4 +50,9 @@ void mesero_tarjeta_menu::on_btnMasPlatillo_clicked()
     Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
 
     this->padre->agregarSideBar(plato);
+}
+
+void mesero_tarjeta_menu::on_btnMenosPlatillo_clicked()
+{
+
 }

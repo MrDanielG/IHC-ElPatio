@@ -17,10 +17,20 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->stackedWidget->setCurrentIndex(0);
     ui->stackedWidget->insertWidget(1, &menuComandas);
-    ui->stackedWidget->setCurrentIndex(1);
+    //Mesas.setMainWindow(this);
+    //ui->stackedWidget->insertWidget(0, &Mesas);
+    //ui->stackedWidget->setCurrentIndex(1);
+
+    //connect(&CatalogoMesas, &CatalogoMesas::cambiarStackedWidget, this, &MainWindow::cambiarStacked_indice);
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::cambiarStacked_indice(int P)
+{
+    ui->stackedWidget->setCurrentIndex(P);
 }

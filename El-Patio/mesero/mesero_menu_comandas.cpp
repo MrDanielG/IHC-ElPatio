@@ -71,7 +71,6 @@ void mesero_menu_comandas::limiparCatalogo()
 
 void mesero_menu_comandas::agregarSideBar(Platillo plato)
 {
-    //TODO Aqui falta comparar
     if(this->pedidoPlatillos.contains(plato)){
         int Index = this->pedidoPlatillos.indexOf(plato);
         int sum = this->pedidoPlatillos.at(Index).cantidad;
@@ -107,7 +106,5 @@ void mesero_menu_comandas::agregarSideBar(Platillo plato)
 
 void mesero_menu_comandas::on_btnMandarCocina_clicked()
 {
-    for (int i=0; i<pedidoPlatillos.size(); i++){
 
-    }
 }

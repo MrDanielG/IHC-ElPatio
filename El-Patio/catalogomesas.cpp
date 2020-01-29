@@ -1,5 +1,6 @@
 #include "catalogomesas.h"
 #include "ui_catalogomesas.h"
+#include "mainwindow.h"
 #include <QDate>
 #include <QMessageBox>
 #include <QDebug>
@@ -19,7 +20,13 @@ CatalogoMesas::CatalogoMesas(QWidget *parent) :
     AgregarMesas(1);
 
     ui->fecha->setText(QDate::currentDate().toString("dd/MMMM/yyyy"));
+
+    //this->padre=parent;
+    //connect(this, SIGNAL(cambiarStackedWidget()), parent->parent(), SLOT(cambiarStacked_indice(1)));
 }
+
+//void CatalogoMesas::setMainWindow(MainWindow *P)
+//{    padre = P;}
 
 CatalogoMesas::~CatalogoMesas()
 {
@@ -184,6 +191,7 @@ void CatalogoMesas::on_btnDel_clicked()
 
 void CatalogoMesas::on_btnAbrirMesa_clicked()
 {
+     //padre->cambiarStacked_indice(1);
     if(ui->label_nMesa->text() == "Numero de Mesa")
     {
         QMessageBox::warning(this, tr("No Seleccionado"),
@@ -195,7 +203,7 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
         if(ui->lineEdit_Entrada->text().isEmpty())
         {
             QMessageBox::warning(this, tr("Campo Vacío"),
-                       tr("Por favor, ingresa el número de personas que ocuparán la mesa"));
+                       tr("Por favor, ingresa el número de mesero"));
                return;
         }
         else
@@ -207,7 +215,13 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
                              "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
             QSqlQuery query(mDatabase);
             query.prepare(script);
-            query.exec();
+            if(query.exec()){
+                nComanda = query.lastInsertId().toInt();
+                //padre->cambiarStacked_indice(1);
+            }
+            else{
+                QMessageBox::warning(this, tr("Error"), "La comanda no se ha registrado, error.");
+            }
             QString newStyle = "*{background-color: rgb(255, 255, 255);"
                             "border: 2px solid rgb(255,255,255);"
                             "border-bottom-color: gray;}";
@@ -222,6 +236,7 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             QSqlQuery query2(mDatabase);
             query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+nMesa+"");
             query2.exec();
+
         }
     }
 }

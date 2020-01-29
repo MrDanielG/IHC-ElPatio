@@ -11,17 +11,22 @@ class CatalogoMesas;
 class QSqlQueryModel;
 class QSortFilterProxyModel;
 
+//class MainWindow;
+
 class CatalogoMesas : public QWidget
 {
     Q_OBJECT
 
 public:
     explicit CatalogoMesas(QWidget *parent = nullptr);
+    //void setMainWindow(MainWindow *P);
     ~CatalogoMesas();
     void AgregarMesas(int n);
     void limpia(QLayout *);
     void borrar();
     QString getNumMesa();
+    QString nComanda;
+
 public slots:
     void seleccionarMesa();
 
@@ -57,12 +62,16 @@ private slots:
 
     void on_btnAbrirMesa_clicked();
 
+signals:
+    void cambiarStackedWidget();
+
 private:
     Ui::CatalogoMesas *ui;
     QSqlDatabase mDatabase;
     QSqlQueryModel *mesaModel;
     QSortFilterProxyModel *mesaProxyModel;
     QString nPersonas, nMesa;
+    //MainWindow *padre;
 };
 
 #endif // CATALOGOMESAS_H
