@@ -8,6 +8,9 @@ namespace Ui {
 class CatalogoMesas;
 }
 
+class QSqlQueryModel;
+class QSortFilterProxyModel;
+
 class CatalogoMesas : public QWidget
 {
     Q_OBJECT
@@ -16,7 +19,9 @@ public:
     explicit CatalogoMesas(QWidget *parent = nullptr);
     ~CatalogoMesas();
     void AgregarMesas(int n);
-
+    void limpia(QLayout *);
+    void borrar();
+    QString getNumMesa();
 public slots:
     void seleccionarMesa();
 
@@ -54,8 +59,10 @@ private slots:
 
 private:
     Ui::CatalogoMesas *ui;
-    QString nPersonas;
     QSqlDatabase mDatabase;
+    QSqlQueryModel *mesaModel;
+    QSortFilterProxyModel *mesaProxyModel;
+    QString nPersonas, nMesa;
 };
 
 #endif // CATALOGOMESAS_H
