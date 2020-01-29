@@ -21,6 +21,9 @@ public:
     void agregarSideBar(Platillo);
     void limpiarSideBar();
 
+private slots:
+    void on_btnMandarCocina_clicked();
+
 private:
     Ui::mesero_menu_comandas *ui;
     QSqlDatabase mDatabase;
