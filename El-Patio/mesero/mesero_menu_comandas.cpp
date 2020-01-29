@@ -71,6 +71,7 @@ void mesero_menu_comandas::limiparCatalogo()
 
 void mesero_menu_comandas::agregarSideBar(Platillo plato)
 {
+    //TODO Aqui falta comprarar
     this->pedidoPlatillos.append(plato);
 
     int iterador = 0;
