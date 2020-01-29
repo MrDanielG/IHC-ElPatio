@@ -202,11 +202,26 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
         {
             QString hora = QTime::currentTime().toString("hh:mm");
             QString User = ui->lineEdit_Entrada->text();
-            QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
-                             "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
-            QSqlQuery query(mDatabase);
-            query.prepare(script);
-            query.exec();
+            QString cad = "SELECT * from usuario WHERE clave = "+User+"";
+            QSqlQuery busca(mDatabase);
+            busca.prepare(cad);
+            busca.exec();
+            if(busca.next())
+            {
+                QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
+                                 "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
+                QSqlQuery query(mDatabase);
+                query.prepare(script);
+                query.exec();
+                QSqlQuery query2(mDatabase);
+                query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+nMesa+"");
+                query2.exec();
+            }
+            else
+            {
+                QMessageBox::warning(this, tr("Clave No Encontrada"),
+                           tr("La clave de Usuario no es válida"));
+            }
             QString newStyle = "*{background-color: rgb(255, 255, 255);"
                             "border: 2px solid rgb(255,255,255);"
                             "border-bottom-color: gray;}";
@@ -218,9 +233,6 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             AgregarMesas(1);
             ui->lineEdit_Entrada->clear();
             ui->label_nMesa->setText("Numero de Mesa");
-            QSqlQuery query2(mDatabase);
-            query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+nMesa+"");
-            query2.exec();
         }
     }
 }
