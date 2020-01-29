@@ -147,7 +147,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO `mydb`.`platillo` (precio, nombre, categoria, estado, foto) VALUES
 -- COMBINACIONES
-(84, "Con Jamos, Tocino, Salchica, ó Longaniza", "Huevos", "disponible", "../fotos_menu/huevos.jpg","../fotos_menu/huevos.jpg"),
+(84, "Con Jamos, Tocino, Salchica, ó Longaniza", "Huevos", "disponible", "../fotos_menu/huevos.jpg"),
 (84, "Al Albañil", "Huevos", "disponible","../fotos_menu/huevos.jpg"),
 (84, "A la Mexicana", "Huevos", "disponible","../fotos_menu/huevos.jpg"),
 (84, "Tirados", "Huevos", "disponible","../fotos_menu/huevos.jpg"),
@@ -247,3 +247,63 @@ INSERT INTO mesa(estado) values('Ocupado');
 INSERT INTO mesa(estado) values('Libre');
 INSERT INTO mesa(estado) values('Libre');
 INSERT INTO mesa(estado) values('Libre');
+
+-- prubas para visualizar los elementos en cuenta
+select * from mesa;
+describe mesa;
+UPDATE `mydb`.`mesa` SET `estado` = 'Ocupado' WHERE (`numero_mesa` = '1');
+UPDATE `mydb`.`mesa` SET `estado` = 'Ocupado' WHERE (`numero_mesa` = '2');
+UPDATE `mydb`.`mesa` SET `estado` = 'Ocupado' WHERE (`numero_mesa` = '3');
+
+/* insercion de un tipo, usuario, comanda */
+select * from tipo;
+INSERT INTO `mydb`.`tipo` (`nombre_tipo`) VALUES ('comensal');
+select * from usuario;
+INSERT INTO `mydb`.`usuario` (`clave`, `apellido_paterno`, `apellido_materno`, `nombre`, `Tipo_id_tipo`) VALUES ('123', 'Castro', 'Arrollo', 'Maria Fernanda', '1');
+select * from comanda;
+INSERT INTO `mydb`.`comanda` (`hora_apertura`, `numero_personas`, `Usuario_clave`, `Mesa_numero_mesa`) VALUES ('2020-01-28 12:45:00', '3', '123', '1');
+INSERT INTO `mydb`.`comanda` (`hora_apertura`, `numero_personas`, `Usuario_clave`, `Mesa_numero_mesa`) VALUES ('2020-01-28 13:00:00', '3', '123', '1');
+INSERT INTO `mydb`.`comanda` (`hora_apertura`, `numero_personas`, `Usuario_clave`, `Mesa_numero_mesa`) VALUES ('2020-01-28 14:00:00', '3', '123', '1');
+INSERT INTO `mydb`.`comanda` (`hora_apertura`, `numero_personas`, `Usuario_clave`, `Mesa_numero_mesa`) VALUES ('2020-01-28 12:50:00', '2', '123', '2');
+INSERT INTO `mydb`.`comanda` (`hora_apertura`, `numero_personas`, `Usuario_clave`, `Mesa_numero_mesa`) VALUES ('2020-01-28 13:00:00', '1', '123', '3');
+select * from platillo;
+select * from pedido;
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '1', '1');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '1', '2');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '1', '3');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '2', '11');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '2', '12');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '3', '21');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '3', '22');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '3', '23');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '3', '24');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '3', '25');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '3', '26');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '3', '27');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '3', '28');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '5', '21');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '5', '22');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '5', '23');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '5', '24');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '5', '25');
+INSERT INTO `mydb`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`) VALUES ('sin_comentario', '5', '26');
+USE `mydb` ;
+select * from comanda where Mesa_numero_mesa = 1 order by hora_apertura DESC limit 1;
+select * from comanda where Mesa_numero_mesa = 3 order by hora_apertura DESC limit 1;
+select * from comanda where Mesa_numero_mesa = 3 order by hora_apertura DESC limit 1;
+select * from comanda where Mesa_numero_mesa = 1;
+select * from comanda where Mesa_numero_mesa = 2 order by hora_apertura DESC limit 1;
+
+select * from pedido where Comanda_id_comanda = 3;
+
+select * from platillo where id_platillo = 21;
+select * from platillo where id_platillo;
+
+select sum(precio) from platillo;
+ 
+select sum(precio) from 
+pedido inner join platillo on
+pedido.Platillo_id_platillo = platillo.id_platillo
+where Comanda_id_comanda = 3;
+
+select * from platillo;

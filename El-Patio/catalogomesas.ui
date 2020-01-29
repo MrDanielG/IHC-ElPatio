@@ -241,6 +241,9 @@ color: rgb(0, 0, 0);</string>
        <property name="sizeConstraint">
         <enum>QLayout::SetMaximumSize</enum>
        </property>
+       <property name="spacing">
+        <number>20</number>
+       </property>
       </layout>
      </item>
     </layout>

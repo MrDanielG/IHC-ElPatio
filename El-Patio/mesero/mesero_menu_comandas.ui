@@ -32,8 +32,8 @@
   <widget class="QLabel" name="bg">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>10</x>
+     <y>20</y>
      <width>731</width>
      <height>768</height>
     </rect>
@@ -422,7 +422,7 @@
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>760</x>
+     <x>770</x>
      <y>190</y>
      <width>241</width>
      <height>26</height>
@@ -552,7 +552,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -650,6 +650,73 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>620</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_total">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>640</y>
+     <width>157</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #585858
+</string>
+   </property>
+   <property name="text">
+    <string>Total: $ 0.00</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>220</y>
+     <width>281</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>279</width>
+      <height>399</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="grid_lista_platillos"/>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
  <resources/>

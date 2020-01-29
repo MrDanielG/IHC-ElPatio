@@ -8,6 +8,8 @@
 #include <QDebug>
 #include <QSqlQuery>
 
+#include "mesero/mesero_menu_comandas.h"
+
 CatalogoMesas::CatalogoMesas(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CatalogoMesas)
@@ -46,7 +48,9 @@ void CatalogoMesas::AgregarMesas(int n)
     QSqlQuery query(mDatabase);
     query.prepare(script);
     query.exec();
-    nMesas = query.value(0).toInt();
+
+//    nMesas = query.value(0).toInt();
+    nMesas = 25;
 
     QFont fuente("MS Shell Dlg 2",25,4,false);
     QString estilo = "*{background-color: rgb(225, 225, 225);"
@@ -201,6 +205,7 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             QString mesa = ui->label_nMesa->text();
             QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
                              "VALUES ('"+hora+"',"+nPersonas+","+User+","+mesa+")";
+            qDebug() << script;
             QSqlQuery query(mDatabase);
             query.prepare(script);
             query.exec();
@@ -239,8 +244,18 @@ void CatalogoMesas::seleccionarMesa()
         btn->setStyleSheet(newStyle);
         bool ok;
 
+//        solicitudPropietario *nuevaSolicitud_1 = new solicitudPropietario(this);
+//        nuevaSolicitud_1->setModal(true);
+//        nuevaSolicitud_1->idPropietario = this->id_Propietario;
+//        nuevaSolicitud_1->exec();
+//        ModelSolicitudes->setFilter("idPropietario="+QString::number(id_Propietario));
+//        ModelSolicitudes->select();
+
         int n = QInputDialog::getInt(this,tr("Por favor,Ingresa Un Numero de Personas"),tr("Numero"),1,1,10,1,&ok);
         nPersonas = QString::number(n);
         btn->setStyleSheet(oldStyle);
+
+        mesero_menu_comandas *menu_comanda = new mesero_menu_comandas(btn->text().toInt(), this);
+        menu_comanda->showFullScreen();
     }
 }
