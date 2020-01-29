@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>306</width>
+    <width>297</width>
     <height>135</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>306</width>
-    <height>135</height>
+    <width>290</width>
+    <height>130</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -22,10 +22,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>301</width>
-     <height>131</height>
+     <x>9</x>
+     <y>9</y>
+     <width>281</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -77,6 +77,12 @@ background-image: url(:/iconos/resources/menuPrueba.png);</string>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QLabel" name="nombrePlatillo">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <family>Roboto</family>
@@ -92,24 +98,61 @@ background-image: url(:/iconos/resources/menuPrueba.png);</string>
         <property name="text">
          <string>Sopa de Codito</string>
         </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="precioPlatillo">
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color:#858585;
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="precioPlatillo_2">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:#858585;
 </string>
-        </property>
-        <property name="text">
-         <string>$35</string>
-        </property>
-       </widget>
+          </property>
+          <property name="text">
+           <string>$</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="precioPlatillo">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:#858585;
+</string>
+          </property>
+          <property name="text">
+           <string>35</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
