@@ -202,7 +202,6 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
         {
             QString hora = QTime::currentTime().toString("hh:mm");
             QString User = ui->lineEdit_Entrada->text();
-            nMesa = ui->label_nMesa->text();
             QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
                              "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
             QSqlQuery query(mDatabase);
@@ -229,8 +228,8 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
 void CatalogoMesas::seleccionarMesa()
 {
     QPushButton * btn = qobject_cast<QPushButton *>(sender());
-    QString num = btn->text();
-    ui->label_nMesa->setText("Numero de Mesa: " + num);
+    nMesa = btn->text();
+    ui->label_nMesa->setText("Numero de Mesa: " + nMesa);
     QString oldStyle = "*{background-color: rgb(225, 225, 225);"
                      " border:1px solid black;"
                        "padding: 0 8px;"
