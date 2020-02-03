@@ -16,7 +16,7 @@ mesero_tarjeta_menu::mesero_tarjeta_menu(QString id, QString nombrePlatillo, QSt
     if(!mDatabase.isOpen()){
         qDebug() << "ERROR en TARJETA MENU";
     }else{
-        qDebug() << "base de datos sigue conectada en TARJETA MENU";
+        //qDebug() << "base de datos sigue conectada en TARJETA MENU";
     }
 
     this->id = id;
@@ -45,14 +45,25 @@ void mesero_tarjeta_menu::llenarTarjeta()
 void mesero_tarjeta_menu::on_btnMasPlatillo_clicked()
 {
     this->cantidad++;
+    if(cantidad>0){
+        ui->btnMenosPlatillo->setEnabled(true);
+    }
     llenarTarjeta();
 
     Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
 
-    this->padre->agregarSideBar(plato);
+    this->padre->actualizarSideBar(plato, 1);
 }
 
 void mesero_tarjeta_menu::on_btnMenosPlatillo_clicked()
 {
+    this->cantidad--;
+    if(cantidad == 0){
+        ui->btnMenosPlatillo->setEnabled(false);
+    }
+    llenarTarjeta();
 
+    Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
+
+    this->padre->actualizarSideBar(plato, 0);
 }

@@ -69,42 +69,72 @@ void mesero_menu_comandas::limiparCatalogo()
     }
 }
 
-void mesero_menu_comandas::agregarSideBar(Platillo plato)
+void mesero_menu_comandas::actualizarSideBar(Platillo plato, int operacion)
 {
     if(this->pedidoPlatillos.contains(plato)){
         int Index = this->pedidoPlatillos.indexOf(plato);
         int sum = this->pedidoPlatillos.at(Index).cantidad;
-        sum++;
-        Platillo Nuevo = this->pedidoPlatillos.at(Index);
-        Nuevo.setCantidad(sum);
-        this->pedidoPlatillos.replace(Index, Nuevo);
+        if(operacion > 0){
+            sum++;
+        }
+        else{
+            sum--;
+        }
+        if(sum == 0){
+            this->pedidoPlatillos.removeAt(Index);
+            while (QLayoutItem *item = ui->gridLayout_4->takeAt(0))
+            {
+                Q_ASSERT(!item->layout());
+                delete item->widget();
+                delete item;
+            }
+            actualizarSB();
+
+        }
+        else{
+            Platillo Nuevo = this->pedidoPlatillos.at(Index);
+            Nuevo.setCantidad(sum);
+            this->pedidoPlatillos.replace(Index, Nuevo);
+            actualizarSB();
+        }
     }
     else{
         this->pedidoPlatillos.append(plato);
+        actualizarSB();
     }
+}
 
-    int iterador = 0;
-    int row = 0;
-    int col = 0;
+void mesero_menu_comandas::actualizarSB()
+{
+        int iterador = 0;
+        int row = 0;
+        int col = 0;
 
-    for (int i = 0; i < this->pedidoPlatillos.size(); ++i) {
+        for (int i = 0; i < this->pedidoPlatillos.size(); ++i) {
 
-        QString id = this->pedidoPlatillos[i].id;
-        QString nombrePlatillo = this->pedidoPlatillos[i].nombrePlatillo;
-        QString precioPlatillo = this->pedidoPlatillos[i].precioPlatillo;
-        QString fotoPlatillo = this->pedidoPlatillos[i].foto;
-        int cantidad = this->pedidoPlatillos[i].cantidad;
+            QString id = this->pedidoPlatillos[i].id;
+            QString nombrePlatillo = this->pedidoPlatillos[i].nombrePlatillo;
+            QString precioPlatillo = this->pedidoPlatillos[i].precioPlatillo;
+            QString fotoPlatillo = this->pedidoPlatillos[i].foto;
+            int cantidad = this->pedidoPlatillos[i].cantidad;
 
-        row = iterador / 1;
-        col = iterador % 1;
+            row = iterador / 1;
+            col = iterador % 1;
 
-        mesero_tarjeta_chica *tarjeta = new mesero_tarjeta_chica(id, nombrePlatillo, precioPlatillo, fotoPlatillo, cantidad);
-        iterador++;
-        ui->gridLayout_4->addWidget(tarjeta, row, col);
-    }
+            mesero_tarjeta_chica *tarjeta = new mesero_tarjeta_chica(id, nombrePlatillo, precioPlatillo, fotoPlatillo, cantidad);
+            iterador++;
+            ui->gridLayout_4->addWidget(tarjeta, row, col);
+        }
 }
 
 void mesero_menu_comandas::on_btnMandarCocina_clicked()
 {
-
+    if(QMessageBox::question(this, tr("Enviar pedido"), tr("¿Está seguro que quiere hacer un pedido con estos platillos?"))==QMessageBox::Yes){
+        //Necesito idComanda
+        //INSERT INTO `pedido` (`id_Pedido`, `comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`, `estado`) VALUES ('1', 'Sin cebolla', '1', '8', 'En proceso');
+    }
+    else{
+        QMessageBox::information(this, tr("Cancelado"), tr("La orden no se ha enviado a cocina."));
+    }
 }
+

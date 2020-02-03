@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(1, &menuComandas);
     //Mesas.setMainWindow(this);
     //ui->stackedWidget->insertWidget(0, &Mesas);
-    //ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(1);
 
     //connect(&CatalogoMesas, &CatalogoMesas::cambiarStackedWidget, this, &MainWindow::cambiarStacked_indice);
 
