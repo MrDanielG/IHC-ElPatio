@@ -18,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     void cambiar_pagina(int);
+    void pasar_id_mesa(int);
     ~MainWindow();
 
 private:

@@ -24,6 +24,7 @@ public:
     void agregarSideBar(Platillo);
     void limpiarSideBar();
     void setMainWindow(MainWindow *);
+    void set_id_mesa(int);
 
 private slots:
     void on_btnBebidas_2_clicked();
@@ -37,6 +38,7 @@ private:
     int clave_mesero;
     int numero_mesa;
     int numero_comanda;
+
     //lista de la comanda
     QList<mesero_tarjeta_chica*> lista_platillos;
 

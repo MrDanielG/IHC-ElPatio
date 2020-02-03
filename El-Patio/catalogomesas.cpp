@@ -188,7 +188,6 @@ void CatalogoMesas::on_btnDel_clicked()
 
 void CatalogoMesas::on_btnAbrirMesa_clicked()
 {
-
     if(ui->label_nMesa->text() == "Numero de Mesa")
     {
         QMessageBox::warning(this, tr("No Seleccionado"),
@@ -227,7 +226,9 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             QSqlQuery query2(mDatabase);
             query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = '"+mesa+"'");
             query2.exec();
-            this->mainwindow->cambiar_pagina(2);
+
+            this->mainwindow->pasar_id_mesa(this->id_mesa_auxiliar);
+            this->mainwindow->cambiar_pagina(1);
         }
     }
 }
@@ -236,6 +237,9 @@ void CatalogoMesas::seleccionarMesa()
 {
     QPushButton * btn = qobject_cast<QPushButton *>(sender());
     QString num = btn->text();
+    this->id_mesa_auxiliar = num.toInt();
+    qDebug() << "\n\nmesa" + num;
+
     ui->label_nMesa->setText("Numero de Mesa: " + num);
     QString oldStyle = "*{background-color: rgb(225, 225, 225);"
                      " border:2px solid rgb(225, 225, 225);"

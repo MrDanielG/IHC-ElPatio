@@ -62,6 +62,8 @@ private:
     QSqlDatabase mDatabase;
 
     MainWindow *mainwindow;
+
+    int id_mesa_auxiliar;
 };
 
 #endif // CATALOGOMESAS_H
