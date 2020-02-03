@@ -24,6 +24,9 @@ mesero_menu_comandas::mesero_menu_comandas(QWidget *parent) :
         qDebug() << "Base de datos continua abierta, esto es: MENU COMANDAS";
     }
     actualizarCatalogo();
+
+    ui->btnMandarCocina->setHidden(0);
+    ui->lb_total->setHidden(1);
 }
 
 mesero_menu_comandas::~mesero_menu_comandas()
@@ -108,8 +111,25 @@ void mesero_menu_comandas::set_id_mesa(int _id_mesa_auxiliar)
     this->numero_mesa = _id_mesa_auxiliar;
 }
 
+void mesero_menu_comandas::limpiar_grid4()
+{
+    int posicionLista = 0;
+    while(posicionLista < this->lista_platillos.size())
+    {
+        ui->gridLayout_4->removeWidget(lista_platillos.at(posicionLista));
+        this->lista_platillos.at(posicionLista)->~mesero_tarjeta_chica();
+        posicionLista++;
+    }
+    this->lista_platillos.clear();
+}
+
 void mesero_menu_comandas::on_btnBebidas_2_clicked()
 {
+    ui->btnMandarCocina->setHidden(1);
+    ui->lb_total->setHidden(0);
+
+    //limpia el grid
+    this->limpiar_grid4();
 
     QSqlQuery ultima_comanda(mDatabase);
         QSqlQuery precio_total(mDatabase);
@@ -146,7 +166,6 @@ void mesero_menu_comandas::on_btnBebidas_2_clicked()
         }
 
         //cambiar dato propio de la clase
-
         int posicion_lista = 0;
         while (posicion_lista < lista_platillos.size())
         {
@@ -167,4 +186,14 @@ void mesero_menu_comandas::on_btnBebidas_2_clicked()
         QString s_precio_total = precio_total.record().value("sum(precio)").toString();
         qDebug() << s_precio_total;
         ui->lb_total->setText("Total $" + s_precio_total);
+}
+
+void mesero_menu_comandas::on_btnPlatillos_2_clicked()
+{
+    ui->btnMandarCocina->setHidden(0);
+    ui->lb_total->setHidden(1);
+
+
+    //limpia el grid
+    this->limpiar_grid4();
 }

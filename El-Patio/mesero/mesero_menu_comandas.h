@@ -25,9 +25,12 @@ public:
     void limpiarSideBar();
     void setMainWindow(MainWindow *);
     void set_id_mesa(int);
+    void limpiar_grid4();
 
 private slots:
     void on_btnBebidas_2_clicked();
+
+    void on_btnPlatillos_2_clicked();
 
 private:
     Ui::mesero_menu_comandas *ui;
