@@ -6,6 +6,7 @@
 #include "models/platillo.h"
 
 class mesero_tarjeta_chica;
+class MainWindow;
 
 namespace Ui {
 class mesero_menu_comandas;
@@ -22,6 +23,7 @@ public:
     void limiparCatalogo();
     void agregarSideBar(Platillo);
     void limpiarSideBar();
+    void setMainWindow(MainWindow *);
 
 private slots:
     void on_btnBebidas_2_clicked();
@@ -37,6 +39,8 @@ private:
     int numero_comanda;
     //lista de la comanda
     QList<mesero_tarjeta_chica*> lista_platillos;
+
+    MainWindow *mainwindow;
 };
 
 #endif // MESERO_MENU_COMANDAS_H

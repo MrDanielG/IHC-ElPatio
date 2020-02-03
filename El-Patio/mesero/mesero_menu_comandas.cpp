@@ -5,6 +5,7 @@
 #include "QSqlQuery"
 #include "mesero/mesero_tarjeta_menu.h"
 #include "mesero/mesero_tarjeta_chica.h"
+#include "mainwindow.h"
 
 #include <QSqlRecord>
 
@@ -94,6 +95,11 @@ void mesero_menu_comandas::agregarSideBar(Platillo plato)
         iterador++;
         ui->gridLayout_4->addWidget(tarjeta, row, col);
     }
+}
+
+void mesero_menu_comandas::setMainWindow(MainWindow *_mainwindow)
+{
+    this->mainwindow = _mainwindow;
 }
 
 void mesero_menu_comandas::on_btnBebidas_2_clicked()

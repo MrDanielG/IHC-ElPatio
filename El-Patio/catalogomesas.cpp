@@ -8,6 +8,8 @@
 #include <QDebug>
 #include <QSqlQuery>
 
+#include "mainwindow.h"
+
 CatalogoMesas::CatalogoMesas(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CatalogoMesas)
@@ -67,6 +69,11 @@ void CatalogoMesas::AgregarMesas(int n)
         ui->gridLayout_6->addWidget(mesa,i/4, i%4);
         connect(mesa,SIGNAL(clicked()), this, SLOT(seleccionarMesa()));
     }
+}
+
+void CatalogoMesas::setMainWindow(MainWindow *_mainwindow)
+{
+    this->mainwindow = _mainwindow;
 }
 
 
@@ -181,6 +188,7 @@ void CatalogoMesas::on_btnDel_clicked()
 
 void CatalogoMesas::on_btnAbrirMesa_clicked()
 {
+
     if(ui->label_nMesa->text() == "Numero de Mesa")
     {
         QMessageBox::warning(this, tr("No Seleccionado"),
@@ -219,6 +227,7 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             QSqlQuery query2(mDatabase);
             query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = '"+mesa+"'");
             query2.exec();
+            this->mainwindow->cambiar_pagina(2);
         }
     }
 }
