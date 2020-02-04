@@ -39,7 +39,6 @@ void mesero_tarjeta_menu::llenarTarjeta()
     ui->nombrePlatillo->setText(this->nombrePlatillo);
     ui->precioPlatillo->setText(this->precioPlatillo);
     ui->imgPlatillo->setPixmap(img);
-    ui->cantPlatillo->setText(QString::number(this->cantidad));
 }
 
 void mesero_tarjeta_menu::on_btnMasPlatillo_clicked()
