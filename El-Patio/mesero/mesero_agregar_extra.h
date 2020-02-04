@@ -15,13 +15,12 @@ class mesero_agregar_extra : public QWidget
 public:
     explicit mesero_agregar_extra(QWidget *parent = nullptr);
     ~mesero_agregar_extra();
+    void llenarComboBox();
 
 private slots:
     void on_btnMasExtra_clicked();
 
     void on_btnMasExtra_2_clicked();
-
-    void on_btnMandarCocina_2_clicked();
 
 private:
     Ui::mesero_agregar_extra *ui;
