@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QSqlDatabase>
 
+
+class MainWindow;
+
 namespace Ui {
 class CatalogoMesas;
 }
@@ -16,6 +19,7 @@ public:
     explicit CatalogoMesas(QWidget *parent = nullptr);
     ~CatalogoMesas();
     void AgregarMesas(int n);
+    void setMainWindow(MainWindow *);
 
 public slots:
     void seleccionarMesa();
@@ -56,6 +60,10 @@ private:
     Ui::CatalogoMesas *ui;
     QString nPersonas;
     QSqlDatabase mDatabase;
+
+    MainWindow *mainwindow;
+
+    int id_mesa_auxiliar;
 };
 
 #endif // CATALOGOMESAS_H

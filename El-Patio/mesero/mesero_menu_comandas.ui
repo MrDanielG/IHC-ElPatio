@@ -754,6 +754,25 @@
     </layout>
    </widget>
   </widget>
+  <widget class="QLabel" name="lb_total">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>700</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;Roboto&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
