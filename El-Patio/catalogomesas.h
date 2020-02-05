@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QSqlDatabase>
 
+
+class MainWindow;
+
 namespace Ui {
 class CatalogoMesas;
 }
@@ -22,6 +25,8 @@ public:
     void limpia(QLayout *);
     void borrar();
     QString getNumMesa();
+    void setMainWindow(MainWindow *);
+
 public slots:
     void seleccionarMesa();
 
@@ -63,6 +68,10 @@ private:
     QSqlQueryModel *mesaModel;
     QSortFilterProxyModel *mesaProxyModel;
     QString nPersonas, nMesa;
+
+    MainWindow *mainwindow;
+
+    int id_mesa_auxiliar;
 };
 
 #endif // CATALOGOMESAS_H

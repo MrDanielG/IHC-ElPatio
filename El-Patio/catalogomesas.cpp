@@ -6,6 +6,8 @@
 #include <QSqlQuery>
 #include <QInputDialog>
 
+#include "mainwindow.h"
+
 CatalogoMesas::CatalogoMesas(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CatalogoMesas)
@@ -67,6 +69,11 @@ void CatalogoMesas::AgregarMesas(int n)
         i++;
     }
     query.finish();
+}
+
+void CatalogoMesas::setMainWindow(MainWindow *_mainwindow)
+{
+    this->mainwindow = _mainwindow;
 }
 
 
@@ -233,6 +240,12 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
             AgregarMesas(1);
             ui->lineEdit_Entrada->clear();
             ui->label_nMesa->setText("Numero de Mesa");
+            QSqlQuery query2(mDatabase);
+            query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = '"+mesa+"'");
+            query2.exec();
+
+            this->mainwindow->pasar_id_mesa(this->id_mesa_auxiliar);
+            this->mainwindow->cambiar_pagina(1);
         }
     }
 }
@@ -242,6 +255,11 @@ void CatalogoMesas::seleccionarMesa()
     QPushButton * btn = qobject_cast<QPushButton *>(sender());
     nMesa = btn->text();
     ui->label_nMesa->setText("Numero de Mesa: " + nMesa);
+    QString num = btn->text();
+    this->id_mesa_auxiliar = num.toInt();
+    qDebug() << "\n\nmesa" + num;
+
+    ui->label_nMesa->setText("Numero de Mesa: " + num);
     QString oldStyle = "*{background-color: rgb(225, 225, 225);"
                      " border:1px solid black;"
                        "padding: 0 8px;"
