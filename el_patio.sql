@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-01-2020 a las 08:21:24
+-- Tiempo de generación: 06-02-2020 a las 17:39:58
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.26
 
@@ -41,6 +41,109 @@ CREATE TABLE `comanda` (
   `comentario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `comanda`
+--
+
+TRUNCATE TABLE `comanda`;
+--
+-- Volcado de datos para la tabla `comanda`
+--
+
+INSERT INTO `comanda` (`id_comanda`, `hora_apertura`, `numero_personas`, `Usuario_clave`, `Mesa_numero_mesa`, `estado`, `comentario`) VALUES
+(1, '2020-02-03 16:35:34', 2, 100, 2, 'Abierta', NULL),
+(2, '0000-00-00 00:00:00', 1, 100, 20, 'Abierta', NULL),
+(3, '0000-00-00 00:00:00', 1, 100, 7, 'Abierta', NULL),
+(4, '0000-00-00 00:00:00', 1, 100, 8, 'Abierta', NULL),
+(5, '0000-00-00 00:00:00', 1, 100, 13, 'Abierta', NULL),
+(6, '0000-00-00 00:00:00', 1, 100, 6, 'Abierta', NULL),
+(7, '0000-00-00 00:00:00', 1, 100, 18, 'Abierta', NULL),
+(8, '0000-00-00 00:00:00', 1, 100, 25, 'Abierta', NULL),
+(9, '0000-00-00 00:00:00', 1, 100, 19, 'Abierta', NULL),
+(10, '0000-00-00 00:00:00', 1, 100, 21, 'Abierta', NULL),
+(11, '0000-00-00 00:00:00', 1, 100, 16, 'Abierta', NULL),
+(12, '0000-00-00 00:00:00', 1, 100, 24, 'Abierta', NULL),
+(13, '0000-00-00 00:00:00', 1, 100, 23, 'Abierta', NULL),
+(14, '0000-00-00 00:00:00', 1, 100, 12, 'Abierta', NULL),
+(15, '0000-00-00 00:00:00', 1, 100, 9, 'Abierta', NULL),
+(16, '0000-00-00 00:00:00', 1, 100, 10, 'Abierta', NULL),
+(17, '0000-00-00 00:00:00', 1, 100, 17, 'Abierta', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `extra`
+--
+
+DROP TABLE IF EXISTS `extra`;
+CREATE TABLE `extra` (
+  `id_extra` int(11) NOT NULL,
+  `precio` float NOT NULL,
+  `nombre` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Truncar tablas antes de insertar `extra`
+--
+
+TRUNCATE TABLE `extra`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ingrediente`
+--
+
+DROP TABLE IF EXISTS `ingrediente`;
+CREATE TABLE `ingrediente` (
+  `id_ingrediente` int(11) NOT NULL,
+  `id_insumo` int(11) NOT NULL,
+  `fecha_almacenamiento` date NOT NULL,
+  `dias_caducidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Truncar tablas antes de insertar `ingrediente`
+--
+
+TRUNCATE TABLE `ingrediente`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `insumo`
+--
+
+DROP TABLE IF EXISTS `insumo`;
+CREATE TABLE `insumo` (
+  `id_insumo` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `precio_compra` float NOT NULL,
+  `existencias` int(11) NOT NULL,
+  `presentacion` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Truncar tablas antes de insertar `insumo`
+--
+
+TRUNCATE TABLE `insumo`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `lista_ingrediente`
+--
+
+DROP TABLE IF EXISTS `lista_ingrediente`;
+CREATE TABLE `lista_ingrediente` (
+  `id_elemento_lista` int(11) NOT NULL,
+  `id_platillo` int(11) NOT NULL,
+  `id_ingrediente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Truncar tablas antes de insertar `lista_ingrediente`
+--
+
+TRUNCATE TABLE `lista_ingrediente`;
 -- --------------------------------------------------------
 
 --
@@ -52,6 +155,42 @@ CREATE TABLE `mesa` (
   `numero_mesa` int(11) NOT NULL,
   `estado` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Truncar tablas antes de insertar `mesa`
+--
+
+TRUNCATE TABLE `mesa`;
+--
+-- Volcado de datos para la tabla `mesa`
+--
+
+INSERT INTO `mesa` (`numero_mesa`, `estado`) VALUES
+(1, 'Libre'),
+(2, 'Libre'),
+(3, 'Libre'),
+(4, 'Libre'),
+(5, 'Libre'),
+(6, 'Libre'),
+(7, 'Libre'),
+(8, 'Libre'),
+(9, 'Libre'),
+(10, 'Libre'),
+(11, 'Libre'),
+(12, 'Libre'),
+(13, 'Libre'),
+(14, 'Libre'),
+(15, 'Libre'),
+(16, 'Libre'),
+(17, 'Libre'),
+(18, 'Libre'),
+(19, 'Libre'),
+(20, 'Libre'),
+(21, 'Libre'),
+(22, 'Ocupada'),
+(23, 'Libre'),
+(24, 'Libre'),
+(25, 'Libre');
 
 -- --------------------------------------------------------
 
@@ -68,6 +207,36 @@ CREATE TABLE `pedido` (
   `estado` varchar(15) NOT NULL DEFAULT 'En proceso'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `pedido`
+--
+
+TRUNCATE TABLE `pedido`;
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`id_Pedido`, `comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`, `estado`) VALUES
+(1, 'Sin cebolla', 1, 8, 'En proceso');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedido_extra`
+--
+
+DROP TABLE IF EXISTS `pedido_extra`;
+CREATE TABLE `pedido_extra` (
+  `id_pedido_extra` int(11) NOT NULL,
+  `id_extra` int(11) NOT NULL,
+  `id_Pedido` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Truncar tablas antes de insertar `pedido_extra`
+--
+
+TRUNCATE TABLE `pedido_extra`;
 -- --------------------------------------------------------
 
 --
@@ -84,6 +253,11 @@ CREATE TABLE `platillo` (
   `foto` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `platillo`
+--
+
+TRUNCATE TABLE `platillo`;
 --
 -- Volcado de datos para la tabla `platillo`
 --
@@ -143,9 +317,9 @@ INSERT INTO `platillo` (`id_platillo`, `precio`, `nombre`, `categoria`, `estado`
 (52, 37, 'Oasis grande(465 ml)', 'Bebidas Jugos', 'disponibles', '../fotos_menu/huevos.jpg'),
 (53, 29, 'Verde chico(275 ml)', 'Bebidas Jugos', 'disponibles', '../fotos_menu/huevos.jpg'),
 (54, 37, 'Verde grande(465 ml)', 'Bebidas Jugos', 'disponibles', '../fotos_menu/huevos.jpg'),
-(55, 31, 'Cerveza', 'Bebidas Pal Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
-(56, 39, 'Michelada', 'Bebidas Pal Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
-(57, 47, 'Chelada', 'Bebidas Pal Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
+(55, 31, 'Cerveza', 'Bebidas Pal\' Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
+(56, 39, 'Michelada', 'Bebidas Pal\' Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
+(57, 47, 'Chelada', 'Bebidas Pal\' Alma', 'disponibles', '../fotos_menu/huevos.jpg'),
 (58, 28, 'Refresco', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
 (59, 32, 'Agua mineral', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
 (60, 20, 'Agua embotellada', 'Bebidas Las Que Refrescan', 'disponibles', '../fotos_menu/huevos.jpg'),
@@ -176,6 +350,11 @@ CREATE TABLE `ticket` (
   `Comanda_id_comanda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `ticket`
+--
+
+TRUNCATE TABLE `ticket`;
 -- --------------------------------------------------------
 
 --
@@ -189,6 +368,11 @@ CREATE TABLE `tipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Truncar tablas antes de insertar `tipo`
+--
+
+TRUNCATE TABLE `tipo`;
+--
 -- Volcado de datos para la tabla `tipo`
 --
 
@@ -199,6 +383,28 @@ INSERT INTO `tipo` (`id_tipo`, `nombre_tipo`) VALUES
 (4, 'Barista'),
 (5, 'Almacenista');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `transaccion`
+--
+
+DROP TABLE IF EXISTS `transaccion`;
+CREATE TABLE `transaccion` (
+  `id_transaccion` int(11) NOT NULL,
+  `fecha_hora` datetime NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `tipo` varchar(30) NOT NULL,
+  `comentario` varchar(100) NOT NULL,
+  `clave` int(11) NOT NULL,
+  `id_insumo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Truncar tablas antes de insertar `transaccion`
+--
+
+TRUNCATE TABLE `transaccion`;
 -- --------------------------------------------------------
 
 --
@@ -215,6 +421,18 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Truncar tablas antes de insertar `usuario`
+--
+
+TRUNCATE TABLE `usuario`;
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`clave`, `apellido_paterno`, `apellido_materno`, `nombre`, `Tipo_id_tipo`) VALUES
+(100, 'Carmona', 'Avendaño', 'Lluvia', 2);
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -225,6 +443,33 @@ ALTER TABLE `comanda`
   ADD PRIMARY KEY (`id_comanda`),
   ADD KEY `fk_Comanda_Usuario1_idx` (`Usuario_clave`),
   ADD KEY `fk_Comanda_Mesa1_idx` (`Mesa_numero_mesa`);
+
+--
+-- Indices de la tabla `extra`
+--
+ALTER TABLE `extra`
+  ADD PRIMARY KEY (`id_extra`);
+
+--
+-- Indices de la tabla `ingrediente`
+--
+ALTER TABLE `ingrediente`
+  ADD PRIMARY KEY (`id_ingrediente`),
+  ADD UNIQUE KEY `id_insumo` (`id_insumo`);
+
+--
+-- Indices de la tabla `insumo`
+--
+ALTER TABLE `insumo`
+  ADD PRIMARY KEY (`id_insumo`);
+
+--
+-- Indices de la tabla `lista_ingrediente`
+--
+ALTER TABLE `lista_ingrediente`
+  ADD PRIMARY KEY (`id_elemento_lista`),
+  ADD KEY `id_platillo` (`id_platillo`),
+  ADD KEY `id_ingrediente` (`id_ingrediente`);
 
 --
 -- Indices de la tabla `mesa`
@@ -239,6 +484,14 @@ ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id_Pedido`),
   ADD KEY `fk_Pedido_Comanda1_idx` (`Comanda_id_comanda`),
   ADD KEY `fk_Pedido_Platillo1_idx` (`Platillo_id_platillo`);
+
+--
+-- Indices de la tabla `pedido_extra`
+--
+ALTER TABLE `pedido_extra`
+  ADD PRIMARY KEY (`id_pedido_extra`),
+  ADD KEY `id_extra` (`id_extra`),
+  ADD KEY `id_Pedido` (`id_Pedido`);
 
 --
 -- Indices de la tabla `platillo`
@@ -260,6 +513,14 @@ ALTER TABLE `tipo`
   ADD PRIMARY KEY (`id_tipo`);
 
 --
+-- Indices de la tabla `transaccion`
+--
+ALTER TABLE `transaccion`
+  ADD PRIMARY KEY (`id_transaccion`),
+  ADD KEY `clave` (`clave`),
+  ADD KEY `id_insumo` (`id_insumo`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -274,19 +535,49 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comanda`
 --
 ALTER TABLE `comanda`
-  MODIFY `id_comanda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comanda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT de la tabla `extra`
+--
+ALTER TABLE `extra`
+  MODIFY `id_extra` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `ingrediente`
+--
+ALTER TABLE `ingrediente`
+  MODIFY `id_ingrediente` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `insumo`
+--
+ALTER TABLE `insumo`
+  MODIFY `id_insumo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `lista_ingrediente`
+--
+ALTER TABLE `lista_ingrediente`
+  MODIFY `id_elemento_lista` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `mesa`
 --
 ALTER TABLE `mesa`
-  MODIFY `numero_mesa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `numero_mesa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_Pedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `pedido_extra`
+--
+ALTER TABLE `pedido_extra`
+  MODIFY `id_pedido_extra` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `platillo`
@@ -310,7 +601,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `clave` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `clave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- Restricciones para tablas volcadas
@@ -324,11 +615,31 @@ ALTER TABLE `comanda`
   ADD CONSTRAINT `fk_Comanda_Usuario1` FOREIGN KEY (`Usuario_clave`) REFERENCES `usuario` (`clave`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Filtros para la tabla `ingrediente`
+--
+ALTER TABLE `ingrediente`
+  ADD CONSTRAINT `ingrediente_ibfk_1` FOREIGN KEY (`id_insumo`) REFERENCES `insumo` (`id_insumo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `lista_ingrediente`
+--
+ALTER TABLE `lista_ingrediente`
+  ADD CONSTRAINT `lista_ingrediente_ibfk_1` FOREIGN KEY (`id_platillo`) REFERENCES `platillo` (`id_platillo`),
+  ADD CONSTRAINT `lista_ingrediente_ibfk_2` FOREIGN KEY (`id_ingrediente`) REFERENCES `ingrediente` (`id_ingrediente`);
+
+--
 -- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  ADD CONSTRAINT `fk_Pedido_Comanda1` FOREIGN KEY (`Comanda_id_comanda`) REFERENCES `comanda` (`id_comanda`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Pedido_Platillo1` FOREIGN KEY (`Platillo_id_platillo`) REFERENCES `platillo` (`id_platillo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Pedido_Platillo1` FOREIGN KEY (`Platillo_id_platillo`) REFERENCES `platillo` (`id_platillo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`Comanda_id_comanda`) REFERENCES `comanda` (`id_comanda`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `pedido_extra`
+--
+ALTER TABLE `pedido_extra`
+  ADD CONSTRAINT `pedido_extra_ibfk_1` FOREIGN KEY (`id_extra`) REFERENCES `extra` (`id_extra`),
+  ADD CONSTRAINT `pedido_extra_ibfk_2` FOREIGN KEY (`id_Pedido`) REFERENCES `pedido` (`id_Pedido`);
 
 --
 -- Filtros para la tabla `ticket`
@@ -337,39 +648,18 @@ ALTER TABLE `ticket`
   ADD CONSTRAINT `fk_Ticket_Comanda1` FOREIGN KEY (`Comanda_id_comanda`) REFERENCES `comanda` (`id_comanda`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Filtros para la tabla `transaccion`
+--
+ALTER TABLE `transaccion`
+  ADD CONSTRAINT `transaccion_ibfk_1` FOREIGN KEY (`clave`) REFERENCES `usuario` (`clave`),
+  ADD CONSTRAINT `transaccion_ibfk_2` FOREIGN KEY (`id_insumo`) REFERENCES `insumo` (`id_insumo`);
+
+--
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `fk_Usuario_Tipo` FOREIGN KEY (`Tipo_id_tipo`) REFERENCES `tipo` (`id_tipo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
-
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Ocupado');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-INSERT INTO mesa(estado) values('Libre');
-
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
