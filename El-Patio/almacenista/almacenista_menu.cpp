@@ -2,10 +2,16 @@
 #include "ui_almacenista_menu.h"
 
 #include <QDebug>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <QSortFilterProxyModel>
+#include <QSqlRelationalTableModel>
 
 almacenista_menu::almacenista_menu(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::almacenista_menu)
+    ui(new Ui::almacenista_menu),
+    almacenModel(new QSqlQueryModel(this)),
+       almacenProxyModel(new QSortFilterProxyModel(this))
 {
     ui->setupUi(this);
 
@@ -15,6 +21,12 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     ui->ln_presentacion->setHidden(true);
     ui->btn_cancelar->setHidden(true);
     ui->btn_guardar->setHidden(true);
+
+    script = "select ins.nombre, ins.precio_compra, ins.existencias,"
+                     " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
+                     " from insumo as ins inner join ingrediente as ing"
+                     " where ins.id_insumo = ing.id_insumo";
+    llenarTabla(script);
 }
 
 almacenista_menu::~almacenista_menu()
@@ -57,4 +69,44 @@ void almacenista_menu::on_btn_cancelar_clicked()
     ui->lb_existencias_insumo->setHidden(false);
     ui->btn_editar_insumo->setHidden(false);
 
+}
+
+void almacenista_menu::llenarTabla(QString query)
+{
+    almacenModel->setQuery(query, QSqlDatabase::database("Connection"));
+
+    almacenProxyModel->setSourceModel(almacenModel);
+    ui->tablaInsumos->setModel(almacenProxyModel);
+}
+
+void almacenista_menu::on_ln_nombre_insumo_textChanged(const QString &arg1)
+{
+    if (arg1.isEmpty()){ llenarTabla(script);
+    }
+    else{
+        QString filtro = script + " && ins.nombre = '"+arg1+"'";
+        llenarTabla(filtro);
+    }
+}
+
+void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
+{
+    QString id = ui->tablaInsumos->model()->data(index).toString();
+    QSqlQuery query;
+    QString scrp = "";
+    query.prepare(scrp);
+    if(query.exec())
+    {
+        query.next();
+        QString nombre = query.value(0).toString();
+        QString clave = query.value(1).toString();
+        QString precio = query.value(2).toString();
+        QString existencias = query.value(3).toString();
+        QString presentacion = query.value(4).toString();
+        ui->lb_id_insumo->setText(clave);
+        ui->lb_nombre_insumo->setText(nombre);
+        ui->lb_precio_insumo->setText(precio);
+        ui->lb_existencias_insumo->setText(existencias);
+        ui->lb_presentacion_insumo->setText(presentacion);
+    }
 }
