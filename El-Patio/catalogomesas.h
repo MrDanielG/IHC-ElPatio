@@ -66,6 +66,8 @@ private slots:
 
     void on_btnAbrirMesa_clicked();
 
+    void on_btn_login_clicked();
+
 signals:
     void cambiarStackedWidget();
 

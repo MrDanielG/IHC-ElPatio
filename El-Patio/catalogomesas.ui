@@ -719,6 +719,19 @@ color: rgb(0, 0, 0);</string>
     </layout>
    </widget>
   </widget>
+  <widget class="QPushButton" name="btn_login">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>120</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>label_7</zorder>
   <zorder>layoutWidget</zorder>
@@ -728,6 +741,7 @@ color: rgb(0, 0, 0);</string>
   <zorder>fecha</zorder>
   <zorder>label_nMesa</zorder>
   <zorder>scrollArea</zorder>
+  <zorder>btn_login</zorder>
  </widget>
  <resources>
   <include location="Recursos.qrc"/>

@@ -3,9 +3,10 @@
 
 #include <QMainWindow>
 #include <QSqlDatabase>
-//#include "mesero/mesero_menu_comandas.h"
+
 
 class mesero_menu_comandas;
+class almacenista_menu;
 
 namespace Ui {
 class MainWindow;
@@ -24,8 +25,13 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    //conexion BD
     QSqlDatabase mDatabase;
+
+    //paginas de los usuarios
     mesero_menu_comandas *menuComandas;
+    almacenista_menu *menuAlmacenista;
+
 };
 
 #endif // MAINWINDOW_H

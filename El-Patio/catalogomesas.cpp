@@ -318,3 +318,8 @@ QString CatalogoMesas::getNumMesa()
 {
     return nMesa;
 }
+
+void CatalogoMesas::on_btn_login_clicked()
+{
+    this->mainwindow->cambiar_pagina(2);
+}
