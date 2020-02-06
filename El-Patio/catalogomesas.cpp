@@ -7,6 +7,8 @@
 #include <QSqlQuery>
 #include <QInputDialog>
 
+#include "mainwindow.h"
+
 CatalogoMesas::CatalogoMesas(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CatalogoMesas)
@@ -44,7 +46,7 @@ void CatalogoMesas::AgregarMesas(int n)
         script = "SELECT numero_mesa FROM Mesa WHERE Estado = 'Libre'";
         break;
     case 3:
-        script = "SELECT numero_mesa FROM Mesa WHERE Estado = 'Ocupado'";
+        script = "SELECT numero_mesa FROM Mesa WHERE Estado = 'Ocupada'";
         break;
     }
 
@@ -74,6 +76,11 @@ void CatalogoMesas::AgregarMesas(int n)
         i++;
     }
     query.finish();
+}
+
+void CatalogoMesas::setMainWindow(MainWindow *_mainwindow)
+{
+    this->mainwindow = _mainwindow;
 }
 
 
@@ -191,60 +198,84 @@ void CatalogoMesas::on_btnDel_clicked()
 
 void CatalogoMesas::on_btnAbrirMesa_clicked()
 {
-     //padre->cambiarStacked_indice(1);
-    if(ui->label_nMesa->text() == "Numero de Mesa")
+    if(ui->label_nMesa->text() != "Numero de Mesa")
     {
-        QMessageBox::warning(this, tr("No Seleccionado"),
-                   tr("Por favor, selecciona una mesa para abrirla"));
-           return;
-    }
-    else
-    {
-        if(ui->lineEdit_Entrada->text().isEmpty())
-        {
-            QMessageBox::warning(this, tr("Campo Vacío"),
-                       tr("Por favor, ingresa el número de mesero"));
-               return;
-        }
-        else
+        if(!ui->lineEdit_Entrada->text().isEmpty())
         {
             QString hora = QTime::currentTime().toString("hh:mm");
             QString User = ui->lineEdit_Entrada->text();
-            nMesa = ui->label_nMesa->text();
-            QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
-                             "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
-            QSqlQuery query(mDatabase);
-            query.prepare(script);
-            if(query.exec()){
-                nComanda = query.lastInsertId().toInt();
-                //padre->cambiarStacked_indice(1);
+            QString cad = "SELECT * from usuario WHERE clave = "+User+"";
+            QSqlQuery busca(mDatabase);
+            busca.prepare(cad);
+            busca.exec();
+            if(busca.next())
+            {
+                QSqlQuery estadoM(mDatabase);
+                estadoM.prepare("select estado from mesa where numero_mesa = "+nMesa+"");
+                estadoM.exec();
+                estadoM.next();
+                if(estadoM.value(0).toString() == "Libre")
+                {
+                    QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
+                                                        "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
+                    QSqlQuery query(mDatabase);
+                    query.prepare(script);
+                    query.exec();
+                    QSqlQuery query2(mDatabase);
+                    query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+nMesa+"");
+                    query2.exec();
+                    id_mesa_auxiliar = nMesa.toInt();
+                    qDebug()<<id_mesa_auxiliar;
+                    this->mainwindow->pasar_id_mesa(this->id_mesa_auxiliar);
+                    qDebug() << "Segun yo aqui no llega";
+                    this->mainwindow->cambiar_pagina(1);
+                    qDebug() << "Segun yo aqui no llega x2";
+                }
+                else
+                {
+                    QMessageBox::warning(this, tr("Error"),
+                        "La mesa " + nMesa + " se encuentra abierta actualmente");
+                }
             }
-            else{
-                QMessageBox::warning(this, tr("Error"), "La comanda no se ha registrado, error.");
+            else
+            {
+                QMessageBox::warning(this, tr("Error"),
+                    "La clave de Usuario es incorrecta");
             }
-            QString newStyle = "*{background-color: rgb(255, 255, 255);"
-                            "border: 2px solid rgb(255,255,255);"
-                            "border-bottom-color: gray;}";
-            QString oldStyle = "*{background-color: rgb(255, 255, 255);"
-                               "border: 2px solid rgb(255,255,255);}";
-            ui->btnTodos->setStyleSheet(newStyle);
-            ui->btnLibre->setStyleSheet(oldStyle);
-            ui->btnOcupado->setStyleSheet(oldStyle);
-            AgregarMesas(1);
-            ui->lineEdit_Entrada->clear();
-            ui->label_nMesa->setText("Numero de Mesa");
-            QSqlQuery query2(mDatabase);
-            query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+nMesa+"");
-            query2.exec();
-
+        }
+        else
+        {
+            QMessageBox::warning(this, tr("Campo Vacío"),
+                                  tr("Por favor, ingrese su número usuario"));
         }
     }
+    else
+    {
+        QMessageBox::warning(this, tr("No Seleccionado"),
+                           tr("Por favor, selecciona una mesa para abrirla"));
+    }
+    QString newStyle = "*{background-color: rgb(255, 255, 255);"
+                    "border: 2px solid rgb(255,255,255);"
+                    "border-bottom-color: gray;}";
+    QString oldStyle = "*{background-color: rgb(255, 255, 255);"
+                       "border: 2px solid rgb(255,255,255);}";
+    ui->btnTodos->setStyleSheet(newStyle);
+    ui->btnLibre->setStyleSheet(oldStyle);
+    ui->btnOcupado->setStyleSheet(oldStyle);
+    AgregarMesas(1);
+    ui->lineEdit_Entrada->clear();
+    ui->label_nMesa->setText("Numero de Mesa");
 }
 
 void CatalogoMesas::seleccionarMesa()
 {
     QPushButton * btn = qobject_cast<QPushButton *>(sender());
+    nMesa = btn->text();
+    ui->label_nMesa->setText("Numero de Mesa: " + nMesa);
     QString num = btn->text();
+    this->id_mesa_auxiliar = num.toInt();
+    qDebug() << "\n\nmesa" + num;
+
     ui->label_nMesa->setText("Numero de Mesa: " + num);
     QString oldStyle = "*{background-color: rgb(225, 225, 225);"
                      " border:1px solid black;"
