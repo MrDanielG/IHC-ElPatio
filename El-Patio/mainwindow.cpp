@@ -34,11 +34,16 @@ void MainWindow::cambiar_pagina(int index)
 
 void MainWindow::pasar_id_mesa(int _id_mesa_auxiliar)
 {
-    qDebug() << "\n\nmesa" + _id_mesa_auxiliar;
     menuComandas->set_id_mesa(_id_mesa_auxiliar);
+     qDebug() << "\n\nmesa" << _id_mesa_auxiliar;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::cambiarStacked_indice(int P)
+{
+    ui->stackedWidget->setCurrentIndex(P);
 }

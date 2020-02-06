@@ -14,6 +14,8 @@ public:
     QString precioPlatillo;
     QString foto;
     int cantidad = 0;
+    void setCantidad(int nueva);
+    bool operator ==(Platillo P);
 };
 
 #endif // PLATILLO_H

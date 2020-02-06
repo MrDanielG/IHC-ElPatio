@@ -21,15 +21,16 @@ public:
     ~mesero_menu_comandas();
     void actualizarCatalogo();
     void limiparCatalogo();
-    void agregarSideBar(Platillo);
+    void actualizarSideBar(Platillo, int);
     void limpiarSideBar();
+    void actualizarSB();
+
+private slots:
+    void on_btnMandarCocina_clicked();
     void setMainWindow(MainWindow *);
     void set_id_mesa(int);
     void limpiar_grid4();
-
-private slots:
     void on_btnBebidas_2_clicked();
-
     void on_btnPlatillos_2_clicked();
 
 private:

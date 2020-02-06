@@ -20,6 +20,7 @@ public:
     void cambiar_pagina(int);
     void pasar_id_mesa(int);
     ~MainWindow();
+    void cambiarStacked_indice(int);
 
 private:
     Ui::MainWindow *ui;
