@@ -58,6 +58,12 @@ QSpinBox{
 
 #scrollArea {
     border:none;
+    background-color: white;
+}
+
+#scrollAreaMesas {
+    border:none;
+    background-color: white;
 }
 
 #scrollareaalbumSidebar {
@@ -67,4 +73,9 @@ QSpinBox{
 
 #scrollSideBar {
     border:none;
+}
+
+#catalogo {
+    border:none;
+    background-color: white;
 }

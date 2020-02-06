@@ -50,12 +50,12 @@ void CatalogoMesas::AgregarMesas(int n)
         break;
     }
 
-    QFont fuente("MS Shell Dlg 2",25,4,false);
+    QFont fuente("Roboto",25,-2,false);
     QString estilo = "*{background-color: rgb(225, 225, 225);"
-                      " border:1px solid black;"
                       "padding: 0 8px;"
+                      "color: #585858;"
                       "border-radius: 10px; padding: 0 8px; }"
-                      "QPushButton:hover { border: 2px solid  #66c011; }";
+                      "QPushButton:hover { border: 5px solid  #46B04A; }";
     QSqlQuery query(mDatabase);
     query.prepare(script);
     query.exec();
@@ -87,43 +87,43 @@ void CatalogoMesas::setMainWindow(MainWindow *_mainwindow)
 void CatalogoMesas::on_btnTodos_clicked()
 {
     borrar();
-    QString newStyle = "*{background-color: rgb(255, 255, 255);"
-                    "border: 2px solid rgb(255,255,255);"
-                    "border-bottom-color: gray;}";
-    QString oldStyle = "*{background-color: rgb(255, 255, 255);"
-                       "border: 2px solid rgb(255,255,255);}";
+//    QString newStyle = "*{background-color: rgb(255, 255, 255);"
+//                    "border: 2px solid rgb(255,255,255);"
+//                    "border-bottom-color: gray;}";
+//    QString oldStyle = "*{background-color: rgb(255, 255, 255);"
+//                       "border: 2px solid rgb(255,255,255);}";
 
-    ui->btnTodos->setStyleSheet(newStyle);
-    ui->btnLibre->setStyleSheet(oldStyle);
-    ui->btnOcupado->setStyleSheet(oldStyle);
+//    ui->btnTodos->setStyleSheet(newStyle);
+//    ui->btnLibre->setStyleSheet(oldStyle);
+//    ui->btnOcupado->setStyleSheet(oldStyle);
     AgregarMesas(1);
 }
 
 void CatalogoMesas::on_btnLibre_clicked()
 {
     borrar();
-    QString newStyle = "*{background-color: rgb(255, 255, 255);"
-                    "border: 2px solid rgb(255,255,255);"
-                    "border-bottom-color: gray;}";
-    QString oldStyle = "*{background-color: rgb(255, 255, 255);"
-                       "border: 2px solid rgb(255,255,255);}";
-    ui->btnTodos->setStyleSheet(oldStyle);
-    ui->btnLibre->setStyleSheet(newStyle);
-    ui->btnOcupado->setStyleSheet(oldStyle);
+//    QString newStyle = "*{background-color: rgb(255, 255, 255);"
+//                    "border: 2px solid rgb(255,255,255);"
+//                    "border-bottom-color: gray;}";
+//    QString oldStyle = "*{background-color: rgb(255, 255, 255);"
+//                       "border: 2px solid rgb(255,255,255);}";
+//    ui->btnTodos->setStyleSheet(oldStyle);
+//    ui->btnLibre->setStyleSheet(newStyle);
+//    ui->btnOcupado->setStyleSheet(oldStyle);
     AgregarMesas(2);
 }
 
 void CatalogoMesas::on_btnOcupado_clicked()
 {
     borrar();
-    QString newStyle = "*{background-color: rgb(255, 255, 255);"
-                    "border: 2px solid rgb(255,255,255);"
-                    "border-bottom-color: gray;}";
-    QString oldStyle = "*{background-color: rgb(255, 255, 255);"
-                       "border: 2px solid rgb(255,255,255);}";
-    ui->btnTodos->setStyleSheet(oldStyle);
-    ui->btnLibre->setStyleSheet(oldStyle);
-    ui->btnOcupado->setStyleSheet(newStyle);
+//    QString newStyle = "*{background-color: rgb(255, 255, 255);"
+//                    "border: 2px solid rgb(255,255,255);"
+//                    "border-bottom-color: gray;}";
+//    QString oldStyle = "*{background-color: rgb(255, 255, 255);"
+//                       "border: 2px solid rgb(255,255,255);}";
+//    ui->btnTodos->setStyleSheet(oldStyle);
+//    ui->btnLibre->setStyleSheet(oldStyle);
+//    ui->btnOcupado->setStyleSheet(newStyle);
     AgregarMesas(3);
 }
 
