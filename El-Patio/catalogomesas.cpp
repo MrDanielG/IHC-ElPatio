@@ -277,11 +277,11 @@ void CatalogoMesas::seleccionarMesa()
     qDebug() << "\n\nmesa" + num;
 
     ui->label_nMesa->setText("Numero de Mesa: " + num);
-    QString oldStyle = "*{background-color: rgb(225, 225, 225);"
-                     " border:1px solid black;"
-                       "padding: 0 8px;"
-                     "border-radius: 10px; padding: 0 8px; }"
-                     "QPushButton:hover { border: 2px solid  #66c011; }";
+    QString oldStyle ="*{background-color: rgb(225, 225, 225);"
+                      "padding: 0 8px;"
+                      "color: #585858;"
+                      "border-radius: 10px; padding: 0 8px; }"
+                      "QPushButton:hover { border: 5px solid  #46B04A; }";
     QString newStyle = "*{background-color: rgb(225, 225, 225);"
                      " border:4px solid rgb(70, 176, 75);"
                      "border-radius: 10px; padding: 0 8px; }";
