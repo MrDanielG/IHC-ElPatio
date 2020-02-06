@@ -94,9 +94,9 @@
   <widget class="QWidget" name="layoutWidget_3">
    <property name="geometry">
     <rect>
-     <x>770</x>
+     <x>750</x>
      <y>80</y>
-     <width>221</width>
+     <width>241</width>
      <height>98</height>
     </rect>
    </property>
@@ -115,6 +115,9 @@
       </property>
       <property name="text">
        <string>Información de Insumo</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -287,9 +290,9 @@
   <widget class="QWidget" name="layoutWidget_6">
    <property name="geometry">
     <rect>
-     <x>31</x>
+     <x>41</x>
      <y>190</y>
-     <width>351</width>
+     <width>341</width>
      <height>26</height>
     </rect>
    </property>
@@ -324,6 +327,19 @@
      </widget>
     </item>
     <item>
+     <spacer name="horizontalSpacer_6">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
      <widget class="QPushButton" name="btnPlatillos">
       <property name="font">
        <font>
@@ -351,6 +367,19 @@
        <string>Habilitados</string>
       </property>
      </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_7">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
     <item>
      <widget class="QPushButton" name="btnBebidas">
@@ -419,36 +448,13 @@
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="elPatio_5">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>420</y>
-     <width>571</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Roboto</family>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: #585858
-</string>
-   </property>
-   <property name="text">
-    <string>AQUÍ VA LA COSA DONDE SE LE INSERTA LA TABLA XDXDXXXD</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>760</x>
-     <y>600</y>
+     <x>750</x>
+     <y>584</y>
      <width>243</width>
-     <height>155</height>
+     <height>171</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -558,7 +564,7 @@
       <property name="font">
        <font>
         <family>Roboto</family>
-        <pointsize>10</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="cursor">
@@ -586,12 +592,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>70</y>
-     <width>701</width>
+     <width>681</width>
      <height>79</height>
     </rect>
    </property>
@@ -649,7 +655,7 @@
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-border: 1px solid  rgb(57, 92, 114);</string>
+border: 1px solid #ECEEEE;</string>
         </property>
         <property name="placeholderText">
          <string>Nombre insumo e.j. jitomate</string>
@@ -759,13 +765,13 @@ border: 1px solid  rgb(57, 92, 114);</string>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>750</x>
      <y>220</y>
-     <width>232</width>
-     <height>315</height>
+     <width>241</width>
+     <height>322</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -861,6 +867,9 @@ border: 1px solid  rgb(57, 92, 114);</string>
         <property name="text">
          <string>[PRECIO]</string>
         </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -879,7 +888,7 @@ border: 1px solid  rgb(57, 92, 114);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-border: 1px solid  rgb(57, 92, 114);</string>
+border: 1px solid #ECEEEE;</string>
         </property>
        </widget>
       </item>
@@ -931,6 +940,9 @@ border: 1px solid  rgb(57, 92, 114);</string>
         <property name="text">
          <string>[EXISTENCIAS]</string>
         </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -949,7 +961,7 @@ border: 1px solid  rgb(57, 92, 114);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-border: 1px solid  rgb(57, 92, 114);</string>
+border: 1px solid #ECEEEE;</string>
         </property>
        </widget>
       </item>
@@ -1001,6 +1013,9 @@ border: 1px solid  rgb(57, 92, 114);</string>
         <property name="text">
          <string>[PRESENTACIÓN]</string>
         </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -1019,7 +1034,7 @@ border: 1px solid  rgb(57, 92, 114);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-border: 1px solid  rgb(57, 92, 114);</string>
+border: 1px solid #ECEEEE;</string>
         </property>
        </widget>
       </item>
@@ -1049,6 +1064,16 @@ border: 1px solid  rgb(57, 92, 114);</string>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QTableView" name="tablaInsumos">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>230</y>
+     <width>661</width>
+     <height>521</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <tabstops>
