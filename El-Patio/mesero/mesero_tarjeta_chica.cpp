@@ -32,8 +32,6 @@ mesero_tarjeta_chica::mesero_tarjeta_chica(int id_platillo, QWidget *parent):
        }else {
            qDebug() << "conexion exitosa desde tarjeta_platillo";
        }
-       ui->setupUi(this);
-       ui->setupUi(this);
 
        this->id = QString::number(id_platillo);
 
