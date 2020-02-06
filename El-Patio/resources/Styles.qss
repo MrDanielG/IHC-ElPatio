@@ -47,7 +47,6 @@
 }
 
 QSpinBox{
-    border: 1px solid black;
     border-radius: 10px;
     font: 12pt "MS Shell Dlg 2";    
 }
@@ -58,6 +57,12 @@ QSpinBox{
 
 #scrollArea {
     border:none;
+    background-color: white;
+}
+
+#scrollAreaMesas {
+    border:none;
+    background-color: white;
 }
 
 #scrollareaalbumSidebar {
@@ -67,4 +72,9 @@ QSpinBox{
 
 #scrollSideBar {
     border:none;
+}
+
+#catalogo {
+    border:none;
+    background-color: white;
 }

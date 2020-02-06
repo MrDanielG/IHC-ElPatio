@@ -19,6 +19,8 @@ class mesero_menu_comandas : public QWidget
 public:
     explicit mesero_menu_comandas(QWidget *parent = nullptr);
     ~mesero_menu_comandas();
+    void setMainWindow(MainWindow *);
+    void set_id_mesa(int);
     void actualizarCatalogo();
     void limiparCatalogo();
     void actualizarSideBar(Platillo, int);
@@ -27,8 +29,6 @@ public:
 
 private slots:
     void on_btnMandarCocina_clicked();
-    void setMainWindow(MainWindow *);
-    void set_id_mesa(int);
     void limpiar_grid4();
     void on_btnBebidas_2_clicked();
     void on_btnPlatillos_2_clicked();

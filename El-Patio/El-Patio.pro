@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        almacenista/almacenista_menu.cpp \
         catalogomesas.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
         models/platillo.cpp
 
 HEADERS += \
+        almacenista/almacenista_menu.h \
         catalogomesas.h \
         mainwindow.h \
         mesero/mesero_agregar_extra.h \
@@ -46,6 +48,7 @@ HEADERS += \
         models/platillo.h
 
 FORMS += \
+        almacenista/almacenista_menu.ui \
         catalogomesas.ui \
         mainwindow.ui \
         mesero/mesero_agregar_extra.ui \

@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "mesero/mesero_menu_comandas.h"
+#include "almacenista/almacenista_menu.h"
 
 #include <QDebug>
 
@@ -19,11 +20,19 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     menuComandas = new mesero_menu_comandas(this);
-    ui->stackedWidget->insertWidget(1, menuComandas);
+    menuComandas->show();
     menuComandas->setMainWindow(this);
+
+    menuAlmacenista = new almacenista_menu(this);
+    menuAlmacenista->show();
+    menuAlmacenista->setMainWindow(this);
+
     ui->Mesas->setMainWindow(this);
 
-    menuComandas->show();
+
+    ui->stackedWidget->insertWidget(1, menuComandas);
+    ui->stackedWidget->insertWidget(2, menuAlmacenista);
+
     ui->stackedWidget->setCurrentIndex(0);
 }
 
