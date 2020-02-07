@@ -235,7 +235,7 @@ void almacenista_menu::on_btnPlatillos_clicked()
         ui->btnPlatillos->setFont(fuente);
         ui->btnBebidas->setFont(fuente2);
         ui->btnTodo->setFont(fuente2);
-        script = "SELECT * FROM insumo WHERE estado = 'activo' && id_insumo not in (SELECT id_insumo from perecedero)";
+        script = "SELECT * FROM insumo as ins WHERE ins.estado = 'activo' && ins.id_insumo not in (SELECT id_insumo from perecedero)";
         llenarTabla(script);
     }
 }
@@ -249,7 +249,7 @@ void almacenista_menu::on_btnBebidas_clicked()
         ui->btnBebidas->setFont(fuente);
         ui->btnTodo->setFont(fuente2);
         ui->btnPlatillos->setFont(fuente2);
-        script = "select * from insumo where existencias = 0 && estado = 'activo';";
+        script = "select * from insumo as ins where ins.existencias = 0 && ins.estado = 'activo'";
         llenarTabla(script);
     }
 }
