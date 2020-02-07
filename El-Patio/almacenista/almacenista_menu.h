@@ -32,6 +32,12 @@ private slots:
     void on_tablaInsumos_clicked(const QModelIndex &index);
 
     void on_btnEliminarInsumo_clicked();
+    
+    void on_btnTodo_clicked();
+
+    void on_btnPlatillos_clicked();
+
+    void on_btnBebidas_clicked();
 
 private:
     Ui::almacenista_menu *ui;

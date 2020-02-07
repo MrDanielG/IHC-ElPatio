@@ -124,3 +124,36 @@ void almacenista_menu::on_btnEliminarInsumo_clicked()
 {
     qDebug() << "Existencias originales " << existenciasOriginales;
 }
+void almacenista_menu::on_btnTodo_clicked()
+{
+    QFont fuente("Roboto", 12, QFont::Bold);
+    QFont fuente2("Roboto", 12);
+    if(ui->btnTodo->font() != fuente)
+    {
+        ui->btnTodo->setFont(fuente);
+        ui->btnPlatillos->setFont(fuente2);
+        ui->btnBebidas->setFont(fuente2);
+    }
+}
+
+void almacenista_menu::on_btnPlatillos_clicked()
+{
+    QFont fuente("Roboto", 12, QFont::Bold);
+    QFont fuente2("Roboto", 12);
+    if(ui->btnPlatillos->font() != fuente)
+    {
+        ui->btnPlatillos->setFont(fuente);
+        ui->btnBebidas->setFont(fuente2);
+        ui->btnTodo->setFont(fuente2  );
+    }
+}
+
+
+void almacenista_menu::on_btnBebidas_clicked()
+{
+    QFont fuente("Roboto", 12, QFont::Bold);
+    if(ui->btnBebidas->font() != fuente)
+    {
+        ui->btnBebidas->setFont(fuente);
+    }
+}
