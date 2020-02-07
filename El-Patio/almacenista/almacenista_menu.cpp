@@ -94,6 +94,7 @@ void almacenista_menu::on_btn_editar_insumo_clicked()
     ui->lb_presentacion_insumo->setHidden(true);
     ui->lb_existencias_insumo->setHidden(true);
     ui->btn_editar_insumo->setHidden(true);
+    ui->btnEliminarInsumo->setHidden(true);
 
     QString auxPrecio = ui->lb_precio_insumo->text();
     QString auxExist = ui->lb_existencias_insumo->text();

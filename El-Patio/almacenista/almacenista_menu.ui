@@ -532,49 +532,6 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="btn_guardar">
-      <property name="minimumSize">
-       <size>
-        <width>241</width>
-        <height>41</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">*{
-	color: white;
-	border-radius: 10px;
-	background-color: #46B04A;
-	border: none;
-	padding: 5px;
-}
-
-:hover{
-	background-color: white;
-	border: 1px solid #46B04A;
-	color: #46B04A;
-}</string>
-      </property>
-      <property name="text">
-       <string>Guardar</string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QPushButton" name="btn_cancelar">
       <property name="minimumSize">
        <size>
@@ -614,6 +571,49 @@
       </property>
       <property name="text">
        <string>Cancelar</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_guardar">
+      <property name="minimumSize">
+       <size>
+        <width>241</width>
+        <height>41</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+      </property>
+      <property name="text">
+       <string>Guardar</string>
       </property>
      </widget>
     </item>
