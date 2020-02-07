@@ -47,6 +47,8 @@ private slots:
 
     void on_ln_presentacion_textChanged(const QString &arg1);
 
+    void on_cbox_comentario_activated(const QString &arg1);
+
 private:
     Ui::almacenista_menu *ui;
 

@@ -28,6 +28,9 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     ui->ln_presentacion->setHidden(true);
     ui->btn_cancelar->setHidden(true);
     ui->btn_guardar->setHidden(true);
+    ui->plainText_comentario->setHidden(true);
+    ui->label_7->setHidden(true);
+    ui->cbox_comentario->setHidden(true);
 
     script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                      " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
@@ -77,6 +80,9 @@ void almacenista_menu::on_btn_editar_insumo_clicked()
     ui->ln_presentacion->setHidden(false);
     ui->btn_cancelar->setHidden(false);
     ui->btn_guardar->setHidden(false);
+
+    ui->label_7->setHidden(false);
+    ui->cbox_comentario->setHidden(false);
     //oculta elementos
     ui->lb_precio_insumo->setHidden(true);
     ui->lb_presentacion_insumo->setHidden(true);
@@ -108,6 +114,10 @@ void almacenista_menu::on_btn_cancelar_clicked()
     ui->ln_presentacion->setHidden(true);
     ui->btn_cancelar->setHidden(true);
     ui->btn_guardar->setHidden(true);
+
+    ui->plainText_comentario->setHidden(true);
+    ui->label_7->setHidden(true);
+    ui->cbox_comentario->setHidden(true);
     //oculta elementos
     ui->lb_precio_insumo->setHidden(false);
     ui->lb_presentacion_insumo->setHidden(false);
@@ -302,7 +312,8 @@ void almacenista_menu::on_btn_guardar_clicked()
     present1 = ui->lb_presentacion_insumo->text();
     present2 = ui->ln_presentacion->text();
 
-
+    bool transferencia = false;
+    bool mayor_existencia = false;
 
     if((precio1 != precio2) || (exist1 != exist2) || (present1 != present2))
     {
@@ -314,33 +325,84 @@ void almacenista_menu::on_btn_guardar_clicked()
             QString sql = "UPDATE insumo SET precio_compra = "+precio2+", existencias = "+exist2+" , presentacion = '"+present2+"' WHERE id_insumo = "+id+"";
             query.prepare(sql);
             query.exec();
+
+            //si es mayor sera salida
+            if(existenciasOriginales > exist2.toInt() ){
+                transferencia = true;
+                mayor_existencia = true;
+            }
+            if(existenciasOriginales < exist2.toInt() ){
+                transferencia = true;
+            }
+
+            //elementos a ocultar
+            ui->spinBox_existencias->setHidden(true);
+            ui->spinBox_precio->setHidden(true);
+            ui->ln_presentacion->setHidden(true);
+            ui->btn_cancelar->setHidden(true);
+            ui->btn_guardar->setHidden(true);
+            ui->plainText_comentario->setHidden(true);
+            ui->label_7->setHidden(true);
+            ui->cbox_comentario->setHidden(true);
+
+            ui->lb_precio_insumo->setHidden(false);
+            ui->lb_presentacion_insumo->setHidden(false);
+            ui->lb_existencias_insumo->setHidden(false);
+            ui->btn_editar_insumo->setHidden(false);
+
         }
     }
 
+    qDebug() << "plok";
+    if(transferencia){
+        QString tipo = "entrada";
+
+        if(mayor_existencia)
+            tipo = "salida";
+
+
+        QString fecha = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+        QString cantidad = ui->spinBox_existencias->text();
+        QString comentario = ui->cbox_comentario->currentText();
+        if(comentario == "Otro")
+            comentario = ui->plainText_comentario->toPlainText();
+        QString id_insumo = ui->lb_id_insumo->text();
+        QString clave = "101";
+
+        QString query_transaccion =
+                "INSERT INTO `el_patio`.`transaccion` "
+                " (`fecha_hora`, `cantidad`, `tipo`, `comentario`, `clave`, `id_insumo`)"
+                " VALUES ('" +fecha+ "', " +cantidad+ ", '" +tipo+ "', '" +comentario+ "', " +clave+ ", " +id_insumo+ ");";
+
+        QSqlQuery query_tran(mDatabase);
+        query_tran.prepare(query_transaccion);
+        query_tran.exec();
+        qDebug() << "qwertyui";
+
+        qDebug() << query_transaccion;
+    }
+    qDebug() << "plok";
+
+
+
     llenarTabla(script);
-    ui->lb_id_insumo->setText("");
-    ui->lb_precio_insumo->setText("");
-    ui->lb_existencias_insumo->setText("");
-    ui->lb_precio_insumo->setText("");
-    ui->lb_presentacion_insumo->setText("");
-    ui->lb_nombre_insumo->setText("");
-    ui->spinBox_precio->setValue(0);
-    ui->spinBox_existencias->setValue(0);
-    ui->ln_presentacion->setText("");
-    on_btn_cancelar_clicked();
+//    ui->lb_id_insumo->setText("");
+//    ui->lb_precio_insumo->setText("");
+//    ui->lb_existencias_insumo->setText("");
+//    ui->lb_precio_insumo->setText("");
+//    ui->lb_presentacion_insumo->setText("");
+//    ui->lb_nombre_insumo->setText("");
+//    ui->spinBox_precio->setValue(0);
+//    ui->spinBox_existencias->setValue(0);
+//    ui->ln_presentacion->setText("");
+//    on_btn_cancelar_clicked();
+}
 
-    //mio
-    //TODO id del empleado
-
-    QString fecha = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss:z");
-    QString cantidad = ui->spinBox_existencias->text();
-    QString id_insumo = ui->lb_id_insumo->text();
-    QString clave = "101";
-
-    QString query_transaccion =
-            "INSERT INTO `el_patio`.`transaccion` "
-            "(`fecha_hora`, `cantidad`, `tipo`, `comentario`, `clave`, `id_insumo`)"
-            "VALUES ('" +fecha+ "', '" +cantidad+ "', 'entrada', 'S/C', '" +clave+ "', ' " +id_insumo+ " ');";
-
-    qDebug() << query_transaccion;
+void almacenista_menu::on_cbox_comentario_activated(const QString &arg1)
+{
+    if(arg1 == "Otro"){
+        ui->plainText_comentario->setHidden(false);
+    }else {
+        ui->plainText_comentario->setHidden(true);
+    }
 }
