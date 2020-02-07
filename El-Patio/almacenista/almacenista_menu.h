@@ -63,6 +63,8 @@ private:
     QSqlDatabase mDatabase;
     int existenciasOriginales;
     QString id;
+
+    int headers = 1;
 };
 
 #endif // ALMACENISTA_MENU_H
