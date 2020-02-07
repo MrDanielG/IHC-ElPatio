@@ -28,11 +28,17 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     ui->btn_cancelar->setHidden(true);
     ui->btn_guardar->setHidden(true);
 
+    ui->tablaInsumos->setStyleSheet("*{background-color: rgb(217, 217, 217); color: rgb(0, 0, 0);}");
+    ui->tablaInsumos->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tablaInsumos->verticalHeader()->setVisible(false);
+    ui->tablaInsumos->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
     script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                      " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
                      " from insumo as ins inner join perecedero as ing"
                      " where ins.id_insumo = ing.id_insumo && ins.estado = 'activo'";
     llenarTabla(script);
+
     QFont fuente("Roboto", 12, QFont::Bold);
     ui->btnTodo->setFont(fuente);
 
@@ -117,10 +123,31 @@ void almacenista_menu::on_btn_cancelar_clicked()
 
 void almacenista_menu::llenarTabla(QString query)
 {
+
     almacenModel->setQuery(query, QSqlDatabase::database("Connection"));
 
     almacenProxyModel->setSourceModel(almacenModel);
     ui->tablaInsumos->setModel(almacenProxyModel);
+    int col = almacenModel->columnCount();
+    if(col == 7)
+    {
+        almacenModel->setHeaderData(0,Qt::Horizontal,tr("ID"));
+        almacenModel->setHeaderData(1,Qt::Horizontal,tr("Nombre"));
+        almacenModel->setHeaderData(2,Qt::Horizontal,tr("Precio"));
+        almacenModel->setHeaderData(3,Qt::Horizontal,tr("Cantidad"));
+        almacenModel->setHeaderData(4,Qt::Horizontal,tr("Presentacion"));
+        almacenModel->setHeaderData(5,Qt::Horizontal,tr("Fecha"));
+        almacenModel->setHeaderData(6,Qt::Horizontal,tr("Caducidad"));
+    }
+    else
+    {
+        almacenModel->setHeaderData(0,Qt::Horizontal,tr("ID"));
+        almacenModel->setHeaderData(1,Qt::Horizontal,tr("Nombre"));
+        almacenModel->setHeaderData(2,Qt::Horizontal,tr("Precio"));
+        almacenModel->setHeaderData(3,Qt::Horizontal,tr("Cantidad"));
+        almacenModel->setHeaderData(4,Qt::Horizontal,tr("Presentacion"));
+        almacenModel->setHeaderData(5,Qt::Horizontal,tr("Estado"));
+    }
 }
 
 void almacenista_menu::on_ln_nombre_insumo_textChanged(const QString &arg1)
@@ -201,6 +228,7 @@ void almacenista_menu::on_btnPlatillos_clicked()
         ui->btnBebidas->setFont(fuente2);
         ui->btnTodo->setFont(fuente2);
         script = "SELECT * FROM insumo as ins WHERE ins.estado = 'activo' && ins.id_insumo not in (SELECT id_insumo from perecedero)";
+        headers = 2;
         llenarTabla(script);
     }
 }
@@ -216,6 +244,7 @@ void almacenista_menu::on_btnBebidas_clicked()
         ui->btnTodo->setFont(fuente2);
         ui->btnPlatillos->setFont(fuente2);
         script = "select * from insumo as ins where ins.existencias = 0 && ins.estado = 'activo'";
+        headers = 2;
         llenarTabla(script);
     }
 }
