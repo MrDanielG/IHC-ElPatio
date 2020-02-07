@@ -181,32 +181,41 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
 
 void almacenista_menu::on_btnEliminarInsumo_clicked()
 {
-    qDebug() << "Existencias originales " << existenciasOriginales;
+    QSqlQuery query(mDatabase);
+
     if(existenciasOriginales != 0){
         QMessageBox::warning(this, tr("Alerta"), tr("Aún hay registro de existencias de "
                                                    "este insumo, no puede ser eliminado"));
     }
     else{
-        QSqlQuery query(mDatabase);
         QString scrp = "select id_transaccion from transaccion"
                        " where id_insumo = "+id+"";
         query.prepare(scrp);
-        if(query.exec()){
-            if(query.next()){
-                if(QMessageBox::question(this, tr("Desactivar insumo"), tr("¿Está seguro que desea desactivar este insumo?"))==QMessageBox::Yes){
-                    QString desactivar = "update insumo set estado = 'inactivo' where id_insumo = "+id+"";
-                    query.finish();
-                    query.prepare(desactivar);
-                    if(query.exec())
-                        QMessageBox::information(this, tr("Éxito"), tr("El insumo fue desactivado"));//Ocultar
-                    else QMessageBox::warning(this, tr("Error"), tr("El insumo no pudo ser desactivado."));
-                }
+        if(query.exec() && QMessageBox::question(this, tr("Eliminar insumo"), tr("¿Está seguro que desea eliminar este insumo?"))==QMessageBox::Yes)
+        {
+            if(query.next())
+            {
+                QString desactivar = "update insumo set estado = 'inactivo' where id_insumo = "+id+"";
+                query.finish();
+                query.prepare(desactivar);
+                if(query.exec())
+                    QMessageBox::information(this, tr("Éxito"), tr("El insumo fue desactivado"));//Ocultar
+                else QMessageBox::warning(this, tr("Error"), tr("El insumo no pudo ser desactivado."));
             }
             else{
-                qDebug() << "sí la wa borrar eñe";//Eliminar
+                QString esPerecedero = "select id_perecedero from perecedero"
+                                       " where id_insumo = "+id+"";
+                query.prepare(esPerecedero);
+                if(query.exec()){
+                    if(query.next()){
+                        eliminaPerecedero();
+                    }
+                    else{
+                        eliminaInsumo();
+                    }
+                }
             }
         }
-
     }
 }
 void almacenista_menu::on_btnTodo_clicked()
@@ -342,4 +351,24 @@ void almacenista_menu::on_btn_guardar_clicked()
 
     qDebug() << query_transaccion;
     QMessageBox::information(this, ui->lb_id_insumo->text(), query_transaccion);
+}
+
+void almacenista_menu::eliminaPerecedero()
+{
+    QSqlQuery query(mDatabase);
+    QString eliminarP = "delete from perecedero where id_insumo = "+id+"";
+    query.prepare(eliminarP);
+    if(query.exec())
+        eliminaInsumo();
+        else QMessageBox::warning(this, tr("Error"), tr("El ingrediente no pudo ser eliminado."));
+}
+
+void almacenista_menu::eliminaInsumo()
+{
+    QSqlQuery query(mDatabase);
+    QString eliminar = "delete from insumo where id_insumo = "+id+"";
+    query.prepare(eliminar);
+    if(query.exec())
+        QMessageBox::information(this, tr("Éxito"), tr("El insumo fue eliminado"));//Eliminado
+    else QMessageBox::warning(this, tr("Error"), tr("El insumo no pudo ser eliminado."));
 }

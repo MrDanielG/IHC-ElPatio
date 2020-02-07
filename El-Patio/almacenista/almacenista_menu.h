@@ -48,6 +48,9 @@ private slots:
 
     void on_btn_guardar_clicked();
 
+    void eliminaPerecedero();
+    void eliminaInsumo();
+
 private:
     Ui::almacenista_menu *ui;
 
