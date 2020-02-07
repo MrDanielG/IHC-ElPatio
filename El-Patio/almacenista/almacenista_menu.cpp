@@ -353,7 +353,6 @@ void almacenista_menu::on_btn_guardar_clicked()
         }
     }
 
-    qDebug() << "plok";
     if(transferencia){
         QString tipo = "entrada";
 
@@ -377,11 +376,9 @@ void almacenista_menu::on_btn_guardar_clicked()
         QSqlQuery query_tran(mDatabase);
         query_tran.prepare(query_transaccion);
         query_tran.exec();
-        qDebug() << "qwertyui";
 
         qDebug() << query_transaccion;
     }
-    qDebug() << "plok";
 
 
 
