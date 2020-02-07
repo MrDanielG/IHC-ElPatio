@@ -31,7 +31,7 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                      " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
                      " from insumo as ins inner join perecedero as ing"
-                     " where ins.id_insumo = ing.id_insumo order by ins.id_insumo";
+                     " where ins.id_insumo = ing.id_insumo";
     llenarTabla(script);
     QFont fuente("Roboto", 12, QFont::Bold);
     ui->btnTodo->setFont(fuente);
@@ -89,6 +89,14 @@ void almacenista_menu::on_btn_editar_insumo_clicked()
     ui->spinBox_precio->setValue(auxPrecio.toFloat());
     ui->spinBox_existencias->setValue(auxExist.toInt());
     ui->ln_presentacion->setText(auxPresent);
+
+    QString disableStyle = "*{color: #539E56; border-radius: 10px;"
+                          " background-color: #E3EFB0; border: none;"
+                          " padding: 5px; }"
+                          " :hover{ background-color: white; "
+                          "border: 1px solid #46B04A; color: #46B04A; }";
+    ui->btn_guardar->setStyleSheet(disableStyle);
+    ui->btn_guardar->setEnabled(false);
 }
 
 void almacenista_menu::on_btn_cancelar_clicked()
@@ -142,7 +150,8 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
     ui->lb_existencias_insumo->setHidden(false);
     ui->btn_editar_insumo->setHidden(false);
 
-    QString id = ui->tablaInsumos->model()->data(index).toString();
+    int row = index.row();
+    QString id = ui->tablaInsumos->model()->index(row,0).data().toString();
     QSqlQuery query(mDatabase);
     QString scrp = "select ins.id_insumo,ins.nombre, ins.precio_compra,"
                    " ins.existencias, ins.presentacion from insumo"
@@ -191,7 +200,7 @@ void almacenista_menu::on_btnTodo_clicked()
         script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                          " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
                          " from insumo as ins inner join perecedero as ing"
-                         " where ins.id_insumo = ing.id_insumo order by ins.id_insumo";
+                         " where ins.id_insumo = ing.id_insumo";
         llenarTabla(script);
     }
 }
@@ -220,4 +229,34 @@ void almacenista_menu::on_btnBebidas_clicked()
         ui->btnTodo->setFont(fuente2);
         ui->btnPlatillos->setFont(fuente2);
     }
+}
+
+void almacenista_menu::on_spinBox_precio_valueChanged(const QString &arg1)
+{
+    QString enableStyle = "*{color: white; border-radius: 10px; "
+                          "background-color: #46B04A; border: none; padding: 5px; }"
+                          "  :hover{ background-color: white; "
+                          "border: 1px solid #46B04A; color: #46B04A; }";
+    ui->btn_guardar->setStyleSheet(enableStyle);
+    ui->btn_guardar->setEnabled(true);
+}
+
+void almacenista_menu::on_spinBox_existencias_valueChanged(const QString &arg1)
+{
+    QString enableStyle = "*{color: white; border-radius: 10px; "
+                          "background-color: #46B04A; border: none; padding: 5px; }"
+                          "  :hover{ background-color: white; "
+                          "border: 1px solid #46B04A; color: #46B04A; }";
+    ui->btn_guardar->setStyleSheet(enableStyle);
+    ui->btn_guardar->setEnabled(true);
+}
+
+void almacenista_menu::on_ln_presentacion_textChanged(const QString &arg1)
+{
+    QString enableStyle = "*{color: white; border-radius: 10px; "
+                          "background-color: #46B04A; border: none; padding: 5px; }"
+                          "  :hover{ background-color: white; "
+                          "border: 1px solid #46B04A; color: #46B04A; }";
+    ui->btn_guardar->setStyleSheet(enableStyle);
+    ui->btn_guardar->setEnabled(true);
 }

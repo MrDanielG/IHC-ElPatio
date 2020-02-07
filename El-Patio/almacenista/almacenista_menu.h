@@ -39,6 +39,12 @@ private slots:
 
     void on_btnBebidas_clicked();
 
+    void on_spinBox_precio_valueChanged(const QString &arg1);
+
+    void on_spinBox_existencias_valueChanged(const QString &arg1);
+
+    void on_ln_presentacion_textChanged(const QString &arg1);
+
 private:
     Ui::almacenista_menu *ui;
 
