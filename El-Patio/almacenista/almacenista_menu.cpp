@@ -15,6 +15,11 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    mDatabase = QSqlDatabase::database("Connection");
+    if(!mDatabase.isOpen()){
+        qDebug()<<"ERROR, Almacen no conectado";
+    }
+
     //elementos a ocultar
     ui->spinBox_existencias->setHidden(true);
     ui->spinBox_precio->setHidden(true);
@@ -22,7 +27,7 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     ui->btn_cancelar->setHidden(true);
     ui->btn_guardar->setHidden(true);
 
-    script = "select ins.nombre, ins.precio_compra, ins.existencias,"
+    script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                      " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
                      " from insumo as ins inner join ingrediente as ing"
                      " where ins.id_insumo = ing.id_insumo";
@@ -92,14 +97,16 @@ void almacenista_menu::on_ln_nombre_insumo_textChanged(const QString &arg1)
 void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
 {
     QString id = ui->tablaInsumos->model()->data(index).toString();
-    QSqlQuery query;
-    QString scrp = "";
+    QSqlQuery query(mDatabase);
+    QString scrp = "select ins.id_insumo,ins.nombre, ins.precio_compra,"
+                   " ins.existencias, ins.presentacion from insumo"
+                   " as ins inner join ingrediente as ing where ins.id_insumo = "+id+"";
     query.prepare(scrp);
     if(query.exec())
     {
         query.next();
-        QString nombre = query.value(0).toString();
-        QString clave = query.value(1).toString();
+        QString nombre = query.value(1).toString();
+        QString clave = query.value(0).toString();
         QString precio = query.value(2).toString();
         QString existencias = query.value(3).toString();
         QString presentacion = query.value(4).toString();
@@ -109,4 +116,5 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
         ui->lb_existencias_insumo->setText(existencias);
         ui->lb_presentacion_insumo->setText(presentacion);
     }
+    query.finish();
 }

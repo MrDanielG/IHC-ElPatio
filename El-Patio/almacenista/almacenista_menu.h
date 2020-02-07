@@ -40,6 +40,7 @@ private:
     QSqlQueryModel *almacenModel;
     QSortFilterProxyModel *almacenProxyModel;
     QString script;
+    QSqlDatabase mDatabase;
 };
 
 #endif // ALMACENISTA_MENU_H
