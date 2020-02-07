@@ -221,3 +221,8 @@ void almacenista_menu::on_btnBebidas_clicked()
         ui->btnPlatillos->setFont(fuente2);
     }
 }
+
+void almacenista_menu::on_btn_guardar_clicked()
+{
+    QMessageBox::information(this, ui->lb_id_insumo->text(), "JOSE");
+}
