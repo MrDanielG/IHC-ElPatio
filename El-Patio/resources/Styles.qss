@@ -48,7 +48,7 @@
 
 QSpinBox{
     border-radius: 10px;
-    font: 12pt "MS Shell Dlg 2";    
+    font: 12pt "MS Shell Dlg 2";
 }
 #scrollareaalbum {
     background-color: white;
@@ -93,6 +93,13 @@ QLineEdit {
 
 QPushButton {
     font-family: "Roboto";
+}
+
+QHeaderView::section {
+    background-color:#858585;
+    color: white;
+    border: none;
+    font: 11pt "Roboto";
 }
 
 #titulo {

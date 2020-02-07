@@ -1206,8 +1206,10 @@ border: 1px solid #ECEEEE;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:none;
-selection-background-color: #46B04A;</string>
+    <string notr="true">*{
+border:none;
+selection-background-color: #46B04A;
+}</string>
    </property>
    <property name="horizontalScrollBarPolicy">
     <enum>Qt::ScrollBarAsNeeded</enum>
@@ -1225,7 +1227,7 @@ selection-background-color: #46B04A;</string>
     <enum>QAbstractItemView::SelectRows</enum>
    </property>
    <property name="textElideMode">
-    <enum>Qt::ElideMiddle</enum>
+    <enum>Qt::ElideLeft</enum>
    </property>
    <property name="showGrid">
     <bool>false</bool>
