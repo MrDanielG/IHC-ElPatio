@@ -78,3 +78,55 @@ QSpinBox{
     border:none;
     background-color: white;
 }
+
+QDialog {
+    background-color: white;
+}
+
+QLabel {
+    font-family: "Roboto";
+}
+
+QLineEdit {
+    font-family: "Roboto";
+}
+
+QPushButton {
+    font-family: "Roboto";
+}
+
+#titulo {
+    color: #585858;
+}
+
+#subTitulo {
+    color: rgb(133, 133, 133);
+}
+
+#btnPrimario {
+    color: white;
+    border-radius: 10px;
+    background-color: #46B04A;
+    border: none;
+    padding: 5px;
+}
+
+#btnPrimario:hover{
+        background-color: white;
+        border: 1px solid #46B04A;
+        color: #46B04A;
+}
+
+#btnSecundaio {
+    color: #539E56;
+    border-radius: 10px;
+    background-color: #E3EFB0;
+    border: none;
+    padding: 5px;
+}
+
+#btnSecundaio:hover {
+    background-color: white;
+    border: 1px solid #46B04A;
+    color: #46B04A;
+}

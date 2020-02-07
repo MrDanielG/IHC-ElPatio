@@ -1,6 +1,6 @@
 #include "almacenista_menu.h"
 #include "ui_almacenista_menu.h"
-
+#include "almacenista/almacenista_crear_insumo.h"
 #include <QDebug>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
@@ -279,4 +279,8 @@ void almacenista_menu::on_ln_presentacion_textChanged(const QString &arg1)
                           "border: 1px solid #46B04A; color: #46B04A; }";
     ui->btn_guardar->setStyleSheet(enableStyle);
     ui->btn_guardar->setEnabled(true);
+void almacenista_menu::on_btn_agregar_insumo_clicked()
+{
+    almacenista_crear_insumo *crearInsumo = new almacenista_crear_insumo(this) ;
+    crearInsumo->exec();
 }

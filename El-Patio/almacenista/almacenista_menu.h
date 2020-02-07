@@ -44,6 +44,7 @@ private slots:
     void on_spinBox_existencias_valueChanged(const QString &arg1);
 
     void on_ln_presentacion_textChanged(const QString &arg1);
+    void on_btn_agregar_insumo_clicked();
 
 private:
     Ui::almacenista_menu *ui;
