@@ -254,24 +254,6 @@ void almacenista_menu::on_btnBebidas_clicked()
     }
 }
 
-void almacenista_menu::on_btn_guardar_clicked()
-{
-    //TODO id del empleado
-
-    QString fecha = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss:z");
-    QString cantidad = ui->spinBox_existencias->text();
-    QString id_insumo = ui->lb_id_insumo->text();
-    QString clave = "101";
-
-    QString query_transaccion =
-            "INSERT INTO `el_patio`.`transaccion` "
-            "(`fecha_hora`, `cantidad`, `tipo`, `comentario`, `clave`, `id_insumo`)"
-            "VALUES ('" +fecha+ "', '" +cantidad+ "', 'entrada', 'S/C', '" +clave+ "', ' " +id_insumo+ " ');";
-
-    qDebug() << query_transaccion;
-    QMessageBox::information(this, ui->lb_id_insumo->text(), query_transaccion);
-}
-
 void almacenista_menu::on_btn_agregar_insumo_clicked()
 {
     almacenista_crear_insumo *crearInsumo = new almacenista_crear_insumo(this) ;
@@ -320,6 +302,8 @@ void almacenista_menu::on_btn_guardar_clicked()
     present1 = ui->lb_presentacion_insumo->text();
     present2 = ui->ln_presentacion->text();
 
+
+
     if((precio1 != precio2) || (exist1 != exist2) || (present1 != present2))
     {
         QMessageBox::StandardButton reply;
@@ -344,4 +328,19 @@ void almacenista_menu::on_btn_guardar_clicked()
     ui->spinBox_existencias->setValue(0);
     ui->ln_presentacion->setText("");
     on_btn_cancelar_clicked();
+
+    //mio
+    //TODO id del empleado
+
+    QString fecha = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss:z");
+    QString cantidad = ui->spinBox_existencias->text();
+    QString id_insumo = ui->lb_id_insumo->text();
+    QString clave = "101";
+
+    QString query_transaccion =
+            "INSERT INTO `el_patio`.`transaccion` "
+            "(`fecha_hora`, `cantidad`, `tipo`, `comentario`, `clave`, `id_insumo`)"
+            "VALUES ('" +fecha+ "', '" +cantidad+ "', 'entrada', 'S/C', '" +clave+ "', ' " +id_insumo+ " ');";
+
+    qDebug() << query_transaccion;
 }
