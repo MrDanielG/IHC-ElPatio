@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `el_patio`
 --
+Drop database if exists `el_patio`;
 CREATE DATABASE IF NOT EXISTS `el_patio` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `el_patio`;
 
