@@ -6,6 +6,7 @@
 #include <QSqlQueryModel>
 #include <QSortFilterProxyModel>
 #include <QSqlRelationalTableModel>
+#include<QMessageBox>
 
 almacenista_menu::almacenista_menu(QWidget *parent) :
     QWidget(parent),
@@ -108,8 +109,10 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
         QString nombre = query.value(1).toString();
         QString clave = query.value(0).toString();
         QString precio = query.value(2).toString();
+
         QString existencias = query.value(3).toString();
         existenciasOriginales = query.value(3).toInt();
+
         QString presentacion = query.value(4).toString();
         ui->lb_id_insumo->setText(clave);
         ui->lb_nombre_insumo->setText(nombre);
@@ -123,6 +126,13 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
 void almacenista_menu::on_btnEliminarInsumo_clicked()
 {
     qDebug() << "Existencias originales " << existenciasOriginales;
+    if(existenciasOriginales != 0){
+        QMessageBox::warning(this, tr("Error"), tr("Aún hay registro de existencias de "
+                                                   "este insumo, no puede ser eliminado"));
+    }
+    else{
+        qDebug() << "Eliminaré this shet";
+    }
 }
 void almacenista_menu::on_btnTodo_clicked()
 {
@@ -147,7 +157,6 @@ void almacenista_menu::on_btnPlatillos_clicked()
         ui->btnTodo->setFont(fuente2  );
     }
 }
-
 
 void almacenista_menu::on_btnBebidas_clicked()
 {
