@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>378</width>
-    <height>317</height>
+    <width>551</width>
+    <height>579</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,13 +16,16 @@
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>24</x>
+     <x>70</x>
      <y>20</y>
-     <width>331</width>
-     <height>271</height>
+     <width>425</width>
+     <height>526</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
     <item>
      <widget class="QLabel" name="titulo">
       <property name="font">
@@ -40,7 +43,7 @@
      </widget>
     </item>
     <item>
-     <spacer name="verticalSpacer_3">
+     <spacer name="verticalSpacer_4">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -53,45 +56,58 @@
      </spacer>
     </item>
     <item>
+     <widget class="QLabel" name="titulo_2">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(133, 133, 133);</string>
+      </property>
+      <property name="text">
+       <string>Tipo de Alimento:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="subTitulo">
+       <widget class="QRadioButton" name="btnPerecedero">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Tipo de Alimento:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="tipoAlimento">
-        <property name="font">
-         <font>
+          <family>Roboto</family>
           <pointsize>12</pointsize>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">color: rgb(133, 133, 133);</string>
         </property>
-        <item>
-         <property name="text">
-          <string>Perecedero</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>No Perecedero</string>
-         </property>
-        </item>
+        <property name="text">
+         <string>Perecedero</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="btnNoPerecedero">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(133, 133, 133);</string>
+        </property>
+        <property name="text">
+         <string>No Perecedero</string>
+        </property>
        </widget>
       </item>
      </layout>
     </item>
     <item>
-     <spacer name="verticalSpacer_4">
+     <spacer name="verticalSpacer_6">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -150,6 +166,52 @@ border-bottom: 3px solid #539E56;</string>
     </item>
     <item>
      <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="titulo_3">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(133, 133, 133);</string>
+        </property>
+        <property name="text">
+         <string>Tipo de Alimento:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="doubleSpinBox">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+border: 1px solid #ECEEEE;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_5">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
