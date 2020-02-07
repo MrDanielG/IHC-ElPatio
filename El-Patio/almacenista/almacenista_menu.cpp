@@ -109,6 +109,7 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
         QString clave = query.value(0).toString();
         QString precio = query.value(2).toString();
         QString existencias = query.value(3).toString();
+        existenciasOriginales = query.value(3).toInt();
         QString presentacion = query.value(4).toString();
         ui->lb_id_insumo->setText(clave);
         ui->lb_nombre_insumo->setText(nombre);
@@ -117,4 +118,9 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
         ui->lb_presentacion_insumo->setText(presentacion);
     }
     query.finish();
+}
+
+void almacenista_menu::on_btnEliminarInsumo_clicked()
+{
+    qDebug() << "Existencias originales " << existenciasOriginales;
 }

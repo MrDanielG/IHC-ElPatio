@@ -31,6 +31,8 @@ private slots:
 
     void on_tablaInsumos_clicked(const QModelIndex &index);
 
+    void on_btnEliminarInsumo_clicked();
+
 private:
     Ui::almacenista_menu *ui;
 
@@ -41,6 +43,7 @@ private:
     QSortFilterProxyModel *almacenProxyModel;
     QString script;
     QSqlDatabase mDatabase;
+    int existenciasOriginales;
 };
 
 #endif // ALMACENISTA_MENU_H
