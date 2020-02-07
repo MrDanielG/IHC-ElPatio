@@ -344,7 +344,8 @@ void almacenista_menu::on_btn_guardar_clicked()
 
     id = ui->lb_id_insumo->text();
     precio1 = ui->lb_precio_insumo->text();
-    precio2 = ui->spinBox_precio->text();
+    precio2 = QString::number(ui->spinBox_precio->value());
+    qDebug() << precio2;
     exist1 = ui->lb_existencias_insumo->text();
     exist2 = ui->spinBox_existencias->text();
     present1 = ui->lb_presentacion_insumo->text();
@@ -360,8 +361,9 @@ void almacenista_menu::on_btn_guardar_clicked()
                                         QMessageBox::Yes|QMessageBox::No);
         if (reply == QMessageBox::Yes) {
             QSqlQuery query(mDatabase);
-            QString sql = "UPDATE insumo SET precio_compra = "+precio2+", existencias = "+exist2+" , presentacion = '"+present2+"' WHERE id_insumo = "+id;
+            QString sql = "UPDATE insumo SET precio_compra = "+precio2+", existencias = "+exist2+" , presentacion = '"+present2+"' WHERE id_insumo = "+id+"";
             query.prepare(sql);
+            qDebug()<< sql;
             query.exec();
 
             //si es mayor sera salida
