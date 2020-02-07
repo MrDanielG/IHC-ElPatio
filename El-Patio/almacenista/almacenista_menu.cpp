@@ -31,7 +31,7 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                      " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
                      " from insumo as ins inner join perecedero as ing"
-                     " where ins.id_insumo = ing.id_insumo";
+                     " where ins.id_insumo = ing.id_insumo && ins.estado = 'activo'";
     llenarTabla(script);
     QFont fuente("Roboto", 12, QFont::Bold);
     ui->btnTodo->setFont(fuente);
@@ -39,7 +39,7 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     QSqlQuery query(mDatabase);
     QString scrp = "select ins.id_insumo,ins.nombre, ins.precio_compra,"
                    " ins.existencias, ins.presentacion from insumo"
-                   " as ins inner join perecedero as ing where ins.id_insumo = 1;";
+                   " as ins inner join perecedero as ing where ins.id_insumo = 1 && ins.estado = 'activo';";
     query.prepare(scrp);
     if(query.exec())
     {
@@ -186,7 +186,7 @@ void almacenista_menu::on_btnTodo_clicked()
         script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                          " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
                          " from insumo as ins inner join perecedero as ing"
-                         " where ins.id_insumo = ing.id_insumo";
+                         " where ins.id_insumo = ing.id_insumo && ins.estado = 'activo'";
         llenarTabla(script);
     }
 }
@@ -200,7 +200,7 @@ void almacenista_menu::on_btnPlatillos_clicked()
         ui->btnPlatillos->setFont(fuente);
         ui->btnBebidas->setFont(fuente2);
         ui->btnTodo->setFont(fuente2);
-        script = "SELECT * FROM insumo WHERE id_insumo not in (SELECT id_insumo from perecedero);";
+        script = "SELECT * FROM insumo WHERE id_insumo not in (SELECT id_insumo from perecedero) && ins.estado = 'activo';";
         llenarTabla(script);
     }
 }
@@ -215,7 +215,7 @@ void almacenista_menu::on_btnBebidas_clicked()
         ui->btnBebidas->setFont(fuente);
         ui->btnTodo->setFont(fuente2);
         ui->btnPlatillos->setFont(fuente2);
-        script = "select * from insumo where existencias = 0;";
+        script = "select * from insumo where existencias = 0 && estado = 'activo';";
         llenarTabla(script);
     }
 }
