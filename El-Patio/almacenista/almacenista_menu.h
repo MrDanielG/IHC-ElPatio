@@ -31,6 +31,8 @@ private slots:
 
     void on_tablaInsumos_clicked(const QModelIndex &index);
 
+    void on_btnEliminarInsumo_clicked();
+    
     void on_btnTodo_clicked();
 
     void on_btnPlatillos_clicked();
@@ -39,6 +41,11 @@ private slots:
 
     void on_btn_guardar_clicked();
     void on_btn_agregar_insumo_clicked();
+    void on_spinBox_precio_valueChanged(const QString &arg1);
+
+    void on_spinBox_existencias_valueChanged(const QString &arg1);
+
+    void on_ln_presentacion_textChanged(const QString &arg1);
 
 private:
     Ui::almacenista_menu *ui;
@@ -51,6 +58,8 @@ private:
     QString script;
     QSqlDatabase mDatabase;
 
+    int existenciasOriginales;
+    QString id;
 };
 
 #endif // ALMACENISTA_MENU_H

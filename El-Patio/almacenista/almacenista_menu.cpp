@@ -32,7 +32,7 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                      " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
                      " from insumo as ins inner join perecedero as ing"
-                     " where ins.id_insumo = ing.id_insumo order by ins.id_insumo";
+                     " where ins.id_insumo = ing.id_insumo";
     llenarTabla(script);
     QFont fuente("Roboto", 12, QFont::Bold);
     ui->btnTodo->setFont(fuente);
@@ -90,6 +90,14 @@ void almacenista_menu::on_btn_editar_insumo_clicked()
     ui->spinBox_precio->setValue(auxPrecio.toFloat());
     ui->spinBox_existencias->setValue(auxExist.toInt());
     ui->ln_presentacion->setText(auxPresent);
+
+    QString disableStyle = "*{color: #539E56; border-radius: 10px;"
+                          " background-color: #E3EFB0; border: none;"
+                          " padding: 5px; }"
+                          " :hover{ background-color: white; "
+                          "border: 1px solid #46B04A; color: #46B04A; }";
+    ui->btn_guardar->setStyleSheet(disableStyle);
+    ui->btn_guardar->setEnabled(false);
 }
 
 void almacenista_menu::on_btn_cancelar_clicked()
@@ -143,7 +151,9 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
     ui->lb_existencias_insumo->setHidden(false);
     ui->btn_editar_insumo->setHidden(false);
 
-    QString id = ui->tablaInsumos->model()->data(index).toString();
+    int row = index.row();
+    id = ui->tablaInsumos->model()->index(row,0).data().toString();
+
     QSqlQuery query(mDatabase);
     QString scrp = "select ins.id_insumo,ins.nombre, ins.precio_compra,"
                    " ins.existencias, ins.presentacion from insumo"
@@ -155,7 +165,10 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
         QString nombre = query.value(1).toString();
         QString clave = query.value(0).toString();
         QString precio = query.value(2).toString();
+
         QString existencias = query.value(3).toString();
+        existenciasOriginales = query.value(3).toInt();
+
         QString presentacion = query.value(4).toString();
         ui->lb_id_insumo->setText(clave);
         ui->lb_nombre_insumo->setText(nombre);
@@ -166,6 +179,36 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
     query.finish();
 }
 
+void almacenista_menu::on_btnEliminarInsumo_clicked()
+{
+    qDebug() << "Existencias originales " << existenciasOriginales;
+    if(existenciasOriginales != 0){
+        QMessageBox::warning(this, tr("Alerta"), tr("Aún hay registro de existencias de "
+                                                   "este insumo, no puede ser eliminado"));
+    }
+    else{
+        QSqlQuery query(mDatabase);
+        QString scrp = "select id_transaccion from transaccion"
+                       " where id_insumo = "+id+"";
+        query.prepare(scrp);
+        if(query.exec()){
+            if(query.next()){
+                if(QMessageBox::question(this, tr("Desactivar insumo"), tr("¿Está seguro que desea desactivar este insumo?"))==QMessageBox::Yes){
+                    QString desactivar = "update insumo set estado = 'inactivo' where id_insumo = "+id+"";
+                    query.finish();
+                    query.prepare(desactivar);
+                    if(query.exec())
+                        QMessageBox::information(this, tr("Éxito"), tr("El insumo fue desactivado"));//Ocultar
+                    else QMessageBox::warning(this, tr("Error"), tr("El insumo no pudo ser desactivado."));
+                }
+            }
+            else{
+                qDebug() << "sí la wa borrar eñe";//Eliminar
+            }
+        }
+
+    }
+}
 void almacenista_menu::on_btnTodo_clicked()
 {
     QFont fuente("Roboto", 12, QFont::Bold);
@@ -178,7 +221,7 @@ void almacenista_menu::on_btnTodo_clicked()
         script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                          " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
                          " from insumo as ins inner join perecedero as ing"
-                         " where ins.id_insumo = ing.id_insumo order by ins.id_insumo";
+                         " where ins.id_insumo = ing.id_insumo";
         llenarTabla(script);
     }
 }
@@ -196,7 +239,6 @@ void almacenista_menu::on_btnPlatillos_clicked()
         llenarTabla(script);
     }
 }
-
 
 void almacenista_menu::on_btnBebidas_clicked()
 {
@@ -232,4 +274,34 @@ void almacenista_menu::on_btn_agregar_insumo_clicked()
 {
     almacenista_crear_insumo *crearInsumo = new almacenista_crear_insumo(this) ;
     crearInsumo->exec();
+}
+
+void almacenista_menu::on_spinBox_precio_valueChanged(const QString &arg1)
+{
+    QString enableStyle = "*{color: white; border-radius: 10px; "
+                          "background-color: #46B04A; border: none; padding: 5px; }"
+                          "  :hover{ background-color: white; "
+                          "border: 1px solid #46B04A; color: #46B04A; }";
+    ui->btn_guardar->setStyleSheet(enableStyle);
+    ui->btn_guardar->setEnabled(true);
+}
+
+void almacenista_menu::on_spinBox_existencias_valueChanged(const QString &arg1)
+{
+    QString enableStyle = "*{color: white; border-radius: 10px; "
+                          "background-color: #46B04A; border: none; padding: 5px; }"
+                          "  :hover{ background-color: white; "
+                          "border: 1px solid #46B04A; color: #46B04A; }";
+    ui->btn_guardar->setStyleSheet(enableStyle);
+    ui->btn_guardar->setEnabled(true);
+}
+
+void almacenista_menu::on_ln_presentacion_textChanged(const QString &arg1)
+{
+    QString enableStyle = "*{color: white; border-radius: 10px; "
+                          "background-color: #46B04A; border: none; padding: 5px; }"
+                          "  :hover{ background-color: white; "
+                          "border: 1px solid #46B04A; color: #46B04A; }";
+    ui->btn_guardar->setStyleSheet(enableStyle);
+    ui->btn_guardar->setEnabled(true);
 }

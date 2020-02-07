@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-02-2020 a las 02:11:23
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.2.22
+-- Tiempo de generación: 07-02-2020 a las 07:29:21
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `el_patio`
 --
+CREATE DATABASE IF NOT EXISTS `el_patio` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `el_patio`;
 
 -- --------------------------------------------------------
 
@@ -28,6 +30,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `comanda`
 --
 
+DROP TABLE IF EXISTS `comanda`;
 CREATE TABLE `comanda` (
   `id_comanda` int(11) NOT NULL,
   `hora_apertura` datetime NOT NULL,
@@ -38,6 +41,11 @@ CREATE TABLE `comanda` (
   `comentario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `comanda`
+--
+
+TRUNCATE TABLE `comanda`;
 --
 -- Volcado de datos para la tabla `comanda`
 --
@@ -67,98 +75,88 @@ INSERT INTO `comanda` (`id_comanda`, `hora_apertura`, `numero_personas`, `Usuari
 -- Estructura de tabla para la tabla `extra`
 --
 
+DROP TABLE IF EXISTS `extra`;
 CREATE TABLE `extra` (
   `id_extra` int(11) NOT NULL,
   `precio` float NOT NULL,
   `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `extra`
+--
+
+TRUNCATE TABLE `extra`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `ingrediente`
 --
 
+DROP TABLE IF EXISTS `ingrediente`;
 CREATE TABLE `ingrediente` (
   `id_ingrediente` int(11) NOT NULL,
-  `id_insumo` int(11) NOT NULL,
-  `fecha_almacenamiento` date NOT NULL,
-  `dias_caducidad` int(11) NOT NULL
+  `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `ingrediente`
+-- Truncar tablas antes de insertar `ingrediente`
 --
 
-INSERT INTO `ingrediente` (`id_ingrediente`, `id_insumo`, `fecha_almacenamiento`, `dias_caducidad`) VALUES
-(1, 4, '2020-02-06', 15),
-(2, 7, '2020-02-06', 20),
-(3, 5, '2020-02-06', 20),
-(4, 9, '2020-02-06', 20),
-(5, 19, '2020-02-06', 30),
-(6, 21, '2020-02-06', 25),
-(7, 22, '2020-02-06', 15),
-(8, 12, '2020-02-06', 25),
-(9, 20, '2020-02-06', 20),
-(10, 3, '2020-02-06', 10),
-(11, 13, '2020-02-06', 15),
-(12, 14, '2020-02-06', 45),
-(13, 2, '2020-02-06', 20),
-(14, 10, '2020-02-06', 8),
-(15, 16, '2020-02-06', 25),
-(16, 11, '2020-02-06', 12),
-(17, 1, '2020-02-06', 10),
-(18, 8, '2020-02-06', 30),
-(19, 6, '2020-02-06', 20),
-(20, 17, '2020-02-06', 15),
-(21, 15, '2020-02-06', 8),
-(22, 18, '2020-02-06', 12);
-
+TRUNCATE TABLE `ingrediente`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `insumo`
 --
 
+DROP TABLE IF EXISTS `insumo`;
 CREATE TABLE `insumo` (
   `id_insumo` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `precio_compra` float NOT NULL,
   `existencias` int(11) NOT NULL,
-  `presentacion` varchar(20) NOT NULL
+  `presentacion` varchar(20) NOT NULL,
+  `estado` varchar(15) NOT NULL DEFAULT 'activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `insumo`
+--
+
+TRUNCATE TABLE `insumo`;
 --
 -- Volcado de datos para la tabla `insumo`
 --
 
-INSERT INTO `insumo` (`id_insumo`, `nombre`, `precio_compra`, `existencias`, `presentacion`) VALUES
-(1, 'pollo', 79, 3, 'Kilogramos'),
-(2, 'huevo', 30, 4, 'Docena'),
-(3, 'crema', 57.5, 2, '900ml'),
-(4, 'aguacate', 54, 3, 'kilogramo'),
-(5, 'cebolla morada', 36.9, 2, 'kilogramo'),
-(6, 'queso ranchero ', 53, 2, '300gr'),
-(7, 'cebolla', 29.9, 2, 'kilogramos'),
-(8, 'queso manchego', 218, 1, 'Kilogramos'),
-(9, 'chicharo', 76, 1, 'kil'),
-(10, 'jamon', 270, 2, 'Kilogramos'),
-(11, 'platano', 21, 2, 'kilogramo'),
-(12, 'chile poblano', 44.8, 1, 'kilogramo'),
-(13, 'elote', 19.4, 12, 'piezas'),
-(14, 'frijoles', 38, 4, 'kilogramos'),
-(15, 'tortilla', 11.9, 14, 'kilogramos'),
-(16, 'jitomate', 37.9, 8, 'kilogramos'),
-(17, 'tomate', 29.6, 5, 'kilogramos'),
-(18, 'tortilla de harina', 24.5, 3, '24 piezas'),
-(19, 'chile ancho ', 46.9, 2, '200 gramos'),
-(20, 'chile serrano', 34.9, 1, 'kilogramo'),
-(21, 'chile cuaresmeño', 32.9, 1, 'kilogramos'),
-(22, 'chile habanero', 160, 1, 'kilogramos'),
-(23, 'servilletas', 32.5, 15, '250 piezas'),
-(24, 'palillos', 25, 8, '65 piezas'),
-(25, 'vasos de vidrio', 12.5, 143, 'pieza'),
-(26, 'mantel blanco', 47.9, 31, '47.90');
+INSERT INTO `insumo` (`id_insumo`, `nombre`, `precio_compra`, `existencias`, `presentacion`, `estado`) VALUES
+(1, 'pollo', 79, 3, 'Kilogramos', 'activo'),
+(2, 'huevo', 30, 4, 'Docena', 'activo'),
+(3, 'crema', 57.5, 2, '900ml', 'activo'),
+(4, 'aguacate', 54, 3, 'kilogramo', 'activo'),
+(5, 'cebolla morada', 36.9, 2, 'kilogramo', 'activo'),
+(6, 'queso ranchero ', 53, 2, '300gr', 'activo'),
+(7, 'cebolla', 29.9, 2, 'kilogramos', 'activo'),
+(8, 'queso manchego', 218, 1, 'Kilogramos', 'activo'),
+(9, 'chicharo', 76, 1, 'kil', 'activo'),
+(10, 'jamon', 270, 2, 'Kilogramos', 'activo'),
+(11, 'platano', 21, 2, 'kilogramo', 'activo'),
+(12, 'chile poblano', 44.8, 1, 'kilogramo', 'activo'),
+(13, 'elote', 19.4, 12, 'piezas', 'activo'),
+(14, 'frijoles', 38, 4, 'kilogramos', 'activo'),
+(15, 'tortilla', 11.9, 14, 'kilogramos', 'activo'),
+(16, 'jitomate', 37.9, 8, 'kilogramos', 'activo'),
+(17, 'tomate', 29.6, 5, 'kilogramos', 'activo'),
+(18, 'tortilla de harina', 24.5, 3, '24 piezas', 'activo'),
+(19, 'chile ancho ', 46.9, 2, '200 gramos', 'activo'),
+(20, 'chile serrano', 34.9, 1, 'kilogramo', 'activo'),
+(21, 'chile cuaresmeño', 32.9, 1, 'kilogramos', 'activo'),
+(22, 'chile habanero', 160, 1, 'kilogramos', 'activo'),
+(23, 'servilletas', 32.5, 15, '250 piezas', 'activo'),
+(24, 'palillos', 25, 8, '65 piezas', 'activo'),
+(25, 'vasos de vidrio', 12.5, 143, 'pieza', 'activo'),
+(26, 'mantel blanco', 47.9, 31, '47.90', 'activo'),
+(27, 'Agitador', 30, 0, 'bolsa de 25 pzs.', 'activo');
 
 -- --------------------------------------------------------
 
@@ -166,23 +164,35 @@ INSERT INTO `insumo` (`id_insumo`, `nombre`, `precio_compra`, `existencias`, `pr
 -- Estructura de tabla para la tabla `lista_ingrediente`
 --
 
+DROP TABLE IF EXISTS `lista_ingrediente`;
 CREATE TABLE `lista_ingrediente` (
   `id_elemento_lista` int(11) NOT NULL,
   `id_platillo` int(11) NOT NULL,
   `id_ingrediente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `lista_ingrediente`
+--
+
+TRUNCATE TABLE `lista_ingrediente`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `mesa`
 --
 
+DROP TABLE IF EXISTS `mesa`;
 CREATE TABLE `mesa` (
   `numero_mesa` int(11) NOT NULL,
   `estado` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `mesa`
+--
+
+TRUNCATE TABLE `mesa`;
 --
 -- Volcado de datos para la tabla `mesa`
 --
@@ -220,6 +230,7 @@ INSERT INTO `mesa` (`numero_mesa`, `estado`) VALUES
 -- Estructura de tabla para la tabla `pedido`
 --
 
+DROP TABLE IF EXISTS `pedido`;
 CREATE TABLE `pedido` (
   `id_Pedido` int(11) NOT NULL,
   `comentario` varchar(45) NOT NULL,
@@ -228,6 +239,11 @@ CREATE TABLE `pedido` (
   `estado` varchar(15) NOT NULL DEFAULT 'En proceso'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `pedido`
+--
+
+TRUNCATE TABLE `pedido`;
 --
 -- Volcado de datos para la tabla `pedido`
 --
@@ -241,11 +257,64 @@ INSERT INTO `pedido` (`id_Pedido`, `comentario`, `Comanda_id_comanda`, `Platillo
 -- Estructura de tabla para la tabla `pedido_extra`
 --
 
+DROP TABLE IF EXISTS `pedido_extra`;
 CREATE TABLE `pedido_extra` (
   `id_pedido_extra` int(11) NOT NULL,
   `id_extra` int(11) NOT NULL,
   `id_Pedido` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Truncar tablas antes de insertar `pedido_extra`
+--
+
+TRUNCATE TABLE `pedido_extra`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `perecedero`
+--
+
+DROP TABLE IF EXISTS `perecedero`;
+CREATE TABLE `perecedero` (
+  `id_perecedero` int(11) NOT NULL,
+  `id_insumo` int(11) NOT NULL,
+  `fecha_almacenamiento` date NOT NULL,
+  `dias_caducidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Truncar tablas antes de insertar `perecedero`
+--
+
+TRUNCATE TABLE `perecedero`;
+--
+-- Volcado de datos para la tabla `perecedero`
+--
+
+INSERT INTO `perecedero` (`id_perecedero`, `id_insumo`, `fecha_almacenamiento`, `dias_caducidad`) VALUES
+(1, 4, '2020-02-06', 15),
+(2, 7, '2020-02-06', 20),
+(3, 5, '2020-02-06', 20),
+(4, 9, '2020-02-06', 20),
+(5, 19, '2020-02-06', 30),
+(6, 21, '2020-02-06', 25),
+(7, 22, '2020-02-06', 15),
+(8, 12, '2020-02-06', 25),
+(9, 20, '2020-02-06', 20),
+(10, 3, '2020-02-06', 10),
+(11, 13, '2020-02-06', 15),
+(12, 14, '2020-02-06', 45),
+(13, 2, '2020-02-06', 20),
+(14, 10, '2020-02-06', 8),
+(15, 16, '2020-02-06', 25),
+(16, 11, '2020-02-06', 12),
+(17, 1, '2020-02-06', 10),
+(18, 8, '2020-02-06', 30),
+(19, 6, '2020-02-06', 20),
+(20, 17, '2020-02-06', 15),
+(21, 15, '2020-02-06', 8),
+(22, 18, '2020-02-06', 12);
 
 -- --------------------------------------------------------
 
@@ -253,6 +322,7 @@ CREATE TABLE `pedido_extra` (
 -- Estructura de tabla para la tabla `platillo`
 --
 
+DROP TABLE IF EXISTS `platillo`;
 CREATE TABLE `platillo` (
   `id_platillo` int(11) NOT NULL,
   `precio` double NOT NULL,
@@ -262,6 +332,11 @@ CREATE TABLE `platillo` (
   `foto` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `platillo`
+--
+
+TRUNCATE TABLE `platillo`;
 --
 -- Volcado de datos para la tabla `platillo`
 --
@@ -343,6 +418,7 @@ INSERT INTO `platillo` (`id_platillo`, `precio`, `nombre`, `categoria`, `estado`
 -- Estructura de tabla para la tabla `ticket`
 --
 
+DROP TABLE IF EXISTS `ticket`;
 CREATE TABLE `ticket` (
   `id_ticket` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
@@ -353,17 +429,28 @@ CREATE TABLE `ticket` (
   `Comanda_id_comanda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `ticket`
+--
+
+TRUNCATE TABLE `ticket`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tipo`
 --
 
+DROP TABLE IF EXISTS `tipo`;
 CREATE TABLE `tipo` (
   `id_tipo` int(11) NOT NULL,
   `nombre_tipo` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `tipo`
+--
+
+TRUNCATE TABLE `tipo`;
 --
 -- Volcado de datos para la tabla `tipo`
 --
@@ -381,6 +468,7 @@ INSERT INTO `tipo` (`id_tipo`, `nombre_tipo`) VALUES
 -- Estructura de tabla para la tabla `transaccion`
 --
 
+DROP TABLE IF EXISTS `transaccion`;
 CREATE TABLE `transaccion` (
   `id_transaccion` int(11) NOT NULL,
   `fecha_hora` datetime NOT NULL,
@@ -391,12 +479,18 @@ CREATE TABLE `transaccion` (
   `id_insumo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `transaccion`
+--
+
+TRUNCATE TABLE `transaccion`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `clave` int(11) NOT NULL,
   `apellido_paterno` varchar(45) NOT NULL,
@@ -405,6 +499,11 @@ CREATE TABLE `usuario` (
   `Tipo_id_tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncar tablas antes de insertar `usuario`
+--
+
+TRUNCATE TABLE `usuario`;
 --
 -- Volcado de datos para la tabla `usuario`
 --
@@ -434,8 +533,7 @@ ALTER TABLE `extra`
 -- Indices de la tabla `ingrediente`
 --
 ALTER TABLE `ingrediente`
-  ADD PRIMARY KEY (`id_ingrediente`),
-  ADD UNIQUE KEY `id_insumo` (`id_insumo`);
+  ADD PRIMARY KEY (`id_ingrediente`);
 
 --
 -- Indices de la tabla `insumo`
@@ -472,6 +570,13 @@ ALTER TABLE `pedido_extra`
   ADD PRIMARY KEY (`id_pedido_extra`),
   ADD KEY `id_extra` (`id_extra`),
   ADD KEY `id_Pedido` (`id_Pedido`);
+
+--
+-- Indices de la tabla `perecedero`
+--
+ALTER TABLE `perecedero`
+  ADD PRIMARY KEY (`id_perecedero`),
+  ADD UNIQUE KEY `id_insumo` (`id_insumo`);
 
 --
 -- Indices de la tabla `platillo`
@@ -527,13 +632,13 @@ ALTER TABLE `extra`
 -- AUTO_INCREMENT de la tabla `ingrediente`
 --
 ALTER TABLE `ingrediente`
-  MODIFY `id_ingrediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_ingrediente` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `insumo`
 --
 ALTER TABLE `insumo`
-  MODIFY `id_insumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_insumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `lista_ingrediente`
@@ -560,6 +665,12 @@ ALTER TABLE `pedido_extra`
   MODIFY `id_pedido_extra` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `perecedero`
+--
+ALTER TABLE `perecedero`
+  MODIFY `id_perecedero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT de la tabla `platillo`
 --
 ALTER TABLE `platillo`
@@ -576,6 +687,12 @@ ALTER TABLE `ticket`
 --
 ALTER TABLE `tipo`
   MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `transaccion`
+--
+ALTER TABLE `transaccion`
+  MODIFY `id_transaccion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -595,17 +712,11 @@ ALTER TABLE `comanda`
   ADD CONSTRAINT `fk_Comanda_Usuario1` FOREIGN KEY (`Usuario_clave`) REFERENCES `usuario` (`clave`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `ingrediente`
---
-ALTER TABLE `ingrediente`
-  ADD CONSTRAINT `ingrediente_ibfk_1` FOREIGN KEY (`id_insumo`) REFERENCES `insumo` (`id_insumo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Filtros para la tabla `lista_ingrediente`
 --
 ALTER TABLE `lista_ingrediente`
   ADD CONSTRAINT `lista_ingrediente_ibfk_1` FOREIGN KEY (`id_platillo`) REFERENCES `platillo` (`id_platillo`),
-  ADD CONSTRAINT `lista_ingrediente_ibfk_2` FOREIGN KEY (`id_ingrediente`) REFERENCES `ingrediente` (`id_ingrediente`);
+  ADD CONSTRAINT `lista_ingrediente_ibfk_2` FOREIGN KEY (`id_ingrediente`) REFERENCES `ingrediente` (`id_ingrediente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `pedido`
@@ -620,6 +731,12 @@ ALTER TABLE `pedido`
 ALTER TABLE `pedido_extra`
   ADD CONSTRAINT `pedido_extra_ibfk_1` FOREIGN KEY (`id_extra`) REFERENCES `extra` (`id_extra`),
   ADD CONSTRAINT `pedido_extra_ibfk_2` FOREIGN KEY (`id_Pedido`) REFERENCES `pedido` (`id_Pedido`);
+
+--
+-- Filtros para la tabla `perecedero`
+--
+ALTER TABLE `perecedero`
+  ADD CONSTRAINT `perecedero_ibfk_1` FOREIGN KEY (`id_insumo`) REFERENCES `insumo` (`id_insumo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `ticket`
