@@ -29,7 +29,7 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
 
     script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                      " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
-                     " from insumo as ins inner join ingrediente as ing"
+                     " from insumo as ins inner join perecedero as ing"
                      " where ins.id_insumo = ing.id_insumo order by ins.id_insumo";
     llenarTabla(script);
     QFont fuente("Roboto", 12, QFont::Bold);
@@ -38,7 +38,7 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     QSqlQuery query(mDatabase);
     QString scrp = "select ins.id_insumo,ins.nombre, ins.precio_compra,"
                    " ins.existencias, ins.presentacion from insumo"
-                   " as ins inner join ingrediente as ing where ins.id_insumo = 1;";
+                   " as ins inner join perecedero as ing where ins.id_insumo = 1;";
     query.prepare(scrp);
     if(query.exec())
     {
@@ -145,7 +145,7 @@ void almacenista_menu::on_tablaInsumos_clicked(const QModelIndex &index)
     QSqlQuery query(mDatabase);
     QString scrp = "select ins.id_insumo,ins.nombre, ins.precio_compra,"
                    " ins.existencias, ins.presentacion from insumo"
-                   " as ins inner join ingrediente as ing where ins.id_insumo = "+id+"";
+                   " as ins inner join perecedero as ing where ins.id_insumo = "+id+"";
     query.prepare(scrp);
     if(query.exec())
     {
@@ -175,7 +175,7 @@ void almacenista_menu::on_btnTodo_clicked()
         ui->btnBebidas->setFont(fuente2);
         script = "select ins.id_insumo,ins.nombre, ins.precio_compra, ins.existencias,"
                          " ins.presentacion, ing.fecha_almacenamiento, ing.dias_caducidad"
-                         " from insumo as ins inner join ingrediente as ing"
+                         " from insumo as ins inner join perecedero as ing"
                          " where ins.id_insumo = ing.id_insumo order by ins.id_insumo";
         llenarTabla(script);
     }
@@ -190,7 +190,7 @@ void almacenista_menu::on_btnPlatillos_clicked()
         ui->btnPlatillos->setFont(fuente);
         ui->btnBebidas->setFont(fuente2);
         ui->btnTodo->setFont(fuente2);
-        script = "SELECT * FROM insumo WHERE id_insumo not in (SELECT id_insumo from ingrediente);";
+        script = "SELECT * FROM insumo WHERE id_insumo not in (SELECT id_insumo from perecedero);";
         llenarTabla(script);
     }
 }
