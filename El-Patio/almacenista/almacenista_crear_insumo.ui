@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -35,7 +35,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Agregar Insumos</string>
+       <string>Agregar insumos</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -66,7 +66,7 @@
        <string notr="true">color: rgb(133, 133, 133);</string>
       </property>
       <property name="text">
-       <string>Tipo de Alimento:</string>
+       <string>Tipo de alimento:</string>
       </property>
      </widget>
     </item>
@@ -100,7 +100,7 @@
          <string notr="true">color: rgb(133, 133, 133);</string>
         </property>
         <property name="text">
-         <string>No Perecedero</string>
+         <string>No perecedero</string>
         </property>
        </widget>
       </item>
@@ -120,6 +120,19 @@
      </spacer>
     </item>
     <item>
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Nombre del insumo:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QLineEdit" name="nombreInsumo">
       <property name="font">
        <font>
@@ -132,7 +145,7 @@
 border-bottom: 3px solid #539E56;</string>
       </property>
       <property name="placeholderText">
-       <string>Nombre del Insumo Ej: &quot;Leche&quot;</string>
+       <string>p.ej. Leche</string>
       </property>
      </widget>
     </item>
@@ -150,6 +163,19 @@ border-bottom: 3px solid #539E56;</string>
      </spacer>
     </item>
     <item>
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Presentación:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QLineEdit" name="tipoPresentacion">
       <property name="font">
        <font>
@@ -162,7 +188,7 @@ border-bottom: 3px solid #539E56;</string>
 border-bottom: 3px solid #539E56;</string>
       </property>
       <property name="placeholderText">
-       <string>Presentacion Ej: &quot;En lata&quot;</string>
+       <string>p.ej. Lata</string>
       </property>
      </widget>
     </item>
@@ -192,7 +218,7 @@ border-bottom: 3px solid #539E56;</string>
          <string notr="true">color: rgb(133, 133, 133);</string>
         </property>
         <property name="text">
-         <string>Precio Alimento:</string>
+         <string>Precio de compra:</string>
         </property>
        </widget>
       </item>
@@ -238,7 +264,7 @@ border: 1px solid #ECEEEE;</string>
          <string notr="true">color: rgb(133, 133, 133);</string>
         </property>
         <property name="text">
-         <string>Días para caducar</string>
+         <string>Días para caducar:</string>
         </property>
        </widget>
       </item>

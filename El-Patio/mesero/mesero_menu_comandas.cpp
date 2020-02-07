@@ -150,7 +150,7 @@ void mesero_menu_comandas::setMainWindow(MainWindow *_mainwindow)
 
 void mesero_menu_comandas::set_id_mesa(int _id_mesa_auxiliar)
 {
-    qDebug() << "\n\nmesa" + this->numero_mesa;
+    qDebug() << "\n\nmesa" << this->numero_mesa;
     this->numero_mesa = _id_mesa_auxiliar;
 }
 
