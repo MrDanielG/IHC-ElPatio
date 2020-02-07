@@ -38,16 +38,12 @@ private slots:
     void on_btnPlatillos_clicked();
 
     void on_btnBebidas_clicked();
-
-    void on_spinBox_precio_valueChanged(const QString &arg1);
-
-    void on_spinBox_existencias_valueChanged(const QString &arg1);
-
-    void on_ln_presentacion_textChanged(const QString &arg1);
-    void on_btn_agregar_insumo_clicked();
-
     void on_btn_guardar_clicked();
-
+    void on_btn_agregar_insumo_clicked();
+    void on_spinBox_precio_valueChanged(const QString &arg1);
+    void on_spinBox_existencias_valueChanged(const QString &arg1);
+    void on_ln_presentacion_textChanged(const QString &arg1);
+    void on_cbox_comentario_activated(const QString &arg1);
     void eliminaPerecedero();
     void eliminaInsumo();
 

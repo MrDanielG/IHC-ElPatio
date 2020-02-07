@@ -406,7 +406,7 @@
 </string>
       </property>
       <property name="text">
-       <string>Deshabilitados</string>
+       <string>Faltantes</string>
       </property>
      </widget>
     </item>
@@ -429,31 +429,12 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="lb_total">
-   <property name="geometry">
-    <rect>
-     <x>751</x>
-     <y>700</y>
-     <width>241</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 14pt &quot;Roboto&quot;;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>750</x>
-     <y>584</y>
-     <width>243</width>
+     <y>550</y>
+     <width>251</width>
      <height>193</height>
     </rect>
    </property>
@@ -777,12 +758,35 @@ padding: 5px;</string>
    <property name="geometry">
     <rect>
      <x>750</x>
-     <y>220</y>
-     <width>241</width>
-     <height>322</height>
+     <y>190</y>
+     <width>258</width>
+     <height>441</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="lb_nombre_insumo">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(133, 133, 133);
+</string>
+      </property>
+      <property name="text">
+       <string>[NOMBRE_INSUMO]</string>
+      </property>
+     </widget>
+    </item>
     <item row="1" column="0">
      <widget class="QLabel" name="label">
       <property name="minimumSize">
@@ -933,7 +937,7 @@ border: 1px solid #ECEEEE;</string>
 </string>
       </property>
       <property name="text">
-       <string>Existencias</string>
+       <string>Existencias:</string>
       </property>
      </widget>
     </item>
@@ -1060,8 +1064,8 @@ border: 1px solid #ECEEEE;</string>
       </item>
      </layout>
     </item>
-    <item row="0" column="0" colspan="2">
-     <widget class="QLabel" name="lb_nombre_insumo">
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_7">
       <property name="minimumSize">
        <size>
         <width>100</width>
@@ -1079,7 +1083,69 @@ border: 1px solid #ECEEEE;</string>
 </string>
       </property>
       <property name="text">
-       <string>[NOMBRE_INSUMO]</string>
+       <string>Comentario:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QComboBox" name="cbox_comentario">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>30</height>
+       </size>
+      </property>
+      <item>
+       <property name="text">
+        <string>A cocina</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>A barra</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>A piso</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Caduco</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Correción</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Retiro por defecto</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Retiro por siniestro</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Retiro por maltrato</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Otro</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="6" column="0" colspan="2">
+     <widget class="QPlainTextEdit" name="plainText_comentario">
+      <property name="placeholderText">
+       <string>comentario</string>
       </property>
      </widget>
     </item>
