@@ -345,7 +345,6 @@ void almacenista_menu::on_btn_guardar_clicked()
     id = ui->lb_id_insumo->text();
     precio1 = ui->lb_precio_insumo->text();
     precio2 = QString::number(ui->spinBox_precio->value());
-    qDebug() << precio2;
     exist1 = ui->lb_existencias_insumo->text();
     exist2 = ui->spinBox_existencias->text();
     present1 = ui->lb_presentacion_insumo->text();
