@@ -32,7 +32,7 @@ almacenista_menu::almacenista_menu(QWidget *parent) :
     ui->label_7->setHidden(true);
     ui->cbox_comentario->setHidden(true);
 
-    ui->tablaInsumos->setStyleSheet("*{background-color: rgb(217, 217, 217); color: rgb(0, 0, 0);}");
+    //ui->tablaInsumos->setStyleSheet("*{background-color: rgb(217, 217, 217); color: rgb(0, 0, 0);}");
     ui->tablaInsumos->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tablaInsumos->verticalHeader()->setVisible(false);
     ui->tablaInsumos->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);

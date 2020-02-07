@@ -799,7 +799,7 @@ padding: 5px;</string>
      <x>750</x>
      <y>190</y>
      <width>258</width>
-     <height>441</height>
+     <height>458</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -818,7 +818,7 @@ padding: 5px;</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(133, 133, 133);
+       <string notr="true">color: #585858
 </string>
       </property>
       <property name="text">
@@ -1206,16 +1206,32 @@ border: 1px solid #ECEEEE;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:none;</string>
+    <string notr="true">border:none;
+selection-background-color: #46B04A;</string>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAsNeeded</enum>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
    </property>
    <property name="selectionMode">
     <enum>QAbstractItemView::SingleSelection</enum>
    </property>
    <property name="selectionBehavior">
     <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+   <property name="textElideMode">
+    <enum>Qt::ElideMiddle</enum>
+   </property>
+   <property name="showGrid">
+    <bool>false</bool>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
