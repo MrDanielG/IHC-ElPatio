@@ -37,6 +37,8 @@ private slots:
 
     void on_btnBebidas_clicked();
 
+    void on_btn_guardar_clicked();
+
 private:
     Ui::almacenista_menu *ui;
 
@@ -47,6 +49,7 @@ private:
     QSortFilterProxyModel *almacenProxyModel;
     QString script;
     QSqlDatabase mDatabase;
+
 };
 
 #endif // ALMACENISTA_MENU_H

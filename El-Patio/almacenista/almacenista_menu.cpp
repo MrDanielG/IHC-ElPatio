@@ -6,6 +6,8 @@
 #include <QSqlQueryModel>
 #include <QSortFilterProxyModel>
 #include <QSqlRelationalTableModel>
+#include <QMessageBox>
+#include <QDate>
 
 almacenista_menu::almacenista_menu(QWidget *parent) :
     QWidget(parent),
@@ -206,4 +208,22 @@ void almacenista_menu::on_btnBebidas_clicked()
         ui->btnTodo->setFont(fuente2);
         ui->btnPlatillos->setFont(fuente2);
     }
+}
+
+void almacenista_menu::on_btn_guardar_clicked()
+{
+    //TODO id del empleado
+
+    QString fecha = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss:z");
+    QString cantidad = ui->spinBox_existencias->text();
+    QString id_insumo = ui->lb_id_insumo->text();
+    QString clave = "101";
+
+    QString query_transaccion =
+            "INSERT INTO `el_patio`.`transaccion` "
+            "(`fecha_hora`, `cantidad`, `tipo`, `comentario`, `clave`, `id_insumo`)"
+            "VALUES ('" +fecha+ "', '" +cantidad+ "', 'entrada', 'S/C', '" +clave+ "', ' " +id_insumo+ " ');";
+
+    qDebug() << query_transaccion;
+    QMessageBox::information(this, ui->lb_id_insumo->text(), query_transaccion);
 }
