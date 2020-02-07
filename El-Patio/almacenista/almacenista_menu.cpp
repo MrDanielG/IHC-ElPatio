@@ -356,11 +356,11 @@ void almacenista_menu::on_btn_guardar_clicked()
     if((precio1 != precio2) || (exist1 != exist2) || (present1 != present2))
     {
         QMessageBox::StandardButton reply;
-        reply = QMessageBox::question(this, "Confirmacion: ", "¿Está seguro de actualizar los datos del insumo?",
+        reply = QMessageBox::question(this, "Confirmación", "¿Está seguro de actualizar los datos del insumo?",
                                         QMessageBox::Yes|QMessageBox::No);
         if (reply == QMessageBox::Yes) {
             QSqlQuery query(mDatabase);
-            QString sql = "UPDATE insumo SET precio_compra = "+precio2+", existencias = "+exist2+" , presentacion = '"+present2+"' WHERE id_insumo = "+id+"";
+            QString sql = "UPDATE insumo SET precio_compra = "+precio2+", existencias = "+exist2+" , presentacion = '"+present2+"' WHERE id_insumo = "+id;
             query.prepare(sql);
             query.exec();
 
