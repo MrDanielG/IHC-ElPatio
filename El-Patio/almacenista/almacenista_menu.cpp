@@ -6,6 +6,7 @@
 #include <QSqlQueryModel>
 #include <QSortFilterProxyModel>
 #include <QSqlRelationalTableModel>
+#include <QMessageBox>
 
 almacenista_menu::almacenista_menu(QWidget *parent) :
     QWidget(parent),
@@ -214,6 +215,8 @@ void almacenista_menu::on_btnBebidas_clicked()
         ui->btnBebidas->setFont(fuente);
         ui->btnTodo->setFont(fuente2);
         ui->btnPlatillos->setFont(fuente2);
+        script = "select * from insumo where existencias = 0;";
+        llenarTabla(script);
     }
 }
 
@@ -245,4 +248,42 @@ void almacenista_menu::on_ln_presentacion_textChanged(const QString &arg1)
                           "border: 1px solid #46B04A; color: #46B04A; }";
     ui->btn_guardar->setStyleSheet(enableStyle);
     ui->btn_guardar->setEnabled(true);
+}
+
+void almacenista_menu::on_btn_guardar_clicked()
+{
+    QString id,precio1, precio2, present1, present2,exist1, exist2;
+
+    id = ui->lb_id_insumo->text();
+    precio1 = ui->lb_precio_insumo->text();
+    precio2 = ui->spinBox_precio->text();
+    exist1 = ui->lb_existencias_insumo->text();
+    exist2 = ui->spinBox_existencias->text();
+    present1 = ui->lb_presentacion_insumo->text();
+    present2 = ui->ln_presentacion->text();
+
+    if((precio1 != precio2) || (exist1 != exist2) || (present1 != present2))
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Confirmacion: ", "¿Está seguro de actualizar los datos del insumo?",
+                                        QMessageBox::Yes|QMessageBox::No);
+        if (reply == QMessageBox::Yes) {
+            QSqlQuery query(mDatabase);
+            QString sql = "UPDATE insumo SET precio_compra = "+precio2+", existencias = "+exist2+" , presentacion = '"+present2+"' WHERE id_insumo = "+id+"";
+            query.prepare(sql);
+            query.exec();
+        }
+    }
+
+    llenarTabla(script);
+    ui->lb_id_insumo->setText("");
+    ui->lb_precio_insumo->setText("");
+    ui->lb_existencias_insumo->setText("");
+    ui->lb_precio_insumo->setText("");
+    ui->lb_presentacion_insumo->setText("");
+    ui->lb_nombre_insumo->setText("");
+    ui->spinBox_precio->setValue(0);
+    ui->spinBox_existencias->setValue(0);
+    ui->ln_presentacion->setText("");
+    on_btn_cancelar_clicked();
 }
