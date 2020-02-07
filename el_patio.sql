@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-02-2020 a las 03:14:32
+-- Tiempo de generación: 07-02-2020 a las 07:29:21
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.26
 
@@ -116,7 +116,8 @@ CREATE TABLE `insumo` (
   `nombre` varchar(30) NOT NULL,
   `precio_compra` float NOT NULL,
   `existencias` int(11) NOT NULL,
-  `presentacion` varchar(20) NOT NULL
+  `presentacion` varchar(20) NOT NULL,
+  `estado` varchar(15) NOT NULL DEFAULT 'activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -128,33 +129,34 @@ TRUNCATE TABLE `insumo`;
 -- Volcado de datos para la tabla `insumo`
 --
 
-INSERT INTO `insumo` (`id_insumo`, `nombre`, `precio_compra`, `existencias`, `presentacion`) VALUES
-(1, 'pollo', 79, 3, 'Kilogramos'),
-(2, 'huevo', 30, 4, 'Docena'),
-(3, 'crema', 57.5, 2, '900ml'),
-(4, 'aguacate', 54, 3, 'kilogramo'),
-(5, 'cebolla morada', 36.9, 2, 'kilogramo'),
-(6, 'queso ranchero ', 53, 2, '300gr'),
-(7, 'cebolla', 29.9, 2, 'kilogramos'),
-(8, 'queso manchego', 218, 1, 'Kilogramos'),
-(9, 'chicharo', 76, 1, 'kil'),
-(10, 'jamon', 270, 2, 'Kilogramos'),
-(11, 'platano', 21, 2, 'kilogramo'),
-(12, 'chile poblano', 44.8, 1, 'kilogramo'),
-(13, 'elote', 19.4, 12, 'piezas'),
-(14, 'frijoles', 38, 4, 'kilogramos'),
-(15, 'tortilla', 11.9, 14, 'kilogramos'),
-(16, 'jitomate', 37.9, 8, 'kilogramos'),
-(17, 'tomate', 29.6, 5, 'kilogramos'),
-(18, 'tortilla de harina', 24.5, 3, '24 piezas'),
-(19, 'chile ancho ', 46.9, 2, '200 gramos'),
-(20, 'chile serrano', 34.9, 1, 'kilogramo'),
-(21, 'chile cuaresmeño', 32.9, 1, 'kilogramos'),
-(22, 'chile habanero', 160, 1, 'kilogramos'),
-(23, 'servilletas', 32.5, 15, '250 piezas'),
-(24, 'palillos', 25, 8, '65 piezas'),
-(25, 'vasos de vidrio', 12.5, 143, 'pieza'),
-(26, 'mantel blanco', 47.9, 31, '47.90');
+INSERT INTO `insumo` (`id_insumo`, `nombre`, `precio_compra`, `existencias`, `presentacion`, `estado`) VALUES
+(1, 'pollo', 79, 3, 'Kilogramos', 'activo'),
+(2, 'huevo', 30, 4, 'Docena', 'activo'),
+(3, 'crema', 57.5, 2, '900ml', 'activo'),
+(4, 'aguacate', 54, 3, 'kilogramo', 'activo'),
+(5, 'cebolla morada', 36.9, 2, 'kilogramo', 'activo'),
+(6, 'queso ranchero ', 53, 2, '300gr', 'activo'),
+(7, 'cebolla', 29.9, 2, 'kilogramos', 'activo'),
+(8, 'queso manchego', 218, 1, 'Kilogramos', 'activo'),
+(9, 'chicharo', 76, 1, 'kil', 'activo'),
+(10, 'jamon', 270, 2, 'Kilogramos', 'activo'),
+(11, 'platano', 21, 2, 'kilogramo', 'activo'),
+(12, 'chile poblano', 44.8, 1, 'kilogramo', 'activo'),
+(13, 'elote', 19.4, 12, 'piezas', 'activo'),
+(14, 'frijoles', 38, 4, 'kilogramos', 'activo'),
+(15, 'tortilla', 11.9, 14, 'kilogramos', 'activo'),
+(16, 'jitomate', 37.9, 8, 'kilogramos', 'activo'),
+(17, 'tomate', 29.6, 5, 'kilogramos', 'activo'),
+(18, 'tortilla de harina', 24.5, 3, '24 piezas', 'activo'),
+(19, 'chile ancho ', 46.9, 2, '200 gramos', 'activo'),
+(20, 'chile serrano', 34.9, 1, 'kilogramo', 'activo'),
+(21, 'chile cuaresmeño', 32.9, 1, 'kilogramos', 'activo'),
+(22, 'chile habanero', 160, 1, 'kilogramos', 'activo'),
+(23, 'servilletas', 32.5, 15, '250 piezas', 'activo'),
+(24, 'palillos', 25, 8, '65 piezas', 'activo'),
+(25, 'vasos de vidrio', 12.5, 143, 'pieza', 'activo'),
+(26, 'mantel blanco', 47.9, 31, '47.90', 'activo'),
+(27, 'Agitador', 30, 0, 'bolsa de 25 pzs.', 'activo');
 
 -- --------------------------------------------------------
 
@@ -636,7 +638,7 @@ ALTER TABLE `ingrediente`
 -- AUTO_INCREMENT de la tabla `insumo`
 --
 ALTER TABLE `insumo`
-  MODIFY `id_insumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_insumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `lista_ingrediente`
@@ -685,6 +687,12 @@ ALTER TABLE `ticket`
 --
 ALTER TABLE `tipo`
   MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `transaccion`
+--
+ALTER TABLE `transaccion`
+  MODIFY `id_transaccion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

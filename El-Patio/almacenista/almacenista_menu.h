@@ -56,6 +56,7 @@ private:
     QString script;
     QSqlDatabase mDatabase;
     int existenciasOriginales;
+    QString id;
 };
 
 #endif // ALMACENISTA_MENU_H
