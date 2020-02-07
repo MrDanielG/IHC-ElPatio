@@ -226,6 +226,8 @@ void almacenista_menu::on_btn_guardar_clicked()
 
     qDebug() << query_transaccion;
     QMessageBox::information(this, ui->lb_id_insumo->text(), query_transaccion);
+}
+
 void almacenista_menu::on_btn_agregar_insumo_clicked()
 {
     almacenista_crear_insumo *crearInsumo = new almacenista_crear_insumo(this) ;
