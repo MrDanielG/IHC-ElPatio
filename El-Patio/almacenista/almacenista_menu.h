@@ -38,6 +38,7 @@ private slots:
     void on_btnBebidas_clicked();
 
     void on_btn_guardar_clicked();
+    void on_btn_agregar_insumo_clicked();
 
 private:
     Ui::almacenista_menu *ui;

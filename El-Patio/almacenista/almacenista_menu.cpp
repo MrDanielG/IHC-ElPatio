@@ -1,6 +1,6 @@
 #include "almacenista_menu.h"
 #include "ui_almacenista_menu.h"
-
+#include "almacenista/almacenista_crear_insumo.h"
 #include <QDebug>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
@@ -226,4 +226,8 @@ void almacenista_menu::on_btn_guardar_clicked()
 
     qDebug() << query_transaccion;
     QMessageBox::information(this, ui->lb_id_insumo->text(), query_transaccion);
+void almacenista_menu::on_btn_agregar_insumo_clicked()
+{
+    almacenista_crear_insumo *crearInsumo = new almacenista_crear_insumo(this) ;
+    crearInsumo->exec();
 }
