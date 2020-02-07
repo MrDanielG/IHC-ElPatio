@@ -16,10 +16,10 @@
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>20</y>
-     <width>425</width>
-     <height>526</height>
+     <x>80</x>
+     <y>55</y>
+     <width>401</width>
+     <height>451</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -123,6 +123,7 @@
      <widget class="QLineEdit" name="nombreInsumo">
       <property name="font">
        <font>
+        <family>Roboto</family>
         <pointsize>12</pointsize>
        </font>
       </property>
@@ -152,6 +153,7 @@ border-bottom: 3px solid #539E56;</string>
      <widget class="QLineEdit" name="tipoPresentacion">
       <property name="font">
        <font>
+        <family>Roboto</family>
         <pointsize>12</pointsize>
        </font>
       </property>
@@ -190,7 +192,7 @@ border-bottom: 3px solid #539E56;</string>
          <string notr="true">color: rgb(133, 133, 133);</string>
         </property>
         <property name="text">
-         <string>Tipo de Alimento:</string>
+         <string>Precio Alimento:</string>
         </property>
        </widget>
       </item>
@@ -224,20 +226,53 @@ border: 1px solid #ECEEEE;</string>
      </spacer>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+       <widget class="QLabel" name="titulo_4">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(133, 133, 133);</string>
         </property>
-       </spacer>
+        <property name="text">
+         <string>Días para caducar</string>
+        </property>
+       </widget>
       </item>
+      <item>
+       <widget class="QSpinBox" name="spinBoxCaducar">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+border: 1px solid #ECEEEE;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_7">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="btnSecundaio">
         <property name="minimumSize">
@@ -273,19 +308,6 @@ border: 1px solid #ECEEEE;</string>
          <string>Agregar</string>
         </property>
        </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
       </item>
      </layout>
     </item>
