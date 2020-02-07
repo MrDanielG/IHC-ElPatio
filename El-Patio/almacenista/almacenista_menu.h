@@ -24,6 +24,8 @@ private slots:
 
     void on_btn_cancelar_clicked();
 
+    void on_btn_agregar_insumo_clicked();
+
 private:
     Ui::almacenista_menu *ui;
 

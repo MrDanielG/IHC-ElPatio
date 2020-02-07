@@ -1,6 +1,6 @@
 #include "almacenista_menu.h"
 #include "ui_almacenista_menu.h"
-
+#include "almacenista/almacenista_crear_insumo.h"
 #include <QDebug>
 
 almacenista_menu::almacenista_menu(QWidget *parent) :
@@ -57,4 +57,10 @@ void almacenista_menu::on_btn_cancelar_clicked()
     ui->lb_existencias_insumo->setHidden(false);
     ui->btn_editar_insumo->setHidden(false);
 
+}
+
+void almacenista_menu::on_btn_agregar_insumo_clicked()
+{
+    almacenista_crear_insumo *crearInsumo = new almacenista_crear_insumo(this) ;
+    crearInsumo->exec();
 }
