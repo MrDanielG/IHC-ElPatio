@@ -200,7 +200,7 @@ void almacenista_menu::on_btnPlatillos_clicked()
         ui->btnPlatillos->setFont(fuente);
         ui->btnBebidas->setFont(fuente2);
         ui->btnTodo->setFont(fuente2);
-        script = "SELECT * FROM insumo WHERE id_insumo not in (SELECT id_insumo from perecedero) && ins.estado = 'activo';";
+        script = "SELECT * FROM insumo WHERE estado = 'activo' && id_insumo not in (SELECT id_insumo from perecedero)";
         llenarTabla(script);
     }
 }
