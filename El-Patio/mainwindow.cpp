@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "mesero/mesero_menu_comandas.h"
+#include "mesero/mesero_transferir_platillo.h"
 #include "almacenista/almacenista_menu.h"
 
 #include <QDebug>
@@ -27,11 +28,17 @@ MainWindow::MainWindow(QWidget *parent) :
     menuAlmacenista->show();
     menuAlmacenista->setMainWindow(this);
 
+    transferirPlatillo = new mesero_transferir_platillo(this);
+    transferirPlatillo->show();
+    transferirPlatillo->setMainWindow(this);
+
+
     ui->Mesas->setMainWindow(this);
 
 
     ui->stackedWidget->insertWidget(1, menuComandas);
     ui->stackedWidget->insertWidget(2, menuAlmacenista);
+    ui->stackedWidget->insertWidget(3, transferirPlatillo);
 
     ui->stackedWidget->setCurrentIndex(0);
 }

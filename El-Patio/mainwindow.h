@@ -7,6 +7,7 @@
 
 class mesero_menu_comandas;
 class almacenista_menu;
+class mesero_transferir_platillo;
 
 namespace Ui {
 class MainWindow;
@@ -31,6 +32,7 @@ private:
     //paginas de los usuarios
     mesero_menu_comandas *menuComandas;
     almacenista_menu *menuAlmacenista;
+    mesero_transferir_platillo *transferirPlatillo;
 
 };
 

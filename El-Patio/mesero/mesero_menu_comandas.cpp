@@ -240,3 +240,8 @@ void mesero_menu_comandas::on_btnPlatillos_2_clicked()
     //limpia el grid
     this->limpiar_grid4();
 }
+
+void mesero_menu_comandas::on_btn_transferir_clicked()
+{
+    this->mainwindow->cambiar_pagina(3);
+}
