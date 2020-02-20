@@ -2,7 +2,7 @@
 #include "ui_mesero_transferir_platillo.h"
 
 #include "mainwindow.h"
-#include "mesero_tarjeta_chica.h"
+#include "mesero_tarjeta_transferir.h"
 
 #include <QDebug>
 #include <QMessageBox>
@@ -40,6 +40,51 @@ void mesero_transferir_platillo::set_idComanda(int _idComanda)
     this->actualizarDatos();
 }
 
+void mesero_transferir_platillo::mover_platillo(QString id_pedido)
+{
+    int posicionLista = 0;
+    while(posicionLista < this->copia_listaPlatillos.size() &&
+          copia_listaPlatillos.at(posicionLista)->get_idPedido() != id_pedido)
+        posicionLista++;
+
+    //se agrega a la lista a transferir y al mism timepo de la lista
+    mesero_tarjeta_transferir *aux = copia_listaPlatillos.takeAt(posicionLista);
+    this->transferir_listPlatillos.append(aux);
+
+
+    int posicionLista2 = 0;
+    //saco elementos grid
+    while(posicionLista2 < this->transferir_listPlatillos.size())
+    {
+        ui->grid_comandaNueva->addWidget(transferir_listPlatillos.value(posicionLista2), posicionLista2, 0);
+        posicionLista2++;
+    }
+
+}
+
+void mesero_transferir_platillo::sacar_platillo(QString id_pedido)
+{
+    int posicionLista = 0;
+
+    while(posicionLista < this->transferir_listPlatillos.size() &&
+          transferir_listPlatillos.at(posicionLista)->get_idPedido() != id_pedido)
+        posicionLista++;
+
+    //se agrega a la lista a transferir y al mism timepo de la lista
+    mesero_tarjeta_transferir *aux = transferir_listPlatillos.takeAt(posicionLista);
+    this->copia_listaPlatillos.append(aux);
+
+
+    int posicionLista2 = 0;
+    //saco elementos grid
+    while(posicionLista2 < this->copia_listaPlatillos.size())
+    {
+        ui->grid_comandaActual->addWidget(copia_listaPlatillos.value(posicionLista2), posicionLista2, 0);
+        posicionLista2++;
+    }
+}
+
+
 void mesero_transferir_platillo::actualizarDatos()
 {
     //obtengo el numero de la mesa
@@ -71,34 +116,44 @@ void mesero_transferir_platillo::actualizarDatos()
 
     while(ultima_comanda.next())
     {
-        mesero_tarjeta_chica *nuevo_platillo = new mesero_tarjeta_chica(
-                    ultima_comanda.value("Platillo_id_platillo").toInt(), this);
-        nuevo_platillo->setMinimumWidth(235);
-        nuevo_platillo->setMinimumHeight(100);
+        int id_platillo = ultima_comanda.value("Platillo_id_platillo").toInt();
+        int id_pedidio = ultima_comanda.value("id_Pedido").toInt();
+        mesero_tarjeta_transferir *nuevo_platillo = new mesero_tarjeta_transferir(id_pedidio, id_platillo, this);
+        nuevo_platillo->setPadre(this);
+        nuevo_platillo->setMinimumHeight(80);
+        nuevo_platillo->setMinimumWidth(410);
         this->lista_platillos.append(nuevo_platillo);
     }
 
-//    int posicion_lista = 0;
-//    while (posicion_lista < lista_platillos.size())
-//    {
-//        ui->gridLayout_4->addWidget(lista_platillos.at(posicion_lista), posicion_lista, 0);
-//        posicion_lista++;
-//    }
+    //hago de la lista completa, por en caso de querer cancelar nada se vea afectado
+    copia_listaPlatillos = lista_platillos;
 
-    while (mesasLibres.next()) {
-        ui->cbox_mesasAbiertas->addItem(mesasLibres.value("numero_mesa").toString());
+    int posicion_lista = 0;
+    while (posicion_lista < lista_platillos.size())
+    {
+        ui->grid_comandaActual->addWidget(lista_platillos.at(posicion_lista), posicion_lista, 0);
+        posicion_lista++;
     }
+
+    while (mesasLibres.next())
+        ui->cbox_mesasAbiertas->addItem(mesasLibres.value("numero_mesa").toString());
 
     ui->lb_numeroMesa->setText(datosComando.value("Mesa_numero_mesa").toString());
 }
 
 void mesero_transferir_platillo::on_btnRegresarMenu_clicked()
 {
-    if (QMessageBox::question(this, "Regresar a Menú", "¿Cancelar transferencia?")
-            == QMessageBox::Yes)
+    if(this->transferir_listPlatillos.size())
+    {
+        if (QMessageBox::question(this, "Regresar a Menú", "¿Cancelar transferencia?")
+                == QMessageBox::Yes)
+            mainWindow->cambiar_pagina(1);
+    }
+    else
     {
         mainWindow->cambiar_pagina(1);
     }
+
 
 }
 

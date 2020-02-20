@@ -35,6 +35,7 @@ SOURCES += \
         mesero/mesero_menu_comandas.cpp \
         mesero/mesero_tarjeta_chica.cpp \
         mesero/mesero_tarjeta_menu.cpp \
+        mesero/mesero_tarjeta_transferir.cpp \
         mesero/mesero_transferir_platillo.cpp \
         models/platillo.cpp
 
@@ -48,6 +49,7 @@ HEADERS += \
         mesero/mesero_menu_comandas.h \
         mesero/mesero_tarjeta_chica.h \
         mesero/mesero_tarjeta_menu.h \
+        mesero/mesero_tarjeta_transferir.h \
         mesero/mesero_transferir_platillo.h \
         models/platillo.h
 
@@ -61,6 +63,7 @@ FORMS += \
         mesero/mesero_menu_comandas.ui \
         mesero/mesero_tarjeta_chica.ui \
         mesero/mesero_tarjeta_menu.ui \
+        mesero/mesero_tarjeta_transferir.ui \
         mesero/mesero_transferir_platillo.ui
 
 # Default rules for deployment.
