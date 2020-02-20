@@ -153,8 +153,12 @@ void mesero_transferir_platillo::on_btnRegresarMenu_clicked()
     {
         mainWindow->cambiar_pagina(1);
     }
-
-
+    QMessageBox::information(this, "Cancelación", "Se a cancelado la transferencia de platillos." );
 }
 
 
+
+void mesero_transferir_platillo::on_btnMandarCocina_clicked()
+{
+    qDebug() << "transferido";
+}

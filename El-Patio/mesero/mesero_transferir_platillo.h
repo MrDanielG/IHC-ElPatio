@@ -28,6 +28,8 @@ public:
 private slots:
     void on_btnRegresarMenu_clicked();
 
+    void on_btnMandarCocina_clicked();
+
 private:
     Ui::mesero_transferir_platillo *ui;
     QSqlDatabase mDatabase;
