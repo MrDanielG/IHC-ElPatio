@@ -29,7 +29,7 @@
     <property name="styleSheet">
      <string notr="true"/>
     </property>
-    <widget class="CatalogoMesas" name="Mesas"/>
+    <widget class="DividirCuenta" name="Mesas"/>
     <widget class="QWidget" name="comanda"/>
     <widget class="QWidget" name="almacen"/>
    </widget>
@@ -38,9 +38,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>CatalogoMesas</class>
+   <class>DividirCuenta</class>
    <extends>QWidget</extends>
-   <header location="global">catalogomesas.h</header>
+   <header location="global">dividircuenta.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

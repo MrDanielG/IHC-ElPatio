@@ -2,6 +2,7 @@
 #define DIVIDIRCUENTA_H
 
 #include <QWidget>
+#include <QSqlDatabase>
 
 namespace Ui {
 class DividirCuenta;
@@ -15,14 +16,17 @@ public:
     explicit DividirCuenta(QWidget *parent = nullptr);
     ~DividirCuenta();
     void setIdComanda(QString idC);
-    void llenaCuentaPrincipal();
-    void setIdMesero(int idM);
+    void llenaCuentaPrincipal(QString query, QString query2);
+    void setIdMesero();
+    void setQuery(QString query);
+
+public slots:
     void Dividir();
 
 private:
     Ui::DividirCuenta *ui;
+    QSqlDatabase mDatabase;
     QString idComanda;
-    int numCuentas = 1;
 };
 
 #endif // DIVIDIRCUENTA_H
