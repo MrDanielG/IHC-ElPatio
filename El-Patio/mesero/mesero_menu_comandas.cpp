@@ -6,6 +6,7 @@
 #include "mesero/mesero_tarjeta_menu.h"
 #include "mesero/mesero_tarjeta_chica.h"
 #include "mainwindow.h"
+#include "mesero_cambiar_cuenta_mesa.h"
 
 #include <QSqlRecord>
 
@@ -150,8 +151,21 @@ void mesero_menu_comandas::setMainWindow(MainWindow *_mainwindow)
 
 void mesero_menu_comandas::set_id_mesa(int _id_mesa_auxiliar)
 {
-    qDebug() << "\n\nmesa" << this->numero_mesa;
     this->numero_mesa = _id_mesa_auxiliar;
+
+    QSqlQuery ultima_comanda(mDatabase);
+    QString query_ultima_comanda =
+                "select * from comanda where Mesa_numero_mesa = " + QString::number(this->numero_mesa) + " "
+                "order by hora_apertura DESC limit 1";
+
+    if(ultima_comanda.exec(query_ultima_comanda))
+        qDebug() << "query_ultima_comanda [ejecutado]" + query_ultima_comanda;
+    else
+        qDebug() << "query_ultima_comanda [no_ejecutado]";
+
+    ultima_comanda.next();
+
+    this->numero_comanda = ultima_comanda.record().value("id_comanda").toInt();
 }
 
 void mesero_menu_comandas::limpiar_grid4()
@@ -175,19 +189,19 @@ void mesero_menu_comandas::on_btnBebidas_2_clicked()
     this->limpiar_grid4();
 
     QSqlQuery ultima_comanda(mDatabase);
-        QSqlQuery precio_total(mDatabase);
-        QString query_ultima_comanda =
-                "select * from comanda where Mesa_numero_mesa = " + QString::number(this->numero_mesa) + " "
-                "order by hora_apertura DESC limit 1";
+    QSqlQuery precio_total(mDatabase);
+//    QString query_ultima_comanda =
+//                "select * from comanda where Mesa_numero_mesa = " + QString::number(this->numero_mesa) + " "
+//                "order by hora_apertura DESC limit 1";
 
-        if(ultima_comanda.exec(query_ultima_comanda))
-            qDebug() << "query_ultima_comanda [ejecutado]" + query_ultima_comanda;
-        else
-            qDebug() << "query_ultima_comanda [no_ejecutado]";
+//    if(ultima_comanda.exec(query_ultima_comanda))
+//        qDebug() << "query_ultima_comanda [ejecutado]" + query_ultima_comanda;
+//    else
+//        qDebug() << "query_ultima_comanda [no_ejecutado]";
 
-        ultima_comanda.next();
+//    ultima_comanda.next();
 
-        this->numero_comanda = ultima_comanda.record().value("id_comanda").toInt();
+//    this->numero_comanda = ultima_comanda.record().value("id_comanda").toInt();
 
         QString query_platillos =
                 "select * from pedido "
@@ -205,7 +219,6 @@ void mesero_menu_comandas::on_btnBebidas_2_clicked()
             nuevo_platillo->setMinimumWidth(235);
             nuevo_platillo->setMinimumHeight(100);
             this->lista_platillos.append(nuevo_platillo);
-            qDebug() << "qwe";
         }
 
         //cambiar dato propio de la clase
@@ -239,4 +252,18 @@ void mesero_menu_comandas::on_btnPlatillos_2_clicked()
 
     //limpia el grid
     this->limpiar_grid4();
+}
+
+void mesero_menu_comandas::on_btn_transferir_clicked()
+{
+    this->mainwindow->pasar_is_comanda(this->numero_comanda);
+    this->mainwindow->cambiar_pagina(3);
+}
+
+
+
+void mesero_menu_comandas::on_btnCambiarMesero_clicked()
+{
+    mesero_cambiar_cuenta_mesa *Cambio = new mesero_cambiar_cuenta_mesa();
+    Cambio->exec();
 }

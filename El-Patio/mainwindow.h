@@ -7,6 +7,7 @@
 
 class mesero_menu_comandas;
 class almacenista_menu;
+class mesero_transferir_platillo;
 
 namespace Ui {
 class MainWindow;
@@ -22,6 +23,7 @@ public:
     void pasar_id_mesa(int);
     ~MainWindow();
     void cambiarStacked_indice(int);
+    void pasar_is_comanda(int);
 
 private:
     Ui::MainWindow *ui;
@@ -31,6 +33,7 @@ private:
     //paginas de los usuarios
     mesero_menu_comandas *menuComandas;
     almacenista_menu *menuAlmacenista;
+    mesero_transferir_platillo *transferirPlatillo;
 
 };
 

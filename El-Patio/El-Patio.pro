@@ -32,10 +32,12 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         mesero/mesero_agregar_extra.cpp \
+        mesero/mesero_cambiar_cuenta_mesa.cpp \
         mesero/mesero_editar_platillo.cpp \
         mesero/mesero_menu_comandas.cpp \
         mesero/mesero_tarjeta_chica.cpp \
         mesero/mesero_tarjeta_menu.cpp \
+        mesero/mesero_transferir_platillo.cpp \
         models/platillo.cpp
 
 HEADERS += \
@@ -45,10 +47,12 @@ HEADERS += \
         dividircuenta.h \
         mainwindow.h \
         mesero/mesero_agregar_extra.h \
+        mesero/mesero_cambiar_cuenta_mesa.h \
         mesero/mesero_editar_platillo.h \
         mesero/mesero_menu_comandas.h \
         mesero/mesero_tarjeta_chica.h \
         mesero/mesero_tarjeta_menu.h \
+        mesero/mesero_transferir_platillo.h \
         models/platillo.h
 
 FORMS += \
@@ -58,10 +62,12 @@ FORMS += \
         dividircuenta.ui \
         mainwindow.ui \
         mesero/mesero_agregar_extra.ui \
+        mesero/mesero_cambiar_cuenta_mesa.ui \
         mesero/mesero_editar_platillo.ui \
         mesero/mesero_menu_comandas.ui \
         mesero/mesero_tarjeta_chica.ui \
-        mesero/mesero_tarjeta_menu.ui
+        mesero/mesero_tarjeta_menu.ui \
+        mesero/mesero_transferir_platillo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
