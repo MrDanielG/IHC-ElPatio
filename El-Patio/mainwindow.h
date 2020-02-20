@@ -23,6 +23,7 @@ public:
     void pasar_id_mesa(int);
     ~MainWindow();
     void cambiarStacked_indice(int);
+    void pasar_is_comanda(int);
 
 private:
     Ui::MainWindow *ui;

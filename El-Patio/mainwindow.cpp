@@ -51,7 +51,6 @@ void MainWindow::cambiar_pagina(int index)
 void MainWindow::pasar_id_mesa(int _id_mesa_auxiliar)
 {
     menuComandas->set_id_mesa(_id_mesa_auxiliar);
-     qDebug() << "\n\nmesa" << _id_mesa_auxiliar;
 }
 
 MainWindow::~MainWindow()
@@ -62,4 +61,9 @@ MainWindow::~MainWindow()
 void MainWindow::cambiarStacked_indice(int P)
 {
     ui->stackedWidget->setCurrentIndex(P);
+}
+
+void MainWindow::pasar_is_comanda(int _id_comanda)
+{
+    this->transferirPlatillo->set_idComanda(_id_comanda);
 }

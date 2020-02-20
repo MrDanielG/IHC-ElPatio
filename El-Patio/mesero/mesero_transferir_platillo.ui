@@ -281,6 +281,49 @@
         </property>
        </spacer>
       </item>
+      <item>
+       <widget class="QPushButton" name="btnRegresarMenu">
+        <property name="minimumSize">
+         <size>
+          <width>160</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+        </property>
+        <property name="text">
+         <string>Regresar Menú</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
@@ -482,56 +525,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnRegresarMenu">
-   <property name="geometry">
-    <rect>
-     <x>650</x>
-     <y>680</y>
-     <width>160</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>160</width>
-     <height>35</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>100</width>
-     <height>16777215</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Roboto</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">*{
-	color: white;
-	border-radius: 10px;
-	background-color: #46B04A;
-	border: none;
-	padding: 5px;
-}
-
-:hover{
-	background-color: white;
-	border: 1px solid #46B04A;
-	color: #46B04A;
-}</string>
-   </property>
-   <property name="text">
-    <string>Cancelar</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="" native="true">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -558,12 +552,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>41</x>
      <y>171</y>
-     <width>471</width>
+     <width>370</width>
      <height>22</height>
     </rect>
    </property>
@@ -592,11 +586,17 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="elPatio_20">
+     <widget class="QLabel" name="lb_numeroMesa">
       <property name="minimumSize">
        <size>
-        <width>100</width>
+        <width>50</width>
         <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>16777215</height>
        </size>
       </property>
       <property name="font">
@@ -610,7 +610,7 @@
 </string>
       </property>
       <property name="text">
-       <string>4</string>
+       <string>[NUMERO_MESA]</string>
       </property>
      </widget>
     </item>
@@ -638,7 +638,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="cbox_mesasAbiertas">
       <property name="minimumSize">
        <size>
         <width>100</width>
@@ -646,31 +646,6 @@
        </size>
       </property>
      </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>170</y>
-     <width>481</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <spacer name="horizontalSpacer_16">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
     </item>
    </layout>
   </widget>
