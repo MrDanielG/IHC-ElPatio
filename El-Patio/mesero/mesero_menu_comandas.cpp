@@ -6,6 +6,7 @@
 #include "mesero/mesero_tarjeta_menu.h"
 #include "mesero/mesero_tarjeta_chica.h"
 #include "mainwindow.h"
+#include "mesero_cambiar_cuenta_mesa.h"
 
 #include <QSqlRecord>
 
@@ -260,3 +261,9 @@ void mesero_menu_comandas::on_btn_transferir_clicked()
 }
 
 
+
+void mesero_menu_comandas::on_btnCambiarMesero_clicked()
+{
+    mesero_cambiar_cuenta_mesa *Cambio = new mesero_cambiar_cuenta_mesa();
+    Cambio->exec();
+}

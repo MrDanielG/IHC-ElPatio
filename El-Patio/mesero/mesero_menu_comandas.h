@@ -32,10 +32,8 @@ private slots:
     void limpiar_grid4();
     void on_btnBebidas_2_clicked();
     void on_btnPlatillos_2_clicked();
-
-    void on_btnFiltrar_2_clicked();
-
     void on_btn_transferir_clicked();
+    void on_btnCambiarMesero_clicked();
 
 private:
     Ui::mesero_menu_comandas *ui;
