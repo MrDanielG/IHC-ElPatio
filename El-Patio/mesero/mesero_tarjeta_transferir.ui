@@ -31,7 +31,7 @@ background-color: #F4F7F4;
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -140,7 +140,7 @@ background-image: url(:/iconos/resources/menuPrueba.png);</string>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_6">
       <item>
-       <widget class="QWidget" name="" native="true">
+       <widget class="QWidget" name="widget" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>

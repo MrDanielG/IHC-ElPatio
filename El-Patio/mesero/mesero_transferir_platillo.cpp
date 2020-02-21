@@ -3,10 +3,12 @@
 
 #include "mainwindow.h"
 #include "mesero_tarjeta_transferir.h"
+#include "mesero/confirmartransferencia.h"
 
 #include <QDebug>
 #include <QMessageBox>
 #include <QSqlQuery>
+#include <QDialog>
 
 mesero_transferir_platillo::mesero_transferir_platillo(QWidget *parent) :
     QWidget(parent),
@@ -153,7 +155,7 @@ void mesero_transferir_platillo::actualizarDatos()
         qDebug() << "query_datosMesero [no_ejecutado] " + query_datosMesero;
     datosMesero.next();
 
-    ui->lb_nombreMesero->setText(datosMesero.value("nombre").toString() +  " No. " +
+    ui->lb_nombreMesero->setText(datosMesero.value("nombre").toString() +  "\n No. " +
                                  datosMesero.value("clave").toString());
 }
 
@@ -174,12 +176,13 @@ void mesero_transferir_platillo::on_btnRegresarMenu_clicked()
 
 
 
-void mesero_transferir_platillo::on_btnMandarCocina_clicked()
+void mesero_transferir_platillo::on_btn_transferirPlatillos_clicked()
 {
+    qDebug() << "\n =============================";
+    //obetener id de la comanda de la mesa a transferir
     QSqlQuery ultima_comanda(mDatabase);
-
     QString numero_mesa = ui->cbox_mesasAbiertas->currentText();
-
+    QString id_comandaTransferir;
     QString query_ultima_comanda =
                 "select * from comanda where Mesa_numero_mesa = "
             + numero_mesa + " order by hora_apertura DESC limit 1;";
@@ -188,8 +191,37 @@ void mesero_transferir_platillo::on_btnMandarCocina_clicked()
         qDebug() << "query_ultima_comanda [ejecutado]" + query_ultima_comanda;
     else
         qDebug() << "query_ultima_comanda [no_ejecutado]" + query_ultima_comanda;
-
     ultima_comanda.next();
 
-    qDebug() << ultima_comanda.value("id_comanda").toString();
+    qDebug() << "id de la comanda de la mesa abierta: " << ultima_comanda.value("id_comanda").toString();
+    id_comandaTransferir = ultima_comanda.value("id_comanda").toString();
+
+
+    //hace la tranferencia de los platillos a la mesa
+    //solo se actuliza el id de la comanda en la tablaplatillos
+    ConfirmarTransferencia confirmar_admin;
+    confirmar_admin.setModal(true);
+    confirmar_admin.exec();
+    if(confirmar_admin.result())
+    {
+        QSqlQuery validor_ClaveAdmin(mDatabase);
+        QString query_validorClaveAdmin = "select * from usuario "
+                                          "where clave = "+confirmar_admin.get_claveAdmin()+" ;";
+        qDebug() << confirmar_admin.get_claveAdmin();
+        validor_ClaveAdmin.exec(query_validorClaveAdmin);
+        if (!validor_ClaveAdmin.next()) {
+            QMessageBox::warning(this, "Clave incorrecta", "la clave es incorrecta o no existe");
+        }
+        else
+        {
+            //        QSqlQuery transferirPlatillos(mDatabase);
+            //        QString query_transferirPlatillos = "query_UPDATE pedido "
+            //                                      "SET Comanda_id_comanda= "+id_comandaTransferir+
+            //                                      "WHERE Comanda_id_comanda="+this->id_comanda+";";
+            //        transferirPlatillos.exec(query_transferirPlatillos);
+            //        transferirPlatillos.next();
+
+        }
+    }
 }
+

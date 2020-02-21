@@ -33,8 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     transferirPlatillo->setMainWindow(this);
 
 
-    //ui->Mesas->setMainWindow(this);
-
+    ui->Mesas->setMainWindow(this);
 
     ui->stackedWidget->insertWidget(1, menuComandas);
     ui->stackedWidget->insertWidget(2, menuAlmacenista);

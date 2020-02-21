@@ -31,6 +31,7 @@ SOURCES += \
         dividircuenta.cpp \
         main.cpp \
         mainwindow.cpp \
+        mesero/confirmartransferencia.cpp \
         mesero/mesero_agregar_extra.cpp \
         mesero/mesero_cambiar_cuenta_mesa.cpp \
         mesero/mesero_editar_platillo.cpp \
@@ -47,6 +48,7 @@ HEADERS += \
         catalogomesas.h \
         dividircuenta.h \
         mainwindow.h \
+        mesero/confirmartransferencia.h \
         mesero/mesero_agregar_extra.h \
         mesero/mesero_cambiar_cuenta_mesa.h \
         mesero/mesero_editar_platillo.h \
@@ -63,6 +65,7 @@ FORMS += \
         catalogomesas.ui \
         dividircuenta.ui \
         mainwindow.ui \
+        mesero/confirmartransferencia.ui \
         mesero/mesero_agregar_extra.ui \
         mesero/mesero_cambiar_cuenta_mesa.ui \
         mesero/mesero_editar_platillo.ui \

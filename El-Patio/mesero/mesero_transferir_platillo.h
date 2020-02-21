@@ -28,7 +28,7 @@ public:
 private slots:
     void on_btnRegresarMenu_clicked();
 
-    void on_btnMandarCocina_clicked();
+    void on_btn_transferirPlatillos_clicked();
 
 private:
     Ui::mesero_transferir_platillo *ui;

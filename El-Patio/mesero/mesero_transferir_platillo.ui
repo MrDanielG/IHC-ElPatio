@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="btnMandarCocina">
+  <widget class="QPushButton" name="btn_transferirPlatillos">
    <property name="geometry">
     <rect>
      <x>860</x>
@@ -559,7 +559,7 @@
    </widget>
   </widget>
   <zorder>sideBar</zorder>
-  <zorder>btnMandarCocina</zorder>
+  <zorder>btn_transferirPlatillos</zorder>
   <zorder>line</zorder>
   <zorder>layoutWidget_3</zorder>
   <zorder>layoutWidget_4</zorder>
