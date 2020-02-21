@@ -21,6 +21,8 @@ private slots:
 
     void on_btnPrimario_clicked();
 
+    void transferir();
+
 private:
     Ui::mesero_cambiar_cuenta_mesa *ui;
     int Mesa;
