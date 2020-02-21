@@ -5,6 +5,7 @@
 #include <QAbstractItemView>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QLabel>
 
 DividirCuenta::DividirCuenta(QWidget *parent) :
     QWidget(parent),
@@ -15,6 +16,7 @@ DividirCuenta::DividirCuenta(QWidget *parent) :
     if(!mDatabase.isOpen()){
         qDebug()<<"ERROR, Dividir Cuenta no conectado";
     }
+    ui->btnCancelar->hide();
     ui->btnAceptar->hide();
     ui->tablaCuenta->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tablaCuenta->verticalHeader()->setVisible(false);
@@ -33,6 +35,7 @@ DividirCuenta::DividirCuenta(QWidget *parent) :
             " inner join platillo as plat on"
             " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 20";
     llenaCuentaPrincipal(script,total);
+    cuentas[0] = ui->tablaCuenta;
     connect(ui->btnDividir,SIGNAL(clicked()), this, SLOT(Dividir()));
 }
 
@@ -59,13 +62,17 @@ void DividirCuenta::setIdMesero()
 
 void DividirCuenta::Dividir()
 {
+    ui->tablaCuenta->setDragDropMode(QAbstractItemView::DragDrop);
     ui->btnAceptar->show();
-    ui->btnPagar->hide();
     ui->btnDividir->hide();
+    ui->total->hide();
+    ui->btnCancelar->show();
+    total[0] = ui->total;
     bool ok;
     QInputDialog InpDia;
     int n = InpDia.getInt(this,tr("Número de cuentas a dividir "),tr("Dividir"),2,2,4,1,&ok);
-    int width, height = 520, x = 30, y = 230;
+    numeroCuenta = n;
+    int width, height = 380, x = 30, y = 230;
     int espacio = n + 1;
     width = (1024 - (espacio*30)) / n;
     ui->tablaCuenta->setGeometry(x,y,width,height);
@@ -74,15 +81,25 @@ void DividirCuenta::Dividir()
         QStringList encabezado;
         encabezado << "Nombre" << "Precio";
         QTableWidget * auxCuenta = new QTableWidget(this);
+        cuentas[i-1] = auxCuenta;
         auxCuenta->setDragDropMode(QAbstractItemView::DragDrop);
         auxCuenta->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         auxCuenta->verticalHeader()->setVisible(false);
         auxCuenta->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
         auxCuenta->setHorizontalHeaderItem(0, new QTableWidgetItem("Nombre"));
         auxCuenta->setHorizontalHeaderItem(1, new QTableWidgetItem("Precio"));
+        auxCuenta->setSelectionMode(QAbstractItemView::SingleSelection);
+        auxCuenta->setSelectionBehavior(QAbstractItemView::SelectRows);
         x += 30 + width;
         auxCuenta->setGeometry(x,y,width,height);
         auxCuenta->show();
+        QLabel * totalLabel = new QLabel(this);
+        total[i-1] = totalLabel;
+        totalLabel->setText("Total: $");
+        totalLabel->setGeometry(x+150,height+y+20,120,20);
+        QFont f("Roboto",12,QFont::Normal);
+        totalLabel->setFont(f);
+        totalLabel->hide();
     }
 }
 
@@ -111,11 +128,56 @@ void DividirCuenta::llenaCuentaPrincipal(QString script, QString script2)
     {
         QString total = query2.value(0).toString();
 
-        ui->tablaCuenta->insertRow(ui->tablaCuenta->rowCount());
+        //ui->tablaCuenta->insertRow(ui->tablaCuenta->rowCount());
 
-        int filaEmp = ui->tablaCuenta->rowCount()-1;
-        ui->tablaCuenta->setItem(filaEmp,0,new QTableWidgetItem("Total:"));
-        ui->tablaCuenta->setItem(filaEmp,1,new QTableWidgetItem(total));
+        //int filaEmp = ui->tablaCuenta->rowCount()-1;
+        //ui->tablaCuenta->setItem(filaEmp,0,new QTableWidgetItem("Total:"));
+        //ui->tablaCuenta->setItem(filaEmp,1,new QTableWidgetItem(total));
+        ui->total->setText("Total: $"+total);
     }
+
+}
+
+void DividirCuenta::on_btnAceptar_clicked()
+{
+    for(int i = 0; i < numeroCuenta; i++)
+    {
+        cuentas[i]->setDragDropMode(QAbstractItemView::NoDragDrop);
+        total[i]->show();
+        int auxFilas = cuentas[i]->rowCount();
+        int auxCuenta = 0;
+        for(int j = 0; j < auxFilas; j++)
+        {
+            auxCuenta = auxCuenta + cuentas[i]->item(j,1)->text().toInt();
+        }
+        total[i]->setText("Total: $"+QString::number(auxCuenta));
+    }
+}
+
+void DividirCuenta::on_btnCancelar_clicked()
+{
+    ui->btnCancelar->hide();
+    ui->btnAceptar->hide();
+    ui->btnDividir->show();
+    for(int i = 1; i < numeroCuenta; i++)
+    {
+        delete(cuentas[i]);
+        delete(total[i]);
+    }
+    ui->tablaCuenta->setGeometry(30,230,660,380);
+    ui->total->show();
+    QString script;
+    script = "select plat.nombre, plat.precio from comanda as"
+             " com inner join pedido as p on"
+             " p.Comanda_id_comanda = com.id_comanda"
+             " inner join platillo as plat on"
+             " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 20";
+    QString total;
+    total = "select sum(plat.precio) as Total from comanda as"
+            " com inner join pedido as p on"
+            " p.Comanda_id_comanda = com.id_comanda"
+            " inner join platillo as plat on"
+            " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 20";
+    llenaCuentaPrincipal(script,total);
 
 }
