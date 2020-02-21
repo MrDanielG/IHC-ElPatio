@@ -766,7 +766,7 @@ COMMIT;
 
 select * from pedido where Comanda_id_comanda = 8;
 select * from comanda where Mesa_numero_mesa = 2 order by hora_apertura DESC limit 1;
-select * from pedido where Comanda_id_comanda = 8;
+select * from pedido where Comanda_id_comanda = 1;
 
 select * from pedido ;
 select * from comanda where id_comanda = 1;
@@ -778,5 +778,8 @@ INSERT INTO `el_patio`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_i
 ('HOLA', '1', '9', 'En proceso'),
 ('HOLA', '1', '12', 'En proceso'),
 ('HOLA', '1', '15', 'En proceso');
+
+select * from comanda where Mesa_numero_mesa = 11;
+select * from comanda where Mesa_numero_mesa = 11 order by hora_apertura DESC limit 1;
 
 

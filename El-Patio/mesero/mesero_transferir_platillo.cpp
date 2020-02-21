@@ -91,6 +91,7 @@ void mesero_transferir_platillo::actualizarDatos()
     QSqlQuery datosComando(mDatabase);
     QSqlQuery mesasLibres(mDatabase);
     QSqlQuery ultima_comanda(mDatabase);
+    QSqlQuery datosMesero(mDatabase);
 
     QString query_datosComanda = "SELECT * FROM comanda WHERE id_comanda = " + QString::number(this->id_comanda) + ";";
     if(datosComando.exec(query_datosComanda))
@@ -139,6 +140,21 @@ void mesero_transferir_platillo::actualizarDatos()
         ui->cbox_mesasAbiertas->addItem(mesasLibres.value("numero_mesa").toString());
 
     ui->lb_numeroMesa->setText(datosComando.value("Mesa_numero_mesa").toString());
+
+    //obtengo los datos del empleado
+    QString claveMesero = datosComando.value("Usuario_clave").toString();
+    QString query_datosMesero =
+            "select clave, concat(nombre, ' ', apellido_paterno, ' ', apellido_materno) as nombre "
+            "from usuario where clave = " + claveMesero + ";";
+
+    if(datosMesero.exec(query_datosMesero))
+        qDebug() << "query_datosMesero [ejecutado] "  + query_datosMesero;
+    else
+        qDebug() << "query_datosMesero [no_ejecutado] " + query_datosMesero;
+    datosMesero.next();
+
+    ui->lb_nombreMesero->setText(datosMesero.value("nombre").toString() +  " No. " +
+                                 datosMesero.value("clave").toString());
 }
 
 void mesero_transferir_platillo::on_btnRegresarMenu_clicked()
@@ -151,14 +167,29 @@ void mesero_transferir_platillo::on_btnRegresarMenu_clicked()
     }
     else
     {
+        QMessageBox::information(this, "Cancelación", "Se a cancelado la transferencia de platillos." );
         mainWindow->cambiar_pagina(1);
     }
-    QMessageBox::information(this, "Cancelación", "Se a cancelado la transferencia de platillos." );
 }
 
 
 
 void mesero_transferir_platillo::on_btnMandarCocina_clicked()
 {
-    qDebug() << "transferido";
+    QSqlQuery ultima_comanda(mDatabase);
+
+    QString numero_mesa = ui->cbox_mesasAbiertas->currentText();
+
+    QString query_ultima_comanda =
+                "select * from comanda where Mesa_numero_mesa = "
+            + numero_mesa + " order by hora_apertura DESC limit 1;";
+
+    if(ultima_comanda.exec(query_ultima_comanda))
+        qDebug() << "query_ultima_comanda [ejecutado]" + query_ultima_comanda;
+    else
+        qDebug() << "query_ultima_comanda [no_ejecutado]" + query_ultima_comanda;
+
+    ultima_comanda.next();
+
+    qDebug() << ultima_comanda.value("id_comanda").toString();
 }

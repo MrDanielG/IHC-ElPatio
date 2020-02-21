@@ -290,7 +290,7 @@
      </spacer>
     </item>
     <item>
-     <widget class="QLabel" name="nombreMesero_3">
+     <widget class="QLabel" name="lb_nombreMesero">
       <property name="font">
        <font>
         <family>Roboto</family>
