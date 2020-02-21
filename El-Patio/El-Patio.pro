@@ -28,6 +28,7 @@ SOURCES += \
         almacenista/almacenista_crear_insumo.cpp \
         almacenista/almacenista_menu.cpp \
         catalogomesas.cpp \
+        dividircuenta.cpp \
         main.cpp \
         mainwindow.cpp \
         mesero/mesero_agregar_extra.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
         almacenista/almacenista_crear_insumo.h \
         almacenista/almacenista_menu.h \
         catalogomesas.h \
+        dividircuenta.h \
         mainwindow.h \
         mesero/mesero_agregar_extra.h \
         mesero/mesero_cambiar_cuenta_mesa.h \
@@ -59,6 +61,7 @@ FORMS += \
         almacenista/almacenista_crear_insumo.ui \
         almacenista/almacenista_menu.ui \
         catalogomesas.ui \
+        dividircuenta.ui \
         mainwindow.ui \
         mesero/mesero_agregar_extra.ui \
         mesero/mesero_cambiar_cuenta_mesa.ui \
