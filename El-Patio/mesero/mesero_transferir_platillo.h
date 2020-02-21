@@ -24,6 +24,7 @@ public:
     void sacar_platillo(QString);
     void actualizar_grid();
     void actualizarDatos();
+    void limpiarGRidListas();
 
 private slots:
     void on_btnRegresarMenu_clicked();

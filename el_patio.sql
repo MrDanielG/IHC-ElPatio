@@ -765,11 +765,9 @@ COMMIT;
 
 
 select * from pedido where Comanda_id_comanda = 8;
-select * from comanda where Mesa_numero_mesa = 2 order by hora_apertura DESC limit 1;
+select * from comanda where Mesa_numero_mesa = 16 order by hora_apertura DESC limit 1;
 select * from pedido where Comanda_id_comanda = 1;
 
-select * from pedido ;
-select * from comanda where id_comanda = 1;
 select * from mesa where estado = "Libre";
 
 INSERT INTO `el_patio`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`, `estado`) VALUES 
@@ -779,7 +777,24 @@ INSERT INTO `el_patio`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_i
 ('HOLA', '1', '12', 'En proceso'),
 ('HOLA', '1', '15', 'En proceso');
 
-select * from comanda where Mesa_numero_mesa = 11;
+select * from usuario where clave = 1000;
+select clave, concat(nombre, ' ', apellido_paterno, ' ', apellido_materno) as nombre from usuario where clave = 100;
+
+select * from mesa;
+UPDATE mesa SET estado="Ocupado" WHERE numero_mesa<25 and numero_mesa>0;
+
+UPDATE pedido SET Comanda_id_comanda= 1 WHERE Comanda_id_comanda=21;
+UPDATE pedido SET Comanda_id_comanda = 1 WHERE Comanda_id_comanda = 21  AND id_pedido = 1;
+select * from mesa where estado = "Ocupado";
+select * from mesa where estado = 'Ocupado';
+select * from pedido;
+select * from pedido where Comanda_id_comanda = 21;
+select * from comanda;
 select * from comanda where Mesa_numero_mesa = 11 order by hora_apertura DESC limit 1;
+select * from comanda where Mesa_numero_mesa = 1 order by hora_apertura DESC limit 1;
+
+select * from comanda where Mesa_numero_mesa = 4 order by hora_apertura DESC limit 1;
+update pedido SET Comanda_id_comanda = 21 WHERE Comanda_id_comanda = 1;
+UPDATE pedido SET Comanda_id_comanda = 21 WHERE Comanda_id_comanda = 1;
 
 

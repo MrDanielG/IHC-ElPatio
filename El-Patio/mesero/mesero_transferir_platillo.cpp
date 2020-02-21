@@ -89,6 +89,7 @@ void mesero_transferir_platillo::sacar_platillo(QString id_pedido)
 
 void mesero_transferir_platillo::actualizarDatos()
 {
+    limpiarGRidListas();
     //obtengo el numero de la mesa
     QSqlQuery datosComando(mDatabase);
     QSqlQuery mesasLibres(mDatabase);
@@ -102,7 +103,7 @@ void mesero_transferir_platillo::actualizarDatos()
         qDebug() << "datosComando [no_ejecutado]";
     datosComando.next();
 
-    QString query_mesasLibres = "select * from mesa where estado = 'Libre';";
+    QString query_mesasLibres = "select * from mesa where estado = 'Ocupado';";
     if(mesasLibres.exec(query_mesasLibres))
         qDebug() << "query_mesasLibres [ejecutado] " + query_mesasLibres;
     else
@@ -124,7 +125,7 @@ void mesero_transferir_platillo::actualizarDatos()
         mesero_tarjeta_transferir *nuevo_platillo = new mesero_tarjeta_transferir(id_pedidio, id_platillo, this);
         nuevo_platillo->setPadre(this);
         nuevo_platillo->setMinimumHeight(80);
-        nuevo_platillo->setMinimumWidth(410);
+        nuevo_platillo->setMinimumWidth(320);
         this->lista_platillos.append(nuevo_platillo);
     }
 
@@ -132,9 +133,9 @@ void mesero_transferir_platillo::actualizarDatos()
     copia_listaPlatillos = lista_platillos;
 
     int posicion_lista = 0;
-    while (posicion_lista < lista_platillos.size())
+    while (posicion_lista < copia_listaPlatillos.size())
     {
-        ui->grid_comandaActual->addWidget(lista_platillos.at(posicion_lista), posicion_lista, 0);
+        ui->grid_comandaActual->addWidget(copia_listaPlatillos.at(posicion_lista), posicion_lista, 0);
         posicion_lista++;
     }
 
@@ -159,6 +160,30 @@ void mesero_transferir_platillo::actualizarDatos()
                                  datosMesero.value("clave").toString());
 }
 
+void mesero_transferir_platillo::limpiarGRidListas()
+{
+    lista_platillos.clear();
+    transferir_listPlatillos;
+
+    int posicionLista = 0;
+    while(posicionLista < this->copia_listaPlatillos.size())
+    {
+        ui->grid_comandaActual->removeWidget(copia_listaPlatillos.at(posicionLista));
+        this->copia_listaPlatillos.at(posicionLista)->~mesero_tarjeta_transferir();
+        posicionLista++;
+    }
+    this->copia_listaPlatillos.clear();
+
+    posicionLista = 0;
+    while(posicionLista < this->transferir_listPlatillos.size())
+    {
+        ui->grid_comandaNueva->removeWidget(transferir_listPlatillos.at(posicionLista));
+        this->transferir_listPlatillos.at(posicionLista)->~mesero_tarjeta_transferir();
+        posicionLista++;
+    }
+    this->transferir_listPlatillos.clear();
+}
+
 void mesero_transferir_platillo::on_btnRegresarMenu_clicked()
 {
     if(this->transferir_listPlatillos.size())
@@ -178,7 +203,6 @@ void mesero_transferir_platillo::on_btnRegresarMenu_clicked()
 
 void mesero_transferir_platillo::on_btn_transferirPlatillos_clicked()
 {
-    qDebug() << "\n =============================";
     //obetener id de la comanda de la mesa a transferir
     QSqlQuery ultima_comanda(mDatabase);
     QString numero_mesa = ui->cbox_mesasAbiertas->currentText();
@@ -207,19 +231,33 @@ void mesero_transferir_platillo::on_btn_transferirPlatillos_clicked()
         QSqlQuery validor_ClaveAdmin(mDatabase);
         QString query_validorClaveAdmin = "select * from usuario "
                                           "where clave = "+confirmar_admin.get_claveAdmin()+" ;";
-        qDebug() << confirmar_admin.get_claveAdmin();
         validor_ClaveAdmin.exec(query_validorClaveAdmin);
         if (!validor_ClaveAdmin.next()) {
             QMessageBox::warning(this, "Clave incorrecta", "la clave es incorrecta o no existe");
         }
         else
         {
-            //        QSqlQuery transferirPlatillos(mDatabase);
-            //        QString query_transferirPlatillos = "query_UPDATE pedido "
-            //                                      "SET Comanda_id_comanda= "+id_comandaTransferir+
-            //                                      "WHERE Comanda_id_comanda="+this->id_comanda+";";
-            //        transferirPlatillos.exec(query_transferirPlatillos);
-            //        transferirPlatillos.next();
+            QSqlQuery transferirPlatillos(mDatabase);
+            QString query_transferirPlatillos;
+
+            if(transferirPlatillos.exec(query_transferirPlatillos))
+                qDebug() << "query_transferirPlatillos [ejecutado]" + query_transferirPlatillos;
+            else
+                qDebug() << "query_transferirPlatillos [no_ejecutado]" + query_transferirPlatillos;
+
+            int posicionLista=0;
+            while (posicionLista < transferir_listPlatillos.size()) {
+                query_transferirPlatillos = " UPDATE pedido"
+                                            " SET Comanda_id_comanda = "+id_comandaTransferir+
+                                            " WHERE Comanda_id_comanda = "+QString::number(this->id_comanda)+
+                                            " AND id_pedido = " +transferir_listPlatillos.at(posicionLista)->get_idPedido() + ";";
+                transferirPlatillos.exec(query_transferirPlatillos);
+                posicionLista++;
+            }
+
+            transferirPlatillos.next();
+            actualizarDatos();
+            QMessageBox::information(this, "Completado", "Tranferencia completada.");
 
         }
     }
