@@ -123,7 +123,7 @@
     <rect>
      <x>30</x>
      <y>140</y>
-     <width>683</width>
+     <width>685</width>
      <height>71</height>
     </rect>
    </property>
@@ -146,7 +146,7 @@
 </string>
         </property>
         <property name="text">
-         <string>Cuenta a Pagar</string>
+         <string>Cuenta a pagar</string>
         </property>
        </widget>
       </item>
@@ -163,7 +163,7 @@
 </string>
         </property>
         <property name="text">
-         <string>Selecciona si la Cuenta Será Dividida</string>
+         <string>Selecciona si la cuenta será dividida</string>
         </property>
        </widget>
       </item>
@@ -266,7 +266,7 @@
 }</string>
         </property>
         <property name="text">
-         <string>Dividir Cuenta</string>
+         <string>Dividir cuenta</string>
         </property>
        </widget>
       </item>
@@ -322,7 +322,7 @@
     <rect>
      <x>30</x>
      <y>230</y>
-     <width>660</width>
+     <width>681</width>
      <height>520</height>
     </rect>
    </property>

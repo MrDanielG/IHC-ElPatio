@@ -25,13 +25,13 @@ DividirCuenta::DividirCuenta(QWidget *parent) :
              " com inner join pedido as p on"
              " p.Comanda_id_comanda = com.id_comanda"
              " inner join platillo as plat on"
-             " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 20";
+             " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 1";
     QString total;
     total = "select sum(plat.precio) as Total from comanda as"
             " com inner join pedido as p on"
             " p.Comanda_id_comanda = com.id_comanda"
             " inner join platillo as plat on"
-            " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 20";
+            " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 1";
     llenaCuentaPrincipal(script,total);
     connect(ui->btnDividir,SIGNAL(clicked()), this, SLOT(Dividir()));
 }

@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(2, menuAlmacenista);
     ui->stackedWidget->insertWidget(3, transferirPlatillo);
 
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::cambiar_pagina(int index)
