@@ -207,7 +207,7 @@
     <rect>
      <x>754</x>
      <y>150</y>
-     <width>251</width>
+     <width>254</width>
      <height>581</height>
     </rect>
    </property>
@@ -778,7 +778,7 @@
     <string>El Patio</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -876,17 +876,15 @@
     </item>
    </layout>
   </widget>
+  <zorder>layoutWidget</zorder>
   <zorder>label_7</zorder>
   <zorder>layoutWidget</zorder>
-  <zorder>verticalLayoutWidget</zorder>
   <zorder>horizontalLayoutWidget</zorder>
   <zorder>fecha</zorder>
   <zorder>label_nMesa</zorder>
   <zorder>scrollAreaMesas</zorder>
-  <zorder>btn_login</zorder>
   <zorder>line</zorder>
   <zorder>elPatio</zorder>
-  <zorder>horizontalSpacer</zorder>
  </widget>
  <resources>
   <include location="Recursos.qrc"/>
