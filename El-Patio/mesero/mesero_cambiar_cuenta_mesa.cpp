@@ -99,7 +99,7 @@ void mesero_cambiar_cuenta_mesa::transferir()
         QString idComanda = query.value(0).toString();
         //qDebug() << idComanda;
         script = "UPDATE comanda set estado = 'Transferida' where id_comanda = " + idComanda;
-        QString script2 = "UPDATE mesa set estado = 'Abierta' where numero_mesa = " + QString::number(Mesa);
+        QString script2 = "UPDATE mesa set estado = 'Ocupada' where numero_mesa = " + QString::number(Mesa);
         query.finish();
         query.prepare(script);
         if (query.exec()){
