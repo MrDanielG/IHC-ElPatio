@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
         administrador/admin_gestion_usuarios.cpp \
+        administrador/admin_tarjeta_usuario.cpp \
         almacenista/almacenista_crear_insumo.cpp \
         almacenista/almacenista_menu.cpp \
         catalogomesas.cpp \
@@ -45,6 +46,7 @@ SOURCES += \
 
 HEADERS += \
         administrador/admin_gestion_usuarios.h \
+        administrador/admin_tarjeta_usuario.h \
         almacenista/almacenista_crear_insumo.h \
         almacenista/almacenista_menu.h \
         catalogomesas.h \
@@ -63,6 +65,7 @@ HEADERS += \
 
 FORMS += \
         administrador/admin_gestion_usuarios.ui \
+        administrador/admin_tarjeta_usuario.ui \
         almacenista/almacenista_crear_insumo.ui \
         almacenista/almacenista_menu.ui \
         catalogomesas.ui \

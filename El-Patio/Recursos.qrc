@@ -8,5 +8,6 @@
         <file>resources/Styles.qss</file>
         <file>resources/imgPersona.png</file>
         <file>resources/imgPersona2.png</file>
+        <file>resources/imgTarjetaUsuario.png</file>
     </qresource>
 </RCC>
