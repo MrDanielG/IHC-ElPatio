@@ -6,5 +6,7 @@
         <file>resources/menosPlatillo.png</file>
         <file>resources/menuPrueba.png</file>
         <file>resources/Styles.qss</file>
+        <file>resources/imgPersona.png</file>
+        <file>resources/imgPersona2.png</file>
     </qresource>
 </RCC>

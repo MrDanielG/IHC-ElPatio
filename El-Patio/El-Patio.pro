@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        administrador/admin_gestion_usuarios.cpp \
         almacenista/almacenista_crear_insumo.cpp \
         almacenista/almacenista_menu.cpp \
         catalogomesas.cpp \
@@ -43,6 +44,7 @@ SOURCES += \
         models/platillo.cpp
 
 HEADERS += \
+        administrador/admin_gestion_usuarios.h \
         almacenista/almacenista_crear_insumo.h \
         almacenista/almacenista_menu.h \
         catalogomesas.h \
@@ -60,6 +62,7 @@ HEADERS += \
         models/platillo.h
 
 FORMS += \
+        administrador/admin_gestion_usuarios.ui \
         almacenista/almacenista_crear_insumo.ui \
         almacenista/almacenista_menu.ui \
         catalogomesas.ui \
