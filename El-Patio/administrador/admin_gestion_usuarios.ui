@@ -550,7 +550,7 @@
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">
-      <layout class="QGridLayout" name="gridLayout">
+      <layout class="QGridLayout" name="gridUsuarios">
        <property name="sizeConstraint">
         <enum>QLayout::SetMaximumSize</enum>
        </property>
@@ -647,7 +647,7 @@
     <string>Puesto: Mesero</string>
    </property>
   </widget>
-  <widget class="QLabel" name="claveMesero">
+  <widget class="QLabel" name="claveUsuario">
    <property name="geometry">
     <rect>
      <x>770</x>
@@ -684,7 +684,7 @@
   <zorder>label</zorder>
   <zorder>nombreUsuario</zorder>
   <zorder>tipoUsuario</zorder>
-  <zorder>claveMesero</zorder>
+  <zorder>claveUsuario</zorder>
  </widget>
  <resources>
   <include location="../Recursos.qrc"/>
