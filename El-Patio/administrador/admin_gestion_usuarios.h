@@ -17,6 +17,7 @@ public:
     void conexionBD();
     void actualizarCatalogo();
     void limiparCatalogo();
+    void userSideBar(QString);
 
 private slots:
     void on_btnCrearUsuario_clicked();

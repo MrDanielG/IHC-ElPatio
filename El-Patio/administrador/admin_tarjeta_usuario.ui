@@ -46,6 +46,45 @@ background-color: rgb(244, 247, 244);</string>
     <pixmap resource="../Recursos.qrc">:/iconos/resources/imgTarjetaUsuario.png</pixmap>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnEdit">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>74</y>
+     <width>29</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>29</width>
+     <height>29</height>
+    </size>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/iconos/resources/editarPlato.png) 0 0 0 0 stretch stretch;
+background-repeat: no-repeat;
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+  </widget>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>

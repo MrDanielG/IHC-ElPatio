@@ -72,6 +72,24 @@ void admin_gestion_usuarios::limiparCatalogo()
     }
 }
 
+void admin_gestion_usuarios::userSideBar(QString claveUsuario)
+{
+    QSqlQuery infoUsuario(mDatabase);
+    infoUsuario.prepare("SELECT * FROM `usuario` INNER JOIN tipo ON usuario.Tipo_id_tipo = tipo.id_tipo WHERE usuario.clave = "+claveUsuario+"");
+    infoUsuario.exec();
+
+    infoUsuario.next();
+    QString clave = infoUsuario.value("clave").toString();
+    QString paterno = infoUsuario.value("apellido_paterno").toString();
+    QString materno = infoUsuario.value("apellido_materno").toString();
+    QString nombre = infoUsuario.value("nombre").toString();
+    QString tipo = infoUsuario.value("nombre_tipo").toString();
+
+    ui->nombreUsuario->setText(nombre + " " + paterno + " " + materno);
+    ui->tipoUsuario->setText("Puesto: " + tipo);
+    ui->claveUsuario->setText("Clave Usuario: " + clave);
+}
+
 void admin_gestion_usuarios::on_btnCrearUsuario_clicked()
 {
     admin_crear_usuario crearUsuario;
