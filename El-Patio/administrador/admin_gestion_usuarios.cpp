@@ -1,6 +1,7 @@
 #include "admin_gestion_usuarios.h"
 #include "ui_admin_gestion_usuarios.h"
 #include "administrador/admin_tarjeta_usuario.h"
+#include "administrador/admin_crear_usuario.h"
 #include "QMessageBox"
 #include "QDebug"
 #include "QSqlQuery"
@@ -10,7 +11,7 @@ admin_gestion_usuarios::admin_gestion_usuarios(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    conexionDB();
+    conexionBD();
     actualizarCatalogo();
 }
 
@@ -19,7 +20,7 @@ admin_gestion_usuarios::~admin_gestion_usuarios()
     delete ui;
 }
 
-void admin_gestion_usuarios::conexionDB()
+void admin_gestion_usuarios::conexionBD()
 {
     mDatabase = QSqlDatabase::database("Connection");
     if (!mDatabase.isOpen()){
@@ -69,4 +70,10 @@ void admin_gestion_usuarios::limiparCatalogo()
         delete item->widget();
         delete item;
     }
+}
+
+void admin_gestion_usuarios::on_btnCrearUsuario_clicked()
+{
+    admin_crear_usuario crearUsuario;
+    crearUsuario.exec();
 }

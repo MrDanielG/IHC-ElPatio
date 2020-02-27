@@ -14,9 +14,12 @@ class admin_gestion_usuarios : public QWidget
 public:
     explicit admin_gestion_usuarios(QWidget *parent = nullptr);
     ~admin_gestion_usuarios();
-    void conexionDB();
+    void conexionBD();
     void actualizarCatalogo();
     void limiparCatalogo();
+
+private slots:
+    void on_btnCrearUsuario_clicked();
 
 private:
     Ui::admin_gestion_usuarios *ui;

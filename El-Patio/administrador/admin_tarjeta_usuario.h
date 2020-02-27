@@ -2,7 +2,8 @@
 #define ADMIN_TARJETA_USUARIO_H
 
 #include <QWidget>
-
+#include <QSqlDatabase>
+#include <QSqlQuery>
 namespace Ui {
 class admin_tarjeta_usuario;
 }
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::admin_tarjeta_usuario *ui;
+    QSqlDatabase mDatabase;
 };
 
 #endif // ADMIN_TARJETA_USUARIO_H
