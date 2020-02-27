@@ -4,6 +4,7 @@
 #include "mesero/mesero_menu_comandas.h"
 #include "mesero/mesero_transferir_platillo.h"
 #include "almacenista/almacenista_menu.h"
+#include "administrador/admin_gestion_usuarios.h"
 
 #include <QDebug>
 
@@ -32,14 +33,16 @@ MainWindow::MainWindow(QWidget *parent) :
     transferirPlatillo->show();
     transferirPlatillo->setMainWindow(this);
 
+    gestionUsuarios = new admin_gestion_usuarios(this);
 
     ui->Mesas->setMainWindow(this);
 
     ui->stackedWidget->insertWidget(1, menuComandas);
     ui->stackedWidget->insertWidget(2, menuAlmacenista);
     ui->stackedWidget->insertWidget(3, transferirPlatillo);
+    ui->stackedWidget->insertWidget(4, gestionUsuarios);
 
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(4); //Pa probar nomas, esto debe estar en 0
 }
 
 void MainWindow::cambiar_pagina(int index)

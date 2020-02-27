@@ -12,7 +12,7 @@ class admin_tarjeta_usuario : public QWidget
     Q_OBJECT
 
 public:
-    explicit admin_tarjeta_usuario(QWidget *parent = nullptr);
+    explicit admin_tarjeta_usuario(QString, QString, QString, QString, QString, QWidget *parent = nullptr);
     ~admin_tarjeta_usuario();
 
 private:

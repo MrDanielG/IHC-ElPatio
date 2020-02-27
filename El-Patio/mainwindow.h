@@ -4,10 +4,10 @@
 #include <QMainWindow>
 #include <QSqlDatabase>
 
-
 class mesero_menu_comandas;
 class almacenista_menu;
 class mesero_transferir_platillo;
+class admin_gestion_usuarios;
 
 namespace Ui {
 class MainWindow;
@@ -34,7 +34,7 @@ private:
     mesero_menu_comandas *menuComandas;
     almacenista_menu *menuAlmacenista;
     mesero_transferir_platillo *transferirPlatillo;
-
+    admin_gestion_usuarios *gestionUsuarios;
 };
 
 #endif // MAINWINDOW_H
