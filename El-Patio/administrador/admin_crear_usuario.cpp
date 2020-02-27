@@ -50,6 +50,7 @@ void admin_crear_usuario::on_btnCrearUsuario_clicked()
     QString nombre = ui->nombre->text();
     QString paterno = ui->paterno->text();
     QString materno = ui->materno->text();
+    QString clave = QString::number( ui->claveUsuario->value() );
     QString tipo;
 
     if(ui->rbMesero->isChecked()){
@@ -66,8 +67,8 @@ void admin_crear_usuario::on_btnCrearUsuario_clicked()
                              tr("¿Está seguro que desea crear un Usuario con estos Datos?"))==QMessageBox::Yes){
 
         QSqlQuery crearUsuario(mDatabase);
-        crearUsuario.prepare("INSERT INTO `usuario`(`apellido_paterno`, `apellido_materno`, `nombre`, `Tipo_id_tipo`) "
-                             "VALUES ('"+paterno+"','"+materno+"','"+nombre+"',"+tipo+")");
+        crearUsuario.prepare("INSERT INTO `usuario`(`clave`,`apellido_paterno`, `apellido_materno`, `nombre`, `Tipo_id_tipo`) "
+                             "VALUES ("+clave+",'"+paterno+"','"+materno+"','"+nombre+"',"+tipo+")");
         crearUsuario.exec();
         this->close();
     } else {

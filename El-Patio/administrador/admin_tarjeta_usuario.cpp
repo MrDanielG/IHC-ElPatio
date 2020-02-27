@@ -1,6 +1,6 @@
 #include "admin_tarjeta_usuario.h"
 #include "ui_admin_tarjeta_usuario.h"
-
+#include "QDebug"
 admin_tarjeta_usuario::admin_tarjeta_usuario(QString id, QString nombre, QString paterno,
                                              QString materno, QString tipo, QWidget *parent) :
     QWidget(parent),
@@ -15,4 +15,9 @@ admin_tarjeta_usuario::admin_tarjeta_usuario(QString id, QString nombre, QString
 admin_tarjeta_usuario::~admin_tarjeta_usuario()
 {
     delete ui;
+}
+
+void admin_tarjeta_usuario::on_label_linkActivated(const QString &link)
+{
+    qDebug()<<"le picaste we";
 }

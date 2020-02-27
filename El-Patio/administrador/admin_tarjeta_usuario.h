@@ -16,6 +16,9 @@ public:
     explicit admin_tarjeta_usuario(QString, QString, QString, QString, QString, QWidget *parent = nullptr);
     ~admin_tarjeta_usuario();
 
+private slots:
+    void on_label_linkActivated(const QString &link);
+
 private:
     Ui::admin_tarjeta_usuario *ui;
     QSqlDatabase mDatabase;
