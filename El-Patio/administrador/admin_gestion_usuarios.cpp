@@ -76,4 +76,5 @@ void admin_gestion_usuarios::on_btnCrearUsuario_clicked()
 {
     admin_crear_usuario crearUsuario;
     crearUsuario.exec();
+    actualizarCatalogo();
 }

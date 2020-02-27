@@ -69,10 +69,16 @@ void admin_crear_usuario::on_btnCrearUsuario_clicked()
         QSqlQuery crearUsuario(mDatabase);
         crearUsuario.prepare("INSERT INTO `usuario`(`clave`,`apellido_paterno`, `apellido_materno`, `nombre`, `Tipo_id_tipo`) "
                              "VALUES ("+clave+",'"+paterno+"','"+materno+"','"+nombre+"',"+tipo+")");
-        crearUsuario.exec();
+
+        if(crearUsuario.exec()){
+            QMessageBox::information(this, tr("Crear Usuario "), tr("Usuario Creado Correctamente"));
+        } else {
+            QMessageBox::information(this, tr("Error "), tr("Error al crear Usuario"));
+        }
+
         this->close();
     } else {
-         QMessageBox::information(this, tr("Crear Usuario Cancelado"), tr("Nuevo Usuario Cancelado"));
+         //QMessageBox::information(this, tr("Crear Usuario Cancelado"), tr("Nuevo Usuario Cancelado"));
          this->close();
     }
 }
