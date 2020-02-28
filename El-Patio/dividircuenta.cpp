@@ -90,6 +90,7 @@ void DividirCuenta::Dividir()
         auxCuenta->setHorizontalHeaderItem(1, new QTableWidgetItem("Precio"));
         auxCuenta->setSelectionMode(QAbstractItemView::SingleSelection);
         auxCuenta->setSelectionBehavior(QAbstractItemView::SelectRows);
+        auxCuenta->setDefaultDropAction(Qt::DropAction::MoveAction);
         x += 30 + width;
         auxCuenta->setGeometry(x,y,width,height);
         auxCuenta->show();
