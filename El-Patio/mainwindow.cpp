@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(3, transferirPlatillo);
     ui->stackedWidget->insertWidget(4, gestionUsuarios);
 
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(4);
 }
 
 void MainWindow::cambiar_pagina(int index)

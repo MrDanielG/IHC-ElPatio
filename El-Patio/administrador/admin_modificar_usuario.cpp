@@ -30,15 +30,15 @@ admin_modificar_usuario::admin_modificar_usuario(QString id, QString nombre, QSt
     ui->paterno->setText(paterno);
     ui->materno->setText(materno);
     if (tipo == "Administrador") {
-        ui->rbAdministrador->setAcceptDrops(true);
+        ui->rbAdministrador->setChecked(true);
     } else if (tipo == "Mesero") {
         ui->rbMesero->setChecked(true);
     } else if (tipo == "Cocinero") {
-        ui->rbCocinero->setAcceptDrops(true);
+        ui->rbCocinero->setChecked(true);
     } else if (tipo == "Barista") {
-        ui->rbBarista->setAcceptDrops(true);
+        ui->rbBarista->setChecked(true);
     } else if (tipo == "Almacenista") {
-        ui->rbAlmacenista->setAcceptDrops(true);
+        ui->rbAlmacenista->setChecked(true);
     }
     estadoUsuario(estado);
 }
