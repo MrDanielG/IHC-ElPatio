@@ -125,7 +125,7 @@ void admin_modificar_usuario::on_btnGuardarCambios_clicked()
 
         if(ui->rbAdministrador->isChecked()){
             tipo = "1"; //Equivalente a Mesero
-        } else if (ui->rbMesero->isCheckable()) {
+        } else if (ui->rbMesero->isChecked()) {
             tipo = "2";
         } else if (ui->rbCocinero->isChecked()) {
             tipo = "3"; //Equivalente a Cocinero
@@ -136,13 +136,15 @@ void admin_modificar_usuario::on_btnGuardarCambios_clicked()
         }
 
         QSqlQuery query_updateUsuario(mDatabase);
-        query_updateUsuario.prepare("UPDATE usuario SET "
-                                    "clave = "+clave+", "
-                                    "apellido_paterno = '"+paterno+"', "
-                                    "apellido_materno = '"+materno+"', "
-                                    "nombre = '"+nombre+"', "
-                                    "Tipo_id_tipo = '"+tipo+"' "
-                                    "WHERE (`clave` = '"+this->clave+"');");
+        QString plok = "UPDATE usuario SET "
+                       "clave = "+clave+", "
+                       "apellido_paterno = '"+paterno+"', "
+                       "apellido_materno = '"+materno+"', "
+                       "nombre = '"+nombre+"', "
+                       "Tipo_id_tipo = '"+tipo+"' "
+                       "WHERE (`clave` = '"+this->clave+"');";
+        qDebug() << plok;
+        query_updateUsuario.prepare(plok);
         if(query_updateUsuario.exec())
             QMessageBox::information(this, tr("Actualización usuario"), tr("Actualización de los datos completada exitosamente."));
         else
