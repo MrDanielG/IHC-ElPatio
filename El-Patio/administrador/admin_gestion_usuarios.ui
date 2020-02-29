@@ -101,146 +101,6 @@
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>190</y>
-     <width>471</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="botonesMenu">
-    <item>
-     <widget class="QPushButton" name="btnTodo">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">*{
-	border: none;
-	color: #A6A9A5;
-}
-
-:hover{
-	color: #585858;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Todo</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnMeseros">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">*{
-	border: none;
-	color: #A6A9A5;
-}
-
-:hover{
-	color: #585858;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Meseros</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnAlmacenista">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">*{
-	border: none;
-	color: #A6A9A5;
-}
-
-:hover{
-	color: #585858;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Almacenista</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnCocinero">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">*{
-	border: none;
-	color: #A6A9A5;
-}
-
-:hover{
-	color: #585858;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Cocinero</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QLabel" name="lb_total">
    <property name="geometry">
     <rect>
@@ -494,7 +354,7 @@
 }</string>
    </property>
    <property name="text">
-    <string>Actualizar</string>
+    <string>Modificar información</string>
    </property>
   </widget>
   <widget class="QScrollArea" name="scrollArea">
@@ -673,6 +533,256 @@
     <string>Clave Mesero: 1654</string>
    </property>
   </widget>
+  <widget class="QLabel" name="estado">
+   <property name="geometry">
+    <rect>
+     <x>771</x>
+     <y>481</y>
+     <width>53</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(133, 133, 133);
+</string>
+   </property>
+   <property name="text">
+    <string>Estado:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_estadoUsuario">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>481</y>
+     <width>140</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(133, 133, 133);
+</string>
+   </property>
+   <property name="text">
+    <string>[ESTADO_USUARIO]</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>190</y>
+     <width>691</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="btnTodo">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Todo</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnAdministrador">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Administrador</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnMeseros">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Meseros</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnCocinero">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Cocineros</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnBarista">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Baristas</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnAlmacenista">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Almacenistas</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <zorder>sideBar</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>line</zorder>
@@ -688,6 +798,10 @@
   <zorder>nombreUsuario</zorder>
   <zorder>tipoUsuario</zorder>
   <zorder>claveUsuario</zorder>
+  <zorder>estado</zorder>
+  <zorder>lb_estadoUsuario</zorder>
+  <zorder>btnAdministrador</zorder>
+  <zorder>btnBarista</zorder>
  </widget>
  <resources>
   <include location="../Recursos.qrc"/>

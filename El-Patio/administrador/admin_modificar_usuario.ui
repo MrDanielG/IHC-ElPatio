@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>admin_crear_usuario</class>
- <widget class="QDialog" name="admin_crear_usuario">
+ <class>admin_modificar_usuario</class>
+ <widget class="QDialog" name="admin_modificar_usuario">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>518</width>
-    <height>447</height>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,13 +16,16 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>30</y>
-     <width>431</width>
-     <height>381</height>
+     <x>40</x>
+     <y>40</y>
+     <width>438</width>
+     <height>420</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>6</number>
+    </property>
     <item>
      <widget class="QLabel" name="elPatio_2">
       <property name="font">
@@ -36,7 +39,7 @@
 </string>
       </property>
       <property name="text">
-       <string>Crear Usuario</string>
+       <string>Modificar Usuario</string>
       </property>
      </widget>
     </item>
@@ -53,7 +56,7 @@
 </string>
       </property>
       <property name="text">
-       <string>Agrega nuevos usuarios a tu sistema</string>
+       <string>Actualiza la información de tu personal</string>
       </property>
      </widget>
     </item>
@@ -73,22 +76,24 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QRadioButton" name="rbMesero">
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>10</pointsize>
-         </font>
+       <widget class="QRadioButton" name="rbAdministrador">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(133, 133, 133);
+</string>
         </property>
+        <property name="text">
+         <string>Administrador</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rbMesero">
         <property name="styleSheet">
          <string notr="true">color: rgb(133, 133, 133);
 </string>
         </property>
         <property name="text">
          <string>Mesero</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -296,6 +301,79 @@ border-bottom: 3px solid #539E56;</string>
      </spacer>
     </item>
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="elPatio_5">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(133, 133, 133);
+</string>
+        </property>
+        <property name="text">
+         <string>Estado:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lb_estado">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #46B04A;</string>
+        </property>
+        <property name="text">
+         <string>[ESTADO]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCambiarEstado">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>cambiar activo</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_7">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="btnCancelar">
@@ -341,7 +419,7 @@ border-bottom: 3px solid #539E56;</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btnCrearUsuario">
+       <widget class="QPushButton" name="btnGuardarCambios">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -384,7 +462,7 @@ border-bottom: 3px solid #539E56;</string>
 }</string>
         </property>
         <property name="text">
-         <string>Crear Usuario</string>
+         <string>Actualizar</string>
         </property>
        </widget>
       </item>
