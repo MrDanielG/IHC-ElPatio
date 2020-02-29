@@ -43,7 +43,7 @@ void admin_gestion_usuarios::actualizarCatalogo(QString tipoUsuario)
     QString query_usuario = "SELECT * FROM `usuario` INNER JOIN tipo ON usuario.Tipo_id_tipo = tipo.id_tipo";
 
     if(tipoUsuario != "todo" ){
-        if (tipoUsuario == "administrador;"){
+        if (tipoUsuario == "administrador"){
             query_usuario += " where id_tipo = 1;";
         } else if (tipoUsuario == "mesero"){
             query_usuario += " where id_tipo = 2;";
@@ -52,10 +52,11 @@ void admin_gestion_usuarios::actualizarCatalogo(QString tipoUsuario)
         } else if (tipoUsuario == "barista"){
             query_usuario += " where id_tipo = 4;";
         } else if (tipoUsuario == "almacenista"){
-            query_usuario += " where id_tipo = 4;";
+            query_usuario += " where id_tipo = 5;";
         }
     }
 
+    qDebug() << query_usuario;
     infoUsuarios.prepare(query_usuario);
     infoUsuarios.exec();
     limiparCatalogo();
