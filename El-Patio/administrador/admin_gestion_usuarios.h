@@ -22,9 +22,13 @@ public:
 private slots:
     void on_btnCrearUsuario_clicked();
 
+    void on_btnEditarUsuario_clicked();
+
 private:
     Ui::admin_gestion_usuarios *ui;
     QSqlDatabase mDatabase;
+
+    QString claveUsuario;
 };
 
 #endif // ADMIN_GESTION_USUARIOS_H

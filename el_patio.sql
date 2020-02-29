@@ -766,3 +766,5 @@ COMMIT;
 
 USE `el_patio`;
 select * from usuario;
+select * from tipo;
+

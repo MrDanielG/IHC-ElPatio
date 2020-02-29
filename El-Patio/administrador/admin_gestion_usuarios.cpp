@@ -2,6 +2,8 @@
 #include "ui_admin_gestion_usuarios.h"
 #include "administrador/admin_tarjeta_usuario.h"
 #include "administrador/admin_crear_usuario.h"
+#include "admin_modificar_usuario.h"
+
 #include "QMessageBox"
 #include "QDebug"
 #include "QSqlQuery"
@@ -75,6 +77,9 @@ void admin_gestion_usuarios::limiparCatalogo()
 
 void admin_gestion_usuarios::userSideBar(QString claveUsuario)
 {
+    // obtengo la clave del usuario
+    this->claveUsuario = claveUsuario;
+
     QSqlQuery infoUsuario(mDatabase);
     infoUsuario.prepare("SELECT * FROM `usuario` INNER JOIN tipo ON usuario.Tipo_id_tipo = tipo.id_tipo WHERE usuario.clave = "+claveUsuario+"");
     infoUsuario.exec();
@@ -95,5 +100,27 @@ void admin_gestion_usuarios::on_btnCrearUsuario_clicked()
 {
     admin_crear_usuario crearUsuario;
     crearUsuario.exec();
+    actualizarCatalogo();
+}
+
+void admin_gestion_usuarios::on_btnEditarUsuario_clicked()
+{
+    QSqlQuery infoUsuario(mDatabase);
+    QString query_infoUsuario = "SELECT * FROM `usuario` "
+                                " INNER JOIN tipo ON usuario.Tipo_id_tipo = tipo.id_tipo "
+                                " WHERE usuario.clave = " + this->claveUsuario + ";";
+    infoUsuario.prepare(query_infoUsuario);
+    infoUsuario.exec();
+    infoUsuario.next();
+
+    QString clave   = infoUsuario.value("clave").toString();
+    QString paterno = infoUsuario.value("apellido_paterno").toString();
+    QString materno = infoUsuario.value("apellido_materno").toString();
+    QString nombre  = infoUsuario.value("nombre").toString();
+    QString tipo    = infoUsuario.value("nombre_tipo").toString();
+    QString estado  = infoUsuario.value("estado").toString();
+
+    admin_modificar_usuario modificarUsuario(clave, nombre, paterno, materno, tipo, estado, this);
+    modificarUsuario.exec();
     actualizarCatalogo();
 }
