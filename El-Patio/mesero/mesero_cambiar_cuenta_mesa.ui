@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>392</width>
-    <height>179</height>
+    <width>374</width>
+    <height>177</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Transferir cuenta</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -20,20 +20,17 @@
       <number>10</number>
      </property>
      <item>
-      <widget class="QLabel" name="titulo">
-       <property name="font">
-        <font>
-         <family>Roboto</family>
-         <pointsize>14</pointsize>
-        </font>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Transferir cuenta</string>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
        </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
+      </spacer>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -48,14 +45,27 @@
           <string notr="true">color: rgb(133, 133, 133);</string>
          </property>
          <property name="text">
-          <string>Elija la mesa original:</string>
+          <string>¿A qué mesa desea transferir la cuenta?</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox"/>
+        <widget class="QComboBox" name="cb_Mesas1"/>
        </item>
       </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -70,12 +80,19 @@
           <string notr="true">color: rgb(133, 133, 133);</string>
          </property>
          <property name="text">
-          <string>Elija la mesa destino:</string>
+          <string>Ingrese la clave de administrador:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_2"/>
+        <widget class="QLineEdit" name="CodigoADM">
+         <property name="inputMethodHints">
+          <set>Qt::ImhHiddenText</set>
+         </property>
+         <property name="inputMask">
+          <string/>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -126,7 +143,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Agregar</string>
+          <string>Transferir</string>
          </property>
         </widget>
        </item>

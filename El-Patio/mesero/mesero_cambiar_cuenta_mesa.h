@@ -13,10 +13,19 @@ class mesero_cambiar_cuenta_mesa : public QDialog
 
 public:
     explicit mesero_cambiar_cuenta_mesa(QWidget *parent = nullptr);
+    void setNumeroMesa(int);
     ~mesero_cambiar_cuenta_mesa();
+
+private slots:
+    void on_btnSecundaio_clicked();
+
+    void on_btnPrimario_clicked();
+
+    void transferir();
 
 private:
     Ui::mesero_cambiar_cuenta_mesa *ui;
+    int Mesa;
 };
 
 #endif // MESERO_CAMBIAR_CUENTA_MESA_H

@@ -204,7 +204,7 @@
 </string>
         </property>
         <property name="text">
-         <string>Menu del Día</string>
+         <string>Menu del día</string>
         </property>
        </widget>
       </item>
@@ -221,7 +221,7 @@
 </string>
         </property>
         <property name="text">
-         <string>Selecciona tu Desayuno</string>
+         <string>Selecciona tu desayuno</string>
         </property>
        </widget>
       </item>
@@ -246,7 +246,7 @@
        <widget class="QPushButton" name="btn_transferir">
         <property name="minimumSize">
          <size>
-          <width>70</width>
+          <width>160</width>
           <height>35</height>
          </size>
         </property>
@@ -281,7 +281,7 @@
 }</string>
         </property>
         <property name="text">
-         <string>Transferir Platillos</string>
+         <string>Transferir platillos</string>
         </property>
        </widget>
       </item>
@@ -324,7 +324,7 @@
 }</string>
         </property>
         <property name="text">
-         <string>Cambiar Mesero</string>
+         <string>Transferir cuenta</string>
         </property>
        </widget>
       </item>
@@ -534,7 +534,7 @@
 </string>
       </property>
       <property name="text">
-       <string>Crea tu Desayuno</string>
+       <string>Crea tu desayuno</string>
       </property>
      </widget>
     </item>
@@ -551,7 +551,7 @@
 </string>
       </property>
       <property name="text">
-       <string>Ideal</string>
+       <string>ideal</string>
       </property>
      </widget>
     </item>

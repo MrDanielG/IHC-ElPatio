@@ -137,3 +137,26 @@ QHeaderView::section {
     border: 1px solid #46B04A;
     color: #46B04A;
 }
+
+QMessageBox{
+    font-family: "Roboto";
+}
+
+QMessageBox QPushButton{
+    color: white;
+    border-radius: 10px;
+    background-color: #46B04A;
+    border: none;
+    padding: 5px;
+}
+
+QMessageBox QPushButton::hover{
+    background-color: white;
+    border: 1px solid #46B04A;
+    color: #46B04A;
+}
+
+QMessageBox QLineEdit{
+    font-family: "Roboto";
+    color : green;
+}

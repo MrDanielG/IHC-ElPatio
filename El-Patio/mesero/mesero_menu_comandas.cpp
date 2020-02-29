@@ -267,5 +267,8 @@ void mesero_menu_comandas::on_btn_transferir_clicked()
 void mesero_menu_comandas::on_btnCambiarMesero_clicked()
 {
     mesero_cambiar_cuenta_mesa *Cambio = new mesero_cambiar_cuenta_mesa();
+    qDebug() << numero_mesa;
+    //Que pase acá el numero_mesa
+    Cambio->setNumeroMesa(22);
     Cambio->exec();
 }

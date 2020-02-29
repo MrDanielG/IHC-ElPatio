@@ -196,7 +196,7 @@
     <string notr="true">color: #585858</string>
    </property>
    <property name="text">
-    <string>Numero de Mesa</string>
+    <string>Numero de mesa</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -413,7 +413,7 @@
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>Abrir Mesa</string>
+       <string>Abrir mesa</string>
       </property>
      </widget>
     </item>
@@ -802,7 +802,7 @@
          <string notr="true">color: #585858</string>
         </property>
         <property name="text">
-         <string>Seleccionar Mesas</string>
+         <string>Seleccionar mesas</string>
         </property>
        </widget>
       </item>
@@ -818,7 +818,7 @@
          <string notr="true">color: rgb(133, 133, 133);</string>
         </property>
         <property name="text">
-         <string>Elige la mesa a Atender</string>
+         <string>Elige la mesa a atender</string>
         </property>
        </widget>
       </item>

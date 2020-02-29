@@ -114,7 +114,7 @@
 </string>
       </property>
       <property name="text">
-       <string>Información de Insumo</string>
+       <string>Información de insumo</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -662,7 +662,7 @@
 </string>
         </property>
         <property name="text">
-         <string>Manejo de Insumos</string>
+         <string>Manejo de insumos</string>
         </property>
        </widget>
       </item>
@@ -744,7 +744,7 @@ padding: 5px;</string>
 }</string>
       </property>
       <property name="text">
-       <string>Agregar Insumo</string>
+       <string>Agregar insumo</string>
       </property>
      </widget>
     </item>
