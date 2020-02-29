@@ -198,76 +198,76 @@ void CatalogoMesas::on_btnDel_clicked()
 
 void CatalogoMesas::on_btnAbrirMesa_clicked()
 {
-    this->mainwindow->pasar_id_mesa(2);
-    qDebug() << "Segun yo aqui no llega";
-    this->mainwindow->cambiar_pagina(1);
-//    if(ui->label_nMesa->text() != "Numero de Mesa")
-//    {
-//        if(!ui->lineEdit_Entrada->text().isEmpty())
-//        {
-//            QString hora = QTime::currentTime().toString("hh:mm");
-//            QString User = ui->lineEdit_Entrada->text();
-//            QString cad = "SELECT * from usuario WHERE clave = "+User+"";
-//            QSqlQuery busca(mDatabase);
-//            busca.prepare(cad);
-//            busca.exec();
-//            if(busca.next())
-//            {
-//                QSqlQuery estadoM(mDatabase);
-//                estadoM.prepare("select estado from mesa where numero_mesa = "+nMesa+"");
-//                estadoM.exec();
-//                estadoM.next();
-//                if(estadoM.value(0).toString() == "Libre")
-//                {
-//                    QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
-//                                                        "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
-//                    QSqlQuery query(mDatabase);
-//                    query.prepare(script);
-//                    query.exec();
-//                    QSqlQuery query2(mDatabase);
-//                    query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+nMesa+"");
-//                    query2.exec();
-//                    id_mesa_auxiliar = nMesa.toInt();
-//                    qDebug()<<id_mesa_auxiliar;
-//                    this->mainwindow->pasar_id_mesa(this->id_mesa_auxiliar);
-//                    qDebug() << "Segun yo aqui no llega";
-//                    this->mainwindow->cambiar_pagina(1);
-//                    qDebug() << "Segun yo aqui no llega x2";
-//                }
-//                else
-//                {
-//                    QMessageBox::warning(this, tr("Error"),
-//                        "La mesa " + nMesa + " se encuentra abierta actualmente");
-//                }
-//            }
-//            else
-//            {
-//                QMessageBox::warning(this, tr("Error"),
-//                    "La clave de Usuario es incorrecta");
-//            }
-//        }
-//        else
-//        {
-//            QMessageBox::warning(this, tr("Campo Vacío"),
-//                                  tr("Por favor, ingrese su número usuario"));
-//        }
-//    }
-//    else
-//    {
-//        QMessageBox::warning(this, tr("No Seleccionado"),
-//                           tr("Por favor, selecciona una mesa para abrirla"));
-//    }
-//    QString newStyle = "*{background-color: rgb(255, 255, 255);"
-//                    "border: 2px solid rgb(255,255,255);"
-//                    "border-bottom-color: gray;}";
-//    QString oldStyle = "*{background-color: rgb(255, 255, 255);"
-//                       "border: 2px solid rgb(255,255,255);}";
-//    ui->btnTodos->setStyleSheet(newStyle);
-//    ui->btnLibre->setStyleSheet(oldStyle);
-//    ui->btnOcupado->setStyleSheet(oldStyle);
-//    AgregarMesas(1);
-//    ui->lineEdit_Entrada->clear();
-//    ui->label_nMesa->setText("Numero de Mesa");
+//    this->mainwindow->pasar_id_mesa(2);
+//    qDebug() << "Segun yo aqui no llega";
+//    this->mainwindow->cambiar_pagina(1);
+    if(ui->label_nMesa->text() != "Numero de Mesa")
+    {
+        if(!ui->lineEdit_Entrada->text().isEmpty())
+        {
+            QString hora = QTime::currentTime().toString("hh:mm");
+            QString User = ui->lineEdit_Entrada->text();
+            QString cad = "SELECT * from usuario WHERE clave = "+User+"";
+            QSqlQuery busca(mDatabase);
+            busca.prepare(cad);
+            busca.exec();
+            if(busca.next())
+            {
+                QSqlQuery estadoM(mDatabase);
+                estadoM.prepare("select estado from mesa where numero_mesa = "+nMesa+"");
+                estadoM.exec();
+                estadoM.next();
+                if(estadoM.value(0).toString() == "Libre")
+                {
+                    QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
+                                                        "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
+                    QSqlQuery query(mDatabase);
+                    query.prepare(script);
+                    query.exec();
+                    QSqlQuery query2(mDatabase);
+                    query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+nMesa+"");
+                    query2.exec();
+                    id_mesa_auxiliar = nMesa.toInt();
+                    qDebug()<<id_mesa_auxiliar;
+                    this->mainwindow->pasar_id_mesa(this->id_mesa_auxiliar);
+                    qDebug() << "Segun yo aqui no llega";
+                    this->mainwindow->cambiar_pagina(1);
+                    qDebug() << "Segun yo aqui no llega x2";
+                }
+                else
+                {
+                    QMessageBox::warning(this, tr("Error"),
+                        "La mesa " + nMesa + " se encuentra abierta actualmente");
+                }
+            }
+            else
+            {
+                QMessageBox::warning(this, tr("Error"),
+                    "La clave de Usuario es incorrecta");
+            }
+        }
+        else
+        {
+            QMessageBox::warning(this, tr("Campo Vacío"),
+                                  tr("Por favor, ingrese su número usuario"));
+        }
+    }
+    else
+    {
+        QMessageBox::warning(this, tr("No Seleccionado"),
+                           tr("Por favor, selecciona una mesa para abrirla"));
+    }
+    QString newStyle = "*{background-color: rgb(255, 255, 255);"
+                    "border: 2px solid rgb(255,255,255);"
+                    "border-bottom-color: gray;}";
+    QString oldStyle = "*{background-color: rgb(255, 255, 255);"
+                       "border: 2px solid rgb(255,255,255);}";
+    ui->btnTodos->setStyleSheet(newStyle);
+    ui->btnLibre->setStyleSheet(oldStyle);
+    ui->btnOcupado->setStyleSheet(oldStyle);
+    AgregarMesas(1);
+    ui->lineEdit_Entrada->clear();
+    ui->label_nMesa->setText("Numero de Mesa");
 }
 
 void CatalogoMesas::seleccionarMesa()
