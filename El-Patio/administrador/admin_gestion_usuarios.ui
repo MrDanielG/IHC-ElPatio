@@ -494,7 +494,7 @@
 }</string>
    </property>
    <property name="text">
-    <string>Actualizar</string>
+    <string>Modificar información</string>
    </property>
   </widget>
   <widget class="QScrollArea" name="scrollArea">

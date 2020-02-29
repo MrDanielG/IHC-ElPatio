@@ -5,6 +5,7 @@
 #include "QMessageBox"
 #include "QDebug"
 #include "QSqlQuery"
+
 admin_gestion_usuarios::admin_gestion_usuarios(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::admin_gestion_usuarios)
