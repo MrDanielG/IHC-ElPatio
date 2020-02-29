@@ -497,7 +497,8 @@ CREATE TABLE `usuario` (
   `apellido_paterno` varchar(45) NOT NULL,
   `apellido_materno` varchar(45) NOT NULL,
   `nombre` varchar(45) NOT NULL,
-  `Tipo_id_tipo` int(11) NOT NULL
+  `Tipo_id_tipo` int(11) NOT NULL,
+  `estado` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -763,38 +764,5 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-
-select * from pedido where Comanda_id_comanda = 8;
-select * from comanda where Mesa_numero_mesa = 16 order by hora_apertura DESC limit 1;
-select * from pedido where Comanda_id_comanda = 1;
-
-select * from mesa where estado = "Libre";
-
-INSERT INTO `el_patio`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`, `estado`) VALUES 
-('HOLA', '1', '3', 'En proceso'),
-('HOLA', '1', '6', 'En proceso'),
-('HOLA', '1', '9', 'En proceso'),
-('HOLA', '1', '12', 'En proceso'),
-('HOLA', '1', '15', 'En proceso');
-
-select * from usuario where clave = 1000;
-select clave, concat(nombre, ' ', apellido_paterno, ' ', apellido_materno) as nombre from usuario where clave = 100;
-
-select * from mesa;
-UPDATE mesa SET estado="Ocupado" WHERE numero_mesa<25 and numero_mesa>0;
-
-UPDATE pedido SET Comanda_id_comanda= 1 WHERE Comanda_id_comanda=21;
-UPDATE pedido SET Comanda_id_comanda = 1 WHERE Comanda_id_comanda = 21  AND id_pedido = 1;
-select * from mesa where estado = "Ocupado";
-select * from mesa where estado = 'Ocupado';
-select * from pedido;
-select * from pedido where Comanda_id_comanda = 21;
-select * from comanda;
-select * from comanda where Mesa_numero_mesa = 11 order by hora_apertura DESC limit 1;
-select * from comanda where Mesa_numero_mesa = 1 order by hora_apertura DESC limit 1;
-
-select * from comanda where Mesa_numero_mesa = 4 order by hora_apertura DESC limit 1;
-update pedido SET Comanda_id_comanda = 21 WHERE Comanda_id_comanda = 1;
-UPDATE pedido SET Comanda_id_comanda = 21 WHERE Comanda_id_comanda = 1;
-
-
+USE `el_patio`;
+select * from usuario;
