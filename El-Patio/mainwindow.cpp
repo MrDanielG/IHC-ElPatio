@@ -5,6 +5,7 @@
 #include "mesero/mesero_transferir_platillo.h"
 #include "almacenista/almacenista_menu.h"
 #include "administrador/admin_gestion_usuarios.h"
+#include "dividircuenta.h"
 
 #include <QDebug>
 
@@ -35,14 +36,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
     gestionUsuarios = new admin_gestion_usuarios(this);
 
+    cuentas = new DividirCuenta(this);
+
     ui->Mesas->setMainWindow(this);
 
     ui->stackedWidget->insertWidget(1, menuComandas);
     ui->stackedWidget->insertWidget(2, menuAlmacenista);
     ui->stackedWidget->insertWidget(3, transferirPlatillo);
     ui->stackedWidget->insertWidget(4, gestionUsuarios);
+    ui->stackedWidget->insertWidget(5, cuentas);
 
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(5);
 }
 
 void MainWindow::cambiar_pagina(int index)

@@ -6,6 +6,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QLabel>
+#include "administrador/agregar_propina_cuenta.h"
 
 DividirCuenta::DividirCuenta(QWidget *parent) :
     QWidget(parent),
@@ -65,6 +66,7 @@ void DividirCuenta::Dividir()
     ui->tablaCuenta->setDragDropMode(QAbstractItemView::DragDrop);
     ui->btnAceptar->show();
     ui->btnDividir->hide();
+    ui->btnPagar->hide();
     ui->total->hide();
     ui->btnCancelar->show();
     total[0] = ui->total;
@@ -106,6 +108,9 @@ void DividirCuenta::Dividir()
 
 void DividirCuenta::llenaCuentaPrincipal(QString script, QString script2)
 {
+    while(ui->tablaCuenta->rowCount()){
+        ui->tablaCuenta->removeRow(ui->tablaCuenta->rowCount()-1);
+    }
     QSqlQuery query(mDatabase);
     query.prepare(script);
     query.exec();
@@ -128,6 +133,7 @@ void DividirCuenta::llenaCuentaPrincipal(QString script, QString script2)
     while(query2.next())
     {
         QString total = query2.value(0).toString();
+        Totales.append(total);
 
         //ui->tablaCuenta->insertRow(ui->tablaCuenta->rowCount());
 
@@ -141,6 +147,8 @@ void DividirCuenta::llenaCuentaPrincipal(QString script, QString script2)
 
 void DividirCuenta::on_btnAceptar_clicked()
 {
+    ui->btnPagar->show();
+    Totales.pop_front();
     for(int i = 0; i < numeroCuenta; i++)
     {
         cuentas[i]->setDragDropMode(QAbstractItemView::NoDragDrop);
@@ -152,6 +160,7 @@ void DividirCuenta::on_btnAceptar_clicked()
             auxCuenta = auxCuenta + cuentas[i]->item(j,1)->text().toInt();
         }
         total[i]->setText("Total: $"+QString::number(auxCuenta));
+        Totales.append(QString::number(auxCuenta));
     }
 }
 
@@ -172,13 +181,19 @@ void DividirCuenta::on_btnCancelar_clicked()
              " com inner join pedido as p on"
              " p.Comanda_id_comanda = com.id_comanda"
              " inner join platillo as plat on"
-             " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 20";
+             " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 1";
     QString total;
     total = "select sum(plat.precio) as Total from comanda as"
             " com inner join pedido as p on"
             " p.Comanda_id_comanda = com.id_comanda"
             " inner join platillo as plat on"
-            " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 20";
+            " plat.id_platillo = p.Platillo_id_platillo where com.id_comanda = 1";
     llenaCuentaPrincipal(script,total);
 
+}
+
+void DividirCuenta::on_btnPagar_clicked()
+{
+    Propina = new agregar_propina_cuenta(Totales, this);
+    Propina->exec();
 }

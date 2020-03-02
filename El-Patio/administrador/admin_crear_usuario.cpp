@@ -85,6 +85,7 @@ void admin_crear_usuario::on_btnCrearUsuario_clicked()
 
 void admin_crear_usuario::on_nombre_textChanged(const QString &arg1)
 {
+    Q_UNUSED(arg1);
     validarInputs();
 }
 

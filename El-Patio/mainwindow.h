@@ -8,6 +8,7 @@ class mesero_menu_comandas;
 class almacenista_menu;
 class mesero_transferir_platillo;
 class admin_gestion_usuarios;
+class DividirCuenta;
 
 namespace Ui {
 class MainWindow;
@@ -35,6 +36,7 @@ private:
     almacenista_menu *menuAlmacenista;
     mesero_transferir_platillo *transferirPlatillo;
     admin_gestion_usuarios *gestionUsuarios;
+    DividirCuenta *cuentas;
 };
 
 #endif // MAINWINDOW_H
