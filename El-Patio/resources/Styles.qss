@@ -110,7 +110,7 @@ QHeaderView::section {
     color: rgb(133, 133, 133);
 }
 
-#btnPrimario {
+#btnPrimario, #btnPrimario_2 {
     color: white;
     border-radius: 10px;
     background-color: #46B04A;
@@ -118,13 +118,13 @@ QHeaderView::section {
     padding: 5px;
 }
 
-#btnPrimario:hover{
+#btnPrimario:hover, #btnPrimario_2:hover{
         background-color: white;
         border: 1px solid #46B04A;
         color: #46B04A;
 }
 
-#btnSecundaio {
+#btnSecundaio, #btnSecundaio_2{
     color: #539E56;
     border-radius: 10px;
     background-color: #E3EFB0;
@@ -132,10 +132,16 @@ QHeaderView::section {
     padding: 5px;
 }
 
-#btnSecundaio:hover {
+#btnSecundaio:hover, #btnSecundaio_2:hover{
     background-color: white;
     border: 1px solid #46B04A;
     color: #46B04A;
+}
+
+#btnPrimario_2:disabled{
+background-color: gray;
+border: 1px solid #46B04A;
+color: #46B04A;
 }
 
 QMessageBox{
