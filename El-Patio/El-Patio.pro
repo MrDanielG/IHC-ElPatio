@@ -27,6 +27,7 @@ CONFIG += c++11
 SOURCES += \
         administrador/admin_crear_usuario.cpp \
         administrador/admin_gestion_usuarios.cpp \
+        administrador/admin_modificar_usuario.cpp \
         administrador/admin_tarjeta_usuario.cpp \
         administrador/agregar_propina_cuenta.cpp \
         almacenista/almacenista_crear_insumo.cpp \
@@ -49,6 +50,7 @@ SOURCES += \
 HEADERS += \
         administrador/admin_crear_usuario.h \
         administrador/admin_gestion_usuarios.h \
+        administrador/admin_modificar_usuario.h \
         administrador/admin_tarjeta_usuario.h \
         administrador/agregar_propina_cuenta.h \
         almacenista/almacenista_crear_insumo.h \
@@ -70,6 +72,7 @@ HEADERS += \
 FORMS += \
         administrador/admin_crear_usuario.ui \
         administrador/admin_gestion_usuarios.ui \
+        administrador/admin_modificar_usuario.ui \
         administrador/admin_tarjeta_usuario.ui \
         administrador/agregar_propina_cuenta.ui \
         almacenista/almacenista_crear_insumo.ui \

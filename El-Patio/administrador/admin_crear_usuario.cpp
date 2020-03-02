@@ -2,6 +2,7 @@
 #include "ui_admin_crear_usuario.h"
 #include "QMessageBox"
 #include "QDebug"
+
 admin_crear_usuario::admin_crear_usuario(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::admin_crear_usuario)
