@@ -5,7 +5,7 @@
 #include <QSqlQuery>
 #include <QDateTime>
 
-agregar_propina_cuenta::agregar_propina_cuenta(QStringList totales, QWidget *parent) :
+agregar_propina_cuenta::agregar_propina_cuenta(QStringList totales, QString idC, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::agregar_propina_cuenta)
 {
@@ -19,6 +19,7 @@ agregar_propina_cuenta::agregar_propina_cuenta(QStringList totales, QWidget *par
         qDebug() << "Totales div= "<< totalesDiv.last();
         totales.pop_front();
     }
+    idComanda = idC;
 }
 
 agregar_propina_cuenta::~agregar_propina_cuenta()
@@ -68,24 +69,27 @@ void agregar_propina_cuenta::on_btnPrimario_2_clicked()
         QMessageBox::warning(this, tr("Error"), tr("Por favor, ingrese un monto en pesos para la propina"));
     }
     else{
-        QMessageBox::information(this, tr(""), tr("Se hace, se hace"));
         qDebug() << propina;
+        //TODO: Manejo de propinas, ¿Se guarda en la base? Revisar.
         QString montoPropina = calculaPropina();
         QSqlQuery query(mDatabase);
         QString fecha = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
 
         while (!totalesDiv.isEmpty()) {
             QString total = totalesDiv.first();
-            qDebug() << "total " << total;
+            //qDebug() << "total " << total;
+
+            //TODO: Agregar idComanda aquí
             QString script = "INSERT INTO `ticket`(`fecha`, `iva`, `metodo`, `total`, `Comanda_id_comanda`) "
-                             "VALUE ('" + fecha +"', 0.16, 'Efectivo', "+ total + ", 20)";
+                             "VALUE ('" + fecha +"', 0.16, 'Efectivo', "+ total + ", "+ idComanda +")";
             query.prepare(script);
-            qDebug() << "Script: " << script;
+            //qDebug() << "Script: " << script;
             if(query.exec()){
                 totalesDiv.pop_front();
+                QMessageBox::information(this, tr("Éxito"), tr("El pago se ha registrado correctamente"));
             }
             else{
-                qDebug() << "ñoooo";
+                //qDebug() << "ñoooo";
             }
         }
         close();

@@ -194,6 +194,9 @@ void DividirCuenta::on_btnCancelar_clicked()
 
 void DividirCuenta::on_btnPagar_clicked()
 {
-    Propina = new agregar_propina_cuenta(Totales, this);
+    //TODO: Mandar idComanda
+    //Propina = new agregar_propina_cuenta(Totales, idComanda, this);
+    Propina = new agregar_propina_cuenta(Totales, "20", this);
     Propina->exec();
+    //TODO Ver a dónde devuelve esto, en términos de navegación
 }

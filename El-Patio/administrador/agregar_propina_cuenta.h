@@ -13,7 +13,7 @@ class agregar_propina_cuenta : public QDialog
     Q_OBJECT
 
 public:
-    explicit agregar_propina_cuenta(QStringList totales, QWidget *parent = nullptr);
+    explicit agregar_propina_cuenta(QStringList totales, QString idC, QWidget *parent = nullptr);
     ~agregar_propina_cuenta();
 
 private slots:
@@ -33,9 +33,11 @@ private slots:
 
     QString calculaPropina();
 
+
 private:
     Ui::agregar_propina_cuenta *ui;
     double propina;
+    QString idComanda;
     QSqlDatabase mDatabase;
     QStringList totalesDiv;
     int cuentas;
