@@ -33,13 +33,13 @@ mesero_tarjeta_chica::mesero_tarjeta_chica(int id_platillo, QWidget *parent):
            qDebug() << "conexion exitosa desde tarjeta_platillo";
        }
 
-       this->id = QString::number(id_platillo);
+    this->id = QString::number(id_platillo);
 
-       QSqlQuery datos_platillo(mDatabase);
-       QString query_datos_platillo = "select * from platillo where id_platillo = " + this->id + ";";
+    QSqlQuery datos_platillo(mDatabase);
+    QString query_datos_platillo = "select * from platillo where id_platillo = " + this->id + ";";
 
-       datos_platillo.exec(query_datos_platillo);
-       datos_platillo.next();
+    datos_platillo.exec(query_datos_platillo);
+    datos_platillo.next();
 
     this->nombrePlatillo = datos_platillo.record().value("nombre").toString();
     this->precioPlatillo = datos_platillo.record().value("precio").toString();
@@ -56,11 +56,9 @@ mesero_tarjeta_chica::~mesero_tarjeta_chica()
 
 void mesero_tarjeta_chica::llenarTarjeta()
 {
-    QPixmap img(this->foto);
     ui->nombrePlatillo->setText(this->nombrePlatillo);
     ui->precioPlatillo->setText("$ " + this->precioPlatillo);
     ui->cantidad->setText(QString::number(this->cantidad));
-    ui->imgPlatillo->setPixmap(img);
 }
 
 float mesero_tarjeta_chica::get_precio()
