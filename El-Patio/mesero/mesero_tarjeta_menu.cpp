@@ -40,15 +40,14 @@ void mesero_tarjeta_menu::llenarTarjeta()
     ui->nombrePlatillo->setText(this->nombrePlatillo);
     ui->precioPlatillo->setText(this->precioPlatillo);
     ui->imgPlatillo->setPixmap(img);
-    ui->cantPlatillo->setText(QString::number(this->cantidad));
 }
 
 void mesero_tarjeta_menu::on_btnMasPlatillo_clicked()
 {
     this->cantidad++;
-    if(cantidad>0){
-        ui->btnMenosPlatillo->setEnabled(true);
-    }
+//    if(cantidad>0){
+//        ui->btnMenosPlatillo->setEnabled(true);
+//    }
     llenarTarjeta();
 
     Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
@@ -59,9 +58,9 @@ void mesero_tarjeta_menu::on_btnMasPlatillo_clicked()
 void mesero_tarjeta_menu::on_btnMenosPlatillo_clicked()
 {
     this->cantidad--;
-    if(cantidad == 0){
-        ui->btnMenosPlatillo->setEnabled(false);
-    }
+//    if(cantidad == 0){
+//        ui->btnMenosPlatillo->setEnabled(false);
+//    }
     llenarTarjeta();
 
     Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);

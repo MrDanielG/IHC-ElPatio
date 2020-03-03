@@ -9,5 +9,6 @@
         <file>resources/imgPersona.png</file>
         <file>resources/imgPersona2.png</file>
         <file>resources/imgTarjetaUsuario.png</file>
+        <file>resources/masPlatilloBig.png</file>
     </qresource>
 </RCC>
