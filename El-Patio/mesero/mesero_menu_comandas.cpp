@@ -165,7 +165,7 @@ void mesero_menu_comandas::set_id_mesa(int _id_mesa_auxiliar)
 
     ultima_comanda.next();
 
-//    this->numero_comanda = ultima_comanda.record().value("id_comanda").toInt();
+    this->numero_comanda = ultima_comanda.record().value("id_comanda").toInt();
     qDebug() << "tengo valor de la comanda" << this->numero_comanda;
 }
 
@@ -191,18 +191,18 @@ void mesero_menu_comandas::on_btnBebidas_2_clicked()
 
     QSqlQuery ultima_comanda(mDatabase);
     QSqlQuery precio_total(mDatabase);
-//    QString query_ultima_comanda =
-//                "select * from comanda where Mesa_numero_mesa = " + QString::number(this->numero_mesa) + " "
-//                "order by hora_apertura DESC limit 1";
+    QString query_ultima_comanda =
+                "select * from comanda where Mesa_numero_mesa = " + QString::number(this->numero_mesa) + " "
+                "order by hora_apertura DESC limit 1";
 
-//    if(ultima_comanda.exec(query_ultima_comanda))
-//        qDebug() << "query_ultima_comanda [ejecutado]" + query_ultima_comanda;
-//    else
-//        qDebug() << "query_ultima_comanda [no_ejecutado]";
+    if(ultima_comanda.exec(query_ultima_comanda))
+        qDebug() << "query_ultima_comanda [ejecutado]" + query_ultima_comanda;
+    else
+        qDebug() << "query_ultima_comanda [no_ejecutado]";
 
-//    ultima_comanda.next();
+    ultima_comanda.next();
 
-//    this->numero_comanda = ultima_comanda.record().value("id_comanda").toInt();
+    this->numero_comanda = ultima_comanda.record().value("id_comanda").toInt();
 
         QString query_platillos =
                 "select * from pedido "
