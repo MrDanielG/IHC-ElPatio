@@ -166,7 +166,6 @@ void mesero_menu_comandas::set_id_mesa(int _id_mesa_auxiliar)
     ultima_comanda.next();
 
 //    this->numero_comanda = ultima_comanda.record().value("id_comanda").toInt();
-    this->numero_comanda = 1;
     qDebug() << "tengo valor de la comanda" << this->numero_comanda;
 }
 
