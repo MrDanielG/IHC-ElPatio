@@ -48,28 +48,10 @@ void mesero_tarjeta_menu::on_btnMasPlatillo_clicked()
 //    if(cantidad>0){
 //        ui->btnMenosPlatillo->setEnabled(true);
 //    }
-    llenarTarjeta();
+//    llenarTarjeta();
 
     Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
 
     this->padre->actualizarSideBar(plato, 1);
-}
-
-void mesero_tarjeta_menu::on_btnMenosPlatillo_clicked()
-{
-    this->cantidad--;
-//    if(cantidad == 0){
-//        ui->btnMenosPlatillo->setEnabled(false);
-//    }
-    llenarTarjeta();
-
-    Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
-
-    this->padre->actualizarSideBar(plato, 0);
-}
-
-void mesero_tarjeta_menu::on_btnEditPlatillo_clicked()
-{
-    mesero_editar_platillo editarPlatillo;
-    editarPlatillo.exec();
+    ui->btnMasPlatillo->setEnabled(false);
 }

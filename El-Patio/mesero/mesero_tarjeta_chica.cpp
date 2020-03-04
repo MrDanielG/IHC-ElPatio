@@ -93,9 +93,3 @@ void mesero_tarjeta_chica::on_btnMasPlatillo_clicked()
 
     this->padre->actualizarSideBar(plato, 1);
 }
-
-void mesero_tarjeta_chica::on_btnEditPlatillo_clicked()
-{
-    mesero_editar_platillo editarPlatillo;
-    editarPlatillo.exec();
-}

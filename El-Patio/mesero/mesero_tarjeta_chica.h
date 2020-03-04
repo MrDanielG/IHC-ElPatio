@@ -27,14 +27,14 @@ private slots:
 
 private:
     Ui::mesero_tarjeta_chica *ui;
+    QSqlDatabase mDatabase;
     QString id;
     QString nombrePlatillo;
     QString precioPlatillo;
     QString foto;
     int cantidad = 0;
     mesero_menu_comandas *padre;
-    //conexion BD
-    QSqlDatabase mDatabase;
+
 };
 
 #endif // MESERO_TARJETA_CHICA_H

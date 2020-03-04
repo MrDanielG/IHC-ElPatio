@@ -22,8 +22,6 @@ public:
 
 private slots:
     void on_btnMasPlatillo_clicked();
-    void on_btnMenosPlatillo_clicked();
-    void on_btnEditPlatillo_clicked();
 
 private:
     Ui::mesero_tarjeta_menu *ui;

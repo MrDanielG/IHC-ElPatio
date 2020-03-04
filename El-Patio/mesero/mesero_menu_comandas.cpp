@@ -78,14 +78,17 @@ void mesero_menu_comandas::limiparCatalogo()
 void mesero_menu_comandas::actualizarSideBar(Platillo plato, int operacion)
 {
     if(this->pedidoPlatillos.contains(plato)){
+
         int Index = this->pedidoPlatillos.indexOf(plato);
         int sum = this->pedidoPlatillos.at(Index).cantidad;
+
         if(operacion > 0){
             sum++;
         }
         else{
             sum--;
         }
+
         if(sum == 0){
             this->pedidoPlatillos.removeAt(Index);
             while (QLayoutItem *item = ui->gridLayout_4->takeAt(0))
@@ -95,7 +98,7 @@ void mesero_menu_comandas::actualizarSideBar(Platillo plato, int operacion)
                 delete item;
             }
             actualizarSB();
-
+            actualizarCatalogo();
         }
         else{
             Platillo Nuevo = this->pedidoPlatillos.at(Index);
