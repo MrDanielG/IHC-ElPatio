@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>297</width>
-    <height>135</height>
+    <width>299</width>
+    <height>144</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -37,236 +37,168 @@ background-color: #F4F7F4;
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QPushButton" name="btnMasPlatillo">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>261</width>
-     <height>99</height>
+     <x>240</x>
+     <y>80</y>
+     <width>39</width>
+     <height>35</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <property name="spacing">
-     <number>10</number>
-    </property>
+   <property name="minimumSize">
+    <size>
+     <width>35</width>
+     <height>35</height>
+    </size>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../Recursos.qrc">
+     <normaloff>:/iconos/resources/masPlatilloBig.png</normaloff>:/iconos/resources/masPlatilloBig.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>35</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="imgPlatillo">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>20</y>
+     <width>90</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>90</width>
+     <height>90</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 10px;
+background-image: url(:/iconos/resources/menuPrueba.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>122</x>
+     <y>30</y>
+     <width>161</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="imgPlatillo">
+     <widget class="QLabel" name="nombrePlatillo">
       <property name="minimumSize">
        <size>
-        <width>90</width>
-        <height>90</height>
+        <width>0</width>
+        <height>30</height>
        </size>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>90</width>
-        <height>90</height>
-       </size>
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-radius: 10px;
-background-image: url(:/iconos/resources/menuPrueba.png);</string>
+       <string notr="true">color:#585858;
+</string>
       </property>
       <property name="text">
-       <string/>
+       <string>Sopa de Codito</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="nombrePlatillo">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
+       <widget class="QLabel" name="precioPlatillo_2">
         <property name="font">
          <font>
           <family>Roboto</family>
           <pointsize>11</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:#585858;
+         <string notr="true">color:#858585;
 </string>
         </property>
         <property name="text">
-         <string>Sopa de Codito</string>
-        </property>
-        <property name="wordWrap">
-         <bool>true</bool>
+         <string>$</string>
         </property>
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QLabel" name="precioPlatillo_2">
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:#858585;
+       <widget class="QLabel" name="precioPlatillo">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:#858585;
 </string>
-          </property>
-          <property name="text">
-           <string>$</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="precioPlatillo">
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:#858585;
-</string>
-          </property>
-          <property name="text">
-           <string>35</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
+        </property>
+        <property name="text">
+         <string>35</string>
+        </property>
+       </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QPushButton" name="btnEditPlatillo">
-          <property name="minimumSize">
-           <size>
-            <width>29</width>
-            <height>29</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/iconos/resources/editarPlato.png) 0 0 0 0 stretch stretch;
-background-repeat: no-repeat;
-border: none;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>16</width>
-            <height>16</height>
-           </size>
-          </property>
-          <property name="autoDefault">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnMenosPlatillo">
-          <property name="minimumSize">
-           <size>
-            <width>25</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/iconos/resources/menosPlatillo.png);
-background-repeat: no-repeat;
-border: none;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="cantPlatillo">
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(133, 133, 133);</string>
-          </property>
-          <property name="text">
-           <string>#</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnMasPlatillo">
-          <property name="minimumSize">
-           <size>
-            <width>25</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/iconos/resources/masPlatillo.png);
-background-repeat: no-repeat;
-border: none;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../Recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -1,11 +1,13 @@
 #include "mesero_tarjeta_chica.h"
 #include "ui_mesero_tarjeta_chica.h"
+#include "mesero/mesero_menu_comandas.h"
+#include "mesero/mesero_editar_platillo.h"
 
 #include <QSqlQuery>
 #include <QDebug>
 #include <QSqlRecord>
 
-mesero_tarjeta_chica::mesero_tarjeta_chica(QString id, QString nombrePlatillo, QString precioPlatillo, QString foto, int cantidad, QWidget *parent) :
+mesero_tarjeta_chica::mesero_tarjeta_chica(QString id, QString nombrePlatillo, QString precioPlatillo, QString foto, int cantidad, mesero_menu_comandas *parent) :
     QWidget(parent),
     ui(new Ui::mesero_tarjeta_chica)
 {
@@ -16,7 +18,7 @@ mesero_tarjeta_chica::mesero_tarjeta_chica(QString id, QString nombrePlatillo, Q
     this->precioPlatillo = precioPlatillo;
     this->foto = foto;
     this->cantidad = cantidad;
-
+    this->padre = parent;
     llenarTarjeta();
 }
 
@@ -33,13 +35,13 @@ mesero_tarjeta_chica::mesero_tarjeta_chica(int id_platillo, QWidget *parent):
            qDebug() << "conexion exitosa desde tarjeta_platillo";
        }
 
-       this->id = QString::number(id_platillo);
+    this->id = QString::number(id_platillo);
 
-       QSqlQuery datos_platillo(mDatabase);
-       QString query_datos_platillo = "select * from platillo where id_platillo = " + this->id + ";";
+    QSqlQuery datos_platillo(mDatabase);
+    QString query_datos_platillo = "select * from platillo where id_platillo = " + this->id + ";";
 
-       datos_platillo.exec(query_datos_platillo);
-       datos_platillo.next();
+    datos_platillo.exec(query_datos_platillo);
+    datos_platillo.next();
 
     this->nombrePlatillo = datos_platillo.record().value("nombre").toString();
     this->precioPlatillo = datos_platillo.record().value("precio").toString();
@@ -56,14 +58,38 @@ mesero_tarjeta_chica::~mesero_tarjeta_chica()
 
 void mesero_tarjeta_chica::llenarTarjeta()
 {
-    QPixmap img(this->foto);
     ui->nombrePlatillo->setText(this->nombrePlatillo);
     ui->precioPlatillo->setText("$ " + this->precioPlatillo);
     ui->cantidad->setText(QString::number(this->cantidad));
-    ui->imgPlatillo->setPixmap(img);
 }
 
 float mesero_tarjeta_chica::get_precio()
 {
     return this->precioPlatillo.toFloat();
+}
+
+void mesero_tarjeta_chica::on_btnMenosPlatillo_clicked()
+{
+    this->cantidad--;
+    if(cantidad == 0){
+        ui->btnMenosPlatillo->setEnabled(false);
+    }
+    llenarTarjeta();
+
+    Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
+
+    this->padre->actualizarSideBar(plato, 0);
+}
+
+void mesero_tarjeta_chica::on_btnMasPlatillo_clicked()
+{
+    this->cantidad++;
+    if(cantidad>0){
+        ui->btnMenosPlatillo->setEnabled(true);
+    }
+    llenarTarjeta();
+
+    Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
+
+    this->padre->actualizarSideBar(plato, 1);
 }
