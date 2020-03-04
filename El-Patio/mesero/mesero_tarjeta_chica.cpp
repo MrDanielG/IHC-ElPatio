@@ -1,11 +1,13 @@
 #include "mesero_tarjeta_chica.h"
 #include "ui_mesero_tarjeta_chica.h"
+#include "mesero/mesero_menu_comandas.h"
+#include "mesero/mesero_editar_platillo.h"
 
 #include <QSqlQuery>
 #include <QDebug>
 #include <QSqlRecord>
 
-mesero_tarjeta_chica::mesero_tarjeta_chica(QString id, QString nombrePlatillo, QString precioPlatillo, QString foto, int cantidad, QWidget *parent) :
+mesero_tarjeta_chica::mesero_tarjeta_chica(QString id, QString nombrePlatillo, QString precioPlatillo, QString foto, int cantidad, mesero_menu_comandas *parent) :
     QWidget(parent),
     ui(new Ui::mesero_tarjeta_chica)
 {
@@ -16,7 +18,7 @@ mesero_tarjeta_chica::mesero_tarjeta_chica(QString id, QString nombrePlatillo, Q
     this->precioPlatillo = precioPlatillo;
     this->foto = foto;
     this->cantidad = cantidad;
-
+    this->padre = parent;
     llenarTarjeta();
 }
 
@@ -64,4 +66,36 @@ void mesero_tarjeta_chica::llenarTarjeta()
 float mesero_tarjeta_chica::get_precio()
 {
     return this->precioPlatillo.toFloat();
+}
+
+void mesero_tarjeta_chica::on_btnMenosPlatillo_clicked()
+{
+    this->cantidad--;
+    if(cantidad == 0){
+        ui->btnMenosPlatillo->setEnabled(false);
+    }
+    llenarTarjeta();
+
+    Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
+
+    this->padre->actualizarSideBar(plato, 0);
+}
+
+void mesero_tarjeta_chica::on_btnMasPlatillo_clicked()
+{
+    this->cantidad++;
+    if(cantidad>0){
+        ui->btnMenosPlatillo->setEnabled(true);
+    }
+    llenarTarjeta();
+
+    Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
+
+    this->padre->actualizarSideBar(plato, 1);
+}
+
+void mesero_tarjeta_chica::on_btnEditPlatillo_clicked()
+{
+    mesero_editar_platillo editarPlatillo;
+    editarPlatillo.exec();
 }

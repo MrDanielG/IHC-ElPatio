@@ -159,8 +159,8 @@ background-color: #fff;</string>
         <widget class="QPushButton" name="btnEditPlatillo">
          <property name="minimumSize">
           <size>
-           <width>29</width>
-           <height>29</height>
+           <width>25</width>
+           <height>25</height>
           </size>
          </property>
          <property name="cursor">
@@ -170,17 +170,21 @@ background-color: #fff;</string>
           <bool>false</bool>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/iconos/resources/editarPlato.png) 0 0 0 0 stretch stretch;
-background-repeat: no-repeat;
+          <string notr="true">
 border: none;</string>
          </property>
          <property name="text">
           <string/>
          </property>
+         <property name="icon">
+          <iconset>
+           <normalon>:/iconos/resources/editarPlato.png</normalon>
+          </iconset>
+         </property>
          <property name="iconSize">
           <size>
-           <width>16</width>
-           <height>16</height>
+           <width>25</width>
+           <height>25</height>
           </size>
          </property>
          <property name="autoDefault">
@@ -213,12 +217,22 @@ border: none;</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/iconos/resources/menosPlatillo.png);
-background-repeat: no-repeat;
+          <string notr="true">
 border: none;</string>
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normalon>:/iconos/resources/menosPlatillo.png</normalon>
+          </iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -251,12 +265,22 @@ border: none;</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/iconos/resources/masPlatillo.png);
-background-repeat: no-repeat;
+          <string notr="true">
 border: none;</string>
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normalon>:/iconos/resources/masPlatillo.png</normalon>
+          </iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
          </property>
         </widget>
        </item>

@@ -127,7 +127,7 @@ void mesero_menu_comandas::actualizarSB()
             row = iterador / 1;
             col = iterador % 1;
 
-            mesero_tarjeta_chica *tarjeta = new mesero_tarjeta_chica(id, nombrePlatillo, precioPlatillo, fotoPlatillo, cantidad);
+            mesero_tarjeta_chica *tarjeta = new mesero_tarjeta_chica(id, nombrePlatillo, precioPlatillo, fotoPlatillo, cantidad, this);
             iterador++;
             ui->gridLayout_4->addWidget(tarjeta, row, col);
         }
