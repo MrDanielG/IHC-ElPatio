@@ -7,6 +7,7 @@
 #include "mesero/mesero_tarjeta_chica.h"
 #include "mainwindow.h"
 #include "mesero_cambiar_cuenta_mesa.h"
+#include "mesero/mesero_cancela_platillos.h"
 
 #include <QSqlRecord>
 
@@ -28,6 +29,7 @@ mesero_menu_comandas::mesero_menu_comandas(QWidget *parent) :
 
     ui->btnMandarCocina->setHidden(0);
     ui->lb_total->setHidden(1);
+    ui->menuEditarCuenta->setHidden(true);
 }
 
 mesero_menu_comandas::~mesero_menu_comandas()
@@ -273,4 +275,24 @@ void mesero_menu_comandas::on_btnCambiarMesero_clicked()
     //Que pase acá el numero_mesa
     Cambio->setNumeroMesa(22);
     Cambio->exec();
+}
+
+void mesero_menu_comandas::on_btnEditar_clicked()
+{
+    ui->btnEditar->setHidden(true);
+    ui->menuEditarCuenta->setHidden(false);
+}
+
+void mesero_menu_comandas::on_btnCancelar_clicked()
+{
+    ui->btnEditar->setHidden(false);
+    ui->menuEditarCuenta->setHidden(true);
+}
+
+void mesero_menu_comandas::on_btnCancelarPlatillo_clicked()
+{
+    mesero_cancela_platillos cancelaPlatillos(this);
+    cancelaPlatillos.setModal(true);
+    cancelaPlatillos.set_idComanda("1");
+    cancelaPlatillos.exec();
 }

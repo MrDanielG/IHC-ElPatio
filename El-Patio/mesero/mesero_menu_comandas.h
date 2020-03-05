@@ -34,6 +34,11 @@ private slots:
     void on_btnPlatillos_2_clicked();
     void on_btn_transferir_clicked();
     void on_btnCambiarMesero_clicked();
+    void on_btnEditar_clicked();
+
+    void on_btnCancelar_clicked();
+
+    void on_btnCancelarPlatillo_clicked();
 
 private:
     Ui::mesero_menu_comandas *ui;

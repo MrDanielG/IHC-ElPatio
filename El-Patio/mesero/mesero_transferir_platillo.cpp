@@ -103,7 +103,7 @@ void mesero_transferir_platillo::actualizarDatos()
         qDebug() << "datosComando [no_ejecutado]";
     datosComando.next();
 
-    QString query_mesasLibres = "select * from mesa where estado = 'Ocupado';";
+    QString query_mesasLibres = "select * from mesa where estado = 'Ocupada';";
     if(mesasLibres.exec(query_mesasLibres))
         qDebug() << "query_mesasLibres [ejecutado] " + query_mesasLibres;
     else
