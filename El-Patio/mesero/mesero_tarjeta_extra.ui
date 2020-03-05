@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>432</height>
+    <width>233</width>
+    <height>73</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>233</width>
+    <height>73</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -16,8 +22,8 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>0</x>
+     <y>0</y>
      <width>231</width>
      <height>71</height>
     </rect>
@@ -36,7 +42,8 @@
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius: 10px;
-background-color: #fff;</string>
+background-color: #F4F7F4;
+</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>

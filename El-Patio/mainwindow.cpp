@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(4, gestionUsuarios);
     ui->stackedWidget->insertWidget(5, cuentas);
 
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1); //Por mietras xd
 }
 
 void MainWindow::cambiar_pagina(int index)
