@@ -2,6 +2,7 @@
 #define MESERO_TARJETA_EXTRA_CHICA_H
 
 #include <QWidget>
+#include <models/extra.h>
 
 class mesero_editar_platillo;
 namespace Ui {
@@ -13,12 +14,14 @@ class mesero_tarjeta_extra_chica : public QWidget
     Q_OBJECT
 
 public:
-    explicit mesero_tarjeta_extra_chica(mesero_editar_platillo *parent = nullptr);
+    explicit mesero_tarjeta_extra_chica(extra, mesero_editar_platillo *parent = nullptr);
     ~mesero_tarjeta_extra_chica();
+    void llenarTarjeta();
 
 private:
     Ui::mesero_tarjeta_extra_chica *ui;
     mesero_editar_platillo *padre;
+    extra extraPlatillo;
 };
 
 #endif // MESERO_TARJETA_EXTRA_CHICA_H

@@ -19,8 +19,15 @@ public:
     explicit mesero_editar_platillo(QWidget *parent = nullptr);
     ~mesero_editar_platillo();
     void conexionBD();
+
+    //Catalogo Izquierdo
     void actualizarCatalogo();
     void limiparCatalogo();
+
+    //Catalogo Derecho
+    void actualizarSideBar(extra, int);
+    void limpiarSideBar();
+    void actualizarSB();
 
 private:
     Ui::mesero_editar_platillo *ui;

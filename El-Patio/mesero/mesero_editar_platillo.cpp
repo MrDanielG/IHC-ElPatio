@@ -1,10 +1,10 @@
 #include "mesero_editar_platillo.h"
 #include "ui_mesero_editar_platillo.h"
 #include "mesero_tarjeta_extra.h"
+#include "mesero/mesero_tarjeta_extra_chica.h"
+#include "models/extra.h"
 
 #include "QDebug"
-
-#include "models/extra.h"
 
 mesero_editar_platillo::mesero_editar_platillo(QWidget *parent) :
     QDialog(parent),
@@ -72,5 +72,65 @@ void mesero_editar_platillo::limiparCatalogo()
         Q_ASSERT(!item->layout());
         delete item->widget();
         delete item;
+    }
+}
+
+void mesero_editar_platillo::actualizarSideBar(extra _extraPlatillo, int operacion)
+{
+    if(this->listaExtras.contains(_extraPlatillo)){
+
+        int Index = this->listaExtras.indexOf(_extraPlatillo);
+        int sum = this->listaExtras.at(Index).cantidad;
+
+        if(operacion > 0){
+            sum++;
+        }
+        else{
+            sum--;
+        }
+
+        if(sum == 0){
+            this->listaExtras.removeAt(Index);
+            while (QLayoutItem *item = ui->gridLayoutExtras->takeAt(0))
+            {
+                Q_ASSERT(!item->layout());
+                delete item->widget();
+                delete item;
+            }
+            actualizarSB();
+            actualizarCatalogo();
+        }
+        else{
+            extra Nuevo = this->listaExtras.at(Index);
+            Nuevo.setCantidad(sum);
+            this->listaExtras.replace(Index, Nuevo);
+            actualizarSB();
+        }
+    }
+    else{
+        this->listaExtras.append(_extraPlatillo);
+        actualizarSB();
+    }
+}
+
+void mesero_editar_platillo::actualizarSB()
+{
+    int iterador = 0;
+    int row = 0;
+    int col = 0;
+
+    for (int i = 0; i < this->listaExtras.size(); ++i) {
+
+//        QString id = this->listaExtras[i].idExtra;
+//        QString nombrePlatillo = this->listaExtras[i].nombre;
+//        QString precioPlatillo = this->listaExtras[i].precio;
+//        int cantidad = this->listaExtras[i].cantidad;
+
+        row = iterador / 1;
+        col = iterador % 1;
+
+        mesero_tarjeta_extra_chica *tarjeta = new mesero_tarjeta_extra_chica(listaExtras[i], this);
+        iterador++;
+        ui->gridLayoutExtras->addWidget(tarjeta, row, col);
     }
 }

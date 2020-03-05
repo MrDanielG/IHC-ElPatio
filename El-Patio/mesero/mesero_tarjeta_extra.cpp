@@ -26,5 +26,7 @@ void mesero_tarjeta_extra::llenarTarjeta()
 
 void mesero_tarjeta_extra::on_btnMasExtra_clicked()
 {
+    this->extraPlatillo.cantidad++;
+    this->padre->actualizarSideBar(this->extraPlatillo, 1);
     ui->btnMasExtra->setEnabled(false);
 }

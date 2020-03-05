@@ -19,7 +19,7 @@ void Platillo::setCantidad(int nueva)
     this->cantidad = nueva;
 }
 
-bool Platillo::operator ==(Platillo P)
+bool Platillo::operator == (Platillo P)
 {
     if(this->nombrePlatillo == P.nombrePlatillo)
         return  true;

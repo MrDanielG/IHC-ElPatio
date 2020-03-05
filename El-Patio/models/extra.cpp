@@ -29,7 +29,7 @@ void extra::setCantidad(int nueva)
     this->cantidad = nueva;
 }
 
-bool extra::operator ==(extra E)
+bool extra::operator == (extra E)
 {
     if(this->nombre == E.nombre)
         return  true;
