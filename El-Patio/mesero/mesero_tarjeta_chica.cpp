@@ -2,7 +2,6 @@
 #include "ui_mesero_tarjeta_chica.h"
 #include "mesero/mesero_menu_comandas.h"
 #include "mesero/mesero_editar_platillo.h"
-
 #include <QSqlQuery>
 #include <QDebug>
 #include <QSqlRecord>
@@ -92,4 +91,11 @@ void mesero_tarjeta_chica::on_btnMasPlatillo_clicked()
     Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
 
     this->padre->actualizarSideBar(plato, 1);
+}
+
+void mesero_tarjeta_chica::on_btnEditPlatillo_clicked()
+{
+    qDebug()<<"Nani_";
+    mesero_editar_platillo editarPlatillo;
+    editarPlatillo.exec();
 }

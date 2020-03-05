@@ -25,6 +25,8 @@ private slots:
 
     void on_btnMasPlatillo_clicked();
 
+    void on_btnEditPlatillo_clicked();
+
 private:
     Ui::mesero_tarjeta_chica *ui;
     QSqlDatabase mDatabase;
