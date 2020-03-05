@@ -19,6 +19,9 @@ public:
     ~mesero_tarjeta_extra();
     void llenarTarjeta();
 
+private slots:
+    void on_btnMasExtra_clicked();
+
 private:
     Ui::mesero_tarjeta_extra *ui;
     extra extraPlatillo;

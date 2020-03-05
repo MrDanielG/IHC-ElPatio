@@ -16,8 +16,7 @@ void Platillo::setCantidad(int nueva)
     double PrecioOriginal = PrePla/cantidad;
     PrePla += PrecioOriginal;
     precioPlatillo = QString::number(PrePla);
-    this->cantidad=nueva;
-
+    this->cantidad = nueva;
 }
 
 bool Platillo::operator ==(Platillo P)

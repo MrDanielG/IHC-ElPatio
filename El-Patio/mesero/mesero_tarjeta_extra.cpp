@@ -23,3 +23,8 @@ void mesero_tarjeta_extra::llenarTarjeta()
     ui->nombreExtra->setText(this->extraPlatillo.nombre);
     ui->precioExtra->setText("$" + this->extraPlatillo.precio);
 }
+
+void mesero_tarjeta_extra::on_btnMasExtra_clicked()
+{
+    ui->btnMasExtra->setEnabled(false);
+}
