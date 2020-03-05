@@ -6,7 +6,7 @@
 #include <QSqlQuery>
 
 #include <mesero/mesero_agregar_extra.h>
-
+#include <models/extra.h>
 namespace Ui {
 class mesero_editar_platillo;
 }
@@ -25,6 +25,12 @@ public:
 private:
     Ui::mesero_editar_platillo *ui;
     QSqlDatabase mDatabase;
+
+    QList<extra> listaExtras;
+
+
+
+
 
     //mesero_agregar_extra agregarExtra;
 };
