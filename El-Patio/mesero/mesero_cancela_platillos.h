@@ -29,6 +29,8 @@ private slots:
 
     void on_btnCancelar_clicked();
 
+    void on_cBox_CancelarComanda_stateChanged(int arg1);
+
 private:
     Ui::mesero_cancela_platillos *ui;
     QSqlDatabase mDatabase;

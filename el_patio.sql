@@ -250,7 +250,15 @@ TRUNCATE TABLE `pedido`;
 --
 
 INSERT INTO `pedido` (`id_Pedido`, `comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`, `estado`) VALUES
-(1, 'Sin cebolla', 1, 8, 'En proceso');
+(1, 'Sin cebolla', 1, 8, 'En proceso'),
+(2, 'Sin cebolla', 1, 8, 'En proceso'),
+(3, 'Con cebolla', 1, 9, 'En proceso'),
+(4, 'Doble queso', 1, 19, 'En proceso'),
+(5, 'Más capsu', 1, 11, 'En proceso'),
+(6, 'Mas dorado', 1, 12, 'En proceso'),
+(7, 'termino medio', 1, 13, 'En proceso'),
+(8, 'sin aguacate', 1, 14, 'En proceso');
+
 
 -- --------------------------------------------------------
 
@@ -511,7 +519,9 @@ TRUNCATE TABLE `usuario`;
 --
 
 INSERT INTO `usuario` (`clave`, `apellido_paterno`, `apellido_materno`, `nombre`, `Tipo_id_tipo`) VALUES
-(100, 'Carmona', 'Avenda?o', 'Lluvia', 2);
+(100, 'Carmona', 'Avenda?o', 'Lluvia', 2),
+(1234, 'Huerta', 'Garcia', 'Jose Carlos', 1);
+
 
 --
 -- Índices para tablas volcadas
@@ -767,4 +777,6 @@ COMMIT;
 USE `el_patio`;
 select * from usuario;
 select * from tipo;
+select * from pedido where Comanda_id_comanda = 1 and estado = 'Cancelado';
+select * from pedido where Comanda_id_comanda = 1 and estado = 'En proceso';
 

@@ -68,7 +68,7 @@ void mesero_cancela_platillos::actualizarDatos()
     //lleno lista con tarjetas de los platillos respecto la comanda
     QString query_platillos =
             "select * from pedido "
-            "where Comanda_id_comanda = " + idComanda + " and estado = 'En proceso';";
+            "where Comanda_id_comanda = " + idComanda;/* + " and estado = 'En proceso';";*/
 
     if(datosPedido.exec(query_platillos))
         qDebug() << "query_platillos [ejecutado]" + query_platillos;
@@ -85,6 +85,9 @@ void mesero_cancela_platillos::actualizarDatos()
         QString nombrePlatillo  = datosPlatillos.value("nombre").toString();
         QString extra           = datosPedido.value("comentario").toString();
         QString precio          = datosPlatillos.value("precio").toString();
+
+        qDebug() << pedido << nombrePlatillo << extra << precio  << datosPedido.value("estado").toString();
+
         mesero_tarjeta_cancelar *aux = new mesero_tarjeta_cancelar(pedido, nombrePlatillo, extra, precio, this, this );
         lista_platillos_comanda.append(aux);
     }
@@ -165,4 +168,21 @@ void mesero_cancela_platillos::on_btnCancelar_clicked()
     if (QMessageBox::question(this, "Regresar a Menú", "¿Desea regresar al menú?")
             == QMessageBox::Yes)
         this->close();
+}
+
+void mesero_cancela_platillos::on_cBox_CancelarComanda_stateChanged(int arg1)
+{
+    if (arg1) {
+        int iterador = 0;
+        while (iterador < lista_platillos_comanda.size()) {
+            lista_platillos_comanda.at(iterador)->estadoTarjeta(true);
+            iterador++;
+        }
+    } else {
+        int iterador = 0;
+        while (iterador < lista_platillos_comanda.size()) {
+            lista_platillos_comanda.at(iterador)->estadoTarjeta(false);
+            iterador++;
+        }
+    }
 }

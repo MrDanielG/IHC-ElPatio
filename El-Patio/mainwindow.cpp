@@ -73,3 +73,5 @@ void MainWindow::pasar_is_comanda(int _id_comanda)
 {
     this->transferirPlatillo->set_idComanda(_id_comanda);
 }
+
+

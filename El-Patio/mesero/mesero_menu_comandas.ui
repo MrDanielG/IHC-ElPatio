@@ -617,7 +617,7 @@
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -669,37 +669,19 @@
   <widget class="QWidget" name="menuEditarCuenta" native="true">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>370</x>
      <y>80</y>
-     <width>171</width>
-     <height>201</height>
+     <width>350</width>
+     <height>94</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 247, 244);</string>
+    <string notr="true">*{
+	background-color: rgb(244, 247, 244);
+}</string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="spacing">
-     <number>10</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="elPatio_7">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(133, 133, 133);
-</string>
-      </property>
-      <property name="text">
-       <string>Menu editar comanda</string>
-      </property>
-     </widget>
-    </item>
-    <item>
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="0">
      <widget class="QPushButton" name="btn_transferir">
       <property name="minimumSize">
        <size>
@@ -709,7 +691,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>125</width>
+        <width>16777215</width>
         <height>16777215</height>
        </size>
       </property>
@@ -725,17 +707,15 @@
       <property name="styleSheet">
        <string notr="true">*{
 	color: white;
-	border-radius: 2px;
+	border-radius: 10px;
 	background-color: #46B04A;
 	border: none;
-	border-left: 5px solid #2a6a2c;
 	padding: 5px;
 }
 
 :hover{
 	background-color: white;
 	border: 1px solid #46B04A;
-	border-left: 5px solid #2a6a2c;
 	color: #46B04A;
 }</string>
       </property>
@@ -744,7 +724,7 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item row="0" column="1">
      <widget class="QPushButton" name="btnCambiarMesero">
       <property name="minimumSize">
        <size>
@@ -754,7 +734,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>100</width>
+        <width>16777215</width>
         <height>16777215</height>
        </size>
       </property>
@@ -770,17 +750,15 @@
       <property name="styleSheet">
        <string notr="true">*{
 	color: white;
-	border-radius: 2px;
+	border-radius: 10px;
 	background-color: #46B04A;
 	border: none;
-	border-left: 5px solid #2a6a2c;
 	padding: 5px;
 }
 
 :hover{
 	background-color: white;
 	border: 1px solid #46B04A;
-	border-left: 5px solid #2a6a2c;
 	color: #46B04A;
 }</string>
       </property>
@@ -789,52 +767,7 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="btnCancelarPlatillo">
-      <property name="minimumSize">
-       <size>
-        <width>160</width>
-        <height>35</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>125</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">*{
-	color: white;
-	border-radius: 2px;
-	background-color: #46B04A;
-	border: none;
-	border-left: 5px solid #2a6a2c;
-	padding: 5px;
-}
-
-:hover{
-	background-color: white;
-	border: 1px solid #46B04A;
-	border-left: 5px solid #2a6a2c;
-	color: #46B04A;
-}</string>
-      </property>
-      <property name="text">
-       <string>Cancelar platillo</string>
-      </property>
-     </widget>
-    </item>
-    <item>
+    <item row="1" column="1">
      <widget class="QPushButton" name="btnCancelar">
       <property name="minimumSize">
        <size>
@@ -844,7 +777,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>125</width>
+        <width>16777215</width>
         <height>16777215</height>
        </size>
       </property>
@@ -879,9 +812,70 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="btnCancelarPlatillo">
+      <property name="minimumSize">
+       <size>
+        <width>160</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/* 
+*{
+	color: white;
+	border-radius: 2px;
+	background-color: #46B04A;
+	border: none;
+	border-left: 5px solid #2a6a2c;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	border-left: 5px solid #2a6a2c;
+	color: #46B04A;
+}
+*/ 
+
+*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+      </property>
+      <property name="text">
+       <string>Cancelar platillo o comanda</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>211</x>
@@ -953,6 +947,22 @@
     </item>
    </layout>
   </widget>
+  <zorder>sideBar</zorder>
+  <zorder>line</zorder>
+  <zorder>line_2</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>btnMandarCocina</zorder>
+  <zorder>line_3</zorder>
+  <zorder>layoutWidget_2</zorder>
+  <zorder>layoutWidget_3</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>scrollArea</zorder>
+  <zorder>scrollSideBar</zorder>
+  <zorder>lb_total</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>menuEditarCuenta</zorder>
  </widget>
  <resources>
   <include location="../Recursos.qrc"/>
