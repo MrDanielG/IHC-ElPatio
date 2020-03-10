@@ -21,8 +21,10 @@ public:
     ~mesero_menu_comandas();
     void setMainWindow(MainWindow *);
     void set_id_mesa(int);
+
     void actualizarCatalogo();
     void limiparCatalogo();
+
     void actualizarSideBar(Platillo, int);
     void limpiarSideBar();
     void actualizarSB();

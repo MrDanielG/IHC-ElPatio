@@ -264,8 +264,6 @@ void mesero_menu_comandas::on_btn_transferir_clicked()
     this->mainwindow->cambiar_pagina(3);
 }
 
-
-
 void mesero_menu_comandas::on_btnCambiarMesero_clicked()
 {
     mesero_cambiar_cuenta_mesa *Cambio = new mesero_cambiar_cuenta_mesa();

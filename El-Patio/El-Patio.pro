@@ -42,9 +42,12 @@ SOURCES += \
         mesero/mesero_editar_platillo.cpp \
         mesero/mesero_menu_comandas.cpp \
         mesero/mesero_tarjeta_chica.cpp \
+        mesero/mesero_tarjeta_extra.cpp \
+        mesero/mesero_tarjeta_extra_chica.cpp \
         mesero/mesero_tarjeta_menu.cpp \
         mesero/mesero_tarjeta_transferir.cpp \
         mesero/mesero_transferir_platillo.cpp \
+        models/extra.cpp \
         models/platillo.cpp
 
 HEADERS += \
@@ -64,9 +67,12 @@ HEADERS += \
         mesero/mesero_editar_platillo.h \
         mesero/mesero_menu_comandas.h \
         mesero/mesero_tarjeta_chica.h \
+        mesero/mesero_tarjeta_extra.h \
+        mesero/mesero_tarjeta_extra_chica.h \
         mesero/mesero_tarjeta_menu.h \
         mesero/mesero_tarjeta_transferir.h \
         mesero/mesero_transferir_platillo.h \
+        models/extra.h \
         models/platillo.h
 
 FORMS += \
@@ -86,6 +92,8 @@ FORMS += \
         mesero/mesero_editar_platillo.ui \
         mesero/mesero_menu_comandas.ui \
         mesero/mesero_tarjeta_chica.ui \
+        mesero/mesero_tarjeta_extra.ui \
+        mesero/mesero_tarjeta_extra_chica.ui \
         mesero/mesero_tarjeta_menu.ui \
         mesero/mesero_tarjeta_transferir.ui \
         mesero/mesero_transferir_platillo.ui

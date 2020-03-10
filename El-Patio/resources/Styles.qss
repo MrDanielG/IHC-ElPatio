@@ -50,12 +50,12 @@ QSpinBox{
     border-radius: 10px;
     font: 12pt "MS Shell Dlg 2";
 }
-#scrollareaalbum {
+#scrollareaalbum,  #scrollareaalbum_2{
     background-color: white;
     border:none;
 }
 
-#scrollArea {
+#scrollArea, #scrollArea_2 {
     border:none;
     background-color: white;
 }
