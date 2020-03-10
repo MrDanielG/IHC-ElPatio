@@ -18,6 +18,11 @@ public:
     ~mesero_tarjeta_extra_chica();
     void llenarTarjeta();
 
+private slots:
+    void on_btnMasExtra_clicked();
+
+    void on_btnMenosExtra_clicked();
+
 private:
     Ui::mesero_tarjeta_extra_chica *ui;
     mesero_editar_platillo *padre;

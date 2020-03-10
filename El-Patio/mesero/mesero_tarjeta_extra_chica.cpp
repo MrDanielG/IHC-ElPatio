@@ -24,3 +24,23 @@ void mesero_tarjeta_extra_chica::llenarTarjeta()
     ui->precioExtra->setText("$" + this->extraPlatillo.precio);
     ui->cantidad->setText(QString::number(this->extraPlatillo.cantidad));
 }
+
+void mesero_tarjeta_extra_chica::on_btnMasExtra_clicked()
+{
+    this->extraPlatillo.cantidad++;
+    if(this->extraPlatillo.cantidad > 0){
+        ui->btnMenosExtra->setEnabled(true);
+    }
+    llenarTarjeta();
+    this->padre->actualizarSideBar(this->extraPlatillo, 1);
+}
+
+void mesero_tarjeta_extra_chica::on_btnMenosExtra_clicked()
+{
+    this->extraPlatillo.cantidad--;
+    if(this->extraPlatillo.cantidad == 0){
+        ui->btnMenosExtra->setEnabled(true);
+    }
+    llenarTarjeta();
+    this->padre->actualizarSideBar(this->extraPlatillo, 0);
+}
