@@ -121,16 +121,16 @@ void mesero_menu_comandas::actualizarSB()
 
         for (int i = 0; i < this->pedidoPlatillos.size(); ++i) {
 
-            QString id = this->pedidoPlatillos[i].id;
-            QString nombrePlatillo = this->pedidoPlatillos[i].nombrePlatillo;
-            QString precioPlatillo = this->pedidoPlatillos[i].precioPlatillo;
-            QString fotoPlatillo = this->pedidoPlatillos[i].foto;
-            int cantidad = this->pedidoPlatillos[i].cantidad;
+//            QString id = this->pedidoPlatillos[i].id;
+//            QString nombrePlatillo = this->pedidoPlatillos[i].nombrePlatillo;
+//            QString precioPlatillo = this->pedidoPlatillos[i].precioPlatillo;
+//            QString fotoPlatillo = this->pedidoPlatillos[i].foto;
+//            int cantidad = this->pedidoPlatillos[i].cantidad;
 
             row = iterador / 1;
             col = iterador % 1;
 
-            mesero_tarjeta_chica *tarjeta = new mesero_tarjeta_chica(id, nombrePlatillo, precioPlatillo, fotoPlatillo, cantidad, this);
+            mesero_tarjeta_chica *tarjeta = new mesero_tarjeta_chica(this->pedidoPlatillos[i], this);
             iterador++;
             ui->gridLayout_4->addWidget(tarjeta, row, col);
         }

@@ -1,6 +1,11 @@
 #include "platillo.h"
 
 
+Platillo::Platillo()
+{
+
+}
+
 Platillo::Platillo(QString _id, QString _nombrePlatillo, QString _precioPlatillo, QString _foto, int _cantidad)
 {
     this->id = _id;
