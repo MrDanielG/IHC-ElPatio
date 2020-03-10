@@ -95,7 +95,15 @@ void mesero_tarjeta_chica::on_btnMasPlatillo_clicked()
 
 void mesero_tarjeta_chica::on_btnEditPlatillo_clicked()
 {
-    qDebug()<<"Nani_";
     mesero_editar_platillo editarPlatillo;
     editarPlatillo.exec();
+    this->listaExtras = editarPlatillo.getExtras();
+
+    //Agregar a SideBar los Extras
+    qDebug()<<"Cerrar Ventana";
+
+    for (int var = 0; var < this->listaExtras.size(); ++var) {
+        qDebug()<<this->listaExtras[var].nombre;
+        qDebug()<<this->listaExtras[var].cantidad;
+    }
 }

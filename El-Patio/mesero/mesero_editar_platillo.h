@@ -29,16 +29,19 @@ public:
     void limpiarSideBar();
     void actualizarSB();
 
+    //Retornar Info
+    QList<extra> getExtras();
+
+private slots:
+    void on_btnCancelar_clicked();
+
+    void on_btnConfirmar_clicked();
+
 private:
     Ui::mesero_editar_platillo *ui;
     QSqlDatabase mDatabase;
 
     QList<extra> listaExtras;
-
-
-
-
-
     //mesero_agregar_extra agregarExtra;
 };
 

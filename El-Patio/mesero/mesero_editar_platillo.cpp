@@ -134,3 +134,18 @@ void mesero_editar_platillo::actualizarSB()
         ui->gridLayoutExtras->addWidget(tarjeta, row, col);
     }
 }
+
+QList<extra> mesero_editar_platillo::getExtras()
+{
+    return this->listaExtras;
+}
+
+void mesero_editar_platillo::on_btnCancelar_clicked()
+{
+    this->close();
+}
+
+void mesero_editar_platillo::on_btnConfirmar_clicked()
+{
+    this->hide();
+}

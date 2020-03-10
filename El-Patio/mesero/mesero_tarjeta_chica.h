@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QSqlDatabase>
+#include <models/extra.h>
 
 class mesero_menu_comandas;
 namespace Ui {
@@ -36,7 +37,7 @@ private:
     QString foto;
     int cantidad = 0;
     mesero_menu_comandas *padre;
-
+    QList<extra> listaExtras;
 };
 
 #endif // MESERO_TARJETA_CHICA_H
