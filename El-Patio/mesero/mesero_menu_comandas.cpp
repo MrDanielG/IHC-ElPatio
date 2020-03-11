@@ -136,6 +136,37 @@ void mesero_menu_comandas::actualizarSB()
         }
 }
 
+void mesero_menu_comandas::setPlatilloTemp(Platillo P, QList<extra> E)
+{
+    this->platilloTemp = P;
+    this->extraTemporal = E;
+
+    qDebug()<<"Platiloo Temp: ";
+    qDebug()<<platilloTemp.nombrePlatillo;
+    qDebug()<<platilloTemp.cantidad;
+
+    for (int var = 0; var < extraTemporal.size(); ++var) {
+        qDebug()<<"Extra Temp: ";
+        qDebug()<<extraTemporal[var].nombre;
+    }
+
+
+    separarPlatillo();
+}
+
+void mesero_menu_comandas::separarPlatillo()
+{
+    if(this->extraTemporal.size() > 0){
+        actualizarSideBar(this->platilloTemp, 0);
+        this->platilloTemp.listaExtras = this->extraTemporal;
+        this->platilloTemp.cantidad = 1;
+        actualizarSideBar(this->platilloTemp, 1);
+
+        qDebug()<<"separar Platillo IF";
+        actualizarSB();
+    }
+}
+
 void mesero_menu_comandas::on_btnMandarCocina_clicked()
 {
     if(QMessageBox::question(this, tr("Enviar pedido"), tr("¿Está seguro que quiere hacer un pedido con estos platillos?"))==QMessageBox::Yes){

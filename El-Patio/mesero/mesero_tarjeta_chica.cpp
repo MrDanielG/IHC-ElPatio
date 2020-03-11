@@ -87,14 +87,9 @@ void mesero_tarjeta_chica::on_btnEditPlatillo_clicked()
 {
     mesero_editar_platillo editarPlatillo;
     editarPlatillo.exec();
-    this->listaExtras = editarPlatillo.getExtras();
 
-    //Agregar a SideBar los Extras
-
-    qDebug()<<"Cerrar Ventana";
-
-    for (int var = 0; var < this->listaExtras.size(); ++var) {
-        qDebug()<<this->listaExtras[var].nombre;
-        qDebug()<<this->listaExtras[var].cantidad;
+    if(editarPlatillo.getExtras().size() > 0 ){
+        this->padre->setPlatilloTemp(this->platillo, editarPlatillo.getExtras());
     }
 }
+

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSqlDatabase>
 #include "models/platillo.h"
+#include "models/extra.h"
 
 class mesero_tarjeta_chica;
 class MainWindow;
@@ -29,6 +30,10 @@ public:
     void limpiarSideBar();
     void actualizarSB();
 
+    //Funciones Platillos
+    void setPlatilloTemp(Platillo P, QList<extra> E);
+    void separarPlatillo();
+
 private slots:
     void on_btnMandarCocina_clicked();
     void limpiar_grid4();
@@ -49,6 +54,8 @@ private:
 
     //lista de la comanda
     QList<mesero_tarjeta_chica*> lista_platillos;
+    Platillo platilloTemp;
+    QList<extra> extraTemporal;
 
     MainWindow *mainwindow;
 };
