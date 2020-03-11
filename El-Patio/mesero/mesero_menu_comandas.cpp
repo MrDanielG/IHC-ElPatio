@@ -121,19 +121,50 @@ void mesero_menu_comandas::actualizarSB()
 
         for (int i = 0; i < this->pedidoPlatillos.size(); ++i) {
 
-            QString id = this->pedidoPlatillos[i].id;
-            QString nombrePlatillo = this->pedidoPlatillos[i].nombrePlatillo;
-            QString precioPlatillo = this->pedidoPlatillos[i].precioPlatillo;
-            QString fotoPlatillo = this->pedidoPlatillos[i].foto;
-            int cantidad = this->pedidoPlatillos[i].cantidad;
+//            QString id = this->pedidoPlatillos[i].id;
+//            QString nombrePlatillo = this->pedidoPlatillos[i].nombrePlatillo;
+//            QString precioPlatillo = this->pedidoPlatillos[i].precioPlatillo;
+//            QString fotoPlatillo = this->pedidoPlatillos[i].foto;
+//            int cantidad = this->pedidoPlatillos[i].cantidad;
 
             row = iterador / 1;
             col = iterador % 1;
 
-            mesero_tarjeta_chica *tarjeta = new mesero_tarjeta_chica(id, nombrePlatillo, precioPlatillo, fotoPlatillo, cantidad, this);
+            mesero_tarjeta_chica *tarjeta = new mesero_tarjeta_chica(this->pedidoPlatillos[i], this);
             iterador++;
             ui->gridLayout_4->addWidget(tarjeta, row, col);
         }
+}
+
+void mesero_menu_comandas::setPlatilloTemp(Platillo P, QList<extra> E)
+{
+    this->platilloTemp = P;
+    this->extraTemporal = E;
+
+    qDebug()<<"Platiloo Temp: ";
+    qDebug()<<platilloTemp.nombrePlatillo;
+    qDebug()<<platilloTemp.cantidad;
+
+    for (int var = 0; var < extraTemporal.size(); ++var) {
+        qDebug()<<"Extra Temp: ";
+        qDebug()<<extraTemporal[var].nombre;
+    }
+
+
+    separarPlatillo();
+}
+
+void mesero_menu_comandas::separarPlatillo()
+{
+    if(this->extraTemporal.size() > 0){
+        actualizarSideBar(this->platilloTemp, 0);
+        this->platilloTemp.listaExtras = this->extraTemporal;
+        this->platilloTemp.cantidad = 1;
+        actualizarSideBar(this->platilloTemp, 1);
+
+        qDebug()<<"separar Platillo IF";
+        actualizarSB();
+    }
 }
 
 void mesero_menu_comandas::on_btnMandarCocina_clicked()
