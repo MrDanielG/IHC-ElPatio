@@ -29,6 +29,7 @@ SOURCES += \
         administrador/admin_gestion_usuarios.cpp \
         administrador/admin_modificar_usuario.cpp \
         administrador/admin_tarjeta_usuario.cpp \
+        administrador/administrador_crud_platillos.cpp \
         administrador/agregar_propina_cuenta.cpp \
         almacenista/almacenista_crear_insumo.cpp \
         almacenista/almacenista_menu.cpp \
@@ -55,6 +56,7 @@ HEADERS += \
         administrador/admin_gestion_usuarios.h \
         administrador/admin_modificar_usuario.h \
         administrador/admin_tarjeta_usuario.h \
+        administrador/administrador_crud_platillos.h \
         administrador/agregar_propina_cuenta.h \
         almacenista/almacenista_crear_insumo.h \
         almacenista/almacenista_menu.h \
@@ -80,6 +82,7 @@ FORMS += \
         administrador/admin_gestion_usuarios.ui \
         administrador/admin_modificar_usuario.ui \
         administrador/admin_tarjeta_usuario.ui \
+        administrador/administrador_crud_platillos.ui \
         administrador/agregar_propina_cuenta.ui \
         almacenista/almacenista_crear_insumo.ui \
         almacenista/almacenista_menu.ui \
