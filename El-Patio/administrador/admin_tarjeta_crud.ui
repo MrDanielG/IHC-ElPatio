@@ -46,7 +46,7 @@ border: none;</string>
    </property>
    <property name="icon">
     <iconset resource="../Recursos.qrc">
-     <normaloff>:/iconos/resources/masPlatilloBig.png</normaloff>:/iconos/resources/masPlatilloBig.png</iconset>
+     <normaloff>:/iconos/resources/editarPlato.png</normaloff>:/iconos/resources/editarPlato.png</iconset>
    </property>
    <property name="iconSize">
     <size>

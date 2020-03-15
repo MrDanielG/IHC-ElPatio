@@ -1,11 +1,11 @@
 #include "administrador_crud_platillos.h"
 #include "ui_administrador_crud_platillos.h"
+#include "administrador/admin_tarjeta_crud.h"
+#include "models/platillo.h"
 
 #include "QMessageBox"
 #include "QDebug"
 #include "QSqlQuery"
-
-#include "models/platillo.h"
 
 administrador_crud_platillos::administrador_crud_platillos(QWidget *parent) :
     QWidget(parent),
@@ -54,10 +54,10 @@ void administrador_crud_platillos::actualizarCatalogo()
         row = i / 2;
         col = i % 2;
 
-//        mesero_tarjeta_menu *tarjeta =
-//                new mesero_tarjeta_menu(id, nombrePlatillo, precioPlatillo, foto, this);
-        i++;
-        ui->gridLayout->addWidget(tarjeta, row, col);
+//        admin_tarjeta_crud *tarjeta =
+//                new admin_tarjeta_crud(platoTarjeta, this);
+//        i++;
+//        ui->gridLayout->addWidget(tarjeta, row, col);
     }
 }
 

@@ -14,7 +14,7 @@ class admin_tarjeta_crud : public QWidget
     Q_OBJECT
 
 public:
-    explicit admin_tarjeta_crud(Platillo platillo, administrador_crud_platillos *parent = nullptr);
+    explicit admin_tarjeta_crud(Platillo, administrador_crud_platillos *parent = nullptr);
     ~admin_tarjeta_crud();
     void llenarTarjeta();
     void actualizarTarjeta();
