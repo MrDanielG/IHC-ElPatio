@@ -2,6 +2,7 @@
 #include "ui_administrador_crud_platillos.h"
 #include "administrador/admin_tarjeta_crud.h"
 #include "models/platillo.h"
+#include "administrador/admin_crear_platillo.h"
 
 #include "QMessageBox"
 #include "QDebug"
@@ -88,4 +89,13 @@ void administrador_crud_platillos::infoPlatillo()
     ui->categoriaPlatillo->setText(this->platilloTemporal.categoria);
     ui->precioPlatillo->setText(this->platilloTemporal.precioPlatillo);
     ui->estadoPlatillo->setText(this->platilloTemporal.estado);
+}
+
+void administrador_crud_platillos::on_btnCrearPlatillo_clicked()
+{
+//    admin_crear_usuario crearUsuario;
+//    crearUsuario.exec();
+//    actualizarCatalogo(auxTipoUsuario);
+    admin_crear_platillo crearPlatillo;
+    crearPlatillo.exec();
 }

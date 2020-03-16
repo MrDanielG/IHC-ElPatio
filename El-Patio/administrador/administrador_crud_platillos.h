@@ -23,6 +23,9 @@ public:
     void getPlatilloTarjeta(Platillo platillo);
     void infoPlatillo();
 
+private slots:
+    void on_btnCrearPlatillo_clicked();
+
 private:
     Ui::administrador_crud_platillos *ui;
     QSqlDatabase mDatabase;

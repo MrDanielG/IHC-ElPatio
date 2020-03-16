@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        administrador/admin_crear_platillo.cpp \
         administrador/admin_crear_usuario.cpp \
         administrador/admin_gestion_usuarios.cpp \
         administrador/admin_modificar_usuario.cpp \
@@ -53,6 +54,7 @@ SOURCES += \
         models/platillo.cpp
 
 HEADERS += \
+        administrador/admin_crear_platillo.h \
         administrador/admin_crear_usuario.h \
         administrador/admin_gestion_usuarios.h \
         administrador/admin_modificar_usuario.h \
@@ -80,6 +82,7 @@ HEADERS += \
         models/platillo.h
 
 FORMS += \
+        administrador/admin_crear_platillo.ui \
         administrador/admin_crear_usuario.ui \
         administrador/admin_gestion_usuarios.ui \
         administrador/admin_modificar_usuario.ui \
