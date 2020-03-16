@@ -52,6 +52,8 @@ void administrador_crud_platillos::actualizarCatalogo()
         platoTarjeta.foto = infoPlatillo.value("foto").toString();
         platoTarjeta.nombrePlatillo = infoPlatillo.value("nombre").toString();
         platoTarjeta.precioPlatillo = infoPlatillo.value("precio").toString();
+        platoTarjeta.categoria = infoPlatillo.value("categoria").toString();
+        platoTarjeta.estado = infoPlatillo.value("estado").toString();
 
         //El numero de columnas en las que se dividira el grid
         row = i / 2;
@@ -72,4 +74,18 @@ void administrador_crud_platillos::limiparCatalogo()
         delete item->widget();
         delete item;
     }
+}
+
+void administrador_crud_platillos::getPlatilloTarjeta(Platillo platillo)
+{
+    this->platilloTemporal = platillo;
+    infoPlatillo();
+}
+
+void administrador_crud_platillos::infoPlatillo()
+{
+    ui->nombrePlatillo->setText(this->platilloTemporal.nombrePlatillo);
+    ui->categoriaPlatillo->setText(this->platilloTemporal.categoria);
+    ui->precioPlatillo->setText(this->platilloTemporal.precioPlatillo);
+    ui->estadoPlatillo->setText(this->platilloTemporal.estado);
 }

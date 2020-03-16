@@ -23,3 +23,8 @@ void admin_tarjeta_crud::llenarTarjeta()
     ui->nombrePlatillo->setText(this->platillo.nombrePlatillo);
     ui->precioPlatillo->setText(this->platillo.precioPlatillo);
 }
+
+void admin_tarjeta_crud::on_btnMasPlatillo_clicked()
+{
+    this->padre->getPlatilloTarjeta(this->platillo);
+}

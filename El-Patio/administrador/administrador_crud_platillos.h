@@ -20,10 +20,13 @@ public:
     void conexionBD();
     void actualizarCatalogo();
     void limiparCatalogo();
+    void getPlatilloTarjeta(Platillo platillo);
+    void infoPlatillo();
 
 private:
     Ui::administrador_crud_platillos *ui;
     QSqlDatabase mDatabase;
+    Platillo platilloTemporal;
 };
 
 #endif // ADMINISTRADOR_CRUD_PLATILLOS_H

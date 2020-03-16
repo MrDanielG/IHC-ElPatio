@@ -19,6 +19,9 @@ public:
     void llenarTarjeta();
     void actualizarTarjeta();
 
+private slots:
+    void on_btnMasPlatillo_clicked();
+
 private:
     Ui::admin_tarjeta_crud *ui;
     Platillo platillo;
