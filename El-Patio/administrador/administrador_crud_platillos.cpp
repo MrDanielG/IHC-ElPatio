@@ -12,6 +12,9 @@ administrador_crud_platillos::administrador_crud_platillos(QWidget *parent) :
     ui(new Ui::administrador_crud_platillos)
 {
     ui->setupUi(this);
+
+    conexionBD();
+    actualizarCatalogo();
 }
 
 administrador_crud_platillos::~administrador_crud_platillos()
@@ -54,10 +57,10 @@ void administrador_crud_platillos::actualizarCatalogo()
         row = i / 2;
         col = i % 2;
 
-//        admin_tarjeta_crud *tarjeta =
-//                new admin_tarjeta_crud(platoTarjeta, this);
-//        i++;
-//        ui->gridLayout->addWidget(tarjeta, row, col);
+        admin_tarjeta_crud *tarjeta =
+                new admin_tarjeta_crud(platoTarjeta, this);
+        i++;
+        ui->gridLayout->addWidget(tarjeta, row, col);
     }
 }
 
