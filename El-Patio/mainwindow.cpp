@@ -6,6 +6,7 @@
 #include "almacenista/almacenista_menu.h"
 #include "administrador/admin_gestion_usuarios.h"
 #include "dividircuenta.h"
+#include "administrador/administrador_crud_platillos.h"
 
 #include <QDebug>
 
@@ -35,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     transferirPlatillo->setMainWindow(this);
 
     gestionUsuarios = new admin_gestion_usuarios(this);
+    crudPlatillos = new administrador_crud_platillos(this);
 
     cuentas = new DividirCuenta(this);
 
@@ -45,8 +47,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(3, transferirPlatillo);
     ui->stackedWidget->insertWidget(4, gestionUsuarios);
     ui->stackedWidget->insertWidget(5, cuentas);
+    ui->stackedWidget->insertWidget(6, crudPlatillos);
 
-    ui->stackedWidget->setCurrentIndex(1); //Por mietras xd
+    ui->stackedWidget->setCurrentIndex(6); //Por mietras xd
 }
 
 void MainWindow::cambiar_pagina(int index)
