@@ -18,6 +18,7 @@ public:
     explicit admin_crear_platillo(QWidget *parent = nullptr);
     void conexionBD();
     void actualizarDatos();
+    bool validarCampos();
     ~admin_crear_platillo();
 
 private slots:
@@ -35,9 +36,14 @@ private slots:
 
     void on_btn_canNueCategoria_clicked();
 
+    void on_btn_editarFoto_clicked();
+
 private:
     Ui::admin_crear_platillo *ui;
     QSqlDatabase mDatabase;
+
+    //datos platillo
+    QString imgRuta;
 };
 
 #endif // ADMIN_CREAR_PLATILLO_H
