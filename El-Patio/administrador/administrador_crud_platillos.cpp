@@ -37,7 +37,7 @@ void administrador_crud_platillos::conexionBD()
 void administrador_crud_platillos::actualizarCatalogo()
 {
     QSqlQuery infoPlatillo(mDatabase);
-    infoPlatillo.prepare("SELECT * FROM `platillo` WHERE estado = 'disponibles'");
+    infoPlatillo.prepare("SELECT * FROM `platillo` WHERE estado = 'disponible'");
     infoPlatillo.exec();
     limiparCatalogo();
 
@@ -87,8 +87,52 @@ void administrador_crud_platillos::infoPlatillo()
 {
     ui->nombrePlatillo->setText(this->platilloTemporal.nombrePlatillo);
     ui->categoriaPlatillo->setText(this->platilloTemporal.categoria);
-    ui->precioPlatillo->setText(this->platilloTemporal.precioPlatillo);
-    ui->estadoPlatillo->setText(this->platilloTemporal.estado);
+    ui->precioPlatillo->setText("$" + this->platilloTemporal.precioPlatillo);
+    ui->estadoPlatillo->setText("Estado: " + this->platilloTemporal.estado);
+
+    listaIngredientes();
+}
+
+void administrador_crud_platillos::listaIngredientes()
+{
+    QSqlQuery ingredientes(mDatabase);
+    ingredientes.prepare("SELECT ingrediente.id_ingrediente, ingrediente.nombre FROM ingrediente INNER JOIN lista_ingrediente ON ingrediente.id_ingrediente = lista_ingrediente.id_ingrediente INNER JOIN platillo ON platillo.id_platillo = lista_ingrediente.id_platillo WHERE platillo.id_platillo = " + this->platilloTemporal.id);
+    ingredientes.exec();
+    limpiarIngredientes();
+
+    int i = 0;
+    int row = 0;
+    int col = 0;
+
+    QString estilo = "color: rgb(133, 133, 133);";
+    QFont fuente("Roboto",12,-2,false);
+
+    while (ingredientes.next())
+    {
+        QString nombreIngrediente = ingredientes.value("nombre").toString();
+
+        //El numero de columnas en las que se dividira el grid
+        row = i / 1;
+        col = i % 1;
+
+        QLabel *label = new QLabel(this);
+        label->setText(nombreIngrediente);
+        label->setStyleSheet(estilo);
+        label->setFont(fuente);
+
+        i++;
+        ui->gridIngredientes->addWidget(label, row, col);
+    }
+}
+
+void administrador_crud_platillos::limpiarIngredientes()
+{
+    while (QLayoutItem *item = ui->gridIngredientes->takeAt(0))
+    {
+        Q_ASSERT(!item->layout());
+        delete item->widget();
+        delete item;
+    }
 }
 
 void administrador_crud_platillos::on_btnCrearPlatillo_clicked()

@@ -22,6 +22,8 @@ public:
     void limiparCatalogo();
     void getPlatilloTarjeta(Platillo platillo);
     void infoPlatillo();
+    void listaIngredientes();
+    void limpiarIngredientes();
 
 private slots:
     void on_btnCrearPlatillo_clicked();
