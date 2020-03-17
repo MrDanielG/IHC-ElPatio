@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>655</width>
-    <height>586</height>
+    <width>634</width>
+    <height>398</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,8 +64,8 @@
     <rect>
      <x>20</x>
      <y>70</y>
-     <width>631</width>
-     <height>481</height>
+     <width>591</width>
+     <height>311</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -96,7 +96,7 @@
      <property name="font">
       <font>
        <family>Roboto</family>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -107,94 +107,29 @@ border-radius: 10px;</string>
      <property name="text">
       <string>Añada una foto</string>
      </property>
-    </widget>
-    <widget class="QWidget" name="widget" native="true">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>290</y>
-       <width>351</width>
-       <height>64</height>
-      </rect>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4">
-      <property name="spacing">
-       <number>5</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="elPatio_9">
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(133, 133, 133);
-</string>
-        </property>
-        <property name="text">
-         <string>Precio (MNX)</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="le_precio">
-        <property name="minimumSize">
-         <size>
-          <width>200</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>200</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: none;
-border-bottom: 2px solid #539E56;
-border-radius: 3px;</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
     </widget>
     <widget class="QPushButton" name="btn_editarFoto">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>250</y>
-       <width>80</width>
-       <height>25</height>
+       <x>100</x>
+       <y>240</y>
+       <width>51</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="minimumSize">
       <size>
-       <width>80</width>
-       <height>25</height>
+       <width>1</width>
+       <height>1</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>150</width>
-       <height>25</height>
+       <width>999</width>
+       <height>999</height>
       </size>
      </property>
      <property name="font">
@@ -230,26 +165,77 @@ border-radius: 3px;</string>
       <iconset resource="../Recursos.qrc">
        <normaloff>:/iconos/resources/editarPlato.png</normaloff>:/iconos/resources/editarPlato.png</iconset>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
     </widget>
-    <widget class="QWidget" name="widget_3" native="true">
+    <widget class="QPushButton" name="btn_siguiente">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>30</y>
-       <width>361</width>
-       <height>65</height>
+       <x>450</x>
+       <y>240</y>
+       <width>121</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>0</height>
+       <height>25</height>
       </size>
      </property>
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}
+
+:disabled {
+	background-color: rgb(133, 133, 133);
+	color: white;
+}</string>
+     </property>
+     <property name="text">
+      <string>Sigueinte</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>30</y>
+       <width>331</width>
+       <height>194</height>
+      </rect>
+     </property>
      <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="spacing">
-       <number>5</number>
-      </property>
       <item>
        <widget class="QLabel" name="elPatio_6">
         <property name="font">
@@ -285,27 +271,6 @@ border-radius: 3px;</string>
         </property>
        </widget>
       </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="widget_4" native="true">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>100</y>
-       <width>361</width>
-       <height>101</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <property name="spacing">
-       <number>5</number>
-      </property>
       <item>
        <widget class="QLabel" name="elPatio_7">
         <property name="font">
@@ -319,75 +284,62 @@ border-radius: 3px;</string>
 </string>
         </property>
         <property name="text">
-         <string>Categoria</string>
+         <string>Categoría</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget_5" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QComboBox" name="cb_categoria">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>200</width>
-             <height>75</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_nuevaCategoria">
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>120</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">*{
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QComboBox" name="cb_categoria">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>75</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_nuevaCategoria">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>999</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">*{
 	color: #539E56;
 	border-radius: 10px;
 	background-color: #E3EFB0;
@@ -402,67 +354,71 @@ border-radius: 3px;</string>
 	color: #46B04A;
 }
 */</string>
-           </property>
-           <property name="text">
-            <string>Nueva categoria</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="le_categoria">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>200</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">border: none;
+          </property>
+          <property name="text">
+           <string>Nueva categoria</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLineEdit" name="le_categoria">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border: none;
 border-bottom: 2px solid #539E56;
 border-radius: 3px;</string>
-           </property>
-           <property name="placeholderText">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_canNueCategoria">
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>120</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">*{
+          </property>
+          <property name="placeholderText">
+           <string>Nueva Categoría</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_canNueCategoria">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>120</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">*{
 	color: #539E56;
 	border-radius: 10px;
 	background-color: #E3EFB0;
@@ -477,51 +433,16 @@ border-radius: 3px;</string>
 	color: #46B04A;
 }
 */</string>
-           </property>
-           <property name="text">
-            <string>Cancelar</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </widget>
+          </property>
+          <property name="text">
+           <string>Cancelar</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="widget_6" native="true">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>200</y>
-       <width>351</width>
-       <height>92</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_5">
-      <property name="spacing">
-       <number>5</number>
-      </property>
       <item>
-       <widget class="QLabel" name="elPatio_8">
+       <widget class="QLabel" name="elPatio_9">
         <property name="font">
          <font>
           <family>Roboto</family>
@@ -533,117 +454,33 @@ border-radius: 3px;</string>
 </string>
         </property>
         <property name="text">
-         <string>Descripción</string>
+         <string>Precio (MNX)</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QTextEdit" name="te_descripcion">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>50</height>
-         </size>
-        </property>
+       <widget class="QSpinBox" name="spinBoxPrecio">
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>11</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">border: none;
-border-bottom: 2px solid #539E56;
-border-radius: 3px;</string>
+         <string notr="true">color: rgb(133, 133, 133);
+</string>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
-    <widget class="QPushButton" name="btn_siguiente">
-     <property name="geometry">
-      <rect>
-       <x>490</x>
-       <y>430</y>
-       <width>100</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>25</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>150</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">*{
-	color: white;
-	border-radius: 10px;
-	background-color: #46B04A;
-	border: none;
-	padding: 5px;
-}
-
-:hover{
-	background-color: white;
-	border: 1px solid #46B04A;
-	color: #46B04A;
-}
-
-:disabled {
-	background-color: rgb(133, 133, 133);
-	color: white;
-}</string>
-     </property>
-     <property name="text">
-      <string>Sigueinte</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="page_2">
-    <widget class="QLabel" name="elPatio_10">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>10</y>
-       <width>126</width>
-       <height>19</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(133, 133, 133);
-</string>
-     </property>
-     <property name="text">
-      <string>Datos especificos</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="elPatio_12">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>60</y>
+       <x>10</x>
+       <y>20</y>
        <width>86</width>
        <height>19</height>
       </rect>
@@ -665,8 +502,8 @@ border-radius: 3px;</string>
     <widget class="QLabel" name="elPatio_13">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>90</y>
+       <x>10</x>
+       <y>50</y>
        <width>181</width>
        <height>15</height>
       </rect>
@@ -688,8 +525,8 @@ border-radius: 3px;</string>
     <widget class="QLabel" name="elPatio_14">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>90</y>
+       <x>310</x>
+       <y>50</y>
        <width>181</width>
        <height>15</height>
       </rect>
@@ -814,10 +651,10 @@ border-radius: 3px;</string>
     <widget class="QPushButton" name="btn_atras">
      <property name="geometry">
       <rect>
-       <x>520</x>
-       <y>10</y>
-       <width>100</width>
-       <height>25</height>
+       <x>459</x>
+       <y>270</y>
+       <width>121</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="minimumSize">
@@ -835,7 +672,7 @@ border-radius: 3px;</string>
      <property name="font">
       <font>
        <family>Roboto</family>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="cursor">
@@ -914,21 +751,41 @@ border-radius: 3px;</string>
     <widget class="QListWidget" name="list_ingreExistente">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>110</y>
-       <width>281</width>
-       <height>311</height>
+       <x>10</x>
+       <y>80</y>
+       <width>271</width>
+       <height>181</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: none;
+border-radius: 10px;</string>
      </property>
     </widget>
     <widget class="QListWidget" name="list_ingrePlatillo">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>110</y>
-       <width>281</width>
-       <height>311</height>
+       <x>310</x>
+       <y>80</y>
+       <width>271</width>
+       <height>181</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: none;
+border-radius: 10px;</string>
      </property>
     </widget>
    </widget>
