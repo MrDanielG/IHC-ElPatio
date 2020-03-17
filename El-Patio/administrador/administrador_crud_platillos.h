@@ -28,6 +28,8 @@ public:
 private slots:
     void on_btnCrearPlatillo_clicked();
 
+    void on_btnEditarPlatillo_clicked();
+
 private:
     Ui::administrador_crud_platillos *ui;
     QSqlDatabase mDatabase;

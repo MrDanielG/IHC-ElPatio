@@ -27,6 +27,7 @@ CONFIG += c++11
 SOURCES += \
         administrador/admin_crear_platillo.cpp \
         administrador/admin_crear_usuario.cpp \
+        administrador/admin_edita_platillo.cpp \
         administrador/admin_gestion_usuarios.cpp \
         administrador/admin_modificar_usuario.cpp \
         administrador/admin_tarjeta_crud.cpp \
@@ -56,6 +57,7 @@ SOURCES += \
 HEADERS += \
         administrador/admin_crear_platillo.h \
         administrador/admin_crear_usuario.h \
+        administrador/admin_edita_platillo.h \
         administrador/admin_gestion_usuarios.h \
         administrador/admin_modificar_usuario.h \
         administrador/admin_tarjeta_crud.h \
@@ -84,6 +86,7 @@ HEADERS += \
 FORMS += \
         administrador/admin_crear_platillo.ui \
         administrador/admin_crear_usuario.ui \
+        administrador/admin_edita_platillo.ui \
         administrador/admin_gestion_usuarios.ui \
         administrador/admin_modificar_usuario.ui \
         administrador/admin_tarjeta_crud.ui \

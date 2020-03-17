@@ -143,3 +143,8 @@ void administrador_crud_platillos::on_btnCrearPlatillo_clicked()
     admin_crear_platillo crearPlatillo;
     crearPlatillo.exec();
 }
+
+void administrador_crud_platillos::on_btnEditarPlatillo_clicked()
+{
+
+}
