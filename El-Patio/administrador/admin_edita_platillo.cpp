@@ -4,6 +4,7 @@
 #include "QFileDialog"
 #include "QDebug"
 #include "QPixmap"
+#include "QMessageBox"
 
 admin_edita_platillo::admin_edita_platillo(Platillo platillo, QWidget *parent) :
     QDialog(parent),
@@ -142,11 +143,11 @@ void admin_edita_platillo::updatePlatillo()
 
    if(updatePlatillo.exec()){
        qDebug()<<"Update Platillo Query DONE";
-       return;
    } else {
        qDebug()<<"Update Platillo Query FAIL";
    }
 
+   updateIngredientesPlatillo();
 }
 
 void admin_edita_platillo::updateIngredientesPlatillo()
@@ -154,23 +155,30 @@ void admin_edita_platillo::updateIngredientesPlatillo()
     //Elimina TODOS los ingredientes del plato
     QSqlQuery deleteIngredientes(mDatabase);
     deleteIngredientes.prepare("DELETE FROM `lista_ingrediente` WHERE id_platillo = " + this->platillo.id);
+    qDebug()<<"PRERRR Delete Ingredientes";
 
-    if(deleteIngredientes.exec())
-        return;
-    else
+    if(deleteIngredientes.exec()){
+        qDebug()<<"Delete Ingredientes DONE";
+    } else {
         qDebug()<<"Delete Ingredientes FAIL";
+    }
 
     //Inserta los nuevos ingredientes
     QSqlQuery insertIngredientes(mDatabase);
 
-//    foreach (Qstring ingrediente, this->ingPlatillos) {
-//        insertIngredientes("DELETE FROM `lista_ingrediente` WHERE id_platillo = " + this->platillo.id);
+    foreach (Ingrediente ing, listaIngPlatillo) {
+        insertIngredientes.prepare("INSERT INTO `lista_ingrediente`( `id_platillo`, `id_ingrediente`) "
+                           "VALUES ('"+this->platillo.id+"','"+ing.idIngrediente+"')");
 
-//        if(insertIngredientes.exec())
-//            return;
-//        else
-//            qDebug()<<"Delete Ingredientes FAIL";
-//    }
+        if(insertIngredientes.exec()){
+            qDebug()<<"INSERT Ingredientes DONE";
+            QMessageBox msgBox(QMessageBox::Information,tr("Éxito"), tr("Se Actualizo el Platillo"), QMessageBox::Yes);
+            msgBox.setButtonText(QMessageBox::Yes, tr("Entendido"));
+            msgBox.exec();
+        } else {
+            qDebug()<<"INSERT Ingredientes FAIL";
+        }
+    }
 }
 
 void admin_edita_platillo::on_btn_siguiente_clicked()
@@ -243,7 +251,18 @@ void admin_edita_platillo::on_list_ingrePlatillo_itemDoubleClicked(QListWidgetIt
 
 void admin_edita_platillo::on_btnActualizar_clicked()
 {
-    updatePlatillo();
+    QMessageBox msgBox2(QMessageBox::Question,"Confimacion","¿Desea Actualizar éste Platillo?",QMessageBox::Yes|QMessageBox::No);
+    msgBox2.setButtonText(QMessageBox::Yes,"Sí");
+    msgBox2.setButtonText(QMessageBox::No,"No");
+
+    if(msgBox2.exec()==QMessageBox::Yes){
+        updatePlatillo();
+    } else {
+        QMessageBox msgBox(QMessageBox::Information,tr("Cancelación"), tr("NO se Actualizo el Platillo"), QMessageBox::Yes);
+        msgBox.setButtonText(QMessageBox::Yes, tr("Entendido"));
+        msgBox.exec();
+    }
+
     this->close();
 }
 

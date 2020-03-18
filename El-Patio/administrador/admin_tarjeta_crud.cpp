@@ -20,8 +20,10 @@ admin_tarjeta_crud::~admin_tarjeta_crud()
 
 void admin_tarjeta_crud::llenarTarjeta()
 {
+    QPixmap img(this->platillo.foto);
     ui->nombrePlatillo->setText(this->platillo.nombrePlatillo);
     ui->precioPlatillo->setText(this->platillo.precioPlatillo);
+    ui->imgPlatillo->setPixmap(img);
 }
 
 void admin_tarjeta_crud::on_btnMasPlatillo_clicked()
