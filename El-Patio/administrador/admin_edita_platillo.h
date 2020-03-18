@@ -25,6 +25,7 @@ public:
     void llenarIngredientes();
     void updatePlatillo();
     void updateIngredientesPlatillo();
+    Platillo platillo;
 
 private slots:
     void on_btn_siguiente_clicked();
@@ -33,18 +34,29 @@ private slots:
 
     void on_btnCancelar_2_clicked();
 
-    void on_btnCancelar2_clicked();
-
     void on_btn_editarFoto_clicked();
 
     void on_list_ingreExistente_itemDoubleClicked(QListWidgetItem *item);
 
     void on_list_ingrePlatillo_itemDoubleClicked(QListWidgetItem *item);
 
+    void on_btnActualizar_clicked();
+
+    void on_le_nombrePlatillo_textChanged(const QString &arg1);
+
+    void on_spinBoxPrecio_valueChanged(const QString &arg1);
+
+    void on_cb_categoria_activated(const QString &arg1);
+
+    void on_btn_nuevaCategoria_clicked();
+
+    void on_btn_canNueCategoria_clicked();
+
+    void on_le_categoria_textChanged(const QString &arg1);
+
 private:
     Ui::admin_edita_platillo *ui;
     QSqlDatabase mDatabase;
-    Platillo platillo;
 
     QList<Ingrediente> listaIngPlatillo;
     QList<Ingrediente> listaIngGeneral;

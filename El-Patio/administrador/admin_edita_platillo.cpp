@@ -47,8 +47,6 @@ void admin_edita_platillo::llenarInfo()
 
     QPixmap imgPlato(this->platillo.foto);
     ui->lb_fotografia->setPixmap(imgPlato);
-
-    //Llenar lista de Ingredientes
 }
 
 void admin_edita_platillo::infoPlatilloDB()
@@ -135,14 +133,15 @@ void admin_edita_platillo::llenarIngredientes()
 void admin_edita_platillo::updatePlatillo()
 {
    QSqlQuery updatePlatillo(mDatabase);
-   updatePlatillo.prepare("UPDATE `platillo` SET `precio`= "+this->platillo.precioPlatillo+" ,"
-                                                "`nombre`="+this->platillo.nombrePlatillo+","
-                                                "`categoria`="+this->platillo.categoria+","
-                                                "`estado`="+this->platillo.estado+","
-                                                "`foto`="+this->platillo.foto+" "
+   updatePlatillo.prepare("UPDATE `platillo` SET `precio`= '"+this->platillo.precioPlatillo+"' ,"
+                                                "`nombre`= '"+this->platillo.nombrePlatillo+"',"
+                                                "`categoria`= '"+this->platillo.categoria+"',"
+                                                "`estado`= '"+this->platillo.estado+"',"
+                                                "`foto`= '"+this->platillo.foto+"' "
                                                 " WHERE id_platillo = " + this->platillo.id);
 
    if(updatePlatillo.exec()){
+       qDebug()<<"Update Platillo Query DONE";
        return;
    } else {
        qDebug()<<"Update Platillo Query FAIL";
@@ -185,11 +184,6 @@ void admin_edita_platillo::on_btn_atras_clicked()
 }
 
 void admin_edita_platillo::on_btnCancelar_2_clicked()
-{
-    this->close();
-}
-
-void admin_edita_platillo::on_btnCancelar2_clicked()
 {
     this->close();
 }
@@ -245,4 +239,47 @@ void admin_edita_platillo::on_list_ingrePlatillo_itemDoubleClicked(QListWidgetIt
     this->listaIngPlatillo.removeAll(ingTemp);
 
     item->~QListWidgetItem();
+}
+
+void admin_edita_platillo::on_btnActualizar_clicked()
+{
+    updatePlatillo();
+    this->close();
+}
+
+void admin_edita_platillo::on_le_nombrePlatillo_textChanged(const QString &arg1)
+{
+    this->platillo.nombrePlatillo = arg1;
+}
+
+void admin_edita_platillo::on_spinBoxPrecio_valueChanged(const QString &arg1)
+{
+    this->platillo.precioPlatillo = arg1;
+}
+
+void admin_edita_platillo::on_cb_categoria_activated(const QString &arg1)
+{
+    this->platillo.categoria = arg1;
+}
+
+void admin_edita_platillo::on_btn_nuevaCategoria_clicked()
+{
+    ui->cb_categoria->setHidden(true);
+    ui->le_categoria->setHidden(false);
+    ui->btn_nuevaCategoria->setHidden(true);
+    ui->btn_canNueCategoria->setHidden(false);
+}
+
+void admin_edita_platillo::on_btn_canNueCategoria_clicked()
+{
+    ui->cb_categoria->setHidden(false);
+    ui->le_categoria->setHidden(true);
+    ui->btn_nuevaCategoria->setHidden(false);
+    ui->btn_canNueCategoria->setHidden(true);
+    this->platillo.categoria = ui->cb_categoria->currentText();
+}
+
+void admin_edita_platillo::on_le_categoria_textChanged(const QString &arg1)
+{
+    this->platillo.categoria = arg1;
 }

@@ -75,7 +75,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QLabel" name="lb_fotografia">
@@ -223,7 +223,7 @@ border-radius: 10px;</string>
 }</string>
      </property>
      <property name="text">
-      <string>Sigueinte</string>
+      <string>Siguiente</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btnCancelar_2">
@@ -275,7 +275,7 @@ border-radius: 10px;</string>
       <string>Cancelar</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -700,7 +700,7 @@ border-radius: 3px;</string>
     <widget class="QPushButton" name="btn_atras">
      <property name="geometry">
       <rect>
-       <x>459</x>
+       <x>330</x>
        <y>270</y>
        <width>121</width>
        <height>41</height>
@@ -728,10 +728,12 @@ border-radius: 3px;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">*{
-	color: white;
+      <string notr="true">
+
+*{
+	color: #539E56;
 	border-radius: 10px;
-	background-color: #46B04A;
+	background-color: #E3EFB0;
 	border: none;
 	padding: 5px;
 }
@@ -740,11 +742,6 @@ border-radius: 3px;</string>
 	background-color: white;
 	border: 1px solid #46B04A;
 	color: #46B04A;
-}
-
-:disabled {
-	background-color: rgb(133, 133, 133);
-	color: white;
 }</string>
      </property>
      <property name="text">
@@ -837,10 +834,10 @@ border-radius: 10px;</string>
 border-radius: 10px;</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnCancelar2">
+    <widget class="QPushButton" name="btnActualizar">
      <property name="geometry">
       <rect>
-       <x>330</x>
+       <x>460</x>
        <y>270</y>
        <width>121</width>
        <height>41</height>
@@ -869,9 +866,9 @@ border-radius: 10px;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">*{
-	color: #539E56;
+	color: white;
 	border-radius: 10px;
-	background-color: #E3EFB0;
+	background-color: #46B04A;
 	border: none;
 	padding: 5px;
 }
@@ -880,10 +877,15 @@ border-radius: 10px;</string>
 	background-color: white;
 	border: 1px solid #46B04A;
 	color: #46B04A;
+}
+
+:disabled {
+	background-color: rgb(133, 133, 133);
+	color: white;
 }</string>
      </property>
      <property name="text">
-      <string>Cancelar</string>
+      <string>Actualizar</string>
      </property>
     </widget>
    </widget>

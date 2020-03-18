@@ -90,7 +90,6 @@ void administrador_crud_platillos::infoPlatillo()
     ui->categoriaPlatillo->setText(this->platilloTemporal.categoria);
     ui->precioPlatillo->setText("$" + this->platilloTemporal.precioPlatillo);
     ui->estadoPlatillo->setText("Estado: " + this->platilloTemporal.estado);
-
     listaIngredientes();
 }
 
@@ -149,4 +148,6 @@ void administrador_crud_platillos::on_btnEditarPlatillo_clicked()
 {
     admin_edita_platillo editarPlatillo(this->platilloTemporal, this);
     editarPlatillo.exec();
+    actualizarCatalogo();
+    getPlatilloTarjeta(editarPlatillo.platillo);
 }
