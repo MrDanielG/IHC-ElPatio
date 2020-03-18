@@ -172,13 +172,15 @@ void admin_edita_platillo::updateIngredientesPlatillo()
 
         if(insertIngredientes.exec()){
             qDebug()<<"INSERT Ingredientes DONE";
-            QMessageBox msgBox(QMessageBox::Information,tr("Éxito"), tr("Se Actualizo el Platillo"), QMessageBox::Yes);
-            msgBox.setButtonText(QMessageBox::Yes, tr("Entendido"));
-            msgBox.exec();
+
         } else {
             qDebug()<<"INSERT Ingredientes FAIL";
         }
     }
+
+    QMessageBox msgBox(QMessageBox::Information,tr("Éxito"), tr("Se Actualizo el Platillo"), QMessageBox::Yes);
+    msgBox.setButtonText(QMessageBox::Yes, tr("Entendido"));
+    msgBox.exec();
 }
 
 void admin_edita_platillo::on_btn_siguiente_clicked()
