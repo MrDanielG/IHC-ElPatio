@@ -59,7 +59,7 @@
     <string>Actualilza la información de tu Platillo</string>
    </property>
   </widget>
-  <widget class="QStackedWidget" name="sW_datosPlatillo">
+  <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -75,7 +75,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QLabel" name="lb_fotografia">
@@ -224,6 +224,55 @@ border-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Sigueinte</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnCancelar_2">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>240</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">*{
+	color: #539E56;
+	border-radius: 10px;
+	background-color: #E3EFB0;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+     </property>
+     <property name="text">
+      <string>Cancelar</string>
      </property>
     </widget>
     <widget class="QWidget" name="">
@@ -786,6 +835,55 @@ border-radius: 10px;</string>
      <property name="styleSheet">
       <string notr="true">border: none;
 border-radius: 10px;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnCancelar2">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>270</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">*{
+	color: #539E56;
+	border-radius: 10px;
+	background-color: #E3EFB0;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+     </property>
+     <property name="text">
+      <string>Cancelar</string>
      </property>
     </widget>
    </widget>

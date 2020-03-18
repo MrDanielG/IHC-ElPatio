@@ -3,6 +3,7 @@
 #include "administrador/admin_tarjeta_crud.h"
 #include "models/platillo.h"
 #include "administrador/admin_crear_platillo.h"
+#include "administrador/admin_edita_platillo.h"
 
 #include "QMessageBox"
 #include "QDebug"
@@ -146,5 +147,6 @@ void administrador_crud_platillos::on_btnCrearPlatillo_clicked()
 
 void administrador_crud_platillos::on_btnEditarPlatillo_clicked()
 {
-
+    admin_edita_platillo editarPlatillo(this->platilloTemporal, this);
+    editarPlatillo.exec();
 }
