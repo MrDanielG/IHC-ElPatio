@@ -52,6 +52,7 @@ SOURCES += \
         mesero/mesero_tarjeta_transferir.cpp \
         mesero/mesero_transferir_platillo.cpp \
         models/extra.cpp \
+        models/ingrediente.cpp \
         models/platillo.cpp
 
 HEADERS += \
@@ -81,6 +82,7 @@ HEADERS += \
         mesero/mesero_tarjeta_transferir.h \
         mesero/mesero_transferir_platillo.h \
         models/extra.h \
+        models/ingrediente.h \
         models/platillo.h
 
 FORMS += \

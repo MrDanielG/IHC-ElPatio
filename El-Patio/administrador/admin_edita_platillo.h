@@ -6,7 +6,7 @@
 #include <QSqlQuery>
 #include <QListWidgetItem>
 #include <models/platillo.h>
-
+#include <models/ingrediente.h>
 namespace Ui {
 class admin_edita_platillo;
 }
@@ -23,6 +23,8 @@ public:
     void infoPlatilloDB();
     void llenarCategorias();
     void llenarIngredientes();
+    void updatePlatillo();
+    void updateIngredientesPlatillo();
 
 private slots:
     void on_btn_siguiente_clicked();
@@ -35,10 +37,17 @@ private slots:
 
     void on_btn_editarFoto_clicked();
 
+    void on_list_ingreExistente_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_list_ingrePlatillo_itemDoubleClicked(QListWidgetItem *item);
+
 private:
     Ui::admin_edita_platillo *ui;
     QSqlDatabase mDatabase;
     Platillo platillo;
+
+    QList<Ingrediente> listaIngPlatillo;
+    QList<Ingrediente> listaIngGeneral;
 };
 
 #endif // ADMIN_EDITA_PLATILLO_H

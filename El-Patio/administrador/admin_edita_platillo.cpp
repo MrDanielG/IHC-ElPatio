@@ -87,10 +87,7 @@ void admin_edita_platillo::llenarCategorias()
 
 void admin_edita_platillo::llenarIngredientes()
 {
-
-    QList<QString> ingPlatillos;
-    QList<QString> ingGeneral;
-
+    Ingrediente ingrediente;
     QSqlQuery listaIngredientesPlatillo(mDatabase);
     QString query2 = "SELECT * FROM `lista_ingrediente` INNER JOIN ingrediente ON "
                     " ingrediente.id_ingrediente = lista_ingrediente.id_ingrediente WHERE lista_ingrediente.id_platillo = " + this->platillo.id;
@@ -98,9 +95,13 @@ void admin_edita_platillo::llenarIngredientes()
 
     if(listaIngredientesPlatillo.exec()){
         while (listaIngredientesPlatillo.next()){
+            ingrediente.idIngrediente = listaIngredientesPlatillo.value("id_ingrediente").toString();
+            ingrediente.nombreIngrediente = listaIngredientesPlatillo.value("nombre").toString();
+            listaIngPlatillo.append(ingrediente);
             ui->list_ingrePlatillo->addItem(listaIngredientesPlatillo.value("nombre").toString());
-            ingPlatillos.append(listaIngredientesPlatillo.value("nombre").toString());
         }
+    } else {
+        qDebug()<<"listaIngredientesPlatillo FAIL";
     }
 
     QSqlQuery listaIngredientes(mDatabase);
@@ -109,23 +110,68 @@ void admin_edita_platillo::llenarIngredientes()
 
     if(listaIngredientes.exec()){
         while (listaIngredientes.next()){
-            ingGeneral.append(listaIngredientes.value("nombre").toString());
-            //ui->list_ingreExistente->addItem(listaIngredientes.value("nombre").toString());
+            ingrediente.idIngrediente = listaIngredientes.value("id_ingrediente").toString();
+            ingrediente.nombreIngrediente = listaIngredientes.value("nombre").toString();
+            listaIngGeneral.append(ingrediente);
         }
+    } else {
+        qDebug()<<"listaIngredientes FAIL";
     }
 
-    //Elimina ingredientes repetidos
-    foreach (QString ingrediente, ingPlatillos) {
-        if(ingGeneral.contains(ingrediente)){
-            ingGeneral.removeAll(ingrediente);
+    //Elimina ingredientes repetidos de la Lista General
+    foreach (Ingrediente ing, listaIngPlatillo) {
+        if(listaIngGeneral.contains(ing)){
+            listaIngGeneral.removeAll(ing);
         }
     }
 
     //Llena la lista
-    foreach (QString ingrediente, ingGeneral) {
-        ui->list_ingreExistente->addItem(ingrediente);
+    foreach (Ingrediente ing, listaIngGeneral) {
+        ui->list_ingreExistente->addItem(ing.nombreIngrediente);
     }
 
+}
+
+void admin_edita_platillo::updatePlatillo()
+{
+   QSqlQuery updatePlatillo(mDatabase);
+   updatePlatillo.prepare("UPDATE `platillo` SET `precio`= "+this->platillo.precioPlatillo+" ,"
+                                                "`nombre`="+this->platillo.nombrePlatillo+","
+                                                "`categoria`="+this->platillo.categoria+","
+                                                "`estado`="+this->platillo.estado+","
+                                                "`foto`="+this->platillo.foto+" "
+                                                " WHERE id_platillo = " + this->platillo.id);
+
+   if(updatePlatillo.exec()){
+       return;
+   } else {
+       qDebug()<<"Update Platillo Query FAIL";
+   }
+
+}
+
+void admin_edita_platillo::updateIngredientesPlatillo()
+{
+    //Elimina TODOS los ingredientes del plato
+    QSqlQuery deleteIngredientes(mDatabase);
+    deleteIngredientes.prepare("DELETE FROM `lista_ingrediente` WHERE id_platillo = " + this->platillo.id);
+
+    if(deleteIngredientes.exec())
+        return;
+    else
+        qDebug()<<"Delete Ingredientes FAIL";
+
+    //Inserta los nuevos ingredientes
+    QSqlQuery insertIngredientes(mDatabase);
+
+//    foreach (Qstring ingrediente, this->ingPlatillos) {
+//        insertIngredientes("DELETE FROM `lista_ingrediente` WHERE id_platillo = " + this->platillo.id);
+
+//        if(insertIngredientes.exec())
+//            return;
+//        else
+//            qDebug()<<"Delete Ingredientes FAIL";
+//    }
 }
 
 void admin_edita_platillo::on_btn_siguiente_clicked()
@@ -161,4 +207,42 @@ void admin_edita_platillo::on_btn_editarFoto_clicked()
     int h = ui->lb_fotografia->height();
     ui->lb_fotografia->setPixmap(pix.scaled(w,h,Qt::AspectRatioMode::KeepAspectRatio));
     file.close();
+}
+
+void admin_edita_platillo::on_list_ingreExistente_itemDoubleClicked(QListWidgetItem *item)
+{
+    Ingrediente ingTemp;
+    QSqlQuery infoIngrediente(mDatabase);
+    infoIngrediente.prepare("SELECT * FROM `ingrediente` WHERE nombre = '" +item->text()+ "'");
+    infoIngrediente.exec();
+    infoIngrediente.next();
+    ingTemp.idIngrediente = infoIngrediente.value("id_ingrediente").toString();
+    ingTemp.nombreIngrediente = infoIngrediente.value("nombre").toString();
+
+    ui->list_ingrePlatillo->addItem(ingTemp.nombreIngrediente);
+    this->listaIngPlatillo.append(ingTemp);
+
+    ui->list_ingreExistente->removeItemWidget(item);
+    this->listaIngGeneral.removeAll(ingTemp);
+
+    item->~QListWidgetItem();
+}
+
+void admin_edita_platillo::on_list_ingrePlatillo_itemDoubleClicked(QListWidgetItem *item)
+{
+    Ingrediente ingTemp;
+    QSqlQuery infoIngrediente(mDatabase);
+    infoIngrediente.prepare("SELECT * FROM `ingrediente` WHERE nombre = '" +item->text()+ "'");
+    infoIngrediente.exec();
+    infoIngrediente.next();
+    ingTemp.idIngrediente = infoIngrediente.value("id_ingrediente").toString();
+    ingTemp.nombreIngrediente = infoIngrediente.value("nombre").toString();
+
+    ui->list_ingreExistente->addItem(ingTemp.nombreIngrediente);
+    this->listaIngGeneral.append(ingTemp);
+
+    ui->list_ingrePlatillo->removeItemWidget(item);
+    this->listaIngPlatillo.removeAll(ingTemp);
+
+    item->~QListWidgetItem();
 }
