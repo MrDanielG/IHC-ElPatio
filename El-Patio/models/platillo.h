@@ -16,6 +16,9 @@ public:
     QString nombrePlatillo;
     QString precioPlatillo;
     QString foto;
+    QString categoria;
+    QString estado;
+
     int cantidad = 0;
     QList<extra> listaExtras;
 

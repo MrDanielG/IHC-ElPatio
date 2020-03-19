@@ -86,7 +86,6 @@ void mesero_transferir_platillo::sacar_platillo(QString id_pedido)
     }
 }
 
-
 void mesero_transferir_platillo::actualizarDatos()
 {
     limpiarGRidListas();
@@ -198,8 +197,6 @@ void mesero_transferir_platillo::on_btnRegresarMenu_clicked()
         mainWindow->cambiar_pagina(1);
     }
 }
-
-
 
 void mesero_transferir_platillo::on_btn_transferirPlatillos_clicked()
 {

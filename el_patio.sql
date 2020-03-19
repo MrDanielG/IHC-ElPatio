@@ -765,6 +765,8 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 USE `el_patio`;
-select * from usuario;
-select * from tipo;
+select * from ingrediente where nombre = "asd";
+select * from platillo order by id_platillo desc;
+select categoria from platillo group by categoria;
 
+select * from lista_ingrediente;
