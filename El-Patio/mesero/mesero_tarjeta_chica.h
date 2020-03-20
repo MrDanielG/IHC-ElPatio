@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSqlDatabase>
 #include <models/extra.h>
+#include <models/platillo.h>
 
 class mesero_menu_comandas;
 namespace Ui {
@@ -15,7 +16,7 @@ class mesero_tarjeta_chica : public QWidget
     Q_OBJECT
 
 public:
-    explicit mesero_tarjeta_chica(QString, QString, QString, QString, int, mesero_menu_comandas *parent = nullptr);
+    explicit mesero_tarjeta_chica(Platillo, mesero_menu_comandas *parent = nullptr);
     explicit mesero_tarjeta_chica(int, QWidget *parent = nullptr);
     ~mesero_tarjeta_chica();
     void llenarTarjeta();
@@ -31,13 +32,10 @@ private slots:
 private:
     Ui::mesero_tarjeta_chica *ui;
     QSqlDatabase mDatabase;
-    QString id;
-    QString nombrePlatillo;
-    QString precioPlatillo;
-    QString foto;
-    int cantidad = 0;
     mesero_menu_comandas *padre;
     QList<extra> listaExtras;
+
+    Platillo platillo;
 };
 
 #endif // MESERO_TARJETA_CHICA_H

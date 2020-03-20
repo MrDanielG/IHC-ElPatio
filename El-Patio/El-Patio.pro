@@ -25,10 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        administrador/admin_crear_platillo.cpp \
         administrador/admin_crear_usuario.cpp \
+        administrador/admin_edita_platillo.cpp \
         administrador/admin_gestion_usuarios.cpp \
         administrador/admin_modificar_usuario.cpp \
+        administrador/admin_tarjeta_crud.cpp \
         administrador/admin_tarjeta_usuario.cpp \
+        administrador/administrador_crud_platillos.cpp \
         administrador/agregar_propina_cuenta.cpp \
         almacenista/almacenista_crear_insumo.cpp \
         almacenista/almacenista_menu.cpp \
@@ -48,13 +52,18 @@ SOURCES += \
         mesero/mesero_tarjeta_transferir.cpp \
         mesero/mesero_transferir_platillo.cpp \
         models/extra.cpp \
+        models/ingrediente.cpp \
         models/platillo.cpp
 
 HEADERS += \
+        administrador/admin_crear_platillo.h \
         administrador/admin_crear_usuario.h \
+        administrador/admin_edita_platillo.h \
         administrador/admin_gestion_usuarios.h \
         administrador/admin_modificar_usuario.h \
+        administrador/admin_tarjeta_crud.h \
         administrador/admin_tarjeta_usuario.h \
+        administrador/administrador_crud_platillos.h \
         administrador/agregar_propina_cuenta.h \
         almacenista/almacenista_crear_insumo.h \
         almacenista/almacenista_menu.h \
@@ -73,13 +82,18 @@ HEADERS += \
         mesero/mesero_tarjeta_transferir.h \
         mesero/mesero_transferir_platillo.h \
         models/extra.h \
+        models/ingrediente.h \
         models/platillo.h
 
 FORMS += \
+        administrador/admin_crear_platillo.ui \
         administrador/admin_crear_usuario.ui \
+        administrador/admin_edita_platillo.ui \
         administrador/admin_gestion_usuarios.ui \
         administrador/admin_modificar_usuario.ui \
+        administrador/admin_tarjeta_crud.ui \
         administrador/admin_tarjeta_usuario.ui \
+        administrador/administrador_crud_platillos.ui \
         administrador/agregar_propina_cuenta.ui \
         almacenista/almacenista_crear_insumo.ui \
         almacenista/almacenista_menu.ui \

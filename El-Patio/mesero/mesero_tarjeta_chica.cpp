@@ -6,17 +6,13 @@
 #include <QDebug>
 #include <QSqlRecord>
 
-mesero_tarjeta_chica::mesero_tarjeta_chica(QString id, QString nombrePlatillo, QString precioPlatillo, QString foto, int cantidad, mesero_menu_comandas *parent) :
+mesero_tarjeta_chica::mesero_tarjeta_chica(Platillo _platillo, mesero_menu_comandas *parent) :
     QWidget(parent),
     ui(new Ui::mesero_tarjeta_chica)
 {
     ui->setupUi(this);
 
-    this->id = id;
-    this->nombrePlatillo = nombrePlatillo;
-    this->precioPlatillo = precioPlatillo;
-    this->foto = foto;
-    this->cantidad = cantidad;
+    this->platillo = _platillo;
     this->padre = parent;
     llenarTarjeta();
 }
@@ -27,27 +23,27 @@ mesero_tarjeta_chica::mesero_tarjeta_chica(int id_platillo, QWidget *parent):
 {
     ui->setupUi(this);
 
-    mDatabase = QSqlDatabase::database("Connection");
-       if(!mDatabase.isOpen()){
-           qDebug() << "ERROR, tarjeta platillo";
-       }else {
-           qDebug() << "conexion exitosa desde tarjeta_platillo";
-       }
+//    mDatabase = QSqlDatabase::database("Connection");
+//       if(!mDatabase.isOpen()){
+//           qDebug() << "ERROR, tarjeta platillo";
+//       }else {
+//           qDebug() << "conexion exitosa desde tarjeta_platillo";
+//       }
 
-    this->id = QString::number(id_platillo);
+//    this->id = QString::number(id_platillo);
 
-    QSqlQuery datos_platillo(mDatabase);
-    QString query_datos_platillo = "select * from platillo where id_platillo = " + this->id + ";";
+//    QSqlQuery datos_platillo(mDatabase);
+//    QString query_datos_platillo = "select * from platillo where id_platillo = " + this->id + ";";
 
-    datos_platillo.exec(query_datos_platillo);
-    datos_platillo.next();
+//    datos_platillo.exec(query_datos_platillo);
+//    datos_platillo.next();
 
-    this->nombrePlatillo = datos_platillo.record().value("nombre").toString();
-    this->precioPlatillo = datos_platillo.record().value("precio").toString();
-    this->foto = datos_platillo.record().value("foto").toString();
-    this->cantidad = 1;
+//    this->nombrePlatillo = datos_platillo.record().value("nombre").toString();
+//    this->precioPlatillo = datos_platillo.record().value("precio").toString();
+//    this->foto = datos_platillo.record().value("foto").toString();
+//    this->cantidad = 1;
 
-    llenarTarjeta();
+//    llenarTarjeta();
 }
 
 mesero_tarjeta_chica::~mesero_tarjeta_chica()
@@ -57,53 +53,43 @@ mesero_tarjeta_chica::~mesero_tarjeta_chica()
 
 void mesero_tarjeta_chica::llenarTarjeta()
 {
-    ui->nombrePlatillo->setText(this->nombrePlatillo);
-    ui->precioPlatillo->setText("$ " + this->precioPlatillo);
-    ui->cantidad->setText(QString::number(this->cantidad));
+    ui->nombrePlatillo->setText(this->platillo.nombrePlatillo);
+    ui->precioPlatillo->setText("$ " + this->platillo.precioPlatillo);
+    ui->cantidad->setText(QString::number(this->platillo.cantidad));
 }
 
 float mesero_tarjeta_chica::get_precio()
 {
-    return this->precioPlatillo.toFloat();
+    return this->platillo.precioPlatillo.toFloat();
 }
 
 void mesero_tarjeta_chica::on_btnMenosPlatillo_clicked()
 {
-    this->cantidad--;
-    if(cantidad == 0){
+    this->platillo.cantidad--;
+    if(this->platillo.cantidad == 0){
         ui->btnMenosPlatillo->setEnabled(false);
     }
     llenarTarjeta();
-
-    Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
-
-    this->padre->actualizarSideBar(plato, 0);
+    this->padre->actualizarSideBar(this->platillo, 0);
 }
 
 void mesero_tarjeta_chica::on_btnMasPlatillo_clicked()
 {
-    this->cantidad++;
-    if(cantidad>0){
+    this->platillo.cantidad++;
+    if(this->platillo.cantidad > 0){
         ui->btnMenosPlatillo->setEnabled(true);
     }
     llenarTarjeta();
-
-    Platillo plato(this->id, this->nombrePlatillo, this->precioPlatillo, this->foto, this->cantidad);
-
-    this->padre->actualizarSideBar(plato, 1);
+    this->padre->actualizarSideBar(this->platillo, 1);
 }
 
 void mesero_tarjeta_chica::on_btnEditPlatillo_clicked()
 {
     mesero_editar_platillo editarPlatillo;
     editarPlatillo.exec();
-    this->listaExtras = editarPlatillo.getExtras();
 
-    //Agregar a SideBar los Extras
-    qDebug()<<"Cerrar Ventana";
-
-    for (int var = 0; var < this->listaExtras.size(); ++var) {
-        qDebug()<<this->listaExtras[var].nombre;
-        qDebug()<<this->listaExtras[var].cantidad;
+    if(editarPlatillo.getExtras().size() > 0 ){
+        this->padre->setPlatilloTemp(this->platillo, editarPlatillo.getExtras());
     }
 }
+

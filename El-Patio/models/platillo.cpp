@@ -1,6 +1,11 @@
 #include "platillo.h"
 
 
+Platillo::Platillo()
+{
+
+}
+
 Platillo::Platillo(QString _id, QString _nombrePlatillo, QString _precioPlatillo, QString _foto, int _cantidad)
 {
     this->id = _id;
@@ -21,7 +26,7 @@ void Platillo::setCantidad(int nueva)
 
 bool Platillo::operator == (Platillo P)
 {
-    if(this->nombrePlatillo == P.nombrePlatillo)
+    if(this->nombrePlatillo == P.nombrePlatillo && this->listaExtras == P.listaExtras){
         return  true;
-    else return  false;
+    } else return false;
 }
