@@ -24,15 +24,15 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     menuComandas = new mesero_menu_comandas(this);
-    menuComandas->show();
+    //menuComandas->show();
     menuComandas->setMainWindow(this);
 
     menuAlmacenista = new almacenista_menu(this);
-    menuAlmacenista->show();
+    //menuAlmacenista->show();
     menuAlmacenista->setMainWindow(this);
 
     transferirPlatillo = new mesero_transferir_platillo(this);
-    transferirPlatillo->show();
+    //transferirPlatillo->show();
     transferirPlatillo->setMainWindow(this);
 
     gestionUsuarios = new admin_gestion_usuarios(this);
@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(5, cuentas);
     ui->stackedWidget->insertWidget(6, crudPlatillos);
 
-    ui->stackedWidget->setCurrentIndex(6); //Por mietras xd
+    ui->stackedWidget->setCurrentIndex(0); //Por mietras xd
 }
 
 void MainWindow::cambiar_pagina(int index)
