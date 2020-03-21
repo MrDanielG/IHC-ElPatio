@@ -19,6 +19,7 @@ public:
     void conexionBD();
     void actualizarDatos();
     void clicked_button(QPushButton *boton);
+    void limpiarGridMeseros();
     ~admin_reportes();
 
 private slots:
@@ -27,6 +28,8 @@ private slots:
     void on_btn_transacciones_clicked();
 
     void on_btn_comandas_clicked();
+
+    void on_btn_buscarReporte_clicked();
 
 private:
     Ui::admin_reportes *ui;

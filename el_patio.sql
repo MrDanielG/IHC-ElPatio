@@ -765,8 +765,56 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 USE `el_patio`;
-select * from ingrediente where nombre = "asd";
-select * from platillo order by id_platillo desc;
-select categoria from platillo group by categoria;
+select count(id_Pedido) as 'numeroPedidos' from comanda 
+inner join pedido on comanda.id_comanda = pedido.Comanda_id_comanda
+where hora_apertura between '2020-02-21' and '2020-03-21';
 
-select * from lista_ingrediente;
+select * from comanda where hora_apertura between '2020-02-21' and '2020-03-21';
+select * from pedido;
+INSERT INTO `el_patio`.`pedido` (`comentario`, `Comanda_id_comanda`, `Platillo_id_platillo`, `estado`) 
+VALUES 
+('qwe', '23', '9', 'En proceso'),
+('qwe', '23', '1', 'En proceso'),
+('qwe', '23', '2', 'En proceso'),
+('qwe', '24', '3', 'En proceso'),
+('qwe', '25', '4', 'En proceso'),
+('qwe', '25', '5', 'En proceso');
+
+select count(id_comanda) as "numeroComandas" from comanda where hora_apertura between '2020-01-03' and '2020-03-03';
+select sum(numero_personas) as 'numeroPersonas' from comanda where hora_apertura between '2020-02-21' and '2020-03-21';
+
+INSERT INTO `el_patio`.`comanda` (`hora_apertura`, `numero_personas`, `Usuario_clave`, `Mesa_numero_mesa`, `estado`) 
+VALUES 
+('2020-01-03 16:35:34', '1', '100', '1', 'Cerrada'),
+('2020-01-03 16:35:34', '2', '100', '2', 'Cerrada'),
+('2020-02-03 16:35:34', '3', '100', '3', 'Cerrada'),
+('2020-02-03 16:35:34', '4', '100', '4', 'Cerrada'),
+('2020-02-03 16:35:34', '1', '100', '5', 'Cerrada'),
+('2020-03-03 16:35:34', '2', '100', '6', 'Cerrada'),
+('2020-03-03 16:35:34', '3', '100', '7', 'Cerrada'),
+('2020-04-03 16:35:34', '4', '100', '8', 'Cerrada'),
+('2020-04-03 16:35:34', '1', '100', '9', 'Cerrada'),
+('2020-05-03 16:35:34', '2', '100', '10', 'Cerrada'),
+('2020-05-03 16:35:34', '3', '100', '11', 'Cerrada'),
+('2020-06-03 16:35:34', '4', '100', '12', 'Cerrada'),
+('2020-06-03 16:35:34', '1', '100', '13', 'Cerrada'),
+('2020-07-03 16:35:34', '2', '100', '14', 'Cerrada'),
+('2020-07-03 16:35:34', '3', '100', '15', 'Cerrada'),
+('2020-08-03 16:35:34', '4', '100', '16', 'Cerrada'),
+('2020-08-03 16:35:34', '1', '100', '17', 'Cerrada'),
+('2020-09-03 16:35:34', '2', '100', '18', 'Cerrada'),
+('2020-09-03 16:35:34', '3', '100', '19', 'Cerrada'),
+('2020-10-03 16:35:34', '4', '100', '20', 'Cerrada');
+
+select * from usuario;
+select * from tipo;
+select * from comanda;
+
+select concat(nombre, ' ', apellido_paterno, ' ', apellido_materno ) as nombre, nombre_tipo, count(id_comanda) 
+as numeroComandas, sum(numero_personas) as personas, count(id_Pedido) as numeroPedidos 
+from usuario
+inner join tipo on usuario.Tipo_id_tipo = tipo.id_tipo
+inner join comanda on usuario.clave = comanda.usuario_clave
+inner join pedido on comanda.id_comanda = pedido.Comanda_id_comanda
+where hora_apertura between '2020-02-21' and '2020-03-21'
+GROUP BY nombre ORDER BY nombre;

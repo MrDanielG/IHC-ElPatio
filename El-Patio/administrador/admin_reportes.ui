@@ -200,7 +200,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="btnEditarUsuario">
+  <widget class="QPushButton" name="btn_buscarReporte">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -377,10 +377,10 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>300</x>
      <y>130</y>
-     <width>711</width>
-     <height>611</height>
+     <width>721</width>
+     <height>631</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -388,7 +388,22 @@
    </property>
    <widget class="QWidget" name="comandas">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
+     <property name="leftMargin">
+      <number>9</number>
+     </property>
+     <property name="topMargin">
+      <number>9</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>9</number>
+     </property>
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item row="0" column="0" colspan="2">
       <widget class="QScrollArea" name="scrollArea">
        <property name="minimumSize">
         <size>
@@ -422,8 +437,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>691</width>
-          <height>591</height>
+          <width>710</width>
+          <height>611</height>
          </rect>
         </property>
         <property name="cursor">
@@ -432,256 +447,251 @@
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
-        <widget class="QWidget" name="verticalWidget" native="true">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>30</y>
-           <width>200</width>
-           <height>250</height>
-          </rect>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <property name="leftMargin">
+          <number>15</number>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QLabel" name="tipoUsuario_3">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>12</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(133, 133, 133);
-margin-left: 10px;
+         <property name="topMargin">
+          <number>15</number>
+         </property>
+         <property name="rightMargin">
+          <number>15</number>
+         </property>
+         <property name="bottomMargin">
+          <number>15</number>
+         </property>
+         <property name="spacing">
+          <number>20</number>
+         </property>
+         <item row="1" column="0" colspan="4">
+          <widget class="QLabel" name="line_2">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(236, 238, 238);
 </string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QWidget" name="verticalWidget" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(244, 247, 244);
+border-radius: 20px;</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="spacing">
+             <number>10</number>
             </property>
-            <property name="text">
-             <string>Número de Comandas</string>
+            <property name="leftMargin">
+             <number>10</number>
             </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lb_totalComandas_2">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>40</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
+            <property name="topMargin">
+             <number>10</number>
             </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(133, 133, 133);
+            <property name="rightMargin">
+             <number>10</number>
+            </property>
+            <property name="bottomMargin">
+             <number>10</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="tipoUsuario_3">
+              <property name="font">
+               <font>
+                <family>Roboto</family>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(133, 133, 133);
+</string>
+              </property>
+              <property name="text">
+               <string>Número de Comandas</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lb_totalComandas_2">
+              <property name="font">
+               <font>
+                <family>Roboto</family>
+                <pointsize>40</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(133, 133, 133);
 margin-top: 20px;
 margin-bottom: 20px;
 margin-left: 10px;
 </string>
-            </property>
-            <property name="text">
-             <string>[TOTAL_COMANDAS]</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lb_resComandas_2">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>12</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(133, 133, 133);
-margin-left: 10px;
+              </property>
+              <property name="text">
+               <string>[TOTAL_COMANDAS]</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QWidget" name="verticalWidget_2" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(244, 247, 244);
+border-radius: 20px;</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="tipoUsuario_5">
+              <property name="font">
+               <font>
+                <family>Roboto</family>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(133, 133, 133);
 </string>
-            </property>
-            <property name="text">
-             <string>[MAYOR_MENOR_COMANDAS]</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="verticalWidget_2" native="true">
-         <property name="geometry">
-          <rect>
-           <x>240</x>
-           <y>30</y>
-           <width>200</width>
-           <height>250</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QLabel" name="tipoUsuario_5">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>12</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(133, 133, 133);
-margin-left: 10px;
-</string>
-            </property>
-            <property name="text">
-             <string>Número de platillos</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lb_totalPlatillos">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>40</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(133, 133, 133);
+              </property>
+              <property name="text">
+               <string>Número de platillos</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lb_totalPlatillos">
+              <property name="font">
+               <font>
+                <family>Roboto</family>
+                <pointsize>40</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(133, 133, 133);
 margin-top: 20px;
 margin-bottom: 20px;
 margin-left: 10px;
 </string>
-            </property>
-            <property name="text">
-             <string>[TOTAL_PLATILLOS]</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lb_resPlatillos">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>12</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(133, 133, 133);
-margin-left: 10px;
+              </property>
+              <property name="text">
+               <string>[TOTAL_PLATILLOS]</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QWidget" name="verticalWidget_3" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(244, 247, 244);
+border-radius: 20px;</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="tipoUsuario_8">
+              <property name="font">
+               <font>
+                <family>Roboto</family>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(133, 133, 133);
 </string>
-            </property>
-            <property name="text">
-             <string>[MAYOR_MENOR_COMANDAS]</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="verticalWidget_3" native="true">
-         <property name="geometry">
-          <rect>
-           <x>460</x>
-           <y>30</y>
-           <width>200</width>
-           <height>250</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <widget class="QLabel" name="tipoUsuario_8">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>12</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(133, 133, 133);
-margin-left: 10px;
-</string>
-            </property>
-            <property name="text">
-             <string>Número de Personas</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lb_totalPeronas">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>40</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(133, 133, 133);
+              </property>
+              <property name="text">
+               <string>Número de Personas</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lb_totalPeronas">
+              <property name="font">
+               <font>
+                <family>Roboto</family>
+                <pointsize>40</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(133, 133, 133);
 margin-top: 20px;
 margin-bottom: 20px;
 margin-left: 10px;
 </string>
-            </property>
-            <property name="text">
-             <string>[TOTAL_COMANDAS]</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lb_resPersonas">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>12</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(133, 133, 133);
-margin-left: 10px;
-</string>
-            </property>
-            <property name="text">
-             <string>[MAYOR_MENOR_COMANDAS]</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QLabel" name="line_2">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>300</y>
-           <width>1101</width>
-           <height>1</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(236, 238, 238);
-</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-        <widget class="QWidget" name="gridLayoutWidget">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>330</y>
-           <width>651</width>
-           <height>101</height>
-          </rect>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_2"/>
-        </widget>
+              </property>
+              <property name="text">
+               <string>[TOTAL_COMANDAS]</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="4">
+          <layout class="QGridLayout" name="gridLayout_3">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMaximumSize</enum>
+           </property>
+          </layout>
+         </item>
+        </layout>
        </widget>
       </widget>
      </item>
@@ -689,42 +699,6 @@ margin-left: 10px;
    </widget>
    <widget class="QWidget" name="transaccionesAlmacen"/>
    <widget class="QWidget" name="ventas"/>
-  </widget>
-  <widget class="QCheckBox" name="cbox_excel">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>310</y>
-     <width>53</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>EXCEL</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="cbox_pdf">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>310</y>
-     <width>42</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>PDF</string>
-   </property>
   </widget>
   <widget class="QDateEdit" name="de_incio">
    <property name="geometry">
@@ -768,28 +742,117 @@ margin-left: 10px;
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="tipoUsuario_9">
+  <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>32</x>
-     <y>280</y>
-     <width>60</width>
-     <height>20</height>
+     <x>30</x>
+     <y>290</y>
+     <width>191</width>
+     <height>125</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Roboto</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(133, 133, 133);
+    <string notr="true"/>
+   </property>
+   <property name="title">
+    <string>Archivo de reporte</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="tipoUsuario_9">
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(133, 133, 133);
 </string>
-   </property>
-   <property name="text">
-    <string>Formato</string>
-   </property>
+      </property>
+      <property name="text">
+       <string>Formato</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="cbox_pdf">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>PDF</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="cbox_excel">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>EXCEL</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_buscarReporte_2">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::RightToLeft</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+      </property>
+      <property name="text">
+       <string>Generar Reporte</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QLabel" name="tipoUsuario_7">
    <property name="geometry">
@@ -816,7 +879,7 @@ margin-left: 10px;
   </widget>
   <zorder>sideBar</zorder>
   <zorder>lb_total</zorder>
-  <zorder>btnEditarUsuario</zorder>
+  <zorder>btn_buscarReporte</zorder>
   <zorder>tipoUsuario</zorder>
   <zorder>widget_3</zorder>
   <zorder>elPatio_4</zorder>
@@ -827,13 +890,11 @@ margin-left: 10px;
   <zorder>dateEdit</zorder>
   <zorder>tipoUsuario</zorder>
   <zorder>layoutWidget</zorder>
-  <zorder>cbox_excel</zorder>
-  <zorder>cbox_pdf</zorder>
   <zorder>layoutWidget_2</zorder>
   <zorder>de_incio</zorder>
   <zorder>de_fin</zorder>
-  <zorder>tipoUsuario_9</zorder>
   <zorder>tipoUsuario_7</zorder>
+  <zorder>groupBox</zorder>
   <zorder>cbox_pdf</zorder>
   <zorder>cbox_excel</zorder>
  </widget>
