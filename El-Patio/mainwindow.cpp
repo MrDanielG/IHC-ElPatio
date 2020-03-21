@@ -7,6 +7,7 @@
 #include "administrador/admin_gestion_usuarios.h"
 #include "dividircuenta.h"
 #include "administrador/administrador_crud_platillos.h"
+#include "administrador/admin_reportes.h"
 
 #include <QDebug>
 
@@ -40,6 +41,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     cuentas = new DividirCuenta(this);
 
+    reportes = new admin_reportes(this);
+    reportes->show();
+
     ui->Mesas->setMainWindow(this);
 
     ui->stackedWidget->insertWidget(1, menuComandas);
@@ -48,8 +52,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(4, gestionUsuarios);
     ui->stackedWidget->insertWidget(5, cuentas);
     ui->stackedWidget->insertWidget(6, crudPlatillos);
+    ui->stackedWidget->insertWidget(7, reportes);
 
-    ui->stackedWidget->setCurrentIndex(6); //Por mietras xd
+    ui->stackedWidget->setCurrentIndex(7); //Por mietras xd
 }
 
 void MainWindow::cambiar_pagina(int index)
