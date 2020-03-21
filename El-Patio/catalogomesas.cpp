@@ -205,7 +205,10 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
     {
         if(!ui->lineEdit_Entrada->text().isEmpty())
         {
-            QString hora = QTime::currentTime().toString("hh:mm");
+            QString hora = QTime::currentTime().toString("hh:mm:ss");
+            QString fecha = QDate::currentDate().toString("yyyy-MM-dd");
+            QString dateTime = fecha + " " + hora;
+            qDebug()<< "fehca hora "<<dateTime;
             QString User = ui->lineEdit_Entrada->text();
             QString cad = "SELECT * from usuario WHERE clave = "+User+"";
             QSqlQuery busca(mDatabase);
@@ -220,7 +223,7 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
                 if(estadoM.value(0).toString() == "Libre")
                 {
                     QString script = "INSERT INTO Comanda(hora_apertura,numero_personas,Usuario_clave,Mesa_numero_mesa) "
-                                                        "VALUES ('"+hora+"',"+nPersonas+","+User+","+nMesa+")";
+                                                        "VALUES ('"+dateTime+"',"+nPersonas+","+User+","+nMesa+")";
                     QSqlQuery query(mDatabase);
                     query.prepare(script);
                     query.exec();
@@ -228,32 +231,27 @@ void CatalogoMesas::on_btnAbrirMesa_clicked()
                     query2.prepare("UPDATE mesa SET estado = 'Ocupada' WHERE numero_mesa = "+nMesa+"");
                     query2.exec();
                     id_mesa_auxiliar = nMesa.toInt();
-                    qDebug()<<id_mesa_auxiliar;
+                    //qDebug()<<id_mesa_auxiliar;
                     this->mainwindow->pasar_id_mesa(this->id_mesa_auxiliar);
-                    qDebug() << "Segun yo aqui no llega";
+                    //qDebug() << "Segun yo aqui no llega";
                     this->mainwindow->cambiar_pagina(1);
-                    qDebug() << "Segun yo aqui no llega x2";
-                }
-                else
-                {
-                    QMessageBox::warning(this, tr("Error"),
+                    //qDebug() << "Segun yo aqui no llega x2";
+                }else{
+                    QMessageBox::warning(this, tr(""),
                         "La mesa " + nMesa + " se encuentra abierta actualmente");
+                    id_mesa_auxiliar = nMesa.toInt();
+                    this->mainwindow->pasar_id_mesa(this->id_mesa_auxiliar);
+                    this->mainwindow->cambiar_pagina(1);
                 }
-            }
-            else
-            {
+            }else{
                 QMessageBox::warning(this, tr("Error"),
                     "La clave de Usuario es incorrecta");
             }
-        }
-        else
-        {
+        }else{
             QMessageBox::warning(this, tr("Campo Vacío"),
                                   tr("Por favor, ingrese su número usuario"));
         }
-    }
-    else
-    {
+    }else{
         QMessageBox::warning(this, tr("No Seleccionado"),
                            tr("Por favor, selecciona una mesa para abrirla"));
     }
@@ -277,7 +275,7 @@ void CatalogoMesas::seleccionarMesa()
     ui->label_nMesa->setText("Numero de Mesa: " + nMesa);
     QString num = btn->text();
     this->id_mesa_auxiliar = num.toInt();
-    qDebug() << "\n\nmesa" + num;
+    //qDebug() << "\n\nmesa" + num;
 
     ui->label_nMesa->setText("Numero de Mesa: " + num);
     QString oldStyle ="*{background-color: rgb(225, 225, 225);"
@@ -288,15 +286,24 @@ void CatalogoMesas::seleccionarMesa()
     QString newStyle = "*{background-color: rgb(225, 225, 225);"
                      " border:4px solid rgb(70, 176, 75);"
                      "border-radius: 10px; padding: 0 8px; }";
-    if(btn->styleSheet() == oldStyle)
-    {
+    QString estado;
+    QSqlQuery query(mDatabase);
+    QString script = "SELECT estado FROM mesa WHERE numero_mesa = "+nMesa+"";
+    query.prepare(script);
+    query.exec();
+    while(query.next())
+        estado = query.value(0).toString();
+    if(btn->styleSheet() == oldStyle && estado != "Ocupada"){
         btn->setStyleSheet(newStyle);
         bool ok;
         QInputDialog InpDia;
         int n = InpDia.getInt(this,tr("Por favor,Ingresa Un Numero de Personas"),tr("Numero"),1,1,10,1,&ok);
         nPersonas = QString::number(n);
         btn->setStyleSheet(oldStyle);
+    }else{
+        btn->setStyleSheet(newStyle);
     }
+
 }
 
 void CatalogoMesas::limpia(QLayout *layout)
