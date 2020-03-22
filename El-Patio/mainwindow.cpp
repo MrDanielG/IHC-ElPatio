@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(5, cuentas);
     ui->stackedWidget->insertWidget(6, crudPlatillos);
 
-    ui->stackedWidget->setCurrentIndex(6); //Por mietras xd
+    ui->stackedWidget->setCurrentIndex(1); //Por mietras xd
 }
 
 void MainWindow::cambiar_pagina(int index)

@@ -34,6 +34,8 @@ private slots:
     QString calculaPropina();
 
 
+    void on_sinPropina_clicked();
+
 private:
     Ui::agregar_propina_cuenta *ui;
     double propina;

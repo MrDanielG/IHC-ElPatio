@@ -54,7 +54,7 @@ mesero_tarjeta_chica::~mesero_tarjeta_chica()
 void mesero_tarjeta_chica::llenarTarjeta()
 {
     ui->nombrePlatillo->setText(this->platillo.nombrePlatillo);
-    ui->precioPlatillo->setText("$ " + this->platillo.precioPlatillo);
+    ui->precioPlatillo->setText(this->platillo.precioPlatillo);
     ui->cantidad->setText(QString::number(this->platillo.cantidad));
 }
 

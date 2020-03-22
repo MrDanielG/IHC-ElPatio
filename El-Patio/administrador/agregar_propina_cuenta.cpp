@@ -106,3 +106,11 @@ QString agregar_propina_cuenta::calculaPropina()
 {
     return "he";
 }
+
+void agregar_propina_cuenta::on_sinPropina_clicked()
+{
+    ui->OtroSelected->setHidden(true);
+    ui->btnPrimario_2->setDisabled(false);
+    ui->montoPropina->setText("");
+    propina = 0;
+}
