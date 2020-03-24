@@ -31,7 +31,7 @@ private slots:
 
     void on_montoPropina_textChanged(const QString &arg1);
 
-    QString calculaPropina();
+    QString calculaPropina(QString);
 
 
     void on_sinPropina_clicked();
