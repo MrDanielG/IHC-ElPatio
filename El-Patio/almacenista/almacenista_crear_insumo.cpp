@@ -66,7 +66,8 @@ void almacenista_crear_insumo::on_btnPrimario_clicked()
             QSqlQuery queryAddPerecedero(mDatabase);
             queryAddPerecedero.exec("INSERT INTO `ingrediente`(`id_insumo`, `fecha_almacenamiento`, `dias_caducidad`) VALUES ('"+idInsumo+"','"+hoyStr+"','"+diasCaducidad+"')");
 
-        } else { //No es perecedero
+        } else {
+            //No es perecedero
             query.exec("INSERT INTO `insumo`(`nombre`, `precio_compra`, `existencias`, `presentacion`) VALUES ('"+nombre+"',"+precio+",0,'"+presentacion+"')");
         }
 

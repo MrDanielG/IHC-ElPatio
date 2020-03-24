@@ -12,6 +12,7 @@ class almacenista_menu;
 
 class QSqlQueryModel;
 class QSortFilterProxyModel;
+
 class almacenista_menu : public QWidget
 {
     Q_OBJECT

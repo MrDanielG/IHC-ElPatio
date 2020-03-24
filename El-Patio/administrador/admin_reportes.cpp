@@ -6,8 +6,9 @@
 #include <QDebug>
 #include <QSqlQuery>
 
-//#include <QtCharts/QChartView>
-//QT_CHARTS_USE_NAMESPACE
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+QT_CHARTS_USE_NAMESPACE
 
 admin_reportes::admin_reportes(QWidget *parent) :
     QWidget(parent),
@@ -25,6 +26,7 @@ admin_reportes::admin_reportes(QWidget *parent) :
     ui->de_incio->setDate(auxDate);
 
     actualizarDatos();
+    actualizarDatosTransaccion();
 }
 
 void admin_reportes::conexionBD()
@@ -141,10 +143,8 @@ void admin_reportes::actualizarDatos()
 //    chart ->setTitle("Spline chart");
 //    QChartView *chartView;
 //    chartView = new QChartView(chart);
-//    ui->grid_grafica->addWidget(chartView, 0, 0);
+    //    ui->grid_grafica->addWidget(chartView, 0, 0);
 }
-
-
 
 void admin_reportes::clicked_button(QPushButton *boton)
 {
@@ -166,6 +166,106 @@ void admin_reportes::limpiarGridMeseros()
         delete item->widget();
         delete item;
     }
+}
+
+void admin_reportes::actualizarDatosTransaccion()
+{
+    QSqlQuery transacciones(mDatabase);
+    QString qTransa = "select count(id_transaccion) as transacciones from transaccion where fecha_hora "
+                      "between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                      "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"'";
+    transacciones.exec(qTransa);
+    transacciones.next();
+    ui->lb_totalTran->setText(transacciones.value("transacciones").toString());
+
+    //no perecederos
+    QSqlQuery outNPerece(mDatabase);
+    QString qNPerecedero = "select count(id_transaccion) as transacciones from insumo "
+                          "inner join transaccion on transaccion.id_insumo = insumo.id_insumo "
+                          "WHERE insumo.id_insumo not in (SELECT id_insumo from perecedero) and "
+                          "fecha_hora "
+                          "between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                          "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"' "
+                          "and tipo = 'salida';";
+    outNPerece.exec(qNPerecedero);
+    outNPerece.next();
+    ui->lb_nPereSalida->setText(outNPerece.value("transacciones").toString());
+
+    QSqlQuery inNPerece(mDatabase);
+    qNPerecedero = "select count(id_transaccion) as transacciones from insumo "
+                              "inner join transaccion on transaccion.id_insumo = insumo.id_insumo "
+                              "WHERE insumo.id_insumo not in (SELECT id_insumo from perecedero) and "
+                              "fecha_hora "
+                              "between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                              "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"' "
+                              "and tipo = 'entrada';";
+    inNPerece.exec(qNPerecedero);
+    inNPerece.next();
+    ui->lb_nPereEntrada_2->setText(inNPerece.value("transacciones").toString());
+
+    //perecederos
+    QSqlQuery outPerece(mDatabase);
+    QString qPerece = "select count(id_transaccion) as transacciones from insumo "
+                      "inner join transaccion on transaccion.id_insumo = insumo.id_insumo "
+                      "where insumo.id_insumo not in (SELECT id_insumo FROM insumo WHERE id_insumo not in (SELECT id_insumo from perecedero)) and "
+                      "fecha_hora "
+                      "between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                      "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"' "
+                      "and tipo = 'salida';";
+    outPerece.exec(qPerece);
+    outPerece.next();
+    ui->lb_pereEntrada_2->setText(outPerece.value("transacciones").toString());
+
+    QSqlQuery inPerece(mDatabase);
+    qPerece = "select count(id_transaccion) as transacciones from insumo "
+                          "inner join transaccion on transaccion.id_insumo = insumo.id_insumo "
+                          "where insumo.id_insumo not in (SELECT id_insumo FROM insumo WHERE id_insumo not in (SELECT id_insumo from perecedero)) and "
+                          "fecha_hora "
+                          "between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                          "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"' "
+                          "and tipo = 'entrada';";
+    inPerece.exec(qPerece);
+    inPerece.next();
+    ui->lb_pereSalida_2->setText(inPerece.value("transacciones").toString());
+
+    QSqlQuery countTran(mDatabase);
+    QString numTran = "select comentario, count(comentario) as numComentario from transaccion where "
+                      "fecha_hora between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                      "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"' "
+                      "group by comentario order by comentario;";
+    countTran.exec(numTran);
+
+    //grafica pie chart
+    DataTable dataTable;
+    DataList dataList;
+
+    int it=0;
+    while (countTran.next()) {
+        dataList << Data(QPointF((qreal) it,
+                                 (qreal) countTran.value("numComentario").toFloat()),
+                                  countTran.value("comentario").toString() + " " + countTran.value("numComentario").toString());
+        it++;
+    }
+    dataTable << dataList;
+
+    QChart *chart = new QChart();
+//    chart->setTitle("Porcentaje de Tranferencias");
+
+    QPieSeries *series = new QPieSeries(chart);
+    for (const Data &data : dataTable[0]) {
+        QPieSlice *slice = series->append(data.second, data.first.y());
+        slice->setLabelVisible();
+        slice->setExploded();
+        slice->setExplodeDistanceFactor(0.05);
+    }
+    series->setPieSize(0.6);
+    chart->addSeries(series);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    ui->gridGrafica->addWidget(chartView, 0, 0);
+    chartView->chart()->legend()->setAlignment(Qt::AlignLeft);
+
 }
 
 admin_reportes::~admin_reportes()
@@ -194,4 +294,5 @@ void admin_reportes::on_btn_comandas_clicked()
 void admin_reportes::on_btn_buscarReporte_clicked()
 {
     actualizarDatos();
+    actualizarDatosTransaccion();
 }

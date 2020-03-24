@@ -4,6 +4,11 @@
 #include <QWidget>
 #include <QSqlDatabase>
 
+
+typedef QPair<QPointF, QString> Data;
+typedef QList<Data> DataList;
+typedef QList<DataList> DataTable;
+
 class QPushButton;
 
 namespace Ui {
@@ -20,6 +25,7 @@ public:
     void actualizarDatos();
     void clicked_button(QPushButton *boton);
     void limpiarGridMeseros();
+    void actualizarDatosTransaccion();
     ~admin_reportes();
 
 private slots:
@@ -34,6 +40,7 @@ private slots:
 private:
     Ui::admin_reportes *ui;
     QSqlDatabase mDatabase;
+
 };
 
 #endif // ADMIN_REPORTES_H

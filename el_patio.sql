@@ -826,55 +826,8 @@ VALUES
 ('2020-09-03 16:35:34', '3', '1234', '19', 'Cerrada'),
 ('2020-10-03 16:35:34', '4', '1234', '20', 'Cerrada');
 
-select * from usuario;
-select * from tipo;
-select * from comanda where hora_apertura between '2020-02-21' and '2020-03-21';
-select * from comanda 
-inner join pedido on pedido.Comanda_id_comanda = comanda.id_comanda where hora_apertura between '2020-02-21' and '2020-03-21';
+/*TRANSACCIONES*/
+select comentario, count(comentario) from transaccion
+where fecha_hora between '2020-02-21' and '2020-03-21' group by comentario order by comentario;
 
-
-select concat(nombre, ' ', apellido_paterno, ' ', apellido_materno ) as nombre, nombre_tipo , 
-count(id_comanda) as numeroComandas, sum(numero_personas) as personas, count(id_Pedido) as numeroPedidos 
-from usuario
-inner join tipo on usuario.Tipo_id_tipo = tipo.id_tipo
-inner join comanda on usuario.clave = comanda.usuario_clave
-inner join pedido on comanda.id_comanda = pedido.Comanda_id_comanda
-where hora_apertura between '2020-02-21' and '2020-03-21'
-GROUP BY nombre ORDER BY nombre;
-
-select 
-concat(nombre, ' ', apellido_paterno, ' ', apellido_materno ) as nombre,
-nombre_tipo , 
-count(id_comanda) as comandas,
- sum(numero_personas) as personas, 
- count(id_Pedido) as pedidos 
- from usuario 
- inner join tipo on usuario.Tipo_id_tipo = tipo.id_tipo 
- inner join comanda on usuario.clave = comanda.usuario_clave
- inner join pedido on comanda.id_comanda = pedido.Comanda_id_comanda 
- where hora_apertura between '2000-01-01' and '2020-12-31'
- GROUP BY Usuario_clave;
- 
- select sum(numero_personas) as personas, nombre from usuario 
- inner join comanda on usuario.clave = comanda.usuario_clave
- where hora_apertura between '2000-01-01' and '2020-12-31'
- group by Usuario_clave;
- 
- select * from comanda;
- select count(id_comanda) as comandas from comanda where usuario_clave = 1234;
- 
- select 
- concat(nombre, ' ', apellido_paterno, ' ', apellido_materno ) as nombre ,
- nombre_tipo,
- count(id_comanda) as comandas,
- count(id_Pedido) as pedidos ,
- sum(numero_personas) as numPersonas 
- from comanda 
- inner join usuario on usuario.clave = comanda.usuario_clave
- inner join tipo on usuario.Tipo_id_tipo = tipo.id_tipo
- inner join pedido on comanda.id_comanda = pedido.Comanda_id_comanda 
- group by Usuario_clave;
- 
- select * from pedido
- inner join comanda on comanda.id_comanda = pedido.Comanda_id_comanda 
- where usuario_clave = 1234;
+select comentario, count(comentario) from transaccion where comentario = 'a barra';
