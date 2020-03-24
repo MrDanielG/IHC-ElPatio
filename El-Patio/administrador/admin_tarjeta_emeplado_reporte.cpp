@@ -1,6 +1,8 @@
 #include "admin_tarjeta_emeplado_reporte.h"
 #include "ui_admin_tarjeta_emeplado_reporte.h"
 
+#include <QDebug>
+
 admin_tarjeta_emeplado_reporte::admin_tarjeta_emeplado_reporte(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::admin_tarjeta_emeplado_reporte)

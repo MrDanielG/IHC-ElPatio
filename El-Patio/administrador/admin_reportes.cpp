@@ -6,6 +6,9 @@
 #include <QDebug>
 #include <QSqlQuery>
 
+//#include <QtCharts/QChartView>
+//QT_CHARTS_USE_NAMESPACE
+
 admin_reportes::admin_reportes(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::admin_reportes)
@@ -13,7 +16,7 @@ admin_reportes::admin_reportes(QWidget *parent) :
     ui->setupUi(this);
 
     conexionBD();
-    clicked_button(ui->btn_ventas);
+    clicked_button(ui->btn_comandas);
 
     QDate aux = QDate::currentDate();
     int dia = aux.day(), mes = aux.month()-1, anio = aux.year();
@@ -70,6 +73,7 @@ void admin_reportes::actualizarDatos()
                                 "where hora_apertura "
                                 "between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
                                 "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"'";
+//    qDebug() << queryNumPlatillos;
     numPlatillos.prepare(queryNumPlatillos);
     numPlatillos.exec();
     numPlatillos.next();
@@ -78,25 +82,49 @@ void admin_reportes::actualizarDatos()
 
     //tarjetas meseros
     QSqlQuery meseros(mDatabase);
-    QString query_mesero = "select concat(nombre, ' ', apellido_paterno, ' ', apellido_materno ) as nombre, nombre_tipo , "
-                           "count(id_comanda) as comandas, sum(numero_personas) as personas, count(id_Pedido) as pedidos "
-                           "from usuario "
+    QSqlQuery pedidos(mDatabase);
+
+    QString query_mesero = " select "
+                           "concat(nombre, ' ', apellido_paterno, ' ', apellido_materno ) as nombre ,"
+                           "nombre_tipo,"
+                           "count(id_comanda) as comandas,"
+                           "sum(numero_personas) as personas "
+                           "from comanda "
+                           "inner join usuario on usuario.clave = comanda.usuario_clave "
                            "inner join tipo on usuario.Tipo_id_tipo = tipo.id_tipo "
-                           "inner join comanda on usuario.clave = comanda.usuario_clave "
-                           "inner join pedido on comanda.id_comanda = pedido.Comanda_id_comanda "
                            "where hora_apertura "
                            "between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
                            "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"'"
-                           "GROUP BY nombre ORDER BY nombre;";
+                           "group by Usuario_clave "
+                           "order by nombre;";
+    QString query_pedidos = " select "
+                      "count(id_pedido) as pedidos, "
+                      "concat(nombre, ' ', apellido_paterno, ' ', apellido_materno ) as nombre "
+                      "from pedido "
+                      "inner join comanda on comanda.id_comanda = pedido.Comanda_id_comanda "
+                      "inner join usuario on usuario.clave = comanda.usuario_clave "
+                      "where hora_apertura "
+                      "between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                      "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"'"
+                      "group by Usuario_clave "
+                      "order by nombre;";
+
     qDebug() << query_mesero;
+    qDebug() << query_pedidos;
+
     meseros.prepare(query_mesero);
     meseros.exec();
+
+    pedidos.prepare(query_pedidos);
+    pedidos.exec();
+    pedidos.next();
+
     int row = 0, col = 0;
     while (meseros.next()) {
         QString nombre = meseros.value("nombre").toString();
         QString tipo = meseros.value("nombre_tipo").toString();
         QString comandas = meseros.value("comandas").toString();
-        QString platillos = meseros.value("pedidos").toString();
+        QString platillos = pedidos.value("pedidos").toString();
         QString personas = meseros.value("personas").toString();
 
         qDebug() << nombre << tipo << comandas << platillos << personas;
@@ -105,8 +133,18 @@ void admin_reportes::actualizarDatos()
 
         ui->gridLayout_3->addWidget(aux, row, col);
         row++;
+        pedidos.next();
     }
+
+//    //Crear la grafica :)
+//    QChart *chart = new QChart();
+//    chart ->setTitle("Spline chart");
+//    QChartView *chartView;
+//    chartView = new QChartView(chart);
+//    ui->grid_grafica->addWidget(chartView, 0, 0);
 }
+
+
 
 void admin_reportes::clicked_button(QPushButton *boton)
 {
@@ -122,7 +160,7 @@ void admin_reportes::clicked_button(QPushButton *boton)
 
 void admin_reportes::limpiarGridMeseros()
 {
-    while (QLayoutItem *item = ui->gridLayout_3->takeAt(1))
+    while (QLayoutItem *item = ui->gridLayout_3->takeAt(0))
     {
         Q_ASSERT(!item->layout());
         delete item->widget();
@@ -137,7 +175,7 @@ admin_reportes::~admin_reportes()
 
 void admin_reportes::on_btn_ventas_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(2);
     clicked_button(ui->btn_ventas);
 }
 
@@ -149,7 +187,7 @@ void admin_reportes::on_btn_transacciones_clicked()
 
 void admin_reportes::on_btn_comandas_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(0);
     clicked_button(ui->btn_comandas);
 }
 
