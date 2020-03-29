@@ -39,6 +39,7 @@ SOURCES += \
         almacenista/almacenista_menu.cpp \
         catalogomesas.cpp \
         dividircuenta.cpp \
+        login.cpp \
         main.cpp \
         mainwindow.cpp \
         mesero/confirmartransferencia.cpp \
@@ -71,6 +72,7 @@ HEADERS += \
         almacenista/almacenista_menu.h \
         catalogomesas.h \
         dividircuenta.h \
+        login.h \
         mainwindow.h \
         mesero/confirmartransferencia.h \
         mesero/mesero_agregar_extra.h \
@@ -102,6 +104,7 @@ FORMS += \
         almacenista/almacenista_menu.ui \
         catalogomesas.ui \
         dividircuenta.ui \
+        login.ui \
         mainwindow.ui \
         mesero/confirmartransferencia.ui \
         mesero/mesero_agregar_extra.ui \
