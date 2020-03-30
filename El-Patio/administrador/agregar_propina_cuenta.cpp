@@ -70,28 +70,27 @@ void agregar_propina_cuenta::on_btnPrimario_2_clicked()
     }
     else{
         qDebug() << propina;
-        //TODO: Manejo de propinas, ¿Se guarda en la base? Revisar.
-        QString montoPropina = calculaPropina();
         QSqlQuery query(mDatabase);
         QString fecha = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
 
         while (!totalesDiv.isEmpty()) {
             QString total = totalesDiv.first();
+            QString montoPropina = calculaPropina(total);
             //qDebug() << "total " << total;
 
             //TODO: Agregar idComanda aquí
-            QString script = "INSERT INTO `ticket`(`fecha`, `iva`, `metodo`, `total`, `Comanda_id_comanda`) "
-                             "VALUE ('" + fecha +"', 0.16, 'Efectivo', "+ total + ", "+ idComanda +")";
+            QString script = "INSERT INTO `ticket`(`fecha`, `iva`, `metodo`, `total`, `propina`, `Comanda_id_comanda`) "
+                             "VALUE ('" + fecha +"', 0.16, 'Efectivo', "+ total + ", "+ montoPropina + ", " + idComanda +")";
             query.prepare(script);
             //qDebug() << "Script: " << script;
             if(query.exec()){
                 totalesDiv.pop_front();
-                QMessageBox::information(this, tr("Éxito"), tr("El pago se ha registrado correctamente"));
             }
             else{
-                //qDebug() << "ñoooo";
+                qDebug() << "ñoooo";
             }
         }
+        QMessageBox::information(this, tr("Éxito"), tr("El pago se ha registrado correctamente"));
         close();
     }
 }
@@ -102,7 +101,19 @@ void agregar_propina_cuenta::on_montoPropina_textChanged(const QString &arg1)
     propina = arg1.toDouble();
 }
 
-QString agregar_propina_cuenta::calculaPropina()
+QString agregar_propina_cuenta::calculaPropina(QString Total)
 {
-    return "he";
+    QString tot;
+    double Monto =Total.toDouble()*propina;
+    tot = QString::number(Monto);
+    qDebug() << "propina de la cuenta " << tot;
+    return tot;
+}
+
+void agregar_propina_cuenta::on_sinPropina_clicked()
+{
+    ui->OtroSelected->setHidden(true);
+    ui->btnPrimario_2->setDisabled(false);
+    ui->montoPropina->setText("");
+    propina = 0;
 }
