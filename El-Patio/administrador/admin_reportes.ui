@@ -207,9 +207,9 @@
   <widget class="QPushButton" name="btn_buscarReporte">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>30</x>
      <y>687</y>
-     <width>207</width>
+     <width>241</width>
      <height>50</height>
     </rect>
    </property>
@@ -279,10 +279,10 @@
   <widget class="QWidget" name="widget_3" native="true">
    <property name="geometry">
     <rect>
-     <x>298</x>
-     <y>29</y>
-     <width>721</width>
-     <height>35</height>
+     <x>38</x>
+     <y>23</y>
+     <width>981</width>
+     <height>41</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="Encabezados2">
@@ -347,8 +347,8 @@
    <property name="geometry">
     <rect>
      <x>29</x>
-     <y>28</y>
-     <width>195</width>
+     <y>100</y>
+     <width>241</width>
      <height>56</height>
     </rect>
    </property>
@@ -366,7 +366,7 @@
 </string>
    </property>
    <property name="text">
-    <string>Buscar reportes bajo demanda</string>
+    <string>Reportes bajo demanda</string>
    </property>
    <property name="scaledContents">
     <bool>false</bool>
@@ -388,7 +388,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="comandas">
     <layout class="QGridLayout" name="gridLayout">
@@ -407,8 +407,11 @@
      <property name="spacing">
       <number>0</number>
      </property>
-     <item row="0" column="0" colspan="2">
+     <item row="0" column="1">
       <widget class="QScrollArea" name="scrollArea">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -688,6 +691,33 @@ border-radius: 20px;</string>
            </layout>
           </widget>
          </item>
+         <item row="1" column="0" colspan="4">
+          <widget class="QLabel" name="line_2">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(236, 238, 238);
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="3">
+          <layout class="QGridLayout" name="gridLayout_3">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMaximumSize</enum>
+           </property>
+          </layout>
+         </item>
+         <item row="3" column="0" colspan="3">
+          <layout class="QGridLayout" name="grid_grafica"/>
+         </item>
          <item row="0" column="1">
           <widget class="QWidget" name="verticalWidget_2" native="true">
            <property name="minimumSize">
@@ -805,33 +835,6 @@ border-radius: 20px;</string>
            </layout>
           </widget>
          </item>
-         <item row="1" column="0" colspan="4">
-          <widget class="QLabel" name="line_2">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(236, 238, 238);
-</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0" colspan="4">
-          <layout class="QGridLayout" name="gridLayout_3">
-           <property name="sizeConstraint">
-            <enum>QLayout::SetMaximumSize</enum>
-           </property>
-          </layout>
-         </item>
-         <item row="3" column="0" colspan="4">
-          <layout class="QGridLayout" name="grid_grafica"/>
-         </item>
         </layout>
        </widget>
       </widget>
@@ -850,8 +853,8 @@ border-radius: 20px;</string>
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>694</width>
-          <height>903</height>
+          <width>686</width>
+          <height>915</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -1592,6 +1595,9 @@ border-radius: 20px;</string>
     <layout class="QGridLayout" name="gridLayout_6">
      <item row="0" column="0">
       <widget class="QScrollArea" name="scrollArea_3">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -1600,13 +1606,13 @@ border-radius: 20px;</string>
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>694</width>
-          <height>831</height>
+          <width>686</width>
+          <height>876</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_8">
          <item row="0" column="0">
-          <widget class="QWidget" name="" native="true">
+          <widget class="QWidget" name="widget" native="true">
            <property name="styleSheet">
             <string notr="true">background-color: rgb(255, 255, 255);</string>
            </property>
@@ -2927,14 +2933,19 @@ border-radius: 20px;</string>
     <rect>
      <x>80</x>
      <y>230</y>
-     <width>150</width>
+     <width>171</width>
      <height>22</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <family>Roboto</family>
+     <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #585858
+</string>
    </property>
    <property name="displayFormat">
     <string>dd / MMM / yyyy</string>
@@ -2948,14 +2959,19 @@ border-radius: 20px;</string>
     <rect>
      <x>80</x>
      <y>270</y>
-     <width>150</width>
+     <width>171</width>
      <height>22</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <family>Roboto</family>
+     <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #585858
+</string>
    </property>
    <property name="displayFormat">
     <string>dd / MMM / yyyy</string>
@@ -2970,11 +2986,12 @@ border-radius: 20px;</string>
      <x>20</x>
      <y>320</y>
      <width>260</width>
-     <height>125</height>
+     <height>171</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">color: #585858
+</string>
    </property>
    <property name="title">
     <string>Archivo de reporte</string>
@@ -3006,8 +3023,14 @@ border-radius: 20px;</string>
        <widget class="QCheckBox" name="cbox_pdf">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #585858
+
+</string>
         </property>
         <property name="text">
          <string>PDF</string>
@@ -3018,8 +3041,13 @@ border-radius: 20px;</string>
        <widget class="QCheckBox" name="cbox_excel">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #585858
+</string>
         </property>
         <property name="text">
          <string>EXCEL</string>
@@ -3029,7 +3057,7 @@ border-radius: 20px;</string>
      </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="btn_buscarReporte_2">
+     <widget class="QPushButton" name="btnGenerarRerporte">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -3102,9 +3130,9 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="tipoUsuario_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>200</y>
-     <width>133</width>
+     <width>241</width>
      <height>20</height>
     </rect>
    </property>
@@ -3119,7 +3147,7 @@ border-radius: 20px;</string>
 </string>
    </property>
    <property name="text">
-    <string>Reporte por fecha </string>
+    <string>Búsqueda por fecha:</string>
    </property>
   </widget>
   <zorder>sideBar</zorder>

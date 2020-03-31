@@ -55,7 +55,7 @@ QSpinBox{
     border:none;
 }
 
-#scrollArea, #scrollArea_2 {
+#scrollArea, #scrollArea_2, #scrollArea_3, #scrollAreaWidgetContents_2 {
     border:none;
     background-color: white;
 }
