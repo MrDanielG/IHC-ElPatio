@@ -31,6 +31,26 @@ admin_reservaciones::admin_reservaciones(QWidget *parent) :
     ui->calendario->setMarkLabel("Lleno");
     //connect(ui->calendario, &CalendarWidget::clicked,
       //      this, &admin_reservaciones::setHours);
+
+    ui->fechaReserva->setText(QDate::currentDate().toString("dd / MM / yyyy"));
+
+    mDatabase = QSqlDatabase::database("Connection");
+    if (!mDatabase.isOpen()){
+        qDebug() << "ERROR con Base de Datos (Reservaciones)";
+        return;
+    }
+    else{
+        qDebug() << "Base de datos continua abierta (Reservaciones)";
+    }
+
+    llenaMesas();
+
+    ui->currentDate->setText(QDate::currentDate().toString("ddd, dd MMMM yyyy"));
+
+    connect(ui->calendario, &CalendarWidget::clicked,
+                this, &admin_reservaciones::setDate);
+
+    ui->timeEdit->setTime(QTime::currentTime());
 }
 
 void admin_reservaciones::setHours(const QDate &date)
@@ -329,3 +349,75 @@ void VerAgendaMedico::on_reagendar_clicked()
 
 }
 */
+
+void admin_reservaciones::llenaMesas()
+{
+    QSqlQuery query(mDatabase);
+    QString script = "SELECT numero_mesa FROM Mesa";
+    query.prepare(script);
+    query.exec();
+    while(query.next())
+        ui->cBoxMesas->addItem(query.value(0).toString());
+
+}
+
+void admin_reservaciones::on_btnMasExtra_clicked()
+{
+    int nPersonas = ui->numPersonas->text().toInt();
+    (nPersonas < 10) ? nPersonas += 1 : nPersonas;
+    ui->numPersonas->setText(QString::number(nPersonas));
+}
+
+void admin_reservaciones::on_btnMenosExtra_clicked()
+{
+    int nPersonas = ui->numPersonas->text().toInt();
+    (nPersonas > 1) ? nPersonas -= 1 : nPersonas;
+    ui->numPersonas->setText(QString::number(nPersonas));
+}
+
+void admin_reservaciones::setDate(const QDate &date)
+{
+    ui->fechaReserva->setText(date.toString("dd / MM / yyyy"));
+}
+
+void admin_reservaciones::on_btnCrearReserva_clicked()
+{
+    QSqlQuery query(mDatabase);
+    bool band = true;
+    QString numero_mesa = ui->cBoxMesas->currentText();
+    QString fReserva = ui->fechaReserva->text();
+    QString hReserva = ui->timeEdit->text();
+    QString cliente = ui->nomCliente->text();
+    QString nPersonas = ui->numPersonas->text();
+
+    QSqlQuery queryCheck(mDatabase);
+    QString scriptCheck = "SELECT numero_mesa,hora_llegada FROM "
+                          "reserva WHERE fecha = '"+fReserva+"' ";
+    queryCheck.prepare(scriptCheck);
+    queryCheck.exec();
+    while(queryCheck.next())
+    {
+        if(queryCheck.value(0).toString() == numero_mesa &&
+                queryCheck.value(1).toString() == hReserva)
+            band = false;
+    }
+
+    if(!cliente.isEmpty() && band == true){
+        QString script = "INSERT INTO reserva (numero_mesa, "
+                         "fecha, hora_llegada, nombre_cliente, "
+                         "num_personas) VALUES "
+                         "("+numero_mesa+",'"+fReserva+"', "
+                         "'"+hReserva+"', '"+cliente+"', "+nPersonas+")";
+        query.prepare(script);
+        query.exec();
+    }else{
+        if(band == true){
+            QMessageBox::warning(this, tr("Error"),
+                "Por favor, llene el campo destinado para el nombre");
+        }else{
+            QMessageBox::warning(this, tr("Error"),
+                "Ya fue registrada una reservacion con los mismos datos");
+        }
+    }
+
+}

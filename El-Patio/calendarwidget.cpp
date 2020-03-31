@@ -7,7 +7,6 @@ CalendarWidget::CalendarWidget(QWidget *parent) :
     mark_label(""),
     mark_color(Qt::red)
 {
-
 }
 
 CalendarWidget::CalendarWidget(const QSet<QDate> &dates, QWidget *parent) :
@@ -45,7 +44,8 @@ bool CalendarWidget::isMarked(const QDate &date) const
 }
 void CalendarWidget::paintCell(QPainter *painter, const QRect &rect, const QDate &date) const
 {
-
+    QTime initHour(8,0,0);
+    QTime endHour(13,0,0);
 
     if(marked_dates.contains(date))
     {
@@ -67,9 +67,7 @@ void CalendarWidget::paintCell(QPainter *painter, const QRect &rect, const QDate
         painter->restore();
     }
     else if(date > maximumDate()
-            || date < minimumDate()
-            || date.dayOfWeek() == Qt::Saturday
-            || date.dayOfWeek() == Qt::Sunday)
+            || date < minimumDate())
     {
         painter->save();
         painter->fillRect(rect, mark_color.lighter(110));

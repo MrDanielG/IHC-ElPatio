@@ -335,7 +335,7 @@ border: none;</string>
 </string>
         </property>
         <property name="text">
-         <string>#</string>
+         <string>1</string>
         </property>
        </widget>
       </item>
@@ -415,7 +415,7 @@ border: none;</string>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="le_nombrePlatillo">
+     <widget class="QLineEdit" name="nomCliente">
       <property name="font">
        <font>
         <family>Roboto</family>
@@ -614,7 +614,7 @@ border-radius: 10px;</string>
      </spacer>
     </item>
     <item>
-     <widget class="QLabel" name="nombreMesero">
+     <widget class="QLabel" name="currentDate">
       <property name="font">
        <font>
         <family>Roboto</family>
@@ -661,7 +661,7 @@ border-radius: 10px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -802,17 +802,16 @@ border-radius: 10px;</string>
     </item>
    </layout>
   </widget>
+  <zorder>layoutWidget</zorder>
   <zorder>sideBar</zorder>
   <zorder>line_2</zorder>
   <zorder>line_3</zorder>
   <zorder>layoutWidget_3</zorder>
   <zorder>lb_total</zorder>
-  <zorder>layoutWidget_2</zorder>
   <zorder>layoutWidget_4</zorder>
   <zorder>line</zorder>
   <zorder>btnCrearReserva</zorder>
   <zorder>layoutWidget_5</zorder>
-  <zorder>calendario</zorder>
  </widget>
  <customwidgets>
   <customwidget>
