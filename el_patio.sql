@@ -827,7 +827,23 @@ VALUES
 ('2020-10-03 16:35:34', '4', '1234', '20', 'Cerrada');
 
 /*TRANSACCIONES*/
+
 select comentario, count(comentario) from transaccion
-where fecha_hora between '2020-02-21' and '2020-03-21' group by comentario order by comentario;
+where fecha_hora between '2019-02-21' and '2021-12-12' 
+group by comentario order by comentario;
 
 select comentario, count(comentario) from transaccion where comentario = 'a barra';
+
+use el_patio;
+select * from ticket;
+describe ticket;
+
+select * from ticket
+inner join comanda on ticket.Comanda_id_comanda = comanda.id_comanda
+inner join pedido on pedido.Comanda_id_comanda = comanda.id_comanda
+inner join platillo on platillo.id_platillo = pedido.Platillo_id_platillo
+where fecha between '2010-02-21' and '2030-12-12'; 
+
+select * from comanda;
+select * from pedido where comanda_id_comanda = 23;
+select * from platillo;
