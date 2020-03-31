@@ -1599,7 +1599,7 @@ border-radius: 20px;</string>
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
+          <y>-42</y>
           <width>694</width>
           <height>783</height>
          </rect>
@@ -1673,7 +1673,7 @@ border-radius: 20px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="tipoUsuario_41">
+               <widget class="QLabel" name="lb_fotoPlatillo2">
                 <property name="minimumSize">
                  <size>
                   <width>90</width>
@@ -1707,7 +1707,7 @@ border-radius: 20px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="tipoUsuario_42">
+               <widget class="QLabel" name="lb_nombrePlatillo2">
                 <property name="font">
                  <font>
                   <family>Roboto</family>
@@ -1753,7 +1753,7 @@ border-radius: 20px;</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="tipoUsuario_44">
+                 <widget class="QLabel" name="lb_totalPlatillo2">
                   <property name="font">
                    <font>
                     <family>Roboto</family>
@@ -2076,7 +2076,7 @@ border-radius: 20px;</string>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_14">
                 <item>
-                 <widget class="QLabel" name="lb_pereEntrada_4">
+                 <widget class="QLabel" name="lb_totalTicketsTarjeta">
                   <property name="font">
                    <font>
                     <family>Roboto</family>
@@ -2218,7 +2218,7 @@ border-radius: 20px;</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="lb_totalTran_2">
+                 <widget class="QLabel" name="lb_totalDinero">
                   <property name="font">
                    <font>
                     <family>Roboto</family>
@@ -2342,7 +2342,7 @@ border-radius: 20px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="tipoUsuario_35">
+               <widget class="QLabel" name="lb_fotoPlatillo1">
                 <property name="minimumSize">
                  <size>
                   <width>90</width>
@@ -2375,7 +2375,7 @@ border-radius: 20px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="tipoUsuario_34">
+               <widget class="QLabel" name="lb_nombrePlatillo1">
                 <property name="font">
                  <font>
                   <family>Roboto</family>
@@ -2421,7 +2421,7 @@ border-radius: 20px;</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="tipoUsuario_33">
+                 <widget class="QLabel" name="lb_totalPlatillo1">
                   <property name="font">
                    <font>
                     <family>Roboto</family>
@@ -2475,7 +2475,7 @@ border-radius: 20px;</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="tipoUsuario_38">
+                 <widget class="QLabel" name="lb_totalTicketsEfectivo">
                   <property name="font">
                    <font>
                     <family>Roboto</family>
@@ -2594,7 +2594,7 @@ border-radius: 20px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="tipoUsuario_48">
+               <widget class="QLabel" name="lb_fotoPlatillo3">
                 <property name="minimumSize">
                  <size>
                   <width>90</width>
@@ -2628,7 +2628,7 @@ border-radius: 20px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="tipoUsuario_49">
+               <widget class="QLabel" name="lb_nombrePlatillo3">
                 <property name="font">
                  <font>
                   <family>Roboto</family>
@@ -2674,7 +2674,7 @@ border-radius: 20px;</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="tipoUsuario_51">
+                 <widget class="QLabel" name="lb_totalPlatillo3">
                   <property name="font">
                    <font>
                     <family>Roboto</family>
@@ -2814,7 +2814,7 @@ border-radius: 20px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="tipoUsuario_57">
+               <widget class="QLabel" name="lb_totalTickets">
                 <property name="font">
                  <font>
                   <family>Roboto</family>
