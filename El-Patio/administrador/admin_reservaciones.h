@@ -13,6 +13,7 @@ class admin_reservaciones : public QDialog
 
 public:
     explicit admin_reservaciones(QWidget *parent = nullptr);
+    void setHours(const QDate &date);
     ~admin_reservaciones();
 
 private:

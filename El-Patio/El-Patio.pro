@@ -37,6 +37,7 @@ SOURCES += \
         administrador/agregar_propina_cuenta.cpp \
         almacenista/almacenista_crear_insumo.cpp \
         almacenista/almacenista_menu.cpp \
+        calendarwidget.cpp \
         catalogomesas.cpp \
         dividircuenta.cpp \
         login.cpp \
@@ -70,6 +71,7 @@ HEADERS += \
         administrador/agregar_propina_cuenta.h \
         almacenista/almacenista_crear_insumo.h \
         almacenista/almacenista_menu.h \
+        calendarwidget.h \
         catalogomesas.h \
         dividircuenta.h \
         login.h \

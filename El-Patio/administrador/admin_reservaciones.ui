@@ -166,6 +166,30 @@
          <string notr="true">color: rgb(133, 133, 133);
 border-radius: 5px;</string>
         </property>
+        <property name="maximumTime">
+         <time>
+          <hour>13</hour>
+          <minute>0</minute>
+          <second>0</second>
+         </time>
+        </property>
+        <property name="minimumTime">
+         <time>
+          <hour>8</hour>
+          <minute>0</minute>
+          <second>0</second>
+         </time>
+        </property>
+        <property name="currentSection">
+         <enum>QDateTimeEdit::HourSection</enum>
+        </property>
+        <property name="time">
+         <time>
+          <hour>8</hour>
+          <minute>0</minute>
+          <second>0</second>
+         </time>
+        </property>
        </widget>
       </item>
      </layout>
@@ -442,119 +466,6 @@ border-radius: 10px;</string>
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>90</y>
-     <width>651</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="MenuTop">
-    <item>
-     <layout class="QVBoxLayout" name="LetrasMenu">
-      <property name="spacing">
-       <number>1</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="elPatio_2">
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>16</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: #585858
-</string>
-        </property>
-        <property name="text">
-         <string>Reservaciones</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="elPatio_3">
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(133, 133, 133);
-</string>
-        </property>
-        <property name="text">
-         <string>Agenda nuevas reservas</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="BtnsMenu">
-      <item>
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnCambiarMesero">
-        <property name="minimumSize">
-         <size>
-          <width>160</width>
-          <height>35</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>100</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">*{
-	color: white;
-	border-radius: 10px;
-	background-color: #46B04A;
-	border: none;
-	padding: 5px;
-}
-
-:hover{
-	background-color: white;
-	border: 1px solid #46B04A;
-	color: #46B04A;
-}</string>
-        </property>
-        <property name="text">
-         <string>Transferir cuenta</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
   <widget class="QWidget" name="layoutWidget_4">
    <property name="geometry">
     <rect>
@@ -676,7 +587,7 @@ border-radius: 10px;</string>
 }</string>
    </property>
    <property name="text">
-    <string>Crear Reserva</string>
+    <string>Reservar</string>
    </property>
   </widget>
   <widget class="QWidget" name="layoutWidget_5">
@@ -750,131 +661,146 @@ border-radius: 10px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>200</y>
-     <width>162</width>
-     <height>28</height>
+     <x>40</x>
+     <y>90</y>
+     <width>681</width>
+     <height>565</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QLabel" name="elPatio_10">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: #585858</string>
-      </property>
-      <property name="text">
-       <string>Mes</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="MenuTop">
+      <item>
+       <layout class="QVBoxLayout" name="LetrasMenu">
+        <property name="spacing">
+         <number>1</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="elPatio_2">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: #585858
+</string>
+          </property>
+          <property name="text">
+           <string>Reservaciones</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="elPatio_3">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(133, 133, 133);
+</string>
+          </property>
+          <property name="text">
+           <string>Agenda nuevas reservas</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="BtnsMenu">
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnCambiarMesero">
+          <property name="minimumSize">
+           <size>
+            <width>160</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+          </property>
+          <property name="text">
+           <string>Transferir cuenta</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QComboBox" name="cBoxMes">
-      <property name="minimumSize">
+     <spacer name="verticalSpacer_7">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
        <size>
-        <width>100</width>
-        <height>0</height>
+        <width>20</width>
+        <height>40</height>
        </size>
       </property>
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
+     </spacer>
+    </item>
+    <item>
+     <widget class="CalendarWidget" name="calendario" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>500</height>
+       </size>
       </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(133, 133, 133);
-border-radius: 5px;</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>Enero</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Febero</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Marzo</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Abril</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Mayo</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Junio</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Julio</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Agosto</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Septiembre</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Octubre</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Noviembre</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Diciembre</string>
-       </property>
-      </item>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>440</y>
-     <width>311</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>8514oem</family>
-    </font>
-   </property>
-   <property name="text">
-    <string>Aqui va el calendario o eso xd</string>
-   </property>
   </widget>
   <zorder>sideBar</zorder>
   <zorder>line_2</zorder>
@@ -886,11 +812,16 @@ border-radius: 5px;</string>
   <zorder>line</zorder>
   <zorder>btnCrearReserva</zorder>
   <zorder>layoutWidget_5</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>label</zorder>
-  <zorder>elPatio_11</zorder>
-  <zorder>timeEdit</zorder>
+  <zorder>calendario</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CalendarWidget</class>
+   <extends>QWidget</extends>
+   <header>calendarwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
