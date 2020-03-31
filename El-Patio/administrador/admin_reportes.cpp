@@ -303,6 +303,7 @@ void admin_reportes::actualizarDatosVentas()
     ui->lb_fotoPlatillo3->setPixmap(img3);
     ui->lb_nombrePlatillo3->setText(topVentas.value("nombre").toString());
     ui->lb_totalPlatillo3->setText(topVentas.value("num").toString());
+    qDebug() << "11111111";
 
     //obtener el total de los dineros
     QSqlQuery totalDineros(mDatabase);
@@ -312,6 +313,7 @@ void admin_reportes::actualizarDatosVentas()
     totalDineros.exec(query_totalDineros);
     totalDineros.next();
     ui->lb_totalDinero->setText(totalDineros.value("total").toString());
+    qDebug() << "222222222";
 
     //total de tickets
     QSqlQuery totalTickets(mDatabase);
@@ -323,6 +325,7 @@ void admin_reportes::actualizarDatosVentas()
     totalTickets.exec(query_totalTickets);
     totalTickets.next();
     ui->lb_totalTickets->setText(totalTickets.value("numTickets").toString());
+    qDebug() << "33333333333";
 
     //total de pagos por tarjeta y efectivo
     QSqlQuery totalMetodos(mDatabase);
@@ -337,6 +340,7 @@ void admin_reportes::actualizarDatosVentas()
     //tarjeta
     totalMetodos.next();
     ui->lb_totalTarjeta->setText(totalMetodos.value("totalMetodo").toString());
+    qDebug() << "44444444444";
 }
 
 admin_reportes::~admin_reportes()
