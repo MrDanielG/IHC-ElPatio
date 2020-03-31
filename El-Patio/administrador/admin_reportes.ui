@@ -1745,10 +1745,7 @@ border-radius: 20px;</string>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(133, 133, 133);
-
-background-color: rgb(170, 85, 127);
-</string>
+                  <string notr="true">color: rgb(133, 133, 133);</string>
                  </property>
                  <property name="text">
                   <string>[NOMBRE_PLATILLO]</string>
@@ -2427,7 +2424,6 @@ border-radius: 20px;</string>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">color: rgb(133, 133, 133);
-background-color: rgb(170, 85, 127);
 </string>
                  </property>
                  <property name="text">
@@ -2692,9 +2688,7 @@ border-radius: 20px;</string>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(133, 133, 133);
-
-background-color: rgb(170, 85, 127);</string>
+                  <string notr="true">color: rgb(133, 133, 133);</string>
                  </property>
                  <property name="text">
                   <string>[NOMBRE_PLATILLO]</string>
