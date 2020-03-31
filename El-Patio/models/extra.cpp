@@ -24,7 +24,7 @@ void extra::setCantidad(int nueva)
 {
     double PreEx = precio.toDouble();
     double PrecioOriginal = PreEx/cantidad;
-    PreEx += PrecioOriginal;
+    PreEx = PrecioOriginal*nueva;
     precio = QString::number(PreEx);
     this->cantidad = nueva;
 }

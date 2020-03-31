@@ -11,5 +11,6 @@
         <file>resources/imgTarjetaUsuario.png</file>
         <file>resources/masPlatilloBig.png</file>
         <file>resources/camarero.svg</file>
+        <file>resources/loginImg.jpg</file>
     </qresource>
 </RCC>

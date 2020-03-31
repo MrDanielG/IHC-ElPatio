@@ -31,6 +31,7 @@ SOURCES += \
         administrador/admin_gestion_usuarios.cpp \
         administrador/admin_modificar_usuario.cpp \
         administrador/admin_reportes.cpp \
+        administrador/admin_reservaciones.cpp \
         administrador/admin_tarjeta_crud.cpp \
         administrador/admin_tarjeta_emeplado_reporte.cpp \
         administrador/admin_tarjeta_usuario.cpp \
@@ -40,6 +41,7 @@ SOURCES += \
         almacenista/almacenista_menu.cpp \
         catalogomesas.cpp \
         dividircuenta.cpp \
+        login.cpp \
         main.cpp \
         mainwindow.cpp \
         mesero/confirmartransferencia.cpp \
@@ -64,6 +66,7 @@ HEADERS += \
         administrador/admin_gestion_usuarios.h \
         administrador/admin_modificar_usuario.h \
         administrador/admin_reportes.h \
+        administrador/admin_reservaciones.h \
         administrador/admin_tarjeta_crud.h \
         administrador/admin_tarjeta_emeplado_reporte.h \
         administrador/admin_tarjeta_usuario.h \
@@ -73,6 +76,7 @@ HEADERS += \
         almacenista/almacenista_menu.h \
         catalogomesas.h \
         dividircuenta.h \
+        login.h \
         mainwindow.h \
         mesero/confirmartransferencia.h \
         mesero/mesero_agregar_extra.h \
@@ -96,6 +100,7 @@ FORMS += \
         administrador/admin_gestion_usuarios.ui \
         administrador/admin_modificar_usuario.ui \
         administrador/admin_reportes.ui \
+        administrador/admin_reservaciones.ui \
         administrador/admin_tarjeta_crud.ui \
         administrador/admin_tarjeta_emeplado_reporte.ui \
         administrador/admin_tarjeta_usuario.ui \
@@ -105,6 +110,7 @@ FORMS += \
         almacenista/almacenista_menu.ui \
         catalogomesas.ui \
         dividircuenta.ui \
+        login.ui \
         mainwindow.ui \
         mesero/confirmartransferencia.ui \
         mesero/mesero_agregar_extra.ui \

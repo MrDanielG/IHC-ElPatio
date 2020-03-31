@@ -11,16 +11,18 @@
 
 #include <QDebug>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
+                                          ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
     mDatabase = QSqlDatabase::database("Connection");
-    if(!mDatabase.isOpen()){
+    if (!mDatabase.isOpen())
+    {
         qDebug() << "ERROR";
-    }else{
+    }
+    else
+    {
         qDebug() << "Base de datos conectada en Main Window";
     }
 

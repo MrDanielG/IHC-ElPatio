@@ -19,7 +19,7 @@ void Platillo::setCantidad(int nueva)
 {
     double PrePla = precioPlatillo.toDouble();
     double PrecioOriginal = PrePla/cantidad;
-    PrePla += PrecioOriginal;
+    PrePla = PrecioOriginal*nueva;
     precioPlatillo = QString::number(PrePla);
     this->cantidad = nueva;
 }
