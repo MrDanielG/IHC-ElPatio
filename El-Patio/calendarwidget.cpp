@@ -44,9 +44,6 @@ bool CalendarWidget::isMarked(const QDate &date) const
 }
 void CalendarWidget::paintCell(QPainter *painter, const QRect &rect, const QDate &date) const
 {
-    QTime initHour(8,0,0);
-    QTime endHour(13,0,0);
-
     if(marked_dates.contains(date))
     {
         painter->save();

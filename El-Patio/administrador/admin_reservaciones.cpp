@@ -19,11 +19,17 @@ admin_reservaciones::admin_reservaciones(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QTime initHour(8,0,0);
+    QTime endHour(13,0,0);
+
     // ocultar los números de semana
     ui->calendario->setVerticalHeaderFormat(CalendarWidget::NoVerticalHeader);
 
-    // el día minimo para la cita es hoy
-    ui->calendario->setMinimumDate(QDate::currentDate());
+    // el día minimo para la cita es hoy si la hora es prudente
+    (QTime::currentTime() > initHour && QTime::currentTime() < endHour) ?
+                ui->calendario->setMinimumDate(QDate::currentDate())
+                 : ui->calendario->setMinimumDate(QDate::currentDate().addDays(1));
+
     ui->calendario->setGridVisible(true);
 
     // Colores y etiqueta de los días marcados
