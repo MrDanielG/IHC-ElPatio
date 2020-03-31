@@ -870,7 +870,7 @@
 }</string>
       </property>
       <property name="text">
-       <string>Login</string>
+       <string>Iniciar Sesión</string>
       </property>
      </widget>
     </item>
