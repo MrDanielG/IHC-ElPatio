@@ -27,6 +27,7 @@ admin_reportes::admin_reportes(QWidget *parent) :
 
     actualizarDatos();
     actualizarDatosTransaccion();
+    actualizarDatosVentas();
 }
 
 void admin_reportes::conexionBD()
@@ -268,6 +269,76 @@ void admin_reportes::actualizarDatosTransaccion()
 
 }
 
+void admin_reportes::actualizarDatosVentas()
+{
+
+    QSqlQuery topVentas(mDatabase);
+    QString query_topVentas = "select foto, nombre, COUNT(nombre) as num from ticket "
+                              "inner join comanda on ticket.Comanda_id_comanda = comanda.id_comanda "
+                              "inner join pedido on pedido.Comanda_id_comanda = comanda.id_comanda "
+                              "inner join platillo on platillo.id_platillo = pedido.Platillo_id_platillo "
+                              "where fecha between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                              "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"'"
+                              "group by nombre order by num "
+                              "limit 3; ";
+    topVentas.exec(query_topVentas);
+
+    //top 1 de ventas de platillos
+    topVentas.next();
+    QPixmap img1(topVentas.value("foto").toString());
+    ui->lb_fotoPlatillo1->setPixmap(img1);
+    ui->lb_nombrePlatillo1->setText(topVentas.value("nombre").toString());
+    ui->lb_totalPlatillo1->setText(topVentas.value("num").toString());
+
+    //top 2 de ventas de platillos
+    topVentas.next();
+    QPixmap img2(topVentas.value("foto").toString());
+    ui->lb_fotoPlatillo2->setPixmap(img2);
+    ui->lb_nombrePlatillo2->setText(topVentas.value("nombre").toString());
+    ui->lb_totalPlatillo2->setText(topVentas.value("num").toString());
+
+    //top 3 de ventas de platillos
+    topVentas.next();
+    QPixmap img3(topVentas.value("foto").toString());
+    ui->lb_fotoPlatillo3->setPixmap(img3);
+    ui->lb_nombrePlatillo3->setText(topVentas.value("nombre").toString());
+    ui->lb_totalPlatillo3->setText(topVentas.value("num").toString());
+
+    //obtener el total de los dineros
+    QSqlQuery totalDineros(mDatabase);
+    QString query_totalDineros = "select sum(total) as total from ticket "
+                           "where fecha between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                           "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"'";
+    totalDineros.exec(query_totalDineros);
+    totalDineros.next();
+    ui->lb_totalDinero->setText(totalDineros.value("total").toString());
+
+    //total de tickets
+    QSqlQuery totalTickets(mDatabase);
+    QString query_totalTickets = " select count(id_ticket) as numTickets from ticket "
+                           "where fecha "
+                           "between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                           "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"'";
+
+    totalTickets.exec(query_totalTickets);
+    totalTickets.next();
+    ui->lb_totalTickets->setText(totalTickets.value("numTickets").toString());
+
+    //total de pagos por tarjeta y efectivo
+    QSqlQuery totalMetodos(mDatabase);
+    QString query_totoalMetodos = "select metodo, COUNT(metodo) as totalMetodo from ticket "
+                                  "where fecha between '"+ui->de_incio->date().toString("yyyy-MM-dd")+"' "
+                                  "and '"+ui->de_fin->date().toString("yyyy-MM-dd")+"'"
+                                  "group by metodo order by metodo;";
+    totalMetodos.exec(query_totoalMetodos);
+    //efectivo
+    totalMetodos.next();
+    ui->lb_totalEfectivo->setText(totalMetodos.value("totalMetodo").toString());
+    //tarjeta
+    totalMetodos.next();
+    ui->lb_totalTarjeta->setText(totalMetodos.value("totalMetodo").toString());
+}
+
 admin_reportes::~admin_reportes()
 {
     delete ui;
@@ -295,4 +366,5 @@ void admin_reportes::on_btn_buscarReporte_clicked()
 {
     actualizarDatos();
     actualizarDatosTransaccion();
+    actualizarDatosVentas();
 }

@@ -26,6 +26,7 @@ public:
     void clicked_button(QPushButton *boton);
     void limpiarGridMeseros();
     void actualizarDatosTransaccion();
+    void actualizarDatosVentas();
     ~admin_reportes();
 
 private slots:

@@ -837,13 +837,19 @@ select comentario, count(comentario) from transaccion where comentario = 'a barr
 use el_patio;
 select * from ticket;
 describe ticket;
+select * from platillo;
 
-select * from ticket
+select foto, nombre, COUNT(nombre) as num from ticket
 inner join comanda on ticket.Comanda_id_comanda = comanda.id_comanda
 inner join pedido on pedido.Comanda_id_comanda = comanda.id_comanda
 inner join platillo on platillo.id_platillo = pedido.Platillo_id_platillo
-where fecha between '2010-02-21' and '2030-12-12'; 
+where fecha between '2010-02-21' and '2030-12-12'
+group by nombre order by num
+limit 3; 
 
-select * from comanda;
-select * from pedido where comanda_id_comanda = 23;
+select sum(total) as total from ticket where fecha between '2010-02-21' and '2030-12-12';
+select count(id_ticket) as numTickets from ticket where fecha between '2010-02-21' and '2030-12-12';
+
+select * from ticket;
+select * from pedido where comanda_id_comanda = 20;
 select * from platillo;
