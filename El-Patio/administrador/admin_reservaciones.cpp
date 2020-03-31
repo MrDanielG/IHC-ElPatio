@@ -410,6 +410,8 @@ void admin_reservaciones::on_btnCrearReserva_clicked()
                          "'"+hReserva+"', '"+cliente+"', "+nPersonas+")";
         query.prepare(script);
         query.exec();
+        QMessageBox::information(this, tr("Exito"),
+                             "La reservacion se ha realizado correctamente");
     }else{
         if(band == true){
             QMessageBox::warning(this, tr("Error"),
