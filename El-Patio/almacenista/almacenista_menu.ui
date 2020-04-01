@@ -693,19 +693,6 @@ padding: 5px;</string>
      </layout>
     </item>
     <item>
-     <spacer name="horizontalSpacer_5">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
      <widget class="QPushButton" name="btn_agregar_insumo">
       <property name="minimumSize">
        <size>
@@ -749,7 +736,7 @@ padding: 5px;</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="btn_xd">
+     <widget class="QPushButton" name="btnCerrarSesion">
       <property name="minimumSize">
        <size>
         <width>70</width>
@@ -758,7 +745,7 @@ padding: 5px;</string>
       </property>
       <property name="maximumSize">
        <size>
-        <width>60</width>
+        <width>9999</width>
         <height>16777215</height>
        </size>
       </property>
@@ -787,7 +774,7 @@ padding: 5px;</string>
 }</string>
       </property>
       <property name="text">
-       <string>xd</string>
+       <string>Cerrar Sesión</string>
       </property>
      </widget>
     </item>
@@ -1242,7 +1229,7 @@ selection-background-color: #46B04A;
   <tabstop>btnPlatillos</tabstop>
   <tabstop>btnBebidas</tabstop>
   <tabstop>btn_agregar_insumo</tabstop>
-  <tabstop>btn_xd</tabstop>
+  <tabstop>btnCerrarSesion</tabstop>
   <tabstop>btn_editar_insumo</tabstop>
   <tabstop>scrollSideBar</tabstop>
  </tabstops>

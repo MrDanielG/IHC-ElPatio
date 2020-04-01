@@ -324,5 +324,5 @@ QString CatalogoMesas::getNumMesa()
 
 void CatalogoMesas::on_btn_login_clicked()
 {
-    this->mainwindow->cambiar_pagina(2);
+    this->mainwindow->cambiar_pagina(8);
 }

@@ -10,6 +10,8 @@ class mesero_transferir_platillo;
 class admin_gestion_usuarios;
 class DividirCuenta;
 class administrador_crud_platillos;
+class admin_reportes;
+class login;
 
 namespace Ui {
 class MainWindow;
@@ -39,6 +41,8 @@ private:
     admin_gestion_usuarios *gestionUsuarios;
     DividirCuenta *cuentas;
     administrador_crud_platillos *crudPlatillos;
+    admin_reportes *    reportes;
+    login *inicioSesion;
 };
 
 #endif // MAINWINDOW_H

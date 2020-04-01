@@ -7,19 +7,23 @@
 #include "administrador/admin_gestion_usuarios.h"
 #include "dividircuenta.h"
 #include "administrador/administrador_crud_platillos.h"
+#include "administrador/admin_reportes.h"
+#include "login.h"
 
 #include <QDebug>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
+                                          ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
     mDatabase = QSqlDatabase::database("Connection");
-    if(!mDatabase.isOpen()){
+    if (!mDatabase.isOpen())
+    {
         qDebug() << "ERROR";
-    }else{
+    }
+    else
+    {
         qDebug() << "Base de datos conectada en Main Window";
     }
 
@@ -37,8 +41,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     gestionUsuarios = new admin_gestion_usuarios(this);
     crudPlatillos = new administrador_crud_platillos(this);
-
+    inicioSesion = new login(this);
     cuentas = new DividirCuenta(this);
+
+    reportes = new admin_reportes(this);
+    reportes->show();
 
     ui->Mesas->setMainWindow(this);
 
@@ -48,6 +55,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(4, gestionUsuarios);
     ui->stackedWidget->insertWidget(5, cuentas);
     ui->stackedWidget->insertWidget(6, crudPlatillos);
+    ui->stackedWidget->insertWidget(7, reportes);
+    ui->stackedWidget->insertWidget(8, inicioSesion);
 
     ui->stackedWidget->setCurrentIndex(0); //Por mietras xd
 }
