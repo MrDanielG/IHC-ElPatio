@@ -13,6 +13,7 @@ class reservaItemWidget : public QWidget
 
 public:
     explicit reservaItemWidget(QWidget *parent = nullptr);
+    void setDatos( const QMap<QString, QString> &datos);
     ~reservaItemWidget();
 
 private:
