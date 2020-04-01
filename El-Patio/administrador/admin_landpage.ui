@@ -6,24 +6,36 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>813</height>
+    <width>1089</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>63</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>768</height>
+    </rect>
+   </property>
+   <widget class="QWidget" name="page"/>
+   <widget class="QWidget" name="page_2"/>
+  </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
-     <height>45</height>
+     <width>60</width>
+     <height>768</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: #46B04A;</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -35,12 +47,12 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
-      <width>981</width>
-      <height>26</height>
+      <y>80</y>
+      <width>41</width>
+      <height>611</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="btnInicio">
        <property name="font">
@@ -69,7 +81,18 @@
 </string>
        </property>
        <property name="text">
-        <string>Inicio</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normalon>:/iconos/resources/home.svg</normalon>
+        </iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -101,7 +124,18 @@
 </string>
        </property>
        <property name="text">
-        <string>Platillos</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normalon>:/iconos/resources/plate.svg</normalon>
+        </iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -133,7 +167,18 @@
 </string>
        </property>
        <property name="text">
-        <string>Usuarios</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normalon>:/iconos/resources/user.svg</normalon>
+        </iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -165,7 +210,18 @@
 </string>
        </property>
        <property name="text">
-        <string>Reportes</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normalon>:/iconos/resources/stats.svg</normalon>
+        </iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -197,25 +253,27 @@
 </string>
        </property>
        <property name="text">
-        <string>Cerrar Sesión</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normalon>:/iconos/resources/Logout.svg</normalon>
+        </iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
        </property>
       </widget>
      </item>
     </layout>
+    <zorder>btnPlatillos</zorder>
    </widget>
   </widget>
-  <widget class="QStackedWidget" name="stackedWidget">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>45</y>
-     <width>1024</width>
-     <height>768</height>
-    </rect>
-   </property>
-   <widget class="QWidget" name="page"/>
-   <widget class="QWidget" name="page_2"/>
-  </widget>
+  <zorder>frame</zorder>
+  <zorder>stackedWidget</zorder>
  </widget>
  <resources/>
  <connections/>

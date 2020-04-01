@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+class MainWindow;
 class admin_gestion_usuarios;
 class administrador_crud_platillos;
 class admin_reportes;
@@ -17,12 +18,23 @@ class admin_landpage : public QWidget
     Q_OBJECT
 
 public:
-    explicit admin_landpage(QString _idAdmin, QWidget *parent = nullptr);
+    explicit admin_landpage(QWidget *parent = nullptr);
+    void setIdAdmin(QString);
     ~admin_landpage();
+
+private slots:
+    void on_btnPlatillos_clicked();
+
+    void on_btnUsuarios_clicked();
+
+    void on_btnReportes_clicked();
+
+    void on_btnCerrarSesion_clicked();
 
 private:
     Ui::admin_landpage *ui;
     QString idAdmin;
+    MainWindow *padre;
 
     //Paginas de Admin
     admin_gestion_usuarios *gestionUsuarios;

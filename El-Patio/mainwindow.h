@@ -12,6 +12,7 @@ class DividirCuenta;
 class administrador_crud_platillos;
 class admin_reportes;
 class login;
+class admin_landpage;
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +29,7 @@ public:
     ~MainWindow();
     void cambiarStacked_indice(int);
     void pasar_is_comanda(int);
+    void setAdmin(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -43,6 +45,7 @@ private:
     administrador_crud_platillos *crudPlatillos;
     admin_reportes *    reportes;
     login *inicioSesion;
+    admin_landpage *adminLandpage;
 };
 
 #endif // MAINWINDOW_H

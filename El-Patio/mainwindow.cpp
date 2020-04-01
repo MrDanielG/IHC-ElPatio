@@ -9,7 +9,7 @@
 #include "administrador/administrador_crud_platillos.h"
 #include "administrador/admin_reportes.h"
 #include "login.h"
-
+#include "administrador/admin_landpage.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     crudPlatillos = new administrador_crud_platillos(this);
     inicioSesion = new login(this);
     cuentas = new DividirCuenta(this);
+    adminLandpage = new admin_landpage(this);
 
     reportes = new admin_reportes(this);
     reportes->show();
@@ -57,6 +58,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     ui->stackedWidget->insertWidget(6, crudPlatillos);
     ui->stackedWidget->insertWidget(7, reportes);
     ui->stackedWidget->insertWidget(8, inicioSesion);
+    ui->stackedWidget->insertWidget(9, adminLandpage);
 
     ui->stackedWidget->setCurrentIndex(0); //Por mietras xd
 }
@@ -84,4 +86,10 @@ void MainWindow::cambiarStacked_indice(int P)
 void MainWindow::pasar_is_comanda(int _id_comanda)
 {
     this->transferirPlatillo->set_idComanda(_id_comanda);
+}
+
+void MainWindow::setAdmin(QString _idAdmin)
+{
+    ui->stackedWidget->setCurrentIndex(9);
+    adminLandpage->setIdAdmin(_idAdmin);
 }
