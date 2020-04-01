@@ -29,6 +29,7 @@ SOURCES += \
         administrador/admin_crear_usuario.cpp \
         administrador/admin_edita_platillo.cpp \
         administrador/admin_gestion_usuarios.cpp \
+        administrador/admin_landpage.cpp \
         administrador/admin_modificar_usuario.cpp \
         administrador/admin_reportes.cpp \
         administrador/admin_reservaciones.cpp \
@@ -64,6 +65,7 @@ HEADERS += \
         administrador/admin_crear_usuario.h \
         administrador/admin_edita_platillo.h \
         administrador/admin_gestion_usuarios.h \
+        administrador/admin_landpage.h \
         administrador/admin_modificar_usuario.h \
         administrador/admin_reportes.h \
         administrador/admin_reservaciones.h \
@@ -98,6 +100,7 @@ FORMS += \
         administrador/admin_crear_usuario.ui \
         administrador/admin_edita_platillo.ui \
         administrador/admin_gestion_usuarios.ui \
+        administrador/admin_landpage.ui \
         administrador/admin_modificar_usuario.ui \
         administrador/admin_reportes.ui \
         administrador/admin_reservaciones.ui \
