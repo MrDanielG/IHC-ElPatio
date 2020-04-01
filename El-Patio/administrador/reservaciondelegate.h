@@ -1,12 +1,17 @@
 #ifndef RESERVACIONDELEGATE_H
 #define RESERVACIONDELEGATE_H
 
-#include <QObject>
+#include <QStyledItemDelegate>
 
-class reservacionDelegate
+class reservacionDelegate : public QStyledItemDelegate
 {
+    Q_OBJECT
 public:
     reservacionDelegate();
+    void paint(QPainter* painter, const QStyleOptionViewItem&
+                   option, const QModelIndex& index) const override;
+    QSize sizeHint(const QStyleOptionViewItem& option,
+            const QModelIndex& index) const override;
 };
 
 #endif // RESERVACIONDELEGATE_H
