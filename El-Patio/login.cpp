@@ -111,27 +111,34 @@ void login::on_btnPrimario_clicked()
         switch (tipoUsuario.toInt()) {
         case 1:
             qDebug()<<"Admin";
+            ui->lineEdit_Entrada->clear();
             this->padre->cambiar_pagina(7);
             break;
 
         case 2:
             qDebug()<<"Mesero";
+            ui->lineEdit_Entrada->clear();
             break;
 
         case 3:
             qDebug()<<"Cocinero";
+            ui->lineEdit_Entrada->clear();
             break;
 
         case 4:
             qDebug()<<"Barista";
+            ui->lineEdit_Entrada->clear();
             break;
 
         case 5:
             qDebug()<<"Almacenista";
+            ui->lineEdit_Entrada->clear();
+            this->padre->cambiar_pagina(2);
             break;
 
         default:
             qDebug()<<"Error al detectar Usuario";
+            ui->lineEdit_Entrada->clear();
             break;
         }
 

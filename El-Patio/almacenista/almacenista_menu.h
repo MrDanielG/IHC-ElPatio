@@ -48,6 +48,8 @@ private slots:
     void eliminaPerecedero();
     void eliminaInsumo();
 
+    void on_btnCerrarSesion_clicked();
+
 private:
     Ui::almacenista_menu *ui;
 
