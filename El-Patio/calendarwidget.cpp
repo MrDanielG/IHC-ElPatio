@@ -88,3 +88,8 @@ void CalendarWidget::setMarkColor(const QColor &color)
 {
     mark_color = color;
 }
+
+void CalendarWidget::mouseDoubleClickEvent(QMouseEvent * e)
+{
+    emit QWidget::mouseDoubleClickEvent(e);
+}

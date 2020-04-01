@@ -22,8 +22,8 @@ void reservacionDelegate::paint(QPainter* painter, const QStyleOptionViewItem&
 
     datos["reservacion"]    = index.siblingAtColumn(0).data().toString();
     datos["mesa"]           = index.siblingAtColumn(1).data().toString();
-    datos["fecha"]          = index.siblingAtColumn(2).data().toDate().toString("ddd, dd MMMM yyyy");
-    datos["hora"]           = index.siblingAtColumn(3).data().toTime().toString("hh:mm AP");
+    datos["fecha"]          = index.siblingAtColumn(2).data().toString();
+    datos["hora"]           = index.siblingAtColumn(3).data().toString();
     datos["cliente"]        = index.siblingAtColumn(4).data().toString();
     datos["personas"]       = index.siblingAtColumn(5).data().toString();
 

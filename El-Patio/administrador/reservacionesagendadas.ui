@@ -6,19 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>355</width>
+    <width>400</width>
     <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(240, 240, 240);</string>
+  </property>
   <widget class="QListView" name="reservasListView">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>331</width>
+     <width>380</width>
      <height>531</height>
     </rect>
    </property>

@@ -1,5 +1,6 @@
 #include "admin_reservaciones.h"
 #include "ui_admin_reservaciones.h"
+#include "reservacionesagendadas.h"
 
 #include <algorithm>
 #include <QDialog>
@@ -383,6 +384,7 @@ void admin_reservaciones::on_btnMenosExtra_clicked()
 
 void admin_reservaciones::setDate(const QDate &date)
 {
+    currentDate = date.toString("dd / MM / yyyy");
     ui->fechaReserva->setText(date.toString("dd / MM / yyyy"));
 }
 
@@ -428,4 +430,10 @@ void admin_reservaciones::on_btnCrearReserva_clicked()
         }
     }
 
+}
+
+void admin_reservaciones::on_btnVerAgenda_clicked()
+{
+    reservacionesAgendadas dates(currentDate,this);
+    dates.exec();
 }

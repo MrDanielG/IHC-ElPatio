@@ -802,6 +802,55 @@ border-radius: 10px;</string>
     </item>
    </layout>
   </widget>
+  <widget class="QPushButton" name="btnVerAgenda">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>680</y>
+     <width>160</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>160</width>
+     <height>35</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>100</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}</string>
+   </property>
+   <property name="text">
+    <string>Ver Agendadas</string>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>sideBar</zorder>
   <zorder>line_2</zorder>
@@ -812,6 +861,7 @@ border-radius: 10px;</string>
   <zorder>line</zorder>
   <zorder>btnCrearReserva</zorder>
   <zorder>layoutWidget_5</zorder>
+  <zorder>btnVerAgenda</zorder>
  </widget>
  <customwidgets>
   <customwidget>

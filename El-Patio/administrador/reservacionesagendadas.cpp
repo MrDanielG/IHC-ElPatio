@@ -8,13 +8,16 @@
 #include <QSqlRelationalTableModel>
 #include <QDebug>
 
-reservacionesAgendadas::reservacionesAgendadas(QWidget *parent) :
+reservacionesAgendadas::reservacionesAgendadas(QString date,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::reservacionesAgendadas),
     reservasModel(new QSqlQueryModel(this)),
     reservasProxyModel(new QSortFilterProxyModel(this))
 {
     ui->setupUi(this);
+    currentDate = date;
+    this->setWindowTitle(currentDate);
+    recargar();
 }
 
 reservacionesAgendadas::~reservacionesAgendadas()
@@ -26,7 +29,7 @@ reservacionesAgendadas::~reservacionesAgendadas()
 
 void reservacionesAgendadas::recargar()
 {
-    QString script;
+    QString script = "SELECT * FROM reserva WHERE fecha = '"+currentDate+"'";
 
     reservasModel->setQuery(script, QSqlDatabase::database("Connection"));
 

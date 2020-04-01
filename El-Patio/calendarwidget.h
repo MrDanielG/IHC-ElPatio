@@ -26,6 +26,9 @@ protected:
     // para marcar vairas fechas
     void paintCell(QPainter *painter, const QRect &rect, const QDate &date) const override;
 
+public slots:
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
+
 protected:
     // conjuto de fechas marcadas
     QSet<QDate> marked_dates;

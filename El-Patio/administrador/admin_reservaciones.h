@@ -18,6 +18,7 @@ public:
     ~admin_reservaciones();
     void llenaMesas();
     void setDate(const QDate &date);
+
 private slots:
     void on_btnMasExtra_clicked();
 
@@ -25,9 +26,12 @@ private slots:
 
     void on_btnCrearReserva_clicked();
 
+    void on_btnVerAgenda_clicked();
+
 private:
     Ui::admin_reservaciones *ui;
     QSqlDatabase mDatabase;
+    QString currentDate;
 };
 
 #endif // ADMIN_RESERVACIONES_H
