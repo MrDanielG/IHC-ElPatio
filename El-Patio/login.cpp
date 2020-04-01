@@ -3,12 +3,14 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QSqlQuery>
+#include <mainwindow.h>
 
 login::login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::login)
 {
     ui->setupUi(this);
+    this->padre = qobject_cast<MainWindow*>(parent); //Casteo de QWidget a MainWindow
     conexionBD();
 }
 
@@ -109,6 +111,7 @@ void login::on_btnPrimario_clicked()
         switch (tipoUsuario.toInt()) {
         case 1:
             qDebug()<<"Admin";
+            this->padre->cambiar_pagina(7);
             break;
 
         case 2:
@@ -124,7 +127,7 @@ void login::on_btnPrimario_clicked()
             break;
 
         case 5:
-            qDebug()<<"Barista";
+            qDebug()<<"Almacenista";
             break;
 
         default:

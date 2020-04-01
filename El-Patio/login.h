@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSqlDatabase>
 
+class MainWindow;
 namespace Ui {
 class login;
 }
@@ -45,6 +46,7 @@ private slots:
 private:
     Ui::login *ui;
     QSqlDatabase mDatabase;
+    MainWindow *padre;
 };
 
 #endif // LOGIN_H
