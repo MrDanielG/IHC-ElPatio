@@ -8,7 +8,11 @@
 #include <QMap>
 #include <QEvent>
 
-reservacionDelegate::reservacionDelegate(){}
+reservacionDelegate::reservacionDelegate(QObject *parent):
+    QStyledItemDelegate(parent)
+{
+
+}
 
 void reservacionDelegate::paint(QPainter* painter, const QStyleOptionViewItem&
                          option, const QModelIndex& index) const

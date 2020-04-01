@@ -36,6 +36,7 @@ SOURCES += \
         administrador/administrador_crud_platillos.cpp \
         administrador/agregar_propina_cuenta.cpp \
         administrador/reservaciondelegate.cpp \
+        administrador/reservacionesagendadas.cpp \
         administrador/reservaitemwidget.cpp \
         almacenista/almacenista_crear_insumo.cpp \
         almacenista/almacenista_menu.cpp \
@@ -72,6 +73,7 @@ HEADERS += \
         administrador/administrador_crud_platillos.h \
         administrador/agregar_propina_cuenta.h \
         administrador/reservaciondelegate.h \
+        administrador/reservacionesagendadas.h \
         administrador/reservaitemwidget.h \
         almacenista/almacenista_crear_insumo.h \
         almacenista/almacenista_menu.h \
@@ -106,6 +108,7 @@ FORMS += \
         administrador/admin_tarjeta_usuario.ui \
         administrador/administrador_crud_platillos.ui \
         administrador/agregar_propina_cuenta.ui \
+        administrador/reservacionesagendadas.ui \
         administrador/reservaitemwidget.ui \
         almacenista/almacenista_crear_insumo.ui \
         almacenista/almacenista_menu.ui \
