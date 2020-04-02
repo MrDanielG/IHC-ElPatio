@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QSqlQuery>
 #include <mainwindow.h>
+#include "administrador/admin_landpage.h"
 
 login::login(QWidget *parent) :
     QWidget(parent),
@@ -112,7 +113,7 @@ void login::on_btnPrimario_clicked()
         case 1:
             qDebug()<<"Admin";
             ui->lineEdit_Entrada->clear();
-            this->padre->cambiar_pagina(7);
+            this->padre->setAdmin(claveUsuario);
             break;
 
         case 2:
