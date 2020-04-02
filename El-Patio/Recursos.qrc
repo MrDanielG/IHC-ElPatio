@@ -17,5 +17,6 @@
         <file>resources/plate.svg</file>
         <file>resources/stats.svg</file>
         <file>resources/user.svg</file>
+        <file>resources/adminLandPage.jpg</file>
     </qresource>
 </RCC>

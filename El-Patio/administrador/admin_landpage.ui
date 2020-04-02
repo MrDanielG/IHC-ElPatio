@@ -16,13 +16,68 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>63</x>
+     <x>56</x>
      <y>0</y>
-     <width>1024</width>
+     <width>1031</width>
      <height>768</height>
     </rect>
    </property>
-   <widget class="QWidget" name="page"/>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="page">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1024</width>
+       <height>768</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../Recursos.qrc">:/iconos/resources/adminLandPage.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>320</y>
+       <width>611</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift Light Condensed</family>
+       <pointsize>36</pointsize>
+       <weight>3</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+font: 25 36pt &quot;Bahnschrift Light Condensed&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Administración El Patio</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
    <widget class="QWidget" name="page_2"/>
   </widget>
   <widget class="QFrame" name="frame">
@@ -272,9 +327,9 @@
     <zorder>btnPlatillos</zorder>
    </widget>
   </widget>
-  <zorder>frame</zorder>
-  <zorder>stackedWidget</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="../Recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -1,5 +1,6 @@
 #include "admin_landpage.h"
 #include "ui_admin_landpage.h"
+#include "QMessageBox"
 #include "mainwindow.h"
 #include "administrador/administrador_crud_platillos.h"
 #include "administrador/admin_gestion_usuarios.h"
@@ -52,5 +53,14 @@ void admin_landpage::on_btnReportes_clicked()
 
 void admin_landpage::on_btnCerrarSesion_clicked()
 {
-    this->padre->cambiar_pagina(0);
+    QMessageBox::StandardButton respuesta = QMessageBox::question(this, tr("Salir"),
+                                   tr("¿Seguro que desea Cerrar Sesión?"));
+
+    if(respuesta == QMessageBox::Yes)
+        this->padre->cambiar_pagina(0);
+}
+
+void admin_landpage::on_btnInicio_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }

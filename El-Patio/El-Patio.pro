@@ -135,4 +135,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     Recursos.qrc
 
-DISTFILES +=
+DISTFILES += \
+    resources/adminLandPage.jpg

@@ -31,6 +31,8 @@ private slots:
 
     void on_btnCerrarSesion_clicked();
 
+    void on_btnInicio_clicked();
+
 private:
     Ui::admin_landpage *ui;
     QString idAdmin;
