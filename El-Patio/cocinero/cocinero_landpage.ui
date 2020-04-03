@@ -172,49 +172,6 @@ border-radius: 20px;</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnReportes">
-       <property name="font">
-        <font>
-         <family>Roboto</family>
-         <pointsize>12</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::LeftToRight</enum>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">*{
-	border: none;
-	color: #A6A9A5;
-}
-
-:hover{
-	color: #585858;
-}
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normalon>:/iconos/resources/stats.svg</normalon>
-        </iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>35</width>
-         <height>35</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="btnCerrarSesion">
        <property name="font">
         <font>
@@ -260,7 +217,6 @@ border-radius: 20px;</string>
     </layout>
     <zorder>btnInicio</zorder>
     <zorder>btnUsuarios</zorder>
-    <zorder>btnReportes</zorder>
     <zorder>btnCerrarSesion</zorder>
     <zorder>btnPlatillos</zorder>
    </widget>

@@ -42,6 +42,7 @@ SOURCES += \
         almacenista/almacenista_menu.cpp \
         catalogomesas.cpp \
         cocinero/cocinero_landpage.cpp \
+        cocinero/cocinero_pedidos.cpp \
         dividircuenta.cpp \
         login.cpp \
         main.cpp \
@@ -79,6 +80,7 @@ HEADERS += \
         almacenista/almacenista_menu.h \
         catalogomesas.h \
         cocinero/cocinero_landpage.h \
+        cocinero/cocinero_pedidos.h \
         dividircuenta.h \
         login.h \
         mainwindow.h \
@@ -115,6 +117,7 @@ FORMS += \
         almacenista/almacenista_menu.ui \
         catalogomesas.ui \
         cocinero/cocinero_landpage.ui \
+        cocinero/cocinero_pedidos.ui \
         dividircuenta.ui \
         login.ui \
         mainwindow.ui \
