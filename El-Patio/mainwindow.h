@@ -32,7 +32,7 @@ public:
     void cambiarStacked_indice(int);
     void pasar_is_comanda(int);
     void setAdmin(QString);
-    void setCocina(QString);
+    void setCocina(QString, bool);
 
 private:
     Ui::MainWindow *ui;

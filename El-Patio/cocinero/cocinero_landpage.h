@@ -15,7 +15,7 @@ class cocinero_landpage : public QWidget
 
 public:
     explicit cocinero_landpage(QWidget *parent = nullptr);
-    void setCocineroId(QString);
+    void setCocineroId(QString, bool);
     ~cocinero_landpage();
 
 private slots:

@@ -15,6 +15,8 @@ cocinero_pedidos::cocinero_pedidos(QWidget *parent) :
 
     conexionBD();
     actualizarCatalogo();
+    if(this->isCocinero)
+        qDebug()<<"Es cocinero";
 }
 
 void cocinero_pedidos::conexionBD()
@@ -31,7 +33,12 @@ void cocinero_pedidos::conexionBD()
 void cocinero_pedidos::actualizarCatalogo()
 {
     QSqlQuery infoPedidos(mDatabase);
-    infoPedidos.prepare("SELECT pe.id_Pedido, pe.Comanda_id_comanda, pl.nombre, pe.comentario, pe.estado FROM `pedido` AS pe INNER JOIN platillo AS pl ON pe.Platillo_id_platillo = pl.id_platillo WHERE pe.estado = 'En proceso'");
+    if(this->isCocinero){
+        infoPedidos.prepare("SELECT pe.id_Pedido, pe.Comanda_id_comanda, pl.nombre, pe.comentario, pe.estado FROM `pedido` AS pe INNER JOIN platillo AS pl ON pe.Platillo_id_platillo = pl.id_platillo WHERE pe.estado = 'En proceso' AND pl.categoria NOT LIKE '%BEBIDA%'");
+    } else {
+        infoPedidos.prepare("SELECT pe.id_Pedido, pe.Comanda_id_comanda, pl.nombre, pe.comentario, pe.estado FROM `pedido` AS pe INNER JOIN platillo AS pl ON pe.Platillo_id_platillo = pl.id_platillo WHERE pe.estado = 'En proceso' AND pl.categoria LIKE '%BEBIDA%'");
+    }
+
     infoPedidos.exec();
     limiparCatalogo();
 

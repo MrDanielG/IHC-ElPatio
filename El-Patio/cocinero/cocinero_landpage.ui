@@ -199,6 +199,9 @@ border-radius: 20px;</string>
        <height>768</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/iconos/resources/admonLandPage.jpg);</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -232,7 +235,7 @@ border-radius: 20px;</string>
 font: 25 36pt &quot;Bahnschrift Light Condensed&quot;;</string>
      </property>
      <property name="text">
-      <string>Cocina</string>
+      <string>Cocina &amp; Barra</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

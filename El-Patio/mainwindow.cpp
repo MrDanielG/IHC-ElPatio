@@ -99,8 +99,8 @@ void MainWindow::setAdmin(QString _idAdmin)
     adminLandpage->setIdAdmin(_idAdmin);
 }
 
-void MainWindow::setCocina(QString _idCocinero)
+void MainWindow::setCocina(QString _idCocinero, bool _isCocinero)
 {
     ui->stackedWidget->setCurrentIndex(11);
-    cocinaLandpage->setCocineroId(_idCocinero);
+    cocinaLandpage->setCocineroId(_idCocinero, _isCocinero);
 }

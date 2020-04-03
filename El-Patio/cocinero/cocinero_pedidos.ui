@@ -348,7 +348,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="btnCambiarMesero">
+       <widget class="QPushButton" name="btnActualizar">
         <property name="minimumSize">
          <size>
           <width>160</width>
@@ -640,7 +640,6 @@
    </property>
   </widget>
   <zorder>label</zorder>
-  <zorder>layoutWidget</zorder>
   <zorder>line_3</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>lb_total</zorder>

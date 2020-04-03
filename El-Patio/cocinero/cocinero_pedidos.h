@@ -18,10 +18,13 @@ public:
     void actualizarCatalogo();
     void limiparCatalogo();
     void sideBarInfo(Pedido _pedido);
+    bool isCocinero;
     ~cocinero_pedidos();
 
 private slots:
     void on_btnPedidoListo_clicked();
+
+    void on_btnActualizar_clicked();
 
 private:
     Ui::cocinero_pedidos *ui;

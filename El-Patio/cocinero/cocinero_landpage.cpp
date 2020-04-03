@@ -16,9 +16,10 @@ cocinero_landpage::cocinero_landpage(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void cocinero_landpage::setCocineroId(QString _idCocina)
+void cocinero_landpage::setCocineroId(QString _idCocina, bool _isCocinero)
 {
     this->idCocinero = _idCocina;
+    this->pedidosCocina->isCocinero = _isCocinero;
 }
 
 cocinero_landpage::~cocinero_landpage()

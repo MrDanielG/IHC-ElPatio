@@ -124,12 +124,13 @@ void login::on_btnPrimario_clicked()
         case 3:
             qDebug()<<"Cocinero";
             ui->lineEdit_Entrada->clear();
-            this->padre->setCocina(claveUsuario);
+            this->padre->setCocina(claveUsuario, true);
             break;
 
         case 4:
             qDebug()<<"Barista";
             ui->lineEdit_Entrada->clear();
+            this->padre->setCocina(claveUsuario, false);
             break;
 
         case 5:
