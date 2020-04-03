@@ -7,6 +7,8 @@
 #include "administrador/admin_gestion_usuarios.h"
 #include "dividircuenta.h"
 #include "administrador/administrador_crud_platillos.h"
+#include "administrador/admin_reservaciones.h"
+
 #include "administrador/admin_reportes.h"
 #include "login.h"
 #include "administrador/admin_landpage.h"
@@ -43,6 +45,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     crudPlatillos = new administrador_crud_platillos(this);
     inicioSesion = new login(this);
     cuentas = new DividirCuenta(this);
+    reservaciones = new admin_reservaciones(this);
     adminLandpage = new admin_landpage(this);
 
     reportes = new admin_reportes(this);
@@ -59,8 +62,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     ui->stackedWidget->insertWidget(7, reportes);
     ui->stackedWidget->insertWidget(8, inicioSesion);
     ui->stackedWidget->insertWidget(9, adminLandpage);
+    ui->stackedWidget->insertWidget(10, reservaciones);
 
-    ui->stackedWidget->setCurrentIndex(0); //Por mietras xd
+    ui->stackedWidget->setCurrentIndex(7); //Por mietras xd
 }
 
 void MainWindow::cambiar_pagina(int index)
