@@ -18,7 +18,7 @@
     <rect>
      <x>-20</x>
      <y>0</y>
-     <width>81</width>
+     <width>80</width>
      <height>771</height>
     </rect>
    </property>
@@ -237,9 +237,9 @@ border-radius: 20px;</string>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>-10</x>
+       <x>0</x>
        <y>0</y>
-       <width>991</width>
+       <width>981</width>
        <height>768</height>
       </rect>
      </property>

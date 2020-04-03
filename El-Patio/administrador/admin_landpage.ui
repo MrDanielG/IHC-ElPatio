@@ -29,9 +29,9 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>-10</x>
+       <x>0</x>
        <y>-3</y>
-       <width>1071</width>
+       <width>1061</width>
        <height>821</height>
       </rect>
      </property>
@@ -84,14 +84,14 @@ font: 25 36pt &quot;Bahnschrift Light Condensed&quot;;</string>
    <property name="geometry">
     <rect>
      <x>-20</x>
-     <y>0</y>
+     <y>-20</y>
      <width>81</width>
-     <height>771</height>
+     <height>811</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: #46B04A;
-border-radius: 20px;</string>
+border-radius: 40px;</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>

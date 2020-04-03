@@ -64,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     ui->stackedWidget->insertWidget(9, adminLandpage);
     ui->stackedWidget->insertWidget(10, reservaciones);
 
-    ui->stackedWidget->setCurrentIndex(7); //Por mietras xd
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 void MainWindow::cambiar_pagina(int index)
