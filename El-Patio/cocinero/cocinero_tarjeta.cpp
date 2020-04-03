@@ -10,6 +10,15 @@ cocinero_tarjeta::cocinero_tarjeta(Pedido _pedido, cocinero_pedidos *parent) :
 
     this->padre = parent;
     this->pedido = _pedido;
+    llenarTarjeta();
+}
+
+void cocinero_tarjeta::llenarTarjeta()
+{
+    ui->numComanda->setText("Num. Pedido: #" + this->pedido.idPedido);
+    ui->nombrePlatillo->setText(this->pedido.nombrePlatillo);
+    ui->estadoPlatillo->setText("Estado: " + this->pedido.estado);
+    ui->comentarioPlatillo->setText(this->pedido.comentario);
 }
 
 cocinero_tarjeta::~cocinero_tarjeta()

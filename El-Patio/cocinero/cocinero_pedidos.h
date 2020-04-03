@@ -20,6 +20,9 @@ public:
     void sideBarInfo(Pedido _pedido);
     ~cocinero_pedidos();
 
+private slots:
+    void on_btnPedidoListo_clicked();
+
 private:
     Ui::cocinero_pedidos *ui;
     QSqlDatabase mDatabase;

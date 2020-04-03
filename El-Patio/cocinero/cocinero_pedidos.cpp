@@ -94,3 +94,28 @@ cocinero_pedidos::~cocinero_pedidos()
 {
     delete ui;
 }
+
+void cocinero_pedidos::on_btnPedidoListo_clicked()
+{
+    QMessageBox::StandardButton respuesta = QMessageBox::question(this, tr("Confirmar"),
+                                   tr("¿Seguro que desea Completar el Pedido?"));
+
+    if(respuesta == QMessageBox::Yes){
+        QSqlQuery updatePedido(mDatabase);
+        updatePedido.prepare("UPDATE `pedido` SET `estado` = 'TERMINADO' WHERE `pedido`.`id_Pedido` = " + this->pedidoAux.idPedido);
+        if(updatePedido.exec()){
+            QMessageBox::information(this, tr("Exito"),
+                                 "El pedido ha sido Cocinado");
+        } else {
+            QMessageBox::warning(this, tr("Error"),
+                                 "No se ha actualizado el Pedido");
+        }
+
+        actualizarCatalogo();
+    }
+}
+
+void cocinero_pedidos::on_btnActualizar_clicked()
+{
+    actualizarCatalogo();
+}

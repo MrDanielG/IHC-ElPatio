@@ -15,6 +15,7 @@ class cocinero_tarjeta : public QWidget
 
 public:
     explicit cocinero_tarjeta(Pedido _pedido, cocinero_pedidos *parent = nullptr);
+    void llenarTarjeta();
     ~cocinero_tarjeta();
 
 private slots:
