@@ -9,18 +9,23 @@
 #include "administrador/administrador_crud_platillos.h"
 #include "administrador/admin_reservaciones.h"
 
+#include "administrador/admin_reportes.h"
+#include "login.h"
+#include "administrador/admin_landpage.h"
 #include <QDebug>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
+                                          ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
     mDatabase = QSqlDatabase::database("Connection");
-    if(!mDatabase.isOpen()){
+    if (!mDatabase.isOpen())
+    {
         qDebug() << "ERROR";
-    }else{
+    }
+    else
+    {
         qDebug() << "Base de datos conectada en Main Window";
     }
 
@@ -38,9 +43,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     gestionUsuarios = new admin_gestion_usuarios(this);
     crudPlatillos = new administrador_crud_platillos(this);
-
+    inicioSesion = new login(this);
     cuentas = new DividirCuenta(this);
     reservaciones = new admin_reservaciones(this);
+    adminLandpage = new admin_landpage(this);
+
+    reportes = new admin_reportes(this);
+    reportes->show();
 
     ui->Mesas->setMainWindow(this);
 
@@ -50,7 +59,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->insertWidget(4, gestionUsuarios);
     ui->stackedWidget->insertWidget(5, cuentas);
     ui->stackedWidget->insertWidget(6, crudPlatillos);
-    ui->stackedWidget->insertWidget(7, reservaciones);
+    ui->stackedWidget->insertWidget(7, reportes);
+    ui->stackedWidget->insertWidget(8, inicioSesion);
+    ui->stackedWidget->insertWidget(9, adminLandpage);
+    ui->stackedWidget->insertWidget(10, reservaciones);
 
     ui->stackedWidget->setCurrentIndex(7); //Por mietras xd
 }
@@ -78,4 +90,10 @@ void MainWindow::cambiarStacked_indice(int P)
 void MainWindow::pasar_is_comanda(int _id_comanda)
 {
     this->transferirPlatillo->set_idComanda(_id_comanda);
+}
+
+void MainWindow::setAdmin(QString _idAdmin)
+{
+    ui->stackedWidget->setCurrentIndex(9);
+    adminLandpage->setIdAdmin(_idAdmin);
 }

@@ -11,6 +11,9 @@ class admin_gestion_usuarios;
 class DividirCuenta;
 class administrador_crud_platillos;
 class admin_reservaciones;
+class admin_reportes;
+class login;
+class admin_landpage;
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +30,7 @@ public:
     ~MainWindow();
     void cambiarStacked_indice(int);
     void pasar_is_comanda(int);
+    void setAdmin(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -41,6 +45,9 @@ private:
     DividirCuenta *cuentas;
     administrador_crud_platillos *crudPlatillos;
     admin_reservaciones *reservaciones;
+    admin_reportes *    reportes;
+    login *inicioSesion;
+    admin_landpage *adminLandpage;
 };
 
 #endif // MAINWINDOW_H

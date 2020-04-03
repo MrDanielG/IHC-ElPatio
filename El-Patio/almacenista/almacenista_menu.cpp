@@ -8,6 +8,7 @@
 #include <QSqlRelationalTableModel>
 #include <QMessageBox>
 #include <QDate>
+#include "mainwindow.h"
 
 almacenista_menu::almacenista_menu(QWidget *parent) :
     QWidget(parent),
@@ -406,13 +407,13 @@ void almacenista_menu::on_btn_guardar_clicked()
         if(comentario == "Otro")
             comentario = ui->plainText_comentario->toPlainText();
         QString id_insumo = ui->lb_id_insumo->text();
-        QString clave = "101";
+        QString clave = "100";
 
         QString query_transaccion =
                 "INSERT INTO `el_patio`.`transaccion` "
                 " (`fecha_hora`, `cantidad`, `tipo`, `comentario`, `clave`, `id_insumo`)"
                 " VALUES ('" +fecha+ "', " +cantidad+ ", '" +tipo+ "', '" +comentario+ "', " +clave+ ", " +id_insumo+ ");";
-
+        qDebug() << query_transaccion;
         QSqlQuery query_tran(mDatabase);
         query_tran.prepare(query_transaccion);
         query_tran.exec();
@@ -451,4 +452,9 @@ void almacenista_menu::eliminaInsumo()
     if(query.exec())
         QMessageBox::information(this, tr("Éxito"), tr("El insumo fue eliminado"));//Eliminado
     else QMessageBox::warning(this, tr("Error"), tr("El insumo no pudo ser eliminado."));
+}
+
+void almacenista_menu::on_btnCerrarSesion_clicked()
+{
+    this->mainwindow->cambiar_pagina(0);
 }

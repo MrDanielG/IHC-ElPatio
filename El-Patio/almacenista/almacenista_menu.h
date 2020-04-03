@@ -12,6 +12,7 @@ class almacenista_menu;
 
 class QSqlQueryModel;
 class QSortFilterProxyModel;
+
 class almacenista_menu : public QWidget
 {
     Q_OBJECT
@@ -46,6 +47,8 @@ private slots:
     void on_cbox_comentario_activated(const QString &arg1);
     void eliminaPerecedero();
     void eliminaInsumo();
+
+    void on_btnCerrarSesion_clicked();
 
 private:
     Ui::almacenista_menu *ui;

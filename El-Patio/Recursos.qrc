@@ -10,6 +10,13 @@
         <file>resources/imgPersona2.png</file>
         <file>resources/imgTarjetaUsuario.png</file>
         <file>resources/masPlatilloBig.png</file>
+        <file>resources/camarero.svg</file>
         <file>resources/loginImg.jpg</file>
+        <file>resources/home.svg</file>
+        <file>resources/Logout.svg</file>
+        <file>resources/plate.svg</file>
+        <file>resources/stats.svg</file>
+        <file>resources/user.svg</file>
+        <file>resources/adminLandPage.jpg</file>
     </qresource>
 </RCC>

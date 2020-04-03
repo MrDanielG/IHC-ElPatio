@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,9 +29,12 @@ SOURCES += \
         administrador/admin_crear_usuario.cpp \
         administrador/admin_edita_platillo.cpp \
         administrador/admin_gestion_usuarios.cpp \
+        administrador/admin_landpage.cpp \
         administrador/admin_modificar_usuario.cpp \
+        administrador/admin_reportes.cpp \
         administrador/admin_reservaciones.cpp \
         administrador/admin_tarjeta_crud.cpp \
+        administrador/admin_tarjeta_emeplado_reporte.cpp \
         administrador/admin_tarjeta_usuario.cpp \
         administrador/administrador_crud_platillos.cpp \
         administrador/agregar_propina_cuenta.cpp \
@@ -66,9 +69,12 @@ HEADERS += \
         administrador/admin_crear_usuario.h \
         administrador/admin_edita_platillo.h \
         administrador/admin_gestion_usuarios.h \
+        administrador/admin_landpage.h \
         administrador/admin_modificar_usuario.h \
+        administrador/admin_reportes.h \
         administrador/admin_reservaciones.h \
         administrador/admin_tarjeta_crud.h \
+        administrador/admin_tarjeta_emeplado_reporte.h \
         administrador/admin_tarjeta_usuario.h \
         administrador/administrador_crud_platillos.h \
         administrador/agregar_propina_cuenta.h \
@@ -102,9 +108,12 @@ FORMS += \
         administrador/admin_crear_usuario.ui \
         administrador/admin_edita_platillo.ui \
         administrador/admin_gestion_usuarios.ui \
+        administrador/admin_landpage.ui \
         administrador/admin_modificar_usuario.ui \
+        administrador/admin_reportes.ui \
         administrador/admin_reservaciones.ui \
         administrador/admin_tarjeta_crud.ui \
+        administrador/admin_tarjeta_emeplado_reporte.ui \
         administrador/admin_tarjeta_usuario.ui \
         administrador/administrador_crud_platillos.ui \
         administrador/agregar_propina_cuenta.ui \
@@ -136,4 +145,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     Recursos.qrc
 
-DISTFILES +=
+DISTFILES += \
+    resources/adminLandPage.jpg
