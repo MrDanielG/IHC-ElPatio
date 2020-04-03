@@ -328,49 +328,6 @@
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="QPushButton" name="btnFiltrar">
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>35</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>60</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">*{
-	color: #539E56;
-	border-radius: 10px;
-	background-color: #E3EFB0;
-	border: none;
-	padding: 5px;
-}
-
-:hover{
-	background-color: white;
-	border: 1px solid #46B04A;
-	color: #46B04A;
-}</string>
-        </property>
-        <property name="text">
-         <string>Filtrar</string>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
    </layout>
