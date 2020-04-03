@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
+    <width>637</width>
     <height>500</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>40</x>
      <y>40</y>
-     <width>496</width>
+     <width>553</width>
      <height>420</height>
     </rect>
    </property>
@@ -77,6 +77,12 @@
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QRadioButton" name="rbAdministrador">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">color: rgb(133, 133, 133);
 </string>
@@ -88,6 +94,12 @@
       </item>
       <item>
        <widget class="QRadioButton" name="rbMesero">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">color: rgb(133, 133, 133);
 </string>
@@ -337,8 +349,31 @@ border-bottom: 3px solid #539E56;</string>
       </item>
       <item>
        <widget class="QPushButton" name="btnCambiarEstado">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">*{
+	color: white;
+	border-radius: 10px;
+	background-color: #46B04A;
+	border: none;
+	padding: 5px;
+}
+
+:hover{
+	background-color: white;
+	border: 1px solid #46B04A;
+	color: #46B04A;
+}
+
+:disabled {
+	background-color: rgb(133, 133, 133);
+	color: white;
+}</string>
         </property>
         <property name="text">
          <string>cambiar activo</string>
