@@ -853,7 +853,7 @@ border-radius: 20px;</string>
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>686</width>
+          <width>660</width>
           <height>915</height>
          </rect>
         </property>
@@ -1606,7 +1606,7 @@ border-radius: 20px;</string>
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>686</width>
+          <width>682</width>
           <height>876</height>
          </rect>
         </property>
@@ -2980,130 +2980,6 @@ border-radius: 20px;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>320</y>
-     <width>260</width>
-     <height>171</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: #585858
-</string>
-   </property>
-   <property name="title">
-    <string>Archivo de reporte</string>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_5">
-    <property name="spacing">
-     <number>10</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="tipoUsuario_9">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(133, 133, 133);
-</string>
-      </property>
-      <property name="text">
-       <string>Formato</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QCheckBox" name="cbox_pdf">
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: #585858
-
-</string>
-        </property>
-        <property name="text">
-         <string>PDF</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="cbox_excel">
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: #585858
-</string>
-        </property>
-        <property name="text">
-         <string>EXCEL</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnGenerarRerporte">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::RightToLeft</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">*{
-	color: white;
-	border-radius: 10px;
-	background-color: #46B04A;
-	border: none;
-	padding: 5px;
-}
-
-:hover{
-	background-color: white;
-	border: 1px solid #46B04A;
-	color: #46B04A;
-}</string>
-      </property>
-      <property name="text">
-       <string>Generar Reporte</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QLabel" name="tipoUsuario_7">
    <property name="geometry">
     <rect>
@@ -3161,7 +3037,6 @@ border-radius: 20px;</string>
   <zorder>de_incio</zorder>
   <zorder>de_fin</zorder>
   <zorder>tipoUsuario_7</zorder>
-  <zorder>groupBox</zorder>
   <zorder>tipoUsuario_2</zorder>
  </widget>
  <resources/>
