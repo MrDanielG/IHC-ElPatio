@@ -394,22 +394,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="sideBar">
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>0</y>
-     <width>300</width>
-     <height>768</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 247, 244);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget_6">
    <property name="geometry">
     <rect>
@@ -482,128 +466,180 @@
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>700</x>
-     <y>230</y>
-     <width>241</width>
-     <height>451</height>
+     <x>670</x>
+     <y>0</y>
+     <width>300</width>
+     <height>768</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QLabel" name="numComanda">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>13</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: #585858
-</string>
-      </property>
-      <property name="text">
-       <string>Numero Comanda</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="elPatio_10">
-      <property name="minimumSize">
-       <size>
-        <width>180</width>
-        <height>200</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(133, 133, 133);
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="../Recursos.qrc">:/iconos/resources/menuPrueba.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="nombrePlatillo">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(133, 133, 133);
-</string>
-      </property>
-      <property name="text">
-       <string>Nombre Platillo</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="estadoPlatillo">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(133, 133, 133);
-</string>
-      </property>
-      <property name="text">
-       <string>Estado Platillo</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="comentarioPlatillo">
-      <property name="font">
-       <font>
-        <family>Roboto</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(133, 133, 133);
-</string>
-      </property>
-      <property name="text">
-       <string>Comentario</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(244, 247, 244);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
-  <zorder>sideBar</zorder>
+  <widget class="QLabel" name="nombrePlatillo">
+   <property name="geometry">
+    <rect>
+     <x>701</x>
+     <y>500</y>
+     <width>221</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(133, 133, 133);
+</string>
+   </property>
+   <property name="text">
+    <string>Nombre Platillo</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="comentarioPlatillo">
+   <property name="geometry">
+    <rect>
+     <x>701</x>
+     <y>625</y>
+     <width>221</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(133, 133, 133);
+</string>
+   </property>
+   <property name="text">
+    <string>Comentario</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="estadoPlatillo">
+   <property name="geometry">
+    <rect>
+     <x>701</x>
+     <y>570</y>
+     <width>221</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(133, 133, 133);
+</string>
+   </property>
+   <property name="text">
+    <string>Estado Platillo</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="numComanda">
+   <property name="geometry">
+    <rect>
+     <x>701</x>
+     <y>231</y>
+     <width>241</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>27</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #585858
+</string>
+   </property>
+   <property name="text">
+    <string>Numero Comanda</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="imgPlatillo">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>280</y>
+     <width>200</width>
+     <height>200</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(133, 133, 133);
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Recursos.qrc">:/iconos/resources/menuPrueba.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>label</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>line_3</zorder>
   <zorder>layoutWidget</zorder>
@@ -615,6 +651,11 @@
   <zorder>layoutWidget_5</zorder>
   <zorder>layoutWidget_6</zorder>
   <zorder>line</zorder>
+  <zorder>nombrePlatillo</zorder>
+  <zorder>comentarioPlatillo</zorder>
+  <zorder>numComanda</zorder>
+  <zorder>estadoPlatillo</zorder>
+  <zorder>imgPlatillo</zorder>
  </widget>
  <resources>
   <include location="../Recursos.qrc"/>

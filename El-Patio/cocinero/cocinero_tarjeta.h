@@ -17,6 +17,9 @@ public:
     explicit cocinero_tarjeta(Pedido _pedido, cocinero_pedidos *parent = nullptr);
     ~cocinero_tarjeta();
 
+private slots:
+    void on_btnInfoPedido_clicked();
+
 private:
     Ui::cocinero_tarjeta *ui;
     cocinero_pedidos *padre;

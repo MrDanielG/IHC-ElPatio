@@ -141,7 +141,7 @@ background-color: rgb(244, 247, 244);</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnPedidoListo">
+      <widget class="QPushButton" name="btnInfoPedido">
        <property name="minimumSize">
         <size>
          <width>150</width>

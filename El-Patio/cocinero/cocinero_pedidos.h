@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QSqlDatabase>
-
+#include <models/pedido.h>
 namespace Ui {
 class cocinero_pedidos;
 }
@@ -17,11 +17,13 @@ public:
     void conexionBD();
     void actualizarCatalogo();
     void limiparCatalogo();
+    void sideBarInfo(Pedido _pedido);
     ~cocinero_pedidos();
 
 private:
     Ui::cocinero_pedidos *ui;
     QSqlDatabase mDatabase;
+    Pedido pedidoAux;
 };
 
 #endif // COCINERO_PEDIDOS_H

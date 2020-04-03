@@ -3,6 +3,7 @@
 #include "QMessageBox"
 #include "QDebug"
 #include "QSqlQuery"
+#include "QPixmap"
 #include "models/pedido.h"
 #include "cocinero/cocinero_tarjeta.h"
 
@@ -30,7 +31,7 @@ void cocinero_pedidos::conexionBD()
 void cocinero_pedidos::actualizarCatalogo()
 {
     QSqlQuery infoPedidos(mDatabase);
-    infoPedidos.prepare("SELECT * FROM `pedido` INNER JOIN platillo ON pedido.Platillo_id_platillo = platillo.id_platillo");
+    infoPedidos.prepare("SELECT pe.id_Pedido, pe.Comanda_id_comanda, pl.nombre, pe.comentario, pe.estado FROM `pedido` AS pe INNER JOIN platillo AS pl ON pe.Platillo_id_platillo = pl.id_platillo WHERE pe.estado = 'En proceso'");
     infoPedidos.exec();
     limiparCatalogo();
 
@@ -66,6 +67,27 @@ void cocinero_pedidos::limiparCatalogo()
         delete item->widget();
         delete item;
     }
+}
+
+void cocinero_pedidos::sideBarInfo(Pedido _pedido)
+{
+    qDebug() <<"Sidebar0";
+    this->pedidoAux = _pedido;
+
+    ui->numComanda->setText("Num. Comanda: " + _pedido.idComanda);
+    ui->nombrePlatillo->setText(_pedido.nombrePlatillo);
+    ui->estadoPlatillo->setText(_pedido.estado);
+    ui->comentarioPlatillo->setText(_pedido.comentario);
+
+    QSqlQuery imgPlatillo(mDatabase);
+    imgPlatillo.prepare("SELECT foto FROM `platillo` WHERE nombre = '"+_pedido.nombrePlatillo+"'");
+    imgPlatillo.exec();
+    imgPlatillo.next();
+
+    QString platilloImg = imgPlatillo.value(0).toString();
+
+    QPixmap img(platilloImg);
+    ui->imgPlatillo->setPixmap(img);
 }
 
 cocinero_pedidos::~cocinero_pedidos()
