@@ -8,7 +8,7 @@
 #include "dividircuenta.h"
 #include "administrador/administrador_crud_platillos.h"
 #include "administrador/admin_reservaciones.h"
-
+#include "cocinero/cocinero_landpage.h"
 #include "administrador/admin_reportes.h"
 #include "login.h"
 #include "administrador/admin_landpage.h"
@@ -47,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     cuentas = new DividirCuenta(this);
     reservaciones = new admin_reservaciones(this);
     adminLandpage = new admin_landpage(this);
-
+    cocinaLandpage = new cocinero_landpage(this);
     reportes = new admin_reportes(this);
     reportes->show();
 
@@ -63,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     ui->stackedWidget->insertWidget(8, inicioSesion);
     ui->stackedWidget->insertWidget(9, adminLandpage);
     ui->stackedWidget->insertWidget(10, reservaciones);
+    ui->stackedWidget->insertWidget(11, cocinaLandpage);
 
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -96,4 +97,10 @@ void MainWindow::setAdmin(QString _idAdmin)
 {
     ui->stackedWidget->setCurrentIndex(9);
     adminLandpage->setIdAdmin(_idAdmin);
+}
+
+void MainWindow::setCocina(QString _idCocinero)
+{
+    ui->stackedWidget->setCurrentIndex(11);
+    cocinaLandpage->setCocineroId(_idCocinero);
 }

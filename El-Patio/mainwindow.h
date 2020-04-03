@@ -14,6 +14,7 @@ class admin_reservaciones;
 class admin_reportes;
 class login;
 class admin_landpage;
+class cocinero_landpage;
 
 namespace Ui {
 class MainWindow;
@@ -31,6 +32,7 @@ public:
     void cambiarStacked_indice(int);
     void pasar_is_comanda(int);
     void setAdmin(QString);
+    void setCocina(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -48,6 +50,7 @@ private:
     admin_reportes *    reportes;
     login *inicioSesion;
     admin_landpage *adminLandpage;
+    cocinero_landpage *cocinaLandpage;
 };
 
 #endif // MAINWINDOW_H

@@ -15,12 +15,14 @@ class cocinero_landpage : public QWidget
 
 public:
     explicit cocinero_landpage(QWidget *parent = nullptr);
+    void setCocineroId(QString);
     ~cocinero_landpage();
 
 private:
     Ui::cocinero_landpage *ui;
     MainWindow *padre;
     cocinero_pedidos *pedidosCocina;
+    QString idCocinero;
 };
 
 #endif // COCINERO_LANDPAGE_H
