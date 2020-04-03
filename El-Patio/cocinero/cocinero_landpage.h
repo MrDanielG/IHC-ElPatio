@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+class MainWindow;
+class cocinero_pedidos;
 namespace Ui {
 class cocinero_landpage;
 }
@@ -17,6 +19,8 @@ public:
 
 private:
     Ui::cocinero_landpage *ui;
+    MainWindow *padre;
+    cocinero_pedidos *pedidosCocina;
 };
 
 #endif // COCINERO_LANDPAGE_H
