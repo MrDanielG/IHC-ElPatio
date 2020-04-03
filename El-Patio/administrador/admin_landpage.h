@@ -7,7 +7,7 @@ class MainWindow;
 class admin_gestion_usuarios;
 class administrador_crud_platillos;
 class admin_reportes;
-//Falta reservaciones
+class admin_reservaciones;
 
 namespace Ui {
 class admin_landpage;
@@ -33,6 +33,8 @@ private slots:
 
     void on_btnInicio_clicked();
 
+    void on_btnReservas_clicked();
+
 private:
     Ui::admin_landpage *ui;
     QString idAdmin;
@@ -42,6 +44,7 @@ private:
     admin_gestion_usuarios *gestionUsuarios;
     administrador_crud_platillos *crudPlatillos;
     admin_reportes *reportes;
+    admin_reservaciones *reservaciones;
 
 };
 

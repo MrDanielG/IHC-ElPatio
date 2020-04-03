@@ -103,9 +103,9 @@ border-radius: 40px;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>80</y>
+      <y>60</y>
       <width>41</width>
-      <height>611</height>
+      <height>661</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -239,6 +239,49 @@ border-radius: 40px;</string>
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="btnReservas">
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">*{
+	border: none;
+	color: #A6A9A5;
+}
+
+:hover{
+	color: #585858;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normalon>:/iconos/resources/calendario.svg</normalon>
+        </iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="btnReportes">
        <property name="font">
         <font>
@@ -330,6 +373,7 @@ border-radius: 40px;</string>
     <zorder>btnReportes</zorder>
     <zorder>btnCerrarSesion</zorder>
     <zorder>btnPlatillos</zorder>
+    <zorder>btnReservas</zorder>
    </widget>
   </widget>
  </widget>

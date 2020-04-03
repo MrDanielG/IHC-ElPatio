@@ -19,5 +19,6 @@
         <file>resources/user.svg</file>
         <file>resources/cocinaLandPage.jpg</file>
         <file>resources/admonLandPage.jpg</file>
+        <file>resources/calendario.svg</file>
     </qresource>
 </RCC>

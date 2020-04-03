@@ -18,10 +18,12 @@ admin_landpage::admin_landpage(QWidget *parent) :
     gestionUsuarios = new admin_gestion_usuarios(this);
     crudPlatillos = new administrador_crud_platillos(this);
     reportes = new admin_reportes(this);
+    reservaciones = new admin_reservaciones(this);
 
     ui->stackedWidget->insertWidget(1, crudPlatillos);
     ui->stackedWidget->insertWidget(2, gestionUsuarios);
     ui->stackedWidget->insertWidget(3, reportes);
+    ui->stackedWidget->insertWidget(4, reservaciones);
 
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -63,4 +65,9 @@ void admin_landpage::on_btnCerrarSesion_clicked()
 void admin_landpage::on_btnInicio_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void admin_landpage::on_btnReservas_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
 }
