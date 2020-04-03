@@ -19,7 +19,7 @@
      <x>-20</x>
      <y>0</y>
      <width>81</width>
-     <height>768</height>
+     <height>771</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -281,9 +281,9 @@ border-radius: 20px;</string>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>-10</x>
        <y>0</y>
-       <width>981</width>
+       <width>991</width>
        <height>768</height>
       </rect>
      </property>
