@@ -38,7 +38,7 @@ void administrador_crud_platillos::conexionBD()
 void administrador_crud_platillos::actualizarCatalogo()
 {
     QSqlQuery infoPlatillo(mDatabase);
-    infoPlatillo.prepare("SELECT * FROM `platillo` WHERE estado = 'disponible'");
+    infoPlatillo.prepare("SELECT * FROM `platillo` WHERE estado = 'disponibles'");
     infoPlatillo.exec();
     limiparCatalogo();
 
