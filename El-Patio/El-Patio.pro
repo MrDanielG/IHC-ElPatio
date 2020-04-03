@@ -41,6 +41,7 @@ SOURCES += \
         almacenista/almacenista_crear_insumo.cpp \
         almacenista/almacenista_menu.cpp \
         catalogomesas.cpp \
+        cocinero/cocinero_landpage.cpp \
         dividircuenta.cpp \
         login.cpp \
         main.cpp \
@@ -77,6 +78,7 @@ HEADERS += \
         almacenista/almacenista_crear_insumo.h \
         almacenista/almacenista_menu.h \
         catalogomesas.h \
+        cocinero/cocinero_landpage.h \
         dividircuenta.h \
         login.h \
         mainwindow.h \
@@ -112,6 +114,7 @@ FORMS += \
         almacenista/almacenista_crear_insumo.ui \
         almacenista/almacenista_menu.ui \
         catalogomesas.ui \
+        cocinero/cocinero_landpage.ui \
         dividircuenta.ui \
         login.ui \
         mainwindow.ui \

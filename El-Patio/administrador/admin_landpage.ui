@@ -29,9 +29,9 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>-27</x>
        <y>0</y>
-       <width>1024</width>
+       <width>1051</width>
        <height>768</height>
       </rect>
      </property>
@@ -83,14 +83,15 @@ font: 25 36pt &quot;Bahnschrift Light Condensed&quot;;</string>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-20</x>
      <y>0</y>
-     <width>60</width>
+     <width>81</width>
      <height>768</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #46B04A;</string>
+    <string notr="true">background-color: #46B04A;
+border-radius: 20px;</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -98,10 +99,10 @@ font: 25 36pt &quot;Bahnschrift Light Condensed&quot;;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>30</x>
       <y>80</y>
       <width>41</width>
       <height>611</height>
@@ -324,6 +325,10 @@ font: 25 36pt &quot;Bahnschrift Light Condensed&quot;;</string>
       </widget>
      </item>
     </layout>
+    <zorder>btnInicio</zorder>
+    <zorder>btnUsuarios</zorder>
+    <zorder>btnReportes</zorder>
+    <zorder>btnCerrarSesion</zorder>
     <zorder>btnPlatillos</zorder>
    </widget>
   </widget>
