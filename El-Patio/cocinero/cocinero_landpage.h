@@ -18,6 +18,13 @@ public:
     void setCocineroId(QString);
     ~cocinero_landpage();
 
+private slots:
+    void on_btnInicio_clicked();
+
+    void on_btnPlatillos_clicked();
+
+    void on_btnCerrarSesion_clicked();
+
 private:
     Ui::cocinero_landpage *ui;
     MainWindow *padre;

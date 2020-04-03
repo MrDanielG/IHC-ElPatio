@@ -47,6 +47,7 @@ SOURCES += \
         catalogomesas.cpp \
         cocinero/cocinero_landpage.cpp \
         cocinero/cocinero_pedidos.cpp \
+        cocinero/cocinero_tarjeta.cpp \
         dividircuenta.cpp \
         login.cpp \
         main.cpp \
@@ -64,6 +65,7 @@ SOURCES += \
         mesero/mesero_transferir_platillo.cpp \
         models/extra.cpp \
         models/ingrediente.cpp \
+        models/pedido.cpp \
         models/platillo.cpp
 
 HEADERS += \
@@ -89,6 +91,7 @@ HEADERS += \
         catalogomesas.h \
         cocinero/cocinero_landpage.h \
         cocinero/cocinero_pedidos.h \
+        cocinero/cocinero_tarjeta.h \
         dividircuenta.h \
         login.h \
         mainwindow.h \
@@ -105,6 +108,7 @@ HEADERS += \
         mesero/mesero_transferir_platillo.h \
         models/extra.h \
         models/ingrediente.h \
+        models/pedido.h \
         models/platillo.h
 
 FORMS += \
@@ -128,6 +132,7 @@ FORMS += \
         catalogomesas.ui \
         cocinero/cocinero_landpage.ui \
         cocinero/cocinero_pedidos.ui \
+        cocinero/cocinero_tarjeta.ui \
         dividircuenta.ui \
         login.ui \
         mainwindow.ui \
